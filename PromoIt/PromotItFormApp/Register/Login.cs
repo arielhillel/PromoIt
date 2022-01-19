@@ -18,7 +18,6 @@ namespace PromotItFormApp.PopupForms
 {
 
 
-
     public partial class Login : Form
     {
         private void Login_Load(object sender, EventArgs e) 
@@ -30,7 +29,6 @@ namespace PromotItFormApp.PopupForms
                     if (!string.IsNullOrEmpty(user.UserPassword))
                         textBoxPassword.Text = user.UserPassword;
                 }
-
         }
 
 
@@ -89,7 +87,6 @@ namespace PromotItFormApp.PopupForms
             panelLoginForm.BackColor = ThemeColor.PrimaryColor;
             panelLoginForm.ForeColor = Color.White;
         }
-
 
 
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
