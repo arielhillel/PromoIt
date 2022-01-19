@@ -51,7 +51,7 @@
             this.buttonCompanyRegister.Location = new System.Drawing.Point(129, 340);
             this.buttonCompanyRegister.Name = "buttonCompanyRegister";
             this.buttonCompanyRegister.Size = new System.Drawing.Size(172, 47);
-            this.buttonCompanyRegister.TabIndex = 10;
+            this.buttonCompanyRegister.TabIndex = 4;
             this.buttonCompanyRegister.Text = "Register";
             this.buttonCompanyRegister.UseVisualStyleBackColor = false;
             this.buttonCompanyRegister.Click += new System.EventHandler(this.buttonCompanyRegister_Click);
@@ -61,21 +61,21 @@
             this.textBoxBCRPassword.Location = new System.Drawing.Point(12, 248);
             this.textBoxBCRPassword.Name = "textBoxBCRPassword";
             this.textBoxBCRPassword.Size = new System.Drawing.Size(407, 27);
-            this.textBoxBCRPassword.TabIndex = 7;
+            this.textBoxBCRPassword.TabIndex = 2;
             // 
             // textBoxBCRUsername
             // 
             this.textBoxBCRUsername.Location = new System.Drawing.Point(14, 185);
             this.textBoxBCRUsername.Name = "textBoxBCRUsername";
             this.textBoxBCRUsername.Size = new System.Drawing.Size(407, 27);
-            this.textBoxBCRUsername.TabIndex = 8;
+            this.textBoxBCRUsername.TabIndex = 1;
             // 
             // textBoxBCRName
             // 
             this.textBoxBCRName.Location = new System.Drawing.Point(12, 128);
             this.textBoxBCRName.Name = "textBoxBCRName";
             this.textBoxBCRName.Size = new System.Drawing.Size(407, 27);
-            this.textBoxBCRName.TabIndex = 9;
+            this.textBoxBCRName.TabIndex = 0;
             // 
             // labelCompanyPassword
             // 
@@ -136,7 +136,7 @@
             this.buttonCloseBCRForm.Location = new System.Drawing.Point(421, 30);
             this.buttonCloseBCRForm.Name = "buttonCloseBCRForm";
             this.buttonCloseBCRForm.Size = new System.Drawing.Size(54, 46);
-            this.buttonCloseBCRForm.TabIndex = 0;
+            this.buttonCloseBCRForm.TabIndex = 5;
             this.buttonCloseBCRForm.UseVisualStyleBackColor = true;
             this.buttonCloseBCRForm.Click += new System.EventHandler(this.buttonCloseBCRForm_Click);
             // 

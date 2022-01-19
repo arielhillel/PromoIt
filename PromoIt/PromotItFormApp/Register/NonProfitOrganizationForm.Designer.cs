@@ -55,7 +55,7 @@
             this.buttonNPORegister.Location = new System.Drawing.Point(127, 464);
             this.buttonNPORegister.Name = "buttonNPORegister";
             this.buttonNPORegister.Size = new System.Drawing.Size(172, 47);
-            this.buttonNPORegister.TabIndex = 18;
+            this.buttonNPORegister.TabIndex = 5;
             this.buttonNPORegister.Text = "Register";
             this.buttonNPORegister.UseVisualStyleBackColor = false;
             this.buttonNPORegister.Click += new System.EventHandler(this.buttonNPORegister_Click);
@@ -65,21 +65,21 @@
             this.textBoxNPOPassword.Location = new System.Drawing.Point(12, 236);
             this.textBoxNPOPassword.Name = "textBoxNPOPassword";
             this.textBoxNPOPassword.Size = new System.Drawing.Size(407, 27);
-            this.textBoxNPOPassword.TabIndex = 15;
+            this.textBoxNPOPassword.TabIndex = 2;
             // 
             // textBoxNPOUsername
             // 
             this.textBoxNPOUsername.Location = new System.Drawing.Point(12, 168);
             this.textBoxNPOUsername.Name = "textBoxNPOUsername";
             this.textBoxNPOUsername.Size = new System.Drawing.Size(407, 27);
-            this.textBoxNPOUsername.TabIndex = 16;
+            this.textBoxNPOUsername.TabIndex = 1;
             // 
             // textBoxNPOName
             // 
             this.textBoxNPOName.Location = new System.Drawing.Point(12, 106);
             this.textBoxNPOName.Name = "textBoxNPOName";
             this.textBoxNPOName.Size = new System.Drawing.Size(407, 27);
-            this.textBoxNPOName.TabIndex = 17;
+            this.textBoxNPOName.TabIndex = 0;
             // 
             // labelNPOPassword
             // 
@@ -134,7 +134,7 @@
             this.textBoxNPOEmail.Location = new System.Drawing.Point(12, 301);
             this.textBoxNPOEmail.Name = "textBoxNPOEmail";
             this.textBoxNPOEmail.Size = new System.Drawing.Size(407, 27);
-            this.textBoxNPOEmail.TabIndex = 15;
+            this.textBoxNPOEmail.TabIndex = 3;
             // 
             // labelNPOWebsite
             // 
@@ -150,7 +150,7 @@
             this.textBoxNPOWebsite.Location = new System.Drawing.Point(12, 371);
             this.textBoxNPOWebsite.Name = "textBoxNPOWebsite";
             this.textBoxNPOWebsite.Size = new System.Drawing.Size(407, 27);
-            this.textBoxNPOWebsite.TabIndex = 15;
+            this.textBoxNPOWebsite.TabIndex = 4;
             // 
             // panelNPORegistr
             // 
@@ -172,7 +172,7 @@
             this.buttonCloseNPOForm.Location = new System.Drawing.Point(425, 22);
             this.buttonCloseNPOForm.Name = "buttonCloseNPOForm";
             this.buttonCloseNPOForm.Size = new System.Drawing.Size(54, 46);
-            this.buttonCloseNPOForm.TabIndex = 0;
+            this.buttonCloseNPOForm.TabIndex = 6;
             this.buttonCloseNPOForm.UseVisualStyleBackColor = true;
             this.buttonCloseNPOForm.Click += new System.EventHandler(this.buttonCloseNPOForm_Click);
             // 

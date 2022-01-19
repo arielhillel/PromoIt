@@ -57,7 +57,7 @@
             this.buttonSARegister.Location = new System.Drawing.Point(131, 473);
             this.buttonSARegister.Name = "buttonSARegister";
             this.buttonSARegister.Size = new System.Drawing.Size(172, 47);
-            this.buttonSARegister.TabIndex = 30;
+            this.buttonSARegister.TabIndex = 6;
             this.buttonSARegister.Text = "Register";
             this.buttonSARegister.UseVisualStyleBackColor = false;
             this.buttonSARegister.Click += new System.EventHandler(this.buttonSARegister_Click);
@@ -67,21 +67,21 @@
             this.textBoxSAAddress.Location = new System.Drawing.Point(12, 376);
             this.textBoxSAAddress.Name = "textBoxSAAddress";
             this.textBoxSAAddress.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAAddress.TabIndex = 25;
+            this.textBoxSAAddress.TabIndex = 4;
             // 
             // textBoxSAEmail
             // 
             this.textBoxSAEmail.Location = new System.Drawing.Point(12, 312);
             this.textBoxSAEmail.Name = "textBoxSAEmail";
             this.textBoxSAEmail.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAEmail.TabIndex = 26;
+            this.textBoxSAEmail.TabIndex = 3;
             // 
             // textBoxSAPassword
             // 
             this.textBoxSAPassword.Location = new System.Drawing.Point(12, 250);
             this.textBoxSAPassword.Name = "textBoxSAPassword";
             this.textBoxSAPassword.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAPassword.TabIndex = 27;
+            this.textBoxSAPassword.TabIndex = 2;
             // 
             // labelSAAddress
             // 
@@ -97,7 +97,7 @@
             this.textBoxSAUsername.Location = new System.Drawing.Point(12, 186);
             this.textBoxSAUsername.Name = "textBoxSAUsername";
             this.textBoxSAUsername.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAUsername.TabIndex = 28;
+            this.textBoxSAUsername.TabIndex = 1;
             // 
             // labelSAEmail
             // 
@@ -113,7 +113,7 @@
             this.textBoxSAName.Location = new System.Drawing.Point(12, 122);
             this.textBoxSAName.Name = "textBoxSAName";
             this.textBoxSAName.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAName.TabIndex = 29;
+            this.textBoxSAName.TabIndex = 0;
             // 
             // labelSAPassword
             // 
@@ -168,7 +168,7 @@
             this.textBoxSAPhoneNumber.Location = new System.Drawing.Point(12, 437);
             this.textBoxSAPhoneNumber.Name = "textBoxSAPhoneNumber";
             this.textBoxSAPhoneNumber.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAPhoneNumber.TabIndex = 25;
+            this.textBoxSAPhoneNumber.TabIndex = 5;
             // 
             // panelSARegister
             // 
@@ -190,7 +190,7 @@
             this.buttonCloseSAForm.Location = new System.Drawing.Point(421, 24);
             this.buttonCloseSAForm.Name = "buttonCloseSAForm";
             this.buttonCloseSAForm.Size = new System.Drawing.Size(54, 46);
-            this.buttonCloseSAForm.TabIndex = 0;
+            this.buttonCloseSAForm.TabIndex = 7;
             this.buttonCloseSAForm.UseVisualStyleBackColor = true;
             this.buttonCloseSAForm.Click += new System.EventHandler(this.buttonCloseSAForm_Click);
             // 

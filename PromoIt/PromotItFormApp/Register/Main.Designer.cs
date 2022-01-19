@@ -48,6 +48,7 @@
             this.radioButtonAdmin.TabStop = true;
             this.radioButtonAdmin.Text = "Admin";
             this.radioButtonAdmin.UseVisualStyleBackColor = true;
+            this.radioButtonAdmin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButtonAdmin_KeyDown);
             // 
             // radioButtonNPO
             // 
@@ -55,10 +56,11 @@
             this.radioButtonNPO.Location = new System.Drawing.Point(159, 278);
             this.radioButtonNPO.Name = "radioButtonNPO";
             this.radioButtonNPO.Size = new System.Drawing.Size(190, 24);
-            this.radioButtonNPO.TabIndex = 0;
+            this.radioButtonNPO.TabIndex = 1;
             this.radioButtonNPO.TabStop = true;
             this.radioButtonNPO.Text = "Non-Profit Organization";
             this.radioButtonNPO.UseVisualStyleBackColor = true;
+            this.radioButtonNPO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButtonNPO_KeyDown);
             // 
             // radioButtonBSR
             // 
@@ -66,10 +68,11 @@
             this.radioButtonBSR.Location = new System.Drawing.Point(159, 322);
             this.radioButtonBSR.Name = "radioButtonBSR";
             this.radioButtonBSR.Size = new System.Drawing.Size(152, 24);
-            this.radioButtonBSR.TabIndex = 0;
+            this.radioButtonBSR.TabIndex = 2;
             this.radioButtonBSR.TabStop = true;
             this.radioButtonBSR.Text = "Business Company";
             this.radioButtonBSR.UseVisualStyleBackColor = true;
+            this.radioButtonBSR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButtonBSR_KeyDown);
             // 
             // radioButtonSA
             // 
@@ -77,10 +80,11 @@
             this.radioButtonSA.Location = new System.Drawing.Point(159, 365);
             this.radioButtonSA.Name = "radioButtonSA";
             this.radioButtonSA.Size = new System.Drawing.Size(122, 24);
-            this.radioButtonSA.TabIndex = 0;
+            this.radioButtonSA.TabIndex = 3;
             this.radioButtonSA.TabStop = true;
             this.radioButtonSA.Text = "Social Activist";
             this.radioButtonSA.UseVisualStyleBackColor = true;
+            this.radioButtonSA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.radioButtonSA_KeyDown);
             // 
             // buttonRegisterRole
             // 
@@ -91,7 +95,7 @@
             this.buttonRegisterRole.Location = new System.Drawing.Point(159, 408);
             this.buttonRegisterRole.Name = "buttonRegisterRole";
             this.buttonRegisterRole.Size = new System.Drawing.Size(172, 47);
-            this.buttonRegisterRole.TabIndex = 1;
+            this.buttonRegisterRole.TabIndex = 4;
             this.buttonRegisterRole.Text = "Confirm";
             this.buttonRegisterRole.UseVisualStyleBackColor = false;
             this.buttonRegisterRole.Click += new System.EventHandler(this.buttonRegisterRole_Click);
@@ -119,7 +123,7 @@
             this.panelRoleRegister.TabIndex = 3;
             this.panelRoleRegister.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRoleRegister_Paint);
             // 
-            // RoleSystem
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +137,7 @@
             this.Location = new System.Drawing.Point(450, 480);
             this.MaximumSize = new System.Drawing.Size(505, 570);
             this.MinimumSize = new System.Drawing.Size(505, 570);
-            this.Name = "RoleSystem";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoleSystem";
             this.Load += new System.EventHandler(this.RoleSystem_Load);

@@ -86,21 +86,21 @@
             this.textBoxAdminName.Location = new System.Drawing.Point(12, 122);
             this.textBoxAdminName.Name = "textBoxAdminName";
             this.textBoxAdminName.Size = new System.Drawing.Size(407, 27);
-            this.textBoxAdminName.TabIndex = 1;
+            this.textBoxAdminName.TabIndex = 0;
             // 
             // textBoxAdminUsername
             // 
             this.textBoxAdminUsername.Location = new System.Drawing.Point(12, 208);
             this.textBoxAdminUsername.Name = "textBoxAdminUsername";
             this.textBoxAdminUsername.Size = new System.Drawing.Size(407, 27);
-            this.textBoxAdminUsername.TabIndex = 1;
+            this.textBoxAdminUsername.TabIndex = 2;
             // 
             // textBoxAdminPassword
             // 
             this.textBoxAdminPassword.Location = new System.Drawing.Point(13, 300);
             this.textBoxAdminPassword.Name = "textBoxAdminPassword";
             this.textBoxAdminPassword.Size = new System.Drawing.Size(407, 27);
-            this.textBoxAdminPassword.TabIndex = 1;
+            this.textBoxAdminPassword.TabIndex = 3;
             // 
             // buttonAdminRegister
             // 
@@ -111,7 +111,7 @@
             this.buttonAdminRegister.Location = new System.Drawing.Point(107, 379);
             this.buttonAdminRegister.Name = "buttonAdminRegister";
             this.buttonAdminRegister.Size = new System.Drawing.Size(172, 47);
-            this.buttonAdminRegister.TabIndex = 0;
+            this.buttonAdminRegister.TabIndex = 4;
             this.buttonAdminRegister.Text = "Register";
             this.buttonAdminRegister.UseVisualStyleBackColor = false;
             this.buttonAdminRegister.Click += new System.EventHandler(this.buttonAdminRegister_Click);
@@ -136,7 +136,7 @@
             this.buttonCloseAdminForm.Location = new System.Drawing.Point(421, 23);
             this.buttonCloseAdminForm.Name = "buttonCloseAdminForm";
             this.buttonCloseAdminForm.Size = new System.Drawing.Size(54, 46);
-            this.buttonCloseAdminForm.TabIndex = 0;
+            this.buttonCloseAdminForm.TabIndex = 5;
             this.buttonCloseAdminForm.UseVisualStyleBackColor = true;
             this.buttonCloseAdminForm.Click += new System.EventHandler(this.buttonCloseAdminForm_Click);
             // 

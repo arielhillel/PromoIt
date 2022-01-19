@@ -17,44 +17,46 @@ namespace PromotItFormApp.RoleRegister
             InitializeComponent();
         }
 
-        private void buttonRegisterRole_Click(object sender, EventArgs e)
-        {
-            
-            if (radioButtonAdmin.Checked)
-            {
-                this.Hide();
-                new AdminForm().ShowDialog();
-            }
-            else if (radioButtonNPO.Checked)
-            {
-                this.Hide();
-                new NonProfitOrganizationForm().ShowDialog();
-            }
-            else if (radioButtonBSR.Checked)
-            {
-                this.Hide();
-                new BusinessCompanyForm().ShowDialog();
-            }
-            else if (radioButtonSA.Checked)
-            {
-                this.Hide();
-                new SocialActivistForm().ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please select your role");
-            }
-        }
+        private void buttonRegisterRole_Click(object sender, EventArgs e) => GetRadioButtonPage();
 
         private void panelRoleRegister_Paint(object sender, PaintEventArgs e)
         {
             panelRoleRegister.BackColor = ThemeColor.PrimaryColor;
             panelRoleRegister.ForeColor = Color.White;
         }
+        private void radioButtonAdmin_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
+        private void radioButtonNPO_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
+        private void radioButtonBSR_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
+        private void radioButtonSA_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
+        private void RoleSystem_Load(object sender, EventArgs e) { }
 
-        private void RoleSystem_Load(object sender, EventArgs e)
+
+        private void PressingEnter(KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter) buttonRegisterRole.PerformClick();
         }
+
+        private void GetRadioButtonPage() 
+        {
+            try
+            {
+                if (radioButtonAdmin.Checked)
+                    new AdminForm().ShowDialog();
+                else if (radioButtonNPO.Checked)
+                    new NonProfitOrganizationForm().ShowDialog();
+                else if (radioButtonBSR.Checked)
+                    new BusinessCompanyForm().ShowDialog();
+                else if (radioButtonSA.Checked)
+                    new SocialActivistForm().ShowDialog();
+                else
+                    throw new Exception("Please select your role");
+                this.Hide();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+
+
+
     }
 }

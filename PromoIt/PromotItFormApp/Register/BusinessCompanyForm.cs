@@ -15,18 +15,6 @@ namespace PromotItFormApp.RoleRegister
 {
     public partial class BusinessCompanyForm : Form
     {
-        public void InsertBusinessCompany()
-        {
-            BusinessUser businessUser = new BusinessUser();
-            businessUser.Name = textBoxBCRName.Text;
-            businessUser.UserName = textBoxBCRUsername.Text;
-            businessUser.UserPassword = textBoxBCRPassword.Text;
-            bool result = businessUser.Register( Configuration.MySql );
-            if (result)
-            {
-                Configuration.LoginUser = businessUser;
-            }
-        }
         public BusinessCompanyForm()
         {
             InitializeComponent();
@@ -38,42 +26,50 @@ namespace PromotItFormApp.RoleRegister
             panelBSRRegister.ForeColor = Color.White;
         }
 
-        private void buttonCloseBCRForm_Click(object sender, EventArgs e)
+        private void buttonCloseBCRForm_Click(object sender, EventArgs e) => CloseWindow();
+
+        private void buttonCompanyRegister_Click(object sender, EventArgs e) => RegisterBusinessCompany();
+
+        private void BusinessCompanyForm_Load(object sender, EventArgs e) { }
+
+
+        private void CloseWindow()
         {
-            if (buttonCloseBCRForm != null)
-            {
-                Close();
-                Main roleSystem = new Main();
-                roleSystem.ShowDialog();
-            }
+            if (buttonCloseBCRForm == null) return;
+            this.CloseWindow();
+            Main roleSystem = new Main();
+            roleSystem.ShowDialog();
         }
 
-        private void buttonCompanyRegister_Click(object sender, EventArgs e)
+        private void RegisterBusinessCompany() 
         {
-            if (textBoxBCRName.Text == "" || textBoxBCRUsername.Text == "" || textBoxBCRPassword.Text == "")
+            try
             {
-                MessageBox.Show("Please fill the fields required!");
-                return;
-            }
-            else
-            {
-                try
+                if (textBoxBCRName.Text == "" || textBoxBCRUsername.Text == "" || textBoxBCRPassword.Text == "")
+                    throw new Exception("Please fill the fields required!");
+
+                BusinessUser businessUser = new BusinessUser();
+                businessUser.Name = textBoxBCRName.Text;
+                businessUser.UserName = textBoxBCRUsername.Text;
+                businessUser.UserPassword = textBoxBCRPassword.Text;
+                bool result = businessUser.Register(Configuration.MySql);
+                if (result)
                 {
-                    InsertBusinessCompany();
-                    this.Hide();
-                    PopupForms.Login login = new PopupForms.Login();
-                    login.ShowDialog();
+                    Configuration.LoginUser = businessUser;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+
+                this.Hide();
+                PopupForms.Login login = new PopupForms.Login();
+                login.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void BusinessCompanyForm_Load(object sender, EventArgs e)
-        {
 
-        }
     }
+
 }

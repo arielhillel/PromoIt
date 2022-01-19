@@ -15,22 +15,7 @@ namespace PromotItFormApp.RoleRegister
 {
     public partial class AdminForm : Form
     {
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
 
-        }
-        public void InsertAdmin()
-        {
-            AdminUser adminUser = new AdminUser();
-            adminUser.Name = textBoxAdminName.Text;
-            adminUser.UserName = textBoxAdminUsername.Text;
-            adminUser.UserPassword = textBoxAdminPassword.Text;
-            bool result = adminUser.Register( Configuration.MySql );
-            if (result)
-            { 
-                Configuration.LoginUser = adminUser;
-            }
-        }
         public AdminForm()
         {
             InitializeComponent();
@@ -43,34 +28,42 @@ namespace PromotItFormApp.RoleRegister
             panelAdminRegistr.ForeColor = Color.White;
         }
 
-        private void buttonCloseAdminForm_Click(object sender, EventArgs e)
+        private void buttonCloseAdminForm_Click(object sender, EventArgs e) => CloseWindow();
+
+        private void buttonAdminRegister_Click(object sender, EventArgs e) => AdminRegister();
+        private void AdminForm_Load(object sender, EventArgs e) { }
+
+
+        private void CloseWindow()
         {
-            if (buttonCloseAdminForm != null)
-            {
-                Close();
-                Main roleSystem = new Main();
-                roleSystem.ShowDialog();
-            }
+            if (buttonCloseAdminForm == null) return;
+            this.CloseWindow();
+            Main roleSystem = new Main();
+            roleSystem.ShowDialog();
         }
 
-
-        private void buttonAdminRegister_Click(object sender, EventArgs e)
+        private void AdminRegister() 
         {
-            if (textBoxAdminName.Text == "" || textBoxAdminUsername.Text == "" || textBoxAdminPassword.Text == "")
-            {
-                MessageBox.Show("Please fill the fields required!");
-                return;
-            }
-            //else
             try
             {
-                InsertAdmin();
+                if (textBoxAdminName.Text == "" || textBoxAdminUsername.Text == "" || textBoxAdminPassword.Text == "")
+                    throw new Exception("Please fill the fields required!");
+
+                AdminUser adminUser = new AdminUser();
+                adminUser.Name = textBoxAdminName.Text;
+                adminUser.UserName = textBoxAdminUsername.Text;
+                adminUser.UserPassword = textBoxAdminPassword.Text;
+                bool result = adminUser.Register(Configuration.MySql);
+                if (result)
+                {
+                    Configuration.LoginUser = adminUser;
+                }
+
                 this.Hide();
                 PopupForms.Login login = new PopupForms.Login();
                 login.ShowDialog();
             }
-            catch { }
-                     
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PromotItFormApp
 {
-    public static class ThemeColor
+    public struct ThemeColor
     {
         public static Color PrimaryColor { get; set; }
         public static Color SecondaryColor { get; set; }
