@@ -151,5 +151,10 @@ namespace PromotItFormApp
         {
 
         }
+
+        private void panelDesktopPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

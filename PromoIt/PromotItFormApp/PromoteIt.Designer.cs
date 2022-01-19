@@ -248,6 +248,7 @@
             this.panelDesktopPanel.Name = "panelDesktopPanel";
             this.panelDesktopPanel.Size = new System.Drawing.Size(862, 493);
             this.panelDesktopPanel.TabIndex = 2;
+            this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint_1);
             // 
             // FormMainMenu
             // 
