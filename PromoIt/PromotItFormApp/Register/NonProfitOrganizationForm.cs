@@ -25,6 +25,10 @@ namespace PromotItFormApp.RoleRegister
             nonProfitUser.Email = textBoxNPOEmail.Text;
             nonProfitUser.WebSite = textBoxNPOWebsite.Text;
             bool result = nonProfitUser.Register( Configuration.MySql );
+            if (result)
+            {
+                Configuration.LoginUser = nonProfitUser;
+            }
         }
         public NonProfitOrganizationForm()
         {
@@ -42,7 +46,7 @@ namespace PromotItFormApp.RoleRegister
             if (buttonCloseNPOForm != null)
             {
                 this.Close();
-                RoleSystem roleSystem = new RoleSystem();
+                Main roleSystem = new Main();
                 roleSystem.ShowDialog();
             }
         }

@@ -117,7 +117,7 @@ namespace PromotItFormApp
         {
             
             ActivateButton(sender);
-            RoleRegister.RoleSystem registerForm = new RoleRegister.RoleSystem();
+            RoleRegister.Main registerForm = new RoleRegister.Main();
             registerForm.ShowDialog();   
         }
 

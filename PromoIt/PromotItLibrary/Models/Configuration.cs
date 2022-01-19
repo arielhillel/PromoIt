@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PromotItLibrary.Classes;
+using PromotItLibrary.Interfaces;
 
 namespace PromotItLibrary.Models
 {

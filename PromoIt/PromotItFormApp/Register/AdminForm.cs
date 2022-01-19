@@ -15,7 +15,10 @@ namespace PromotItFormApp.RoleRegister
 {
     public partial class AdminForm : Form
     {
-        
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
         public void InsertAdmin()
         {
             AdminUser adminUser = new AdminUser();
@@ -23,6 +26,10 @@ namespace PromotItFormApp.RoleRegister
             adminUser.UserName = textBoxAdminUsername.Text;
             adminUser.UserPassword = textBoxAdminPassword.Text;
             bool result = adminUser.Register( Configuration.MySql );
+            if (result)
+            { 
+                Configuration.LoginUser = adminUser;
+            }
         }
         public AdminForm()
         {
@@ -41,7 +48,7 @@ namespace PromotItFormApp.RoleRegister
             if (buttonCloseAdminForm != null)
             {
                 Close();
-                RoleSystem roleSystem = new RoleSystem();
+                Main roleSystem = new Main();
                 roleSystem.ShowDialog();
             }
         }
@@ -54,25 +61,18 @@ namespace PromotItFormApp.RoleRegister
                 MessageBox.Show("Please fill the fields required!");
                 return;
             }
-            else
+            //else
+            try
             {
-                try
-                {
-                    InsertAdmin();
-                    this.Hide();
-                    PopupForms.Login login = new PopupForms.Login();
-                    login.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }            
+                InsertAdmin();
+                this.Hide();
+                PopupForms.Login login = new PopupForms.Login();
+                login.ShowDialog();
+            }
+            catch { }
+                     
         }
 
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

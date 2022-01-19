@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PromotItLibrary.Models;
+using PromotItLibrary.Interfaces;
 
 namespace PromotItLibrary.Classes
 {
-    public class Users
+    public class Users : IUsers
     {
         public Users() { }
         public Users(int id, string userName, string userPassword, string name)
@@ -19,6 +20,8 @@ namespace PromotItLibrary.Classes
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string Name { get; set; }
+
+
 
         public MySqlDataAdapter Login(MySQL mySQL)
         {

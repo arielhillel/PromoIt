@@ -12,14 +12,30 @@ using System.Windows.Forms;
 using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
 using PromotItFormApp;
+using PromotItLibrary.Interfaces;
 
 namespace PromotItFormApp.PopupForms
 {
+
+
     public partial class Login : Form
     {
+        private void Login_Load(object sender, EventArgs e) 
+        {      
+                IUsers user = Configuration.LoginUser;
+                if ( user != null && !string.IsNullOrEmpty(user.UserName) )
+                {
+                    textBoxUsername.Text = user.UserName;
+                    if (!string.IsNullOrEmpty(user.UserPassword))
+                        textBoxPassword.Text = user.UserPassword;
+                }
+        }
+
+
         public void LoginVerification()
         {
             Users user = new Users();
+            Configuration.LoginUser = user;
             user.UserName = textBoxUsername.Text.Trim();
             user.UserPassword = textBoxPassword.Text.Trim();
 
@@ -34,8 +50,6 @@ namespace PromotItFormApp.PopupForms
                 return;
             }
 
-            user.UserPassword = null;
-            Configuration.LoginUser = user;
 
             string? type = dataTable.Rows[0]["type"] as string;
             Form? form =
@@ -74,6 +88,10 @@ namespace PromotItFormApp.PopupForms
             panelLoginForm.ForeColor = Color.White;
         }
 
-        private void Login_Load(object sender, EventArgs e){}
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
