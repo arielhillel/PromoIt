@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp.RoleRegister
 {
-    partial class RoleSystem
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.

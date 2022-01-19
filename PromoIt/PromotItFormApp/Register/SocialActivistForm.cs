@@ -25,7 +25,10 @@ namespace PromotItFormApp.RoleRegister
             activistUser.Address = textBoxSAAddress.Text;
             activistUser.PhoneNumber = textBoxSAPhoneNumber.Text;
             bool result = activistUser.Regiser( Configuration.MySql );
-
+            if (result)
+            {
+                Configuration.LoginUser = activistUser;
+            }
         }
         public SocialActivistForm()
         {
@@ -43,7 +46,7 @@ namespace PromotItFormApp.RoleRegister
             if (buttonCloseSAForm != null)
             {
                 Close();
-                RoleSystem roleSystem = new RoleSystem();
+                Main roleSystem = new Main();
                 roleSystem.ShowDialog();
             }
         }

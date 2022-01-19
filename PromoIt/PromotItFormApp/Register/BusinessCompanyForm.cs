@@ -22,6 +22,10 @@ namespace PromotItFormApp.RoleRegister
             businessUser.UserName = textBoxBCRUsername.Text;
             businessUser.UserPassword = textBoxBCRPassword.Text;
             bool result = businessUser.Register( Configuration.MySql );
+            if (result)
+            {
+                Configuration.LoginUser = businessUser;
+            }
         }
         public BusinessCompanyForm()
         {
@@ -39,7 +43,7 @@ namespace PromotItFormApp.RoleRegister
             if (buttonCloseBCRForm != null)
             {
                 Close();
-                RoleSystem roleSystem = new RoleSystem();
+                Main roleSystem = new Main();
                 roleSystem.ShowDialog();
             }
         }
