@@ -17,7 +17,7 @@ namespace PromotItLibrary.Classes
         public string Url { get; set; }
 
 
-        public static DataTable ShowCampaigns(MySQL mySQL) 
+        /*public static DataTable ShowCampaigns(MySQL mySQL) 
         {
             // Error, no npo user
             if (Configuration.LoginUser == null && Configuration.LoginUser?.Name == null) return null;
@@ -43,7 +43,7 @@ namespace PromotItLibrary.Classes
                 catch { };
             }
             return dataTable;
-        }
+        }*/
 
 
         public bool InsertNewCampaign(MySQL mySQL)

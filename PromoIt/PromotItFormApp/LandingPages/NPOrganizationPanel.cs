@@ -18,13 +18,32 @@ namespace PromotItFormApp.PopupForms
 {
     public partial class NPOrganizationPanel : Form
     {
+        public void Display()
+        {
+            try
+            {
+                Campaign das = new Campaign();
+                MySqlDataAdapter adp = das.DisplayAndSearch(Configuration.MySql);
+                DataTable tbl = new DataTable();
+                adp.Fill(tbl);
+                dataGridNPO.DataSource = tbl;
+                dataGridNPO.Columns["name"].HeaderText = "Campaign Name";
+                dataGridNPO.Columns["hashtag"].HeaderText = "Hashtag";
+                dataGridNPO.Columns["webpage"].HeaderText = "URL";
+                dataGridNPO.Columns["non_profit_user_name"].HeaderText = "Campaign Creator";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public NPOrganizationPanel()
         {
             InitializeComponent();
             //Users user = new Users();
             //user.UserName = "npo";
             //Configuration.LoginUser = user;
-            loadDataGrid();
+            //loadDataGrid();
         }
 
 
@@ -39,8 +58,12 @@ namespace PromotItFormApp.PopupForms
             panelNPO.BackColor = ThemeColor.PrimaryColor;
             panelNPO.ForeColor = Color.White;
         }
+        private void NPOrganizationPanel_Shown(object sender, EventArgs e)
+        {
+            Display();
+        }
 
-        private void loadDataGrid() => dataGridNPO.DataSource = Campaign.ShowCampaigns(Configuration.MySql);
+        //private void loadDataGrid() => dataGridNPO.DataSource = Campaign.ShowCampaigns(Configuration.MySql);
         /*
         private void NPOrganizationPanel_Shown(object sender, EventArgs e)
         {
