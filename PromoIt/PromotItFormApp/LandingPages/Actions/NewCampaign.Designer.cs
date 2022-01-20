@@ -32,12 +32,12 @@
             this.labelNewCampaign = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonSaveCamp = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxCampURL = new System.Windows.Forms.TextBox();
+            this.labelURL = new System.Windows.Forms.Label();
+            this.textBoxCampHashtag = new System.Windows.Forms.TextBox();
+            this.labelHashtag = new System.Windows.Forms.Label();
+            this.textBoxCampName = new System.Windows.Forms.TextBox();
+            this.labelCampaignName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,12 +67,12 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.buttonSaveCamp);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.textBoxCampURL);
+            this.panel2.Controls.Add(this.labelURL);
+            this.panel2.Controls.Add(this.textBoxCampHashtag);
+            this.panel2.Controls.Add(this.labelHashtag);
+            this.panel2.Controls.Add(this.textBoxCampName);
+            this.panel2.Controls.Add(this.labelCampaignName);
             this.panel2.Location = new System.Drawing.Point(12, 169);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(676, 522);
@@ -92,56 +92,56 @@
             this.buttonSaveCamp.UseVisualStyleBackColor = false;
             this.buttonSaveCamp.Click += new System.EventHandler(this.buttonSaveCamp_Click);
             // 
-            // textBox3
+            // textBoxCampURL
             // 
-            this.textBox3.Location = new System.Drawing.Point(14, 208);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(392, 27);
-            this.textBox3.TabIndex = 1;
+            this.textBoxCampURL.Location = new System.Drawing.Point(14, 208);
+            this.textBoxCampURL.Name = "textBoxCampURL";
+            this.textBoxCampURL.Size = new System.Drawing.Size(392, 27);
+            this.textBoxCampURL.TabIndex = 1;
             // 
-            // label3
+            // labelURL
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(14, 177);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "CHANGE IT:";
+            this.labelURL.AutoSize = true;
+            this.labelURL.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelURL.Location = new System.Drawing.Point(14, 177);
+            this.labelURL.Name = "labelURL";
+            this.labelURL.Size = new System.Drawing.Size(79, 25);
+            this.labelURL.TabIndex = 0;
+            this.labelURL.Text = "Website:";
             // 
-            // textBox2
+            // textBoxCampHashtag
             // 
-            this.textBox2.Location = new System.Drawing.Point(14, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(392, 27);
-            this.textBox2.TabIndex = 1;
+            this.textBoxCampHashtag.Location = new System.Drawing.Point(14, 144);
+            this.textBoxCampHashtag.Name = "textBoxCampHashtag";
+            this.textBoxCampHashtag.Size = new System.Drawing.Size(392, 27);
+            this.textBoxCampHashtag.TabIndex = 1;
             // 
-            // label2
+            // labelHashtag
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(14, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "CHANGE IT:";
+            this.labelHashtag.AutoSize = true;
+            this.labelHashtag.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHashtag.Location = new System.Drawing.Point(14, 113);
+            this.labelHashtag.Name = "labelHashtag";
+            this.labelHashtag.Size = new System.Drawing.Size(82, 25);
+            this.labelHashtag.TabIndex = 0;
+            this.labelHashtag.Text = "Hashtag:";
             // 
-            // textBox1
+            // textBoxCampName
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(392, 27);
-            this.textBox1.TabIndex = 1;
+            this.textBoxCampName.Location = new System.Drawing.Point(14, 80);
+            this.textBoxCampName.Name = "textBoxCampName";
+            this.textBoxCampName.Size = new System.Drawing.Size(392, 27);
+            this.textBoxCampName.TabIndex = 1;
             // 
-            // label1
+            // labelCampaignName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(14, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CHANGE IT:";
+            this.labelCampaignName.AutoSize = true;
+            this.labelCampaignName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCampaignName.Location = new System.Drawing.Point(14, 49);
+            this.labelCampaignName.Name = "labelCampaignName";
+            this.labelCampaignName.Size = new System.Drawing.Size(149, 25);
+            this.labelCampaignName.TabIndex = 0;
+            this.labelCampaignName.Text = "Campaign Name:";
             // 
             // NewCampaign
             // 
@@ -167,12 +167,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelNewCampaign;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxCampURL;
+        private System.Windows.Forms.Label labelURL;
+        private System.Windows.Forms.TextBox textBoxCampHashtag;
+        private System.Windows.Forms.Label labelHashtag;
+        private System.Windows.Forms.TextBox textBoxCampName;
+        private System.Windows.Forms.Label labelCampaignName;
         private System.Windows.Forms.Button buttonSaveCamp;
     }
 }

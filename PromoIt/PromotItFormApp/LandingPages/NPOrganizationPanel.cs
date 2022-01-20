@@ -29,10 +29,6 @@ namespace PromotItFormApp.PopupForms
             panelNPO.ForeColor = Color.White;
         }
 
-        private void NPOrganizationPanel_Load(object sender, EventArgs e)
-        {
-
-        }
     }
     
 }

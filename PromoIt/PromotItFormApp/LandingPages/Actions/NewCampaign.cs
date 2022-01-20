@@ -23,18 +23,18 @@ namespace PromotItFormApp.PopupForms
         {
             try
             {
-                if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+                if (textBoxCampName.Text == "" || textBoxCampHashtag.Text == "" || textBoxCampURL.Text == "")
                     throw new Exception("Please fill the required fields");
                 Campaign campaign = new Campaign();
-                campaign.Name = textBox1.Text;
-                campaign.Hashtag = textBox2.Text;
-                campaign.Url = textBox3.Text;
+                campaign.Name = textBoxCampName.Text;
+                campaign.Hashtag = textBoxCampHashtag.Text;
+                campaign.Url = textBoxCampURL.Text;
                 var result = campaign.InsertNewCampaign(Configuration.MySql);
                     
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }        
     }
 }
