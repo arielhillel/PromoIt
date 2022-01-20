@@ -154,7 +154,6 @@
             this.Name = "NewCampaign";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Campaign";
-            this.Load += new System.EventHandler(this.NewCampaign_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
