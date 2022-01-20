@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp
 {
-    public partial class FormMainMenu : Form
+    public partial class PromotIt : Form
     {
         //Fields
         private Button currentButton;
@@ -20,7 +20,7 @@ namespace PromotItFormApp
 
         //Constructor
 
-        public FormMainMenu()
+        public PromotIt()
         {
             InitializeComponent();
             random = new Random();

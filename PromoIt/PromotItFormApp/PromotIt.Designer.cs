@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp
 {
-    partial class FormMainMenu
+    partial class PromotIt
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PromotIt));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonContact = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
