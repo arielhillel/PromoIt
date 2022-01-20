@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PromotItFormApp.PopupForms;
+using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
 
 namespace PromotItFormApp
@@ -21,7 +22,10 @@ namespace PromotItFormApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PromotIt()); //new NPOrganizationPanel()
+            Users user = new Users();
+            user.Name = "npo";
+            Configuration.LoginUser = user;
+            Application.Run(new NPOrganizationPanel());
         }
     }
 }

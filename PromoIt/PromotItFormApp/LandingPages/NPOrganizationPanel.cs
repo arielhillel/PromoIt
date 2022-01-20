@@ -41,11 +41,12 @@ namespace PromotItFormApp.PopupForms
         }
 
         private void loadDataGrid() => dataGridNPO.DataSource = Campaign.ShowCampaigns(Configuration.MySql);
-
+        /*
         private void NPOrganizationPanel_Shown(object sender, EventArgs e)
         {
             Display();
         }
+        */
     }
     
 }
