@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PromotItLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,18 @@ namespace PromotItLibrary.Classes
 {
     public class Campaign
     {
-        public string FirstProp { get; set; }
-        public string SecondProp { get; set; }
-        public string ThirdProp { get; set; }
-        public string FourthProp { get; set; }
+        public string Name { get; set; }
+        public string Hashtag { get; set; }
+        public string Url { get; set; }
 
-        public Campaign(string first, string second, string third, string fourth)
+        public bool InsertNewCampaign(MySQL mySQL)
         {
-            FirstProp = first;
-            SecondProp = second;
-            ThirdProp = third;
-            FourthProp = fourth;
+            mySQL.Procedure("add_campaign");
+            mySQL.SetParameter("_name", Name);
+            mySQL.SetParameter("_hashtag", Hashtag);
+            mySQL.SetParameter("_webpage", Url);
+            mySQL.SetParameter("_non_profit", Configuration.LoginUser.Id);
+            return mySQL.ProceduteExecute();
         }
     }
 }
