@@ -19,6 +19,9 @@ namespace PromotItLibrary.Classes
 
         public static DataTable ShowCampaigns(MySQL mySQL) 
         {
+            // Error, no npo user
+            if (Configuration.LoginUser == null && Configuration.LoginUser?.Name == null) return null;
+
             DataTable dataTable = new DataTable();
             // Creating the same Grid clmns on the table
             foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })

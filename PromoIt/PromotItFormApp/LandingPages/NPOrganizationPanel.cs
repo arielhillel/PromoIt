@@ -41,12 +41,8 @@ namespace PromotItFormApp.PopupForms
 
 
 
-        private void loadDataGrid()
-        {
-            if (Configuration.LoginUser == null && Configuration.LoginUser?.Name == null) return;
-            MySQL mySQL = Configuration.MySql;
-            dataGridNPO.DataSource = Campaign.ShowCampaigns(Configuration.MySql);
-        }
+        private void loadDataGrid() =>  dataGridNPO.DataSource = Campaign.ShowCampaigns(Configuration.MySql);
+        
 
     }
     
