@@ -83,7 +83,7 @@ namespace PromotItFormApp.PopupForms
                 string? type = dataTable.Rows[0]["user_type"] as string;
                 Form? form =
                     type == "admin" ? new AdminPanel() :
-                    type == "non_profit" ? new NPOrganizationPanel() :
+                    type == "non-profit" ? new NPOrganizationPanel() :
                     type == "business" ? new BusinessCompanyPanel() :
                     type == "activist" ? new SocialActivistPanel() :
                     null;
