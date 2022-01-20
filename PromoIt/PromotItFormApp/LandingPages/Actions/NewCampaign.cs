@@ -17,7 +17,7 @@ namespace PromotItFormApp.PopupForms
             InitializeComponent();
         }
 
-        private void NewCampaign_Load(object sender, EventArgs e)
+        private void buttonSaveCamp_Click(object sender, EventArgs e)
         {
 
         }
