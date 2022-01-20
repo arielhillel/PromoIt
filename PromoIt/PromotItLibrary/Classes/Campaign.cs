@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MySql.Data.MySqlClient;
 
 namespace PromotItLibrary.Classes
 {
@@ -72,12 +72,11 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
         
-        public bool DisplayAndSearch(MySQL mySQL)
+        public MySqlDataAdapter DisplayAndSearch(MySQL mySQL)
         {
-            mySQL.Procedure("npo_display_search");            
-            mySQL.SetParameter("_non_profit_user_name", Configuration.LoginUser.UserName);
-            return mySQL.ProceduteExecute();
+            mySQL.SetQuary("SELECT * FROM campaigns WHERE non_profit_user_name = @non_profit_user_name");
+            mySQL.QuaryParameter("@non_profit_user_name", Configuration.LoginUser.UserName);
+            return mySQL.QuaryDataAdapter();
         }
-
     }
 }
