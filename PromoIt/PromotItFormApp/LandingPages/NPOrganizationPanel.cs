@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using PromotItLibrary.Classes;
+using PromotItLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +15,23 @@ namespace PromotItFormApp.PopupForms
 {
     public partial class NPOrganizationPanel : Form
     {
+        public void Display()
+        {
+            try
+            {
+                Campaign das = new Campaign();
+                MySqlDataAdapter adp = das.DisplayAndSearch(Configuration.MySql);
+                DataTable tbl = new DataTable();
+                adp.Fill(tbl);
+                dataGridNPO.DataSource = tbl;
+                dataGridNPO.Columns["name"].HeaderText = "YARON";                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public NPOrganizationPanel()
         {
             InitializeComponent();
@@ -29,6 +49,10 @@ namespace PromotItFormApp.PopupForms
             panelNPO.ForeColor = Color.White;
         }
 
+        private void NPOrganizationPanel_Shown(object sender, EventArgs e)
+        {
+            Display();
+        }
     }
     
 }

@@ -62,6 +62,7 @@ namespace PromotItFormApp.PopupForms
             {
                 MessageBox.Show("Please provide a username and password");
                 return;
+
             }
             //else
             try

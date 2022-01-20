@@ -22,7 +22,7 @@ namespace PromotItLibrary.Models
         private string _password;
         private string _dataBase;
 
-        public MySQL() : this("localhost", "root", "admin", "school") // defult settings for connection
+        public MySQL() : this("localhost", "root", "admin", "promoit") // defult settings for connection
             => (Cmd, Stm, Rdr) = (null, null, null);
         public MySQL(string server, string userId, string password, string dataBase)
         {
