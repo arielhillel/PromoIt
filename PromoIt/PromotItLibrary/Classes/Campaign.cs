@@ -19,7 +19,7 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_name", Name);
             mySQL.SetParameter("_hashtag", Hashtag);
             mySQL.SetParameter("_webpage", Url);
-            mySQL.SetParameter("_non_profit", Configuration.LoginUser.Id);
+            mySQL.SetParameter("_non_profit", Configuration.LoginUser.UserName);
             return mySQL.ProceduteExecute();
         }
     }

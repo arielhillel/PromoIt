@@ -10,7 +10,6 @@ namespace PromotItLibrary.Interfaces
 {
     public interface IUsers
     {
-        int Id { get; set; }
         string UserName { get; set; }
         string UserPassword { get; set; }
         string Name { get; set; }
