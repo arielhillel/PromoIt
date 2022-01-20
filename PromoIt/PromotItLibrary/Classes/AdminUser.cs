@@ -15,10 +15,10 @@ namespace PromotItLibrary.Classes
 
         public bool Register(MySQL mySQL)
         {
-            mySQL.Procedure("insert_new_admin");
-            mySQL.SetParameter("p_admin_full_name", Name);
-            mySQL.SetParameter("p_admin_user_name", UserName);
-            mySQL.SetParameter("p_admin_password", UserPassword);
+            mySQL.Procedure("register_admin");
+            mySQL.SetParameter("_name", Name);
+            mySQL.SetParameter("_username", UserName);
+            mySQL.SetParameter("_password", UserPassword);
             return mySQL.ProceduteExecute();
         }
     }

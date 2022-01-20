@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +20,14 @@ namespace PromotItLibrary.Classes
 
         public bool Regiser(MySQL mySQL) 
         {
-            mySQL.Procedure("insert_new_sa");
-            mySQL.ProcedureParameter("p_sa_full_name", Name);
-            mySQL.ProcedureParameter("p_sa_user_name", UserName);
-            mySQL.ProcedureParameter("p_sa_password", UserPassword);
-            mySQL.ProcedureParameter("p_sa_email", Email);
-            mySQL.ProcedureParameter("p_sa_address", Address);
-            mySQL.ProcedureParameter("p_sa_phone_number", PhoneNumber);
+            mySQL.Procedure("register_activist");
+            mySQL.ProcedureParameter("_username", UserName);
+            mySQL.ProcedureParameter("_password", UserPassword);
+            mySQL.ProcedureParameter("_name", Name);
+            mySQL.ProcedureParameter("_email", Email);
+            mySQL.ProcedureParameter("_address", Address);
+            mySQL.ProcedureParameter("_phone", PhoneNumber);
+            mySQL.ProcedureParameter("_cash", 10000.0);
             return mySQL.ProceduteExecute();
         }
     }

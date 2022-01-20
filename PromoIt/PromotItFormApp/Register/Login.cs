@@ -80,12 +80,12 @@ namespace PromotItFormApp.PopupForms
                     throw new Exception("Wrong username or password!");
 
 
-                string? type = dataTable.Rows[0]["type"] as string;
+                string? type = dataTable.Rows[0]["user_type"] as string;
                 Form? form =
-                    type == "Admin" ? new AdminPanel() :
-                    type == "Non_Profit_Organization" ? new NPOrganizationPanel() :
-                    type == "Business_Company" ? new BusinessCompanyPanel() :
-                    type == "Social_Activist" ? new SocialActivistPanel() :
+                    type == "admin" ? new AdminPanel() :
+                    type == "non_profit" ? new NPOrganizationPanel() :
+                    type == "business" ? new BusinessCompanyPanel() :
+                    type == "activist" ? new SocialActivistPanel() :
                     null;
                 if (form == null)
                     throw new Exception("The system does not recognize you!");

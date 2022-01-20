@@ -15,10 +15,10 @@ namespace PromotItLibrary.Classes
 
         public bool Register(MySQL mySQL) 
         {
-            mySQL.Procedure("insert_new_bcr");
-            mySQL.SetParameter("p_company_name", Name);
-            mySQL.SetParameter("p_bcr_user_name", UserName);
-            mySQL.SetParameter("p_bcr_password", UserPassword);
+            mySQL.Procedure("register_business");
+            mySQL.SetParameter("_username", UserName);
+            mySQL.SetParameter("_password", UserPassword);
+            mySQL.SetParameter("_name", Name);
             return mySQL.ProceduteExecute();
         }
 

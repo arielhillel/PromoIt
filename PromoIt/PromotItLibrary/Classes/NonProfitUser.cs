@@ -18,12 +18,12 @@ namespace PromotItLibrary.Classes
 
         public bool Register(MySQL mySQL) 
         {
-            mySQL.Procedure("insert_new_npo");
-            mySQL.SetParameter("p_organization_name", Name);
-            mySQL.SetParameter("p_npo_user_name", UserName);
-            mySQL.SetParameter("p_npo_password", UserPassword);
-            mySQL.SetParameter("p_npo_email", Email);
-            mySQL.SetParameter("p_website_url", WebSite);
+            mySQL.Procedure("register_non_profit");
+            mySQL.SetParameter("_username", UserName);
+            mySQL.SetParameter("_password", UserPassword);
+            mySQL.SetParameter("_name", Name);
+            mySQL.SetParameter("_email", Email);
+            mySQL.SetParameter("_website", WebSite);
             return mySQL.ProceduteExecute();
         }
     }
