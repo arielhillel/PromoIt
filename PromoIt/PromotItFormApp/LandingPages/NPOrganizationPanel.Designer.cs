@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NPOrganizationPanel));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNPO = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -118,7 +118,6 @@
             this.dataGridNPO.ShowEditingIcon = false;
             this.dataGridNPO.Size = new System.Drawing.Size(1051, 321);
             this.dataGridNPO.TabIndex = 0;
-            
             // 
             // textBoxSearch
             // 
@@ -157,6 +156,7 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "clmnCampaignName";
             this.Column1.HeaderText = "Campaign Name";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -164,6 +164,7 @@
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "clmnHashtag";
             this.Column2.HeaderText = "Hashtag";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -171,6 +172,7 @@
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "clmnWebsite";
             this.Column3.HeaderText = "Website";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -178,6 +180,7 @@
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "clmnCreator";
             this.Column4.HeaderText = "Creator Username";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -186,13 +189,13 @@
             // buttonGridEdit
             // 
             this.buttonGridEdit.DataPropertyName = "buttonGridEdit";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(101)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(101)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonGridEdit.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(101)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(101)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonGridEdit.DefaultCellStyle = dataGridViewCellStyle3;
             this.buttonGridEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGridEdit.HeaderText = "";
             this.buttonGridEdit.MinimumWidth = 6;
@@ -204,13 +207,13 @@
             // buttonGridDelete
             // 
             this.buttonGridDelete.DataPropertyName = "buttonGridDelete";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonGridDelete.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonGridDelete.DefaultCellStyle = dataGridViewCellStyle4;
             this.buttonGridDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGridDelete.HeaderText = "";
             this.buttonGridDelete.MinimumWidth = 6;
@@ -229,7 +232,6 @@
             this.Name = "NPOrganizationPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NPOrganizationPanel";
-            
             this.panelNPO.ResumeLayout(false);
             this.panelNPO.PerformLayout();
             this.panel2.ResumeLayout(false);

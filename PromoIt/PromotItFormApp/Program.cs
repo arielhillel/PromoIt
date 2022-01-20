@@ -21,7 +21,7 @@ namespace PromotItFormApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NPOrganizationPanel()); //new PromotIt()
+            Application.Run(new PromotIt()); //new NPOrganizationPanel()
         }
     }
 }
