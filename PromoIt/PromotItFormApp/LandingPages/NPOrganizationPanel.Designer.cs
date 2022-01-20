@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NPOrganizationPanel));
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-<<<<<<< HEAD
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> YaronMalul_GUI_Changes
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNPO = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -163,19 +162,16 @@
             // 
             // Column1
             // 
-<<<<<<< HEAD
-            this.Column1.DataPropertyName = "clmnCampaignName";
-            this.Column1.HeaderText = "Campaign Name";
-=======
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+
+            this.Column1.Hea            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column1.HeaderText = "Column1";
->>>>>>> YaronMalul_GUI_Changes
+            this.Column1.HeaderText = "Column1"; 
+            derText = "Campaign Name";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.UseColumnTextForButtonValue = true;
@@ -183,36 +179,24 @@
             // 
             // Column2
             // 
-<<<<<<< HEAD
             this.Column2.DataPropertyName = "clmnHashtag";
             this.Column2.HeaderText = "Hashtag";
-=======
-            this.Column2.HeaderText = "Campaign Name";
->>>>>>> YaronMalul_GUI_Changes
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-<<<<<<< HEAD
             this.Column3.DataPropertyName = "clmnWebsite";
             this.Column3.HeaderText = "Website";
-=======
-            this.Column3.HeaderText = "Hashtag";
->>>>>>> YaronMalul_GUI_Changes
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-<<<<<<< HEAD
             this.Column4.DataPropertyName = "clmnCreator";
             this.Column4.HeaderText = "Creator Username";
-=======
-            this.Column4.HeaderText = "URL";
->>>>>>> YaronMalul_GUI_Changes
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -226,23 +210,6 @@
             // 
             // Column6
             // 
-<<<<<<< HEAD
-            this.buttonGridEdit.DataPropertyName = "buttonGridEdit";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(101)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(101)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonGridEdit.DefaultCellStyle = dataGridViewCellStyle3;
-            this.buttonGridEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGridEdit.HeaderText = "";
-            this.buttonGridEdit.MinimumWidth = 6;
-            this.buttonGridEdit.Name = "buttonGridEdit";
-            this.buttonGridEdit.ReadOnly = true;
-            this.buttonGridEdit.Text = "Edit";
-            this.buttonGridEdit.UseColumnTextForButtonValue = true;
-=======
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -257,27 +224,9 @@
             this.Column6.ReadOnly = true;
             this.Column6.Text = "EDIT";
             this.Column6.UseColumnTextForButtonValue = true;
->>>>>>> YaronMalul_GUI_Changes
             // 
             // Column7
             // 
-<<<<<<< HEAD
-            this.buttonGridDelete.DataPropertyName = "buttonGridDelete";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonGridDelete.DefaultCellStyle = dataGridViewCellStyle4;
-            this.buttonGridDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGridDelete.HeaderText = "";
-            this.buttonGridDelete.MinimumWidth = 6;
-            this.buttonGridDelete.Name = "buttonGridDelete";
-            this.buttonGridDelete.ReadOnly = true;
-            this.buttonGridDelete.Text = "Delete";
-            this.buttonGridDelete.UseColumnTextForButtonValue = true;
-=======
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lime;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -292,7 +241,6 @@
             this.Column7.ReadOnly = true;
             this.Column7.Text = "Delete";
             this.Column7.UseColumnTextForButtonValue = true;
->>>>>>> YaronMalul_GUI_Changes
             // 
             // NPOrganizationPanel
             // 
@@ -304,10 +252,8 @@
             this.Name = "NPOrganizationPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NPOrganizationPanel";
-<<<<<<< HEAD
-=======
             this.Shown += new System.EventHandler(this.NPOrganizationPanel_Shown);
->>>>>>> YaronMalul_GUI_Changes
+
             this.panelNPO.ResumeLayout(false);
             this.panelNPO.PerformLayout();
             this.panel2.ResumeLayout(false);
