@@ -15,6 +15,7 @@ namespace PromotItFormApp
         [STAThread]
         static void Main()
         {
+            //NOTE//
             Configuration.MySQLStart();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
