@@ -31,7 +31,7 @@ namespace PromotItFormApp.RoleRegister
             if (buttonCloseSAForm != null)
             {
                 Close();
-                Main roleSystem = new Main();
+                MainRegister roleSystem = new MainRegister();
                 roleSystem.ShowDialog();
             }
         }
