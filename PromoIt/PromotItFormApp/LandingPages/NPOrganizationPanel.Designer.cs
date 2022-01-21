@@ -60,9 +60,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 28);
+            this.label1.Size = new System.Drawing.Size(225, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "NON-PROFIT ORGANIZATION - PANEL";
+            this.label1.Text = "Non-Profit Organization";
             // 
             // panel2
             // 
@@ -147,6 +147,8 @@
             this.ClientSize = new System.Drawing.Size(1141, 605);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelNPO);
+            this.MaximumSize = new System.Drawing.Size(1159, 652);
+            this.MinimumSize = new System.Drawing.Size(1159, 652);
             this.Name = "NPOrganizationPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NPOrganizationPanel";
