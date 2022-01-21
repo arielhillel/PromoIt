@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NPOrganizationPanel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNPO = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -36,6 +38,12 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonNew = new System.Windows.Forms.Button();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.webpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.non_profit_user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpgradeGrid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonDeleteGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelNPO.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
@@ -92,6 +100,13 @@
             this.dataGridNPO.BackgroundColor = System.Drawing.Color.White;
             this.dataGridNPO.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridNPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridNPO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.hashtag,
+            this.webpage,
+            this.non_profit_user_name,
+            this.buttonUpgradeGrid,
+            this.buttonDeleteGrid});
             this.dataGridNPO.GridColor = System.Drawing.Color.White;
             this.dataGridNPO.Location = new System.Drawing.Point(17, 90);
             this.dataGridNPO.MultiSelect = false;
@@ -140,6 +155,72 @@
             this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Campaign Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // hashtag
+            // 
+            this.hashtag.DataPropertyName = "hashtag";
+            this.hashtag.HeaderText = "Hashtag";
+            this.hashtag.MinimumWidth = 6;
+            this.hashtag.Name = "hashtag";
+            this.hashtag.ReadOnly = true;
+            // 
+            // webpage
+            // 
+            this.webpage.DataPropertyName = "webpage";
+            this.webpage.HeaderText = "URL";
+            this.webpage.MinimumWidth = 6;
+            this.webpage.Name = "webpage";
+            this.webpage.ReadOnly = true;
+            // 
+            // non_profit_user_name
+            // 
+            this.non_profit_user_name.DataPropertyName = "non_profit_user_name";
+            this.non_profit_user_name.HeaderText = "Campaign Creator";
+            this.non_profit_user_name.MinimumWidth = 6;
+            this.non_profit_user_name.Name = "non_profit_user_name";
+            this.non_profit_user_name.ReadOnly = true;
+            // 
+            // buttonUpgradeGrid
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonUpgradeGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.buttonUpgradeGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpgradeGrid.HeaderText = "";
+            this.buttonUpgradeGrid.MinimumWidth = 6;
+            this.buttonUpgradeGrid.Name = "buttonUpgradeGrid";
+            this.buttonUpgradeGrid.ReadOnly = true;
+            this.buttonUpgradeGrid.Text = "Update";
+            this.buttonUpgradeGrid.UseColumnTextForButtonValue = true;
+            // 
+            // buttonDeleteGrid
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonDeleteGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.buttonDeleteGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteGrid.HeaderText = "";
+            this.buttonDeleteGrid.MinimumWidth = 6;
+            this.buttonDeleteGrid.Name = "buttonDeleteGrid";
+            this.buttonDeleteGrid.ReadOnly = true;
+            this.buttonDeleteGrid.Text = "Delete";
+            this.buttonDeleteGrid.UseColumnTextForButtonValue = true;
+            // 
             // NPOrganizationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -172,5 +253,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.DataGridView dataGridNPO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hashtag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn webpage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn non_profit_user_name;
+        private System.Windows.Forms.DataGridViewButtonColumn buttonUpgradeGrid;
+        private System.Windows.Forms.DataGridViewButtonColumn buttonDeleteGrid;
     }
 }

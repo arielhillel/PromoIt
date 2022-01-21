@@ -37,7 +37,7 @@
             this.dataGridSACamp = new System.Windows.Forms.DataGridView();
             this.panelSA = new System.Windows.Forms.Panel();
             this.labelSATitle = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelBalance = new System.Windows.Forms.Panel();
             this.labelSACurrency = new System.Windows.Forms.Label();
             this.labelBalance = new System.Windows.Forms.Label();
             this.panelMessagesSA = new System.Windows.Forms.Panel();
@@ -47,7 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSACamp)).BeginInit();
             this.panelSA.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelBalance.SuspendLayout();
             this.panelMessagesSA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMessages)).BeginInit();
             this.SuspendLayout();
@@ -172,15 +172,15 @@
             this.labelSATitle.TabIndex = 0;
             this.labelSATitle.Text = "Social Activist";
             // 
-            // panel1
+            // panelBalance
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.labelSACurrency);
-            this.panel1.Controls.Add(this.labelBalance);
-            this.panel1.Location = new System.Drawing.Point(20, 141);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(396, 147);
-            this.panel1.TabIndex = 1;
+            this.panelBalance.BackColor = System.Drawing.Color.White;
+            this.panelBalance.Controls.Add(this.labelSACurrency);
+            this.panelBalance.Controls.Add(this.labelBalance);
+            this.panelBalance.Location = new System.Drawing.Point(20, 141);
+            this.panelBalance.Name = "panelBalance";
+            this.panelBalance.Size = new System.Drawing.Size(396, 147);
+            this.panelBalance.TabIndex = 1;
             // 
             // labelSACurrency
             // 
@@ -244,7 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1236, 712);
             this.Controls.Add(this.panelMessagesSA);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelBalance);
             this.Controls.Add(this.panelSA);
             this.Controls.Add(this.panelSADashboard);
             this.MaximumSize = new System.Drawing.Size(1254, 759);
@@ -260,8 +260,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSACamp)).EndInit();
             this.panelSA.ResumeLayout(false);
             this.panelSA.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelBalance.ResumeLayout(false);
+            this.panelBalance.PerformLayout();
             this.panelMessagesSA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMessages)).EndInit();
             this.ResumeLayout(false);
@@ -277,7 +277,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSearchSA;
         private System.Windows.Forms.Panel panelSA;
         private System.Windows.Forms.Label labelSATitle;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelBalance;
         private System.Windows.Forms.Panel panelMessagesSA;
         private System.Windows.Forms.DataGridView dataGridNPO;
         private System.Windows.Forms.DataGridView dataGridMessages;
