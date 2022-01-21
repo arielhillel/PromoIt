@@ -65,7 +65,7 @@ namespace PromotItFormApp
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            RoleRegister.MainRegister registerForm = new RoleRegister.MainRegister();
+            RoleRegister.Main registerForm = new RoleRegister.Main();
             registerForm.ShowDialog();   
         }
 

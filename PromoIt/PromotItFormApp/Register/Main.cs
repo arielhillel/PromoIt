@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp.RoleRegister
 {
-    public partial class MainRegister : Form
+    public partial class Main : Form
     {       
-        public MainRegister()
+        public Main()
         {
             InitializeComponent();
         }
