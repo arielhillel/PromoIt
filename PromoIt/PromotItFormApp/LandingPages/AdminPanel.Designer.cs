@@ -28,33 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.panelAdmin = new System.Windows.Forms.Panel();
+            this.labelAdminTitle = new System.Windows.Forms.Label();
+            this.buttonCampaignsAdmin = new System.Windows.Forms.Button();
+            this.buttonUsersAdmin = new System.Windows.Forms.Button();
+            this.buttonTweetsAdmin = new System.Windows.Forms.Button();
+            this.panelTitlesAdmin = new System.Windows.Forms.Panel();
+            this.labelReports = new System.Windows.Forms.Label();
+            this.panelAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // panelAdmin
             // 
-            this.button1.Location = new System.Drawing.Point(154, 428);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panelAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
+            this.panelAdmin.Controls.Add(this.labelAdminTitle);
+            this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAdmin.Location = new System.Drawing.Point(0, 0);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(580, 135);
+            this.panelAdmin.TabIndex = 0;
+            // 
+            // labelAdminTitle
+            // 
+            this.labelAdminTitle.AutoSize = true;
+            this.labelAdminTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAdminTitle.ForeColor = System.Drawing.Color.White;
+            this.labelAdminTitle.Location = new System.Drawing.Point(12, 65);
+            this.labelAdminTitle.Name = "labelAdminTitle";
+            this.labelAdminTitle.Size = new System.Drawing.Size(159, 28);
+            this.labelAdminTitle.TabIndex = 0;
+            this.labelAdminTitle.Text = "ProLobby Owner";
+            // 
+            // buttonCampaignsAdmin
+            // 
+            this.buttonCampaignsAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.buttonCampaignsAdmin.FlatAppearance.BorderSize = 0;
+            this.buttonCampaignsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCampaignsAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonCampaignsAdmin.Location = new System.Drawing.Point(12, 270);
+            this.buttonCampaignsAdmin.Name = "buttonCampaignsAdmin";
+            this.buttonCampaignsAdmin.Size = new System.Drawing.Size(172, 47);
+            this.buttonCampaignsAdmin.TabIndex = 0;
+            this.buttonCampaignsAdmin.Text = "Campaigns";
+            this.buttonCampaignsAdmin.UseVisualStyleBackColor = false;
+            // 
+            // buttonUsersAdmin
+            // 
+            this.buttonUsersAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.buttonUsersAdmin.FlatAppearance.BorderSize = 0;
+            this.buttonUsersAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUsersAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonUsersAdmin.Location = new System.Drawing.Point(204, 270);
+            this.buttonUsersAdmin.Name = "buttonUsersAdmin";
+            this.buttonUsersAdmin.Size = new System.Drawing.Size(172, 47);
+            this.buttonUsersAdmin.TabIndex = 0;
+            this.buttonUsersAdmin.Text = "Users";
+            this.buttonUsersAdmin.UseVisualStyleBackColor = false;
+            // 
+            // buttonTweetsAdmin
+            // 
+            this.buttonTweetsAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.buttonTweetsAdmin.FlatAppearance.BorderSize = 0;
+            this.buttonTweetsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTweetsAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonTweetsAdmin.Location = new System.Drawing.Point(398, 270);
+            this.buttonTweetsAdmin.Name = "buttonTweetsAdmin";
+            this.buttonTweetsAdmin.Size = new System.Drawing.Size(172, 47);
+            this.buttonTweetsAdmin.TabIndex = 0;
+            this.buttonTweetsAdmin.Text = "Tweets";
+            this.buttonTweetsAdmin.UseVisualStyleBackColor = false;
+            // 
+            // panelTitlesAdmin
+            // 
+            this.panelTitlesAdmin.BackColor = System.Drawing.Color.White;
+            this.panelTitlesAdmin.Location = new System.Drawing.Point(12, 254);
+            this.panelTitlesAdmin.Name = "panelTitlesAdmin";
+            this.panelTitlesAdmin.Size = new System.Drawing.Size(558, 10);
+            this.panelTitlesAdmin.TabIndex = 0;
+            // 
+            // labelReports
+            // 
+            this.labelReports.AutoSize = true;
+            this.labelReports.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelReports.Location = new System.Drawing.Point(12, 211);
+            this.labelReports.Name = "labelReports";
+            this.labelReports.Size = new System.Drawing.Size(97, 31);
+            this.labelReports.TabIndex = 0;
+            this.labelReports.Text = "Reports:";
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 563);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(580, 345);
+            this.Controls.Add(this.labelReports);
+            this.Controls.Add(this.panelTitlesAdmin);
+            this.Controls.Add(this.buttonTweetsAdmin);
+            this.Controls.Add(this.buttonUsersAdmin);
+            this.Controls.Add(this.buttonCampaignsAdmin);
+            this.Controls.Add(this.panelAdmin);
+            this.MaximumSize = new System.Drawing.Size(598, 392);
+            this.MinimumSize = new System.Drawing.Size(598, 392);
             this.Name = "AdminPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
             this.Load += new System.EventHandler(this.AdminPanel_Load);
+            this.panelAdmin.ResumeLayout(false);
+            this.panelAdmin.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelAdmin;
+        private System.Windows.Forms.Label labelAdminTitle;
+        private System.Windows.Forms.Button buttonCampaignsAdmin;
+        private System.Windows.Forms.Button buttonUsersAdmin;
+        private System.Windows.Forms.Button buttonTweetsAdmin;
+        private System.Windows.Forms.Panel panelTitlesAdmin;
+        private System.Windows.Forms.Label labelReports;
     }
 }

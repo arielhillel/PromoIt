@@ -49,7 +49,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(779, 151);
+            this.panel1.Size = new System.Drawing.Size(476, 151);
             this.panel1.TabIndex = 0;
             // 
             // labelNewCampaign
@@ -59,9 +59,9 @@
             this.labelNewCampaign.ForeColor = System.Drawing.Color.White;
             this.labelNewCampaign.Location = new System.Drawing.Point(12, 63);
             this.labelNewCampaign.Name = "labelNewCampaign";
-            this.labelNewCampaign.Size = new System.Drawing.Size(161, 28);
+            this.labelNewCampaign.Size = new System.Drawing.Size(145, 28);
             this.labelNewCampaign.TabIndex = 0;
-            this.labelNewCampaign.Text = "NEW CAMPAIGN";
+            this.labelNewCampaign.Text = "New Campaign";
             // 
             // panel2
             // 
@@ -73,9 +73,9 @@
             this.panel2.Controls.Add(this.labelHashtag);
             this.panel2.Controls.Add(this.textBoxCampName);
             this.panel2.Controls.Add(this.labelCampaignName);
-            this.panel2.Location = new System.Drawing.Point(12, 169);
+            this.panel2.Location = new System.Drawing.Point(12, 157);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(676, 522);
+            this.panel2.Size = new System.Drawing.Size(457, 497);
             this.panel2.TabIndex = 0;
             // 
             // buttonSaveCamp
@@ -84,7 +84,7 @@
             this.buttonSaveCamp.FlatAppearance.BorderSize = 0;
             this.buttonSaveCamp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveCamp.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveCamp.Location = new System.Drawing.Point(14, 299);
+            this.buttonSaveCamp.Location = new System.Drawing.Point(18, 286);
             this.buttonSaveCamp.Name = "buttonSaveCamp";
             this.buttonSaveCamp.Size = new System.Drawing.Size(392, 47);
             this.buttonSaveCamp.TabIndex = 0;
@@ -94,7 +94,7 @@
             // 
             // textBoxCampURL
             // 
-            this.textBoxCampURL.Location = new System.Drawing.Point(14, 208);
+            this.textBoxCampURL.Location = new System.Drawing.Point(18, 195);
             this.textBoxCampURL.Name = "textBoxCampURL";
             this.textBoxCampURL.Size = new System.Drawing.Size(392, 27);
             this.textBoxCampURL.TabIndex = 1;
@@ -103,7 +103,7 @@
             // 
             this.labelURL.AutoSize = true;
             this.labelURL.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelURL.Location = new System.Drawing.Point(14, 177);
+            this.labelURL.Location = new System.Drawing.Point(18, 164);
             this.labelURL.Name = "labelURL";
             this.labelURL.Size = new System.Drawing.Size(79, 25);
             this.labelURL.TabIndex = 0;
@@ -111,7 +111,7 @@
             // 
             // textBoxCampHashtag
             // 
-            this.textBoxCampHashtag.Location = new System.Drawing.Point(14, 144);
+            this.textBoxCampHashtag.Location = new System.Drawing.Point(18, 131);
             this.textBoxCampHashtag.Name = "textBoxCampHashtag";
             this.textBoxCampHashtag.Size = new System.Drawing.Size(392, 27);
             this.textBoxCampHashtag.TabIndex = 1;
@@ -120,7 +120,7 @@
             // 
             this.labelHashtag.AutoSize = true;
             this.labelHashtag.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHashtag.Location = new System.Drawing.Point(14, 113);
+            this.labelHashtag.Location = new System.Drawing.Point(18, 100);
             this.labelHashtag.Name = "labelHashtag";
             this.labelHashtag.Size = new System.Drawing.Size(82, 25);
             this.labelHashtag.TabIndex = 0;
@@ -128,7 +128,7 @@
             // 
             // textBoxCampName
             // 
-            this.textBoxCampName.Location = new System.Drawing.Point(14, 80);
+            this.textBoxCampName.Location = new System.Drawing.Point(18, 67);
             this.textBoxCampName.Name = "textBoxCampName";
             this.textBoxCampName.Size = new System.Drawing.Size(392, 27);
             this.textBoxCampName.TabIndex = 1;
@@ -137,7 +137,7 @@
             // 
             this.labelCampaignName.AutoSize = true;
             this.labelCampaignName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCampaignName.Location = new System.Drawing.Point(14, 49);
+            this.labelCampaignName.Location = new System.Drawing.Point(18, 36);
             this.labelCampaignName.Name = "labelCampaignName";
             this.labelCampaignName.Size = new System.Drawing.Size(149, 25);
             this.labelCampaignName.TabIndex = 0;
@@ -147,10 +147,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 739);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(476, 664);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(494, 711);
+            this.MinimumSize = new System.Drawing.Size(494, 711);
             this.Name = "NewCampaign";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Campaign";
