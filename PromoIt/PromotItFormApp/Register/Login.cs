@@ -91,8 +91,8 @@ namespace PromotItFormApp.PopupForms
                 if (form == null)
                     throw new Exception("The system does not recognize you!");
 
-                form.Show();
                 this.Hide();
+                form.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
