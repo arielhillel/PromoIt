@@ -67,7 +67,7 @@ namespace PromotItFormApp.PopupForms
             {
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Infurmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
                     campaign.DeleteCampaign(Configuration.MySql, hashtag);
                     Display();
                 }

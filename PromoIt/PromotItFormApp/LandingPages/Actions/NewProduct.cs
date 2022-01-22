@@ -14,6 +14,7 @@ namespace PromotItFormApp.LandingPages.Actions
 {
     public partial class NewProduct : Form
     {
+        public string hashtag;
         public NewProduct()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace PromotItFormApp.LandingPages.Actions
                 product.Name = textBoxProductName.Text;
                 product.Quantity = textBoxQuantity.Text;
                 product.Price = textBoxPrice.Text;
-                product.Campaign_Hashtag = "#hashtag";
+                product.Campaign_Hashtag = hashtag;
                 var result = product.InsertNewProduct(Configuration.MySql);
                 this.Hide();
             }
