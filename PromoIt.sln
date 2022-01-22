@@ -5,7 +5,13 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotItFormApp", "PromoIt\PromotItFormApp\PromotItFormApp.csproj", "{C7055022-CE52-4195-9465-B0BE7EDD3ABD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromotItLibrary", "PromoIt\PromotItLibrary\PromotItLibrary.csproj", "{CA8A96DC-3728-42CB-89E3-1B87EFE8FDD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotItLibrary", "PromoIt\PromotItLibrary\PromotItLibrary.csproj", "{CA8A96DC-3728-42CB-89E3-1B87EFE8FDD4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromoitTesting", "PromoIt\PromoitTesting\PromoitTesting.csproj", "{D0E7D8A2-697E-461E-B128-9566489DB371}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromoitConsole", "PromoIt\PromoitConsole\PromoitConsole.csproj", "{BEE555EE-FE03-4CE5-8E5A-CD2BD4CBC571}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromoitFunctions", "PromoIt\PromoitFunctions\PromoitFunctions.csproj", "{864B570D-0F0D-4CA7-86A6-549BDF295C7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{CA8A96DC-3728-42CB-89E3-1B87EFE8FDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA8A96DC-3728-42CB-89E3-1B87EFE8FDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA8A96DC-3728-42CB-89E3-1B87EFE8FDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E7D8A2-697E-461E-B128-9566489DB371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E7D8A2-697E-461E-B128-9566489DB371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E7D8A2-697E-461E-B128-9566489DB371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E7D8A2-697E-461E-B128-9566489DB371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE555EE-FE03-4CE5-8E5A-CD2BD4CBC571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE555EE-FE03-4CE5-8E5A-CD2BD4CBC571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE555EE-FE03-4CE5-8E5A-CD2BD4CBC571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE555EE-FE03-4CE5-8E5A-CD2BD4CBC571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864B570D-0F0D-4CA7-86A6-549BDF295C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864B570D-0F0D-4CA7-86A6-549BDF295C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864B570D-0F0D-4CA7-86A6-549BDF295C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864B570D-0F0D-4CA7-86A6-549BDF295C7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

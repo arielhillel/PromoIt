@@ -19,14 +19,29 @@ namespace PromotItLibrary.Classes
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string Name { get; set; }
+        public string UserType { get; set; }
 
-
-        public MySqlDataAdapter Login(MySQL mySQL)
+        public Users Login(MySQL mySQL)
         {
+            Users user = null;
             mySQL.SetQuary("SELECT * FROM users where user_name=@username and user_password=@password limit 1");
             mySQL.QuaryParameter("@username", UserName);
             mySQL.QuaryParameter("@password", UserPassword);
-            return mySQL.QuaryDataAdapter();
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            if (results == null) throw new Exception($"no User Name {UserName}");
+            while (results != null && results.Read())
+            {
+                try
+                {
+                    user = new Users();
+                    user.UserName = results.GetString("user_name");
+                    user.UserPassword = results.GetString("user_password");
+                    user.UserType = results.GetString("user_type");
+                    user.Name = results.GetString("name");
+                }
+                catch { throw new Exception($"error to set {UserName}"); };
+            }
+            return user;
         }
     }
 }

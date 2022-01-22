@@ -17,7 +17,7 @@ namespace PromotItLibrary.Classes
         public string Url { get; set; }
 
 
-        /*public static DataTable ShowCampaigns(MySQL mySQL) 
+        public static DataTable ShowCampaigns(MySQL mySQL) 
         {
             // Error, no npo user
             if (Configuration.LoginUser == null && Configuration.LoginUser?.Name == null) return null;
@@ -29,7 +29,7 @@ namespace PromotItLibrary.Classes
 
             //mySQL.Procedute("getstudents");
             mySQL.Quary("SELECT * FROM promoit.campaigns where non_profit_user_name=@name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-            mySQL.ProcedureParameter("name", "npo"); // = mySQL.QuaryParameter(,)
+            mySQL.ProcedureParameter("name", "npo"); // = mySQL.QuaryPara meter(,)
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
             while (results != null && results.Read()) //for 1 result: if (mdr.Read())
             {
@@ -43,7 +43,7 @@ namespace PromotItLibrary.Classes
                 catch { };
             }
             return dataTable;
-        }*/
+        }
 
 
         public bool InsertNewCampaign(MySQL mySQL)
