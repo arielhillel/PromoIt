@@ -31,13 +31,8 @@ namespace PromotItFormApp.LandingPages.Actions
                 product.Name = textBoxProductName.Text;
                 product.Quantity = textBoxQuantity.Text;
                 product.Price = textBoxPrice.Text;
-<<<<<<< HEAD
                 product.Campaign_Hashtag = "#hashtag";
                 var result = product.InsertNewProduct(Configuration.MySQL);
-=======
-                product.Campaign_Hashtag = hashtag;
-                var result = product.InsertNewProduct(Configuration.MySql);
->>>>>>> 85268505f0946ea34af3c041c24f13141853692f
                 this.Hide();
             }
             catch (Exception ex)
