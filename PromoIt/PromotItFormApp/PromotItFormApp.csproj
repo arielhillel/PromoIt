@@ -11,4 +11,8 @@
     <ProjectReference Include="..\PromotItLibrary\PromotItLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+
 </Project>

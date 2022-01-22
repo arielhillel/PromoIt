@@ -18,14 +18,14 @@ namespace PromotItFormApp.PopupForms
 {
     public partial class NPOrganizationPanel : Form
     {
+        Campaign campaign = new Campaign();
         public void Display()
         {
             try
             {
-                Campaign das = new Campaign();
-                MySqlDataAdapter adp = das.DisplayAndSearch(Configuration.MySql);
+                MySqlDataAdapter adapter = campaign.DisplayAndSearch(Configuration.MySql);
                 DataTable tbl = new DataTable();
-                adp.Fill(tbl);
+                adapter.Fill(tbl);
                 dataGridNPO.DataSource = tbl;
                 dataGridNPO.Columns["name"].HeaderText = "Campaign Name";
                 dataGridNPO.Columns["hashtag"].HeaderText = "Hashtag";
@@ -40,15 +40,12 @@ namespace PromotItFormApp.PopupForms
         public NPOrganizationPanel()
         {
             InitializeComponent();
-            //Users user = new Users();
-            //user.UserName = "npo";
-            //Configuration.LoginUser = user;
-            //loadDataGrid();
         }
 
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
+            this.Hide();
             NewCampaign newCamp = new NewCampaign();
             newCamp.ShowDialog();
         }
@@ -63,13 +60,20 @@ namespace PromotItFormApp.PopupForms
             Display();
         }
 
-        //private void loadDataGrid() => dataGridNPO.DataSource = Campaign.ShowCampaigns(Configuration.MySql);
-        /*
-        private void NPOrganizationPanel_Shown(object sender, EventArgs e)
+        private void dataGridNPO_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Display();
+
+            if (e.ColumnIndex == 0)
+            {
+                if(MessageBox.Show("Are you sure you want to delete this campaign?", "Infurmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    campaign.DeleteCampaign(Configuration.MySql, hashtag);
+                    Display();
+                }
+            }
         }
-        */
+
     }
     
 }
