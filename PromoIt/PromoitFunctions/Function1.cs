@@ -59,8 +59,8 @@ namespace PromoitFunction
                         bool action = user.Register(Configuration.MySql);
                         if (action)
                         {
-                            return new OkObjectResult("ok");
                             log.LogInformation($"Function Seccess to Insert {className} to database");
+                            return new OkObjectResult("ok");
                         }
                     }
                     catch (Exception ex) 
