@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
+using Newtonsoft.Json;
 
 namespace PromoitConsole
 {
@@ -24,18 +25,33 @@ namespace PromoitConsole
             user.UserPassword = "12345";
 
 
+            NonProfitUser userToRegiser = new NonProfitUser();
+            userToRegiser.Name = "aaaaaaaaaa adssgsdgs";
+            userToRegiser.UserName = "aaaaaaaaaaadssgsdg";
+            userToRegiser.UserPassword = "aaaaaaaaaaadssgsdg";
+            userToRegiser.Email = "aaaaaaaaaaadssgsdg";
+            userToRegiser.WebSite = "aaaaaaaaaaadssgsdg";
+
             while (true)
             {
-
                 try
                 {
-                    Console.WriteLine(":");
-                    string name = Console.ReadLine();
+                    //// 2 Insert 1 user (Post)
+                    Console.WriteLine($"Insert the user ({userToRegiser.UserName}) get ok/fail answare:");
+                    Console.ReadLine();
+                    string data = Functions.ObjectToJsonString(userToRegiser);
+
+                    PostSingleDataRequest(url, data);
 
 
+                    //Users? userResult =  await GetSingleDataRequest<Users>("GetUser", user);
+                    //Console.WriteLine(userResult?.UserType);
 
-                    string userString = Newtonsoft.Json.JsonConvert.SerializeObject(user);
-                    GetRequest(url+"?data="+ userString);
+                    //// 1 Select 1 user (Login) (Get)
+                    //Console.WriteLine($"Send the user ({user.UserName}) throth the function get his type:");
+                    //Console.ReadLine();
+                    //Users? userResult =  await GetSingleDataRequest<Users>("GetUser", user);
+                    //Console.WriteLine(userResult?.UserType);
                 }
                 catch (Exception ex) { Console.WriteLine("Fail"); Console.WriteLine(ex); }
 
@@ -43,49 +59,39 @@ namespace PromoitConsole
         }
 
 
-        async static void PostRequest(string url, string name) // another check method 
+        async static void PostSingleDataRequest(string url, string data) // another check method 
         {
             IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
             {
-                new KeyValuePair<string, string>("name", name)
+                new KeyValuePair<string, string>("data", data)
 
             };
             using HttpContent q = new FormUrlEncodedContent(queries);
-            using HttpClient client = new HttpClient();
-
-            using HttpResponseMessage response = await client.PostAsync(url, q);
+            using HttpResponseMessage response = await ( Configuration.HttpClient ).PostAsync(url, q);
             using HttpContent content = response.Content;
-
+            //Response
             string mycontent = await content.ReadAsStringAsync();
-            Console.WriteLine("Post order sent ...");
-
-            System.ConsoleColor originalColor = Console.ForegroundColor;
-            Console.ForegroundColor = System.ConsoleColor.Green;
-
             Console.WriteLine(mycontent);
-
-            Console.ForegroundColor = originalColor;
         }
 
-        async static void GetRequest(string url)
+
+        async static Task<T?> GetSingleDataRequest<T>(string getFolder, T obj)
         {
-            using HttpClient client = new HttpClient();
-
-            using HttpResponseMessage response = await client.GetAsync(url);
-
-            using HttpContent content = response.Content;
-
-            string mycontent = await content.ReadAsStringAsync();
-            Console.WriteLine("Get order sent ...");
-
+            string objString = Functions.ObjectToJsonString(obj);
+            string getRequest = "?data=" + objString;
             //Response
-            System.ConsoleColor originalColor = Console.ForegroundColor;
-            Console.ForegroundColor = System.ConsoleColor.Green;
-            Console.WriteLine(mycontent);
-            Console.ForegroundColor = originalColor;
+            string? mycontent = await GetRequest(getFolder, getRequest);
+            T? t = Functions.JsonStringToSingleObject<T>(mycontent);
+            return t;
+        }
 
-
-
+        async static Task<string> GetRequest(string getFolder, string getRequest)
+        {
+            using HttpResponseMessage response = await ( Configuration.HttpClient ).GetAsync( Configuration.FunctionUrl + getFolder + getRequest);
+            using HttpContent content = response.Content;
+            //Response
+            string mycontent = await content.ReadAsStringAsync();
+            return mycontent;
         }
 
     }

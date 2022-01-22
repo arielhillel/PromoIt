@@ -15,18 +15,18 @@ namespace PromotItLibrary.Models
 
         public static Users LoginUser { get; set; }
         public static MySQL MySql { get { MySQLStart(); return _mySQL; } set { _mySQL = value; } }
-        //public static HttpClient HttpClient { get; private set; }
-        //public static string FunctionUrl { get { HttpClientStart(); return _functionUrl; } set {  _functionUrl = value; } } 
+        public static HttpClient HttpClient { get { HttpClientStart(); return _httpClient; } set { _httpClient = value; } }
+        public static string FunctionUrl { get; set; } = "http://localhost:7071/api/";
 
         public static void MySQLStart() => MySql = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
-        //public static void HttpClientStart() => HttpClient = HttpClient ?? new HttpClient();
+        public static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
 
         private static MySQL _mySQL;
-        private static string _functionUrl = "http://localhost:7071/api/GetUser";
+        private static HttpClient _httpClient;
 
         ~Configuration() 
         { 
-           // HttpClient.Dispose();
+            HttpClient.Dispose();
         }
     }
 
