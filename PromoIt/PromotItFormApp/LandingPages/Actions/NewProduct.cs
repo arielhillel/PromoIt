@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PromotItLibrary.Classes;
+using PromotItLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,27 @@ namespace PromotItFormApp.LandingPages.Actions
         public NewProduct()
         {
             InitializeComponent();
+        }
+
+        private void buttonSaveProduct_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (textBoxProductName.Text == "" || textBoxQuantity.Text == "" || textBoxPrice.Text == "")
+                    throw new Exception("Please fill the required fields");
+                Product product = new Product();
+                product.Name = textBoxProductName.Text;
+                product.Quantity = textBoxQuantity.Text;
+                product.Price = textBoxPrice.Text;
+                product.Campaign_Hashtag = "#hashtag";
+                var result = product.InsertNewProduct(Configuration.MySql);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

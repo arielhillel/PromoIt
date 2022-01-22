@@ -31,13 +31,13 @@
             this.panelNewProduct = new System.Windows.Forms.Panel();
             this.labelNewProduct = new System.Windows.Forms.Label();
             this.panelProductMain = new System.Windows.Forms.Panel();
+            this.buttonSaveProduct = new System.Windows.Forms.Button();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.labelPrice = new System.Windows.Forms.Label();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.labelQuantity = new System.Windows.Forms.Label();
             this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.labelProductName = new System.Windows.Forms.Label();
-            this.labelQuantity = new System.Windows.Forms.Label();
-            this.textBoxQuantity = new System.Windows.Forms.TextBox();
-            this.labelPrice = new System.Windows.Forms.Label();
-            this.textBoxPrice = new System.Windows.Forms.TextBox();
-            this.buttonSaveProduct = new System.Windows.Forms.Button();
             this.panelNewProduct.SuspendLayout();
             this.panelProductMain.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,54 @@
             this.panelProductMain.Size = new System.Drawing.Size(462, 466);
             this.panelProductMain.TabIndex = 0;
             // 
+            // buttonSaveProduct
+            // 
+            this.buttonSaveProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.buttonSaveProduct.FlatAppearance.BorderSize = 0;
+            this.buttonSaveProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveProduct.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveProduct.Location = new System.Drawing.Point(14, 297);
+            this.buttonSaveProduct.Name = "buttonSaveProduct";
+            this.buttonSaveProduct.Size = new System.Drawing.Size(392, 47);
+            this.buttonSaveProduct.TabIndex = 0;
+            this.buttonSaveProduct.Text = "Save";
+            this.buttonSaveProduct.UseVisualStyleBackColor = false;
+            this.buttonSaveProduct.Click += new System.EventHandler(this.buttonSaveProduct_Click);
+            // 
+            // textBoxPrice
+            // 
+            this.textBoxPrice.Location = new System.Drawing.Point(14, 221);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(392, 27);
+            this.textBoxPrice.TabIndex = 0;
+            // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPrice.Location = new System.Drawing.Point(14, 190);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(53, 25);
+            this.labelPrice.TabIndex = 0;
+            this.labelPrice.Text = "Price:";
+            // 
+            // textBoxQuantity
+            // 
+            this.textBoxQuantity.Location = new System.Drawing.Point(14, 149);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(392, 27);
+            this.textBoxQuantity.TabIndex = 0;
+            // 
+            // labelQuantity
+            // 
+            this.labelQuantity.AutoSize = true;
+            this.labelQuantity.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelQuantity.Location = new System.Drawing.Point(14, 118);
+            this.labelQuantity.Name = "labelQuantity";
+            this.labelQuantity.Size = new System.Drawing.Size(84, 25);
+            this.labelQuantity.TabIndex = 0;
+            this.labelQuantity.Text = "Quantity:";
+            // 
             // textBoxProductName
             // 
             this.textBoxProductName.Location = new System.Drawing.Point(14, 78);
@@ -94,53 +142,6 @@
             this.labelProductName.Size = new System.Drawing.Size(130, 25);
             this.labelProductName.TabIndex = 0;
             this.labelProductName.Text = "Product Name:";
-            // 
-            // labelQuantity
-            // 
-            this.labelQuantity.AutoSize = true;
-            this.labelQuantity.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelQuantity.Location = new System.Drawing.Point(14, 118);
-            this.labelQuantity.Name = "labelQuantity";
-            this.labelQuantity.Size = new System.Drawing.Size(84, 25);
-            this.labelQuantity.TabIndex = 0;
-            this.labelQuantity.Text = "Quantity:";
-            // 
-            // textBoxQuantity
-            // 
-            this.textBoxQuantity.Location = new System.Drawing.Point(14, 149);
-            this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(392, 27);
-            this.textBoxQuantity.TabIndex = 0;
-            // 
-            // labelPrice
-            // 
-            this.labelPrice.AutoSize = true;
-            this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPrice.Location = new System.Drawing.Point(14, 190);
-            this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(53, 25);
-            this.labelPrice.TabIndex = 0;
-            this.labelPrice.Text = "Price:";
-            // 
-            // textBoxPrice
-            // 
-            this.textBoxPrice.Location = new System.Drawing.Point(14, 221);
-            this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(392, 27);
-            this.textBoxPrice.TabIndex = 0;
-            // 
-            // buttonSaveProduct
-            // 
-            this.buttonSaveProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonSaveProduct.FlatAppearance.BorderSize = 0;
-            this.buttonSaveProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveProduct.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveProduct.Location = new System.Drawing.Point(14, 297);
-            this.buttonSaveProduct.Name = "buttonSaveProduct";
-            this.buttonSaveProduct.Size = new System.Drawing.Size(392, 47);
-            this.buttonSaveProduct.TabIndex = 0;
-            this.buttonSaveProduct.Text = "Save";
-            this.buttonSaveProduct.UseVisualStyleBackColor = false;
             // 
             // NewProduct
             // 

@@ -14,6 +14,7 @@ namespace PromotItFormApp.PopupForms
 {
     public partial class NewCampaign : Form
     {
+
         public NewCampaign()
         {
             InitializeComponent();
@@ -30,8 +31,14 @@ namespace PromotItFormApp.PopupForms
                 campaign.Hashtag = textBoxCampHashtag.Text;
                 campaign.Url = textBoxCampURL.Text;
                 var result = campaign.InsertNewCampaign(Configuration.MySql);
-                    
-            }catch(Exception ex)
+               
+                this.Hide();
+                PopupForms.NPOrganizationPanel NPOPanel = new PopupForms.NPOrganizationPanel();
+                NPOPanel.ShowDialog();
+
+
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

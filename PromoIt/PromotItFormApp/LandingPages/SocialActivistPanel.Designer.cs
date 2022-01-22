@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialActivistPanel));
             this.panelSADashboard = new System.Windows.Forms.Panel();
+            this.dataGridSA = new System.Windows.Forms.DataGridView();
+            this.hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.webpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonDonateGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridNPO = new System.Windows.Forms.DataGridView();
             this.textBoxSearchSA = new System.Windows.Forms.TextBox();
             this.pictureBoxSearchSA = new System.Windows.Forms.PictureBox();
-            this.buttonProducts = new System.Windows.Forms.Button();
-            this.dataGridSACamp = new System.Windows.Forms.DataGridView();
             this.panelSA = new System.Windows.Forms.Panel();
             this.labelSATitle = new System.Windows.Forms.Label();
             this.panelBalance = new System.Windows.Forms.Panel();
@@ -43,9 +48,9 @@
             this.panelMessagesSA = new System.Windows.Forms.Panel();
             this.dataGridMessages = new System.Windows.Forms.DataGridView();
             this.panelSADashboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchSA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSACamp)).BeginInit();
             this.panelSA.SuspendLayout();
             this.panelBalance.SuspendLayout();
             this.panelMessagesSA.SuspendLayout();
@@ -55,15 +60,98 @@
             // panelSADashboard
             // 
             this.panelSADashboard.BackColor = System.Drawing.Color.White;
+            this.panelSADashboard.Controls.Add(this.dataGridSA);
             this.panelSADashboard.Controls.Add(this.dataGridNPO);
             this.panelSADashboard.Controls.Add(this.textBoxSearchSA);
             this.panelSADashboard.Controls.Add(this.pictureBoxSearchSA);
-            this.panelSADashboard.Controls.Add(this.buttonProducts);
-            this.panelSADashboard.Controls.Add(this.dataGridSACamp);
-            this.panelSADashboard.Location = new System.Drawing.Point(20, 294);
+            this.panelSADashboard.Location = new System.Drawing.Point(20, 283);
             this.panelSADashboard.Name = "panelSADashboard";
-            this.panelSADashboard.Size = new System.Drawing.Size(1204, 406);
+            this.panelSADashboard.Size = new System.Drawing.Size(1204, 417);
             this.panelSADashboard.TabIndex = 0;
+            // 
+            // dataGridSA
+            // 
+            this.dataGridSA.AllowUserToAddRows = false;
+            this.dataGridSA.AllowUserToDeleteRows = false;
+            this.dataGridSA.AllowUserToResizeColumns = false;
+            this.dataGridSA.AllowUserToResizeRows = false;
+            this.dataGridSA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridSA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridSA.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridSA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridSA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hashtag,
+            this.webpage,
+            this.balance,
+            this.buttonProductListGrid,
+            this.buttonDonateGrid});
+            this.dataGridSA.GridColor = System.Drawing.Color.White;
+            this.dataGridSA.Location = new System.Drawing.Point(32, 65);
+            this.dataGridSA.MultiSelect = false;
+            this.dataGridSA.Name = "dataGridSA";
+            this.dataGridSA.ReadOnly = true;
+            this.dataGridSA.RowHeadersVisible = false;
+            this.dataGridSA.RowHeadersWidth = 51;
+            this.dataGridSA.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridSA.RowTemplate.Height = 29;
+            this.dataGridSA.ShowEditingIcon = false;
+            this.dataGridSA.Size = new System.Drawing.Size(1142, 288);
+            this.dataGridSA.TabIndex = 5;
+            this.dataGridSA.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSA_CellClick);
+            // 
+            // hashtag
+            // 
+            this.hashtag.DataPropertyName = "hashtag";
+            this.hashtag.HeaderText = "Hashtag";
+            this.hashtag.MinimumWidth = 6;
+            this.hashtag.Name = "hashtag";
+            this.hashtag.ReadOnly = true;
+            // 
+            // webpage
+            // 
+            this.webpage.DataPropertyName = "webpage";
+            this.webpage.HeaderText = "URL";
+            this.webpage.MinimumWidth = 6;
+            this.webpage.Name = "webpage";
+            this.webpage.ReadOnly = true;
+            // 
+            // balance
+            // 
+            this.balance.DataPropertyName = "balance";
+            this.balance.HeaderText = "Balance";
+            this.balance.MinimumWidth = 6;
+            this.balance.Name = "balance";
+            this.balance.ReadOnly = true;
+            // 
+            // buttonProductListGrid
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProductListGrid.HeaderText = "";
+            this.buttonProductListGrid.MinimumWidth = 6;
+            this.buttonProductListGrid.Name = "buttonProductListGrid";
+            this.buttonProductListGrid.ReadOnly = true;
+            this.buttonProductListGrid.Text = "Product List";
+            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
+            // 
+            // buttonDonateGrid
+            // 
+            this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDonateGrid.HeaderText = "";
+            this.buttonDonateGrid.MinimumWidth = 6;
+            this.buttonDonateGrid.Name = "buttonDonateGrid";
+            this.buttonDonateGrid.ReadOnly = true;
+            this.buttonDonateGrid.Text = "Donate";
+            this.buttonDonateGrid.UseColumnTextForButtonValue = true;
             // 
             // dataGridNPO
             // 
@@ -88,7 +176,7 @@
             this.dataGridNPO.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridNPO.RowTemplate.Height = 29;
             this.dataGridNPO.ShowEditingIcon = false;
-            this.dataGridNPO.Size = new System.Drawing.Size(608, 132);
+            this.dataGridNPO.Size = new System.Drawing.Size(608, 143);
             this.dataGridNPO.TabIndex = 1;
             // 
             // textBoxSearchSA
@@ -111,45 +199,6 @@
             this.pictureBoxSearchSA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSearchSA.TabIndex = 4;
             this.pictureBoxSearchSA.TabStop = false;
-            // 
-            // buttonProducts
-            // 
-            this.buttonProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonProducts.FlatAppearance.BorderSize = 0;
-            this.buttonProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProducts.ForeColor = System.Drawing.Color.White;
-            this.buttonProducts.Location = new System.Drawing.Point(13, 17);
-            this.buttonProducts.Name = "buttonProducts";
-            this.buttonProducts.Size = new System.Drawing.Size(172, 47);
-            this.buttonProducts.TabIndex = 0;
-            this.buttonProducts.Text = "Products";
-            this.buttonProducts.UseVisualStyleBackColor = false;
-            // 
-            // dataGridSACamp
-            // 
-            this.dataGridSACamp.AllowUserToAddRows = false;
-            this.dataGridSACamp.AllowUserToDeleteRows = false;
-            this.dataGridSACamp.AllowUserToResizeColumns = false;
-            this.dataGridSACamp.AllowUserToResizeRows = false;
-            this.dataGridSACamp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridSACamp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridSACamp.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridSACamp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridSACamp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridSACamp.GridColor = System.Drawing.Color.White;
-            this.dataGridSACamp.Location = new System.Drawing.Point(13, 79);
-            this.dataGridSACamp.MultiSelect = false;
-            this.dataGridSACamp.Name = "dataGridSACamp";
-            this.dataGridSACamp.ReadOnly = true;
-            this.dataGridSACamp.RowHeadersVisible = false;
-            this.dataGridSACamp.RowHeadersWidth = 51;
-            this.dataGridSACamp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridSACamp.RowTemplate.Height = 29;
-            this.dataGridSACamp.ShowEditingIcon = false;
-            this.dataGridSACamp.Size = new System.Drawing.Size(1178, 310);
-            this.dataGridSACamp.TabIndex = 0;
             // 
             // panelSA
             // 
@@ -177,9 +226,9 @@
             this.panelBalance.BackColor = System.Drawing.Color.White;
             this.panelBalance.Controls.Add(this.labelSACurrency);
             this.panelBalance.Controls.Add(this.labelBalance);
-            this.panelBalance.Location = new System.Drawing.Point(20, 141);
+            this.panelBalance.Location = new System.Drawing.Point(20, 147);
             this.panelBalance.Name = "panelBalance";
-            this.panelBalance.Size = new System.Drawing.Size(396, 147);
+            this.panelBalance.Size = new System.Drawing.Size(396, 124);
             this.panelBalance.TabIndex = 1;
             // 
             // labelSACurrency
@@ -187,7 +236,7 @@
             this.labelSACurrency.AutoSize = true;
             this.labelSACurrency.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelSACurrency.ForeColor = System.Drawing.Color.Green;
-            this.labelSACurrency.Location = new System.Drawing.Point(96, 18);
+            this.labelSACurrency.Location = new System.Drawing.Point(143, 18);
             this.labelSACurrency.Name = "labelSACurrency";
             this.labelSACurrency.Size = new System.Drawing.Size(77, 25);
             this.labelSACurrency.TabIndex = 0;
@@ -199,9 +248,9 @@
             this.labelBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelBalance.Location = new System.Drawing.Point(13, 15);
             this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(82, 28);
+            this.labelBalance.Size = new System.Drawing.Size(129, 28);
             this.labelBalance.TabIndex = 0;
-            this.labelBalance.Text = "Balance:";
+            this.labelBalance.Text = "Total Balance:";
             // 
             // panelMessagesSA
             // 
@@ -209,7 +258,7 @@
             this.panelMessagesSA.Controls.Add(this.dataGridMessages);
             this.panelMessagesSA.Location = new System.Drawing.Point(610, 141);
             this.panelMessagesSA.Name = "panelMessagesSA";
-            this.panelMessagesSA.Size = new System.Drawing.Size(614, 147);
+            this.panelMessagesSA.Size = new System.Drawing.Size(614, 124);
             this.panelMessagesSA.TabIndex = 0;
             // 
             // dataGridMessages
@@ -226,7 +275,7 @@
             this.dataGridMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMessages.GridColor = System.Drawing.Color.White;
-            this.dataGridMessages.Location = new System.Drawing.Point(7, 5);
+            this.dataGridMessages.Location = new System.Drawing.Point(7, 10);
             this.dataGridMessages.MultiSelect = false;
             this.dataGridMessages.Name = "dataGridMessages";
             this.dataGridMessages.ReadOnly = true;
@@ -235,7 +284,7 @@
             this.dataGridMessages.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridMessages.RowTemplate.Height = 29;
             this.dataGridMessages.ShowEditingIcon = false;
-            this.dataGridMessages.Size = new System.Drawing.Size(600, 135);
+            this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
             this.dataGridMessages.TabIndex = 1;
             // 
             // SocialActivistPanel
@@ -252,12 +301,12 @@
             this.Name = "SocialActivistPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SocialActivistPanel";
-            this.Load += new System.EventHandler(this.SocialActivistPanel_Load);
+            this.Shown += new System.EventHandler(this.SocialActivistPanel_Shown);
             this.panelSADashboard.ResumeLayout(false);
             this.panelSADashboard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSACamp)).EndInit();
             this.panelSA.ResumeLayout(false);
             this.panelSA.PerformLayout();
             this.panelBalance.ResumeLayout(false);
@@ -271,8 +320,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelSADashboard;
-        private System.Windows.Forms.DataGridView dataGridSACamp;
-        private System.Windows.Forms.Button buttonProducts;
         private System.Windows.Forms.TextBox textBoxSearchSA;
         private System.Windows.Forms.PictureBox pictureBoxSearchSA;
         private System.Windows.Forms.Panel panelSA;
@@ -283,5 +330,11 @@
         private System.Windows.Forms.DataGridView dataGridMessages;
         private System.Windows.Forms.Label labelSACurrency;
         private System.Windows.Forms.Label labelBalance;
+        private System.Windows.Forms.DataGridView dataGridSA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hashtag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn webpage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn balance;
+        private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;
+        private System.Windows.Forms.DataGridViewButtonColumn buttonDonateGrid;
     }
 }
