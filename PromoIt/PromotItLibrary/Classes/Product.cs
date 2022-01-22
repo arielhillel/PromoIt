@@ -10,6 +10,7 @@ namespace PromotItLibrary.Classes
 {
     public class Product
     {
+       
         public string Name { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
@@ -29,7 +30,14 @@ namespace PromotItLibrary.Classes
         public MySqlDataAdapter DisplayAndSearch(MySQL mySQL)
         {
             mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
-            mySQL.QuaryParameter("@hashtag", "#hashtag");
+            mySQL.QuaryParameter("@hashtag", Campaign_Hashtag);
+            return mySQL.QuaryDataAdapter();
+        }
+
+        public MySqlDataAdapter DisplayAndSearchByHashtag (MySQL mySQL, string hashtag)
+        {
+            mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
+            mySQL.QuaryParameter("@hashtag", hashtag);
             return mySQL.QuaryDataAdapter();
         }
     }

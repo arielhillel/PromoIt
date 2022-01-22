@@ -34,6 +34,7 @@
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonBuyGrid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonDonateGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@
             this.name,
             this.quantity,
             this.price,
-            this.buttonBuyGrid});
+            this.buttonBuyGrid,
+            this.buttonDonateGrid});
             this.dataGridProductList.GridColor = System.Drawing.Color.White;
             this.dataGridProductList.Location = new System.Drawing.Point(24, 39);
             this.dataGridProductList.MultiSelect = false;
@@ -65,7 +67,7 @@
             this.dataGridProductList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridProductList.RowTemplate.Height = 29;
             this.dataGridProductList.ShowEditingIcon = false;
-            this.dataGridProductList.Size = new System.Drawing.Size(621, 372);
+            this.dataGridProductList.Size = new System.Drawing.Size(812, 372);
             this.dataGridProductList.TabIndex = 2;
             // 
             // name
@@ -109,11 +111,21 @@
             this.buttonBuyGrid.Text = "Buy";
             this.buttonBuyGrid.UseColumnTextForButtonValue = true;
             // 
+            // buttonDonateGrid
+            // 
+            this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDonateGrid.HeaderText = "";
+            this.buttonDonateGrid.MinimumWidth = 6;
+            this.buttonDonateGrid.Name = "buttonDonateGrid";
+            this.buttonDonateGrid.ReadOnly = true;
+            this.buttonDonateGrid.Text = "Donate";
+            this.buttonDonateGrid.UseColumnTextForButtonValue = true;
+            // 
             // ProductListSA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 450);
+            this.ClientSize = new System.Drawing.Size(860, 450);
             this.Controls.Add(this.dataGridProductList);
             this.Name = "ProductListSA";
             this.Text = "ProductList";
@@ -130,5 +142,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewButtonColumn buttonBuyGrid;
+        private System.Windows.Forms.DataGridViewButtonColumn buttonDonateGrid;
     }
 }
