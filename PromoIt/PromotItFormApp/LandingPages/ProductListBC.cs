@@ -16,11 +16,16 @@ namespace PromotItFormApp.LandingPages
     public partial class ProductListBC : Form
     {
         Product product = new Product();
+        public string hashtag;
         public void Display()
         {
             try
             {
+<<<<<<< HEAD
                 MySqlDataAdapter adapter = product.DisplayAndSearch(Configuration.MySQL);
+=======
+                MySqlDataAdapter adapter = product.DisplayAndSearchByHashtag(Configuration.MySql, hashtag);
+>>>>>>> 85268505f0946ea34af3c041c24f13141853692f
                 DataTable tbl = new DataTable();
                 adapter.Fill(tbl);
                 dataGridProductList.DataSource = tbl;

@@ -44,12 +44,10 @@ namespace PromotItFormApp.PopupForms
         {
             if (e.ColumnIndex == 1)
             {
+                string hashtag = dataGridSA.Rows[e.RowIndex].Cells[2].Value.ToString();
                 ProductListSA productList = new ProductListSA();
+                productList.hashtag = hashtag;
                 productList.ShowDialog();
-            }
-            if (e.ColumnIndex == 2)
-            {
-                //Donate
             }
         }
 

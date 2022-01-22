@@ -18,6 +18,7 @@ namespace PromotItFormApp.PopupForms
    
     public partial class BusinessCompanyPanel : Form
     {
+
         Campaign campaign = new Campaign();
         public void Display()
         {
@@ -50,12 +51,17 @@ namespace PromotItFormApp.PopupForms
         {
             if (e.ColumnIndex == 1)
             {
+                string hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
                 NewProduct newProduct = new NewProduct();
+                newProduct.hashtag = hashtag;
+                
                 newProduct.ShowDialog();
             }
             if(e.ColumnIndex == 2)
             {
+                string hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
                 ProductListBC productList = new ProductListBC();
+                productList.hashtag=hashtag;
                 productList.ShowDialog();
             }
         }
