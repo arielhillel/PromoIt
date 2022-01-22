@@ -23,7 +23,7 @@ namespace PromotItFormApp.PopupForms
         {
             try
             {
-                MySqlDataAdapter adapter = campaign.DisplayAndSearch(Configuration.MySql);
+                MySqlDataAdapter adapter = campaign.DisplayAndSearch(Configuration.MySQL);
                 DataTable tbl = new DataTable();
                 adapter.Fill(tbl);
                 dataGridNPO.DataSource = tbl;
@@ -68,7 +68,7 @@ namespace PromotItFormApp.PopupForms
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Infurmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    campaign.DeleteCampaign(Configuration.MySql, hashtag);
+                    campaign.DeleteCampaign(Configuration.MySQL, hashtag);
                     Display();
                 }
             }

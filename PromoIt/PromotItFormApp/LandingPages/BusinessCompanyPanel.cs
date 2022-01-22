@@ -24,7 +24,7 @@ namespace PromotItFormApp.PopupForms
 
             try
             {
-                MySqlDataAdapter adapter = campaign.DisplayAndSearchAll(Configuration.MySql);
+                MySqlDataAdapter adapter = campaign.DisplayAndSearchAll(Configuration.MySQL);
                 DataTable tbl = new DataTable();
                 adapter.Fill(tbl);
                 dataGridCampains.DataSource = tbl;

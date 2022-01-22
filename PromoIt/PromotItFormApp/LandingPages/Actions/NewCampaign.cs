@@ -30,7 +30,7 @@ namespace PromotItFormApp.PopupForms
                 campaign.Name = textBoxCampName.Text;
                 campaign.Hashtag = textBoxCampHashtag.Text;
                 campaign.Url = textBoxCampURL.Text;
-                var result = campaign.InsertNewCampaign(Configuration.MySql);
+                var result = campaign.InsertNewCampaign(Configuration.MySQL);
                
                 this.Hide();
                 PopupForms.NPOrganizationPanel NPOPanel = new PopupForms.NPOrganizationPanel();

@@ -70,7 +70,7 @@ namespace PromotItFormApp.PopupForms
                 Users user = new Users();
                 user.UserName = textBoxUsername.Text.Trim();
                 user.UserPassword = textBoxPassword.Text.Trim();
-                user = user.Login(Configuration.MySql);
+                user = user.Login(Configuration.MySQL);
                 Configuration.LoginUser = user;
 
                 if (user == null)

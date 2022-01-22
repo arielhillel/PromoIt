@@ -54,7 +54,7 @@ namespace PromotItFormApp.RoleRegister
                 nonProfitUser.UserPassword = textBoxNPOPassword.Text;
                 nonProfitUser.Email = textBoxNPOEmail.Text;
                 nonProfitUser.WebSite = textBoxNPOWebsite.Text;
-                bool result = nonProfitUser.Register(Configuration.MySql);
+                bool result = nonProfitUser.Register(Configuration.MySQL);
                 if (result)
                 {
                     Configuration.LoginUser = nonProfitUser;
