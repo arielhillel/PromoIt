@@ -27,7 +27,7 @@ namespace PromoitConsole
 
             NonProfitUser userToRegiser = new NonProfitUser();
             userToRegiser.Name = "aaaaaaaaaa adssgsdgs";
-            userToRegiser.UserName = "aaaaaaaaaaadssgsdg";
+            userToRegiser.UserName = "aaaaaaaaadssgsdg2";
             userToRegiser.UserPassword = "aaaaaaaaaaadssgsdg";
             userToRegiser.Email = "aaaaaaaaaaadssgsdg";
             userToRegiser.WebSite = "aaaaaaaaaaadssgsdg";

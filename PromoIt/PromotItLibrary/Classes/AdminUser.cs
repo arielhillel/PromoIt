@@ -9,7 +9,7 @@ namespace PromotItLibrary.Classes
 {
     public class AdminUser : Users
     {
-        public AdminUser() : base() { }
+        public AdminUser() : base() => UserType = "admin";
         public AdminUser(int id, string userName, string userPassword, string name)
             : base(id, userName, userPassword, name) { }
 

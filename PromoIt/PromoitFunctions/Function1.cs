@@ -52,11 +52,40 @@ namespace PromoitFunction
                     Dictionary<string, string> keyValuePairs = Functions.PostMessageSplit(requestBody);
                     string data = keyValuePairs["data"].ToString();
                     data = Functions.HttpUrlDecode(data);
-                    NonProfitUser user = Functions.JsonStringToSingleObject<NonProfitUser>(data);
-                    if (user == null) throw new Exception($"POST: No {className} IS Enterd");
+
+
+
                     try 
                     {
-                        bool action = user.Register(Configuration.MySql);
+                        dynamic userDataDynamic = Functions.JsonStringToSingleObject<NonProfitUser>(data);
+                        if (userDataDynamic == null) throw new Exception($"POST: No {className} IS Enterd");
+
+                        bool action = false;
+                        if(userDataDynamic.UserType == "non-profit")
+                        {
+                            NonProfitUser user = Functions.JsonStringToSingleObject<NonProfitUser>(data);
+                            if (user == null) throw new Exception($"POST: No {className} IS Enterd");
+                            action = user.Register(Configuration.MySql);
+                        }
+                        else if (userDataDynamic.UserType == "admin")
+                        {
+                            AdminUser user = Functions.JsonStringToSingleObject<AdminUser>(data);
+                            if (user == null) throw new Exception($"POST: No {className} IS Enterd");
+                            action = user.Register(Configuration.MySql);
+                        }
+                        else if (userDataDynamic.UserType == "business")
+                        {
+                            BusinessUser user = Functions.JsonStringToSingleObject<BusinessUser>(data);
+                            if (user == null) throw new Exception($"POST: No {className} IS Enterd");
+                            action = user.Register(Configuration.MySql);
+                        }
+                        else if (userDataDynamic.UserType == "activist")
+                        {
+                            ActivistUser user = Functions.JsonStringToSingleObject<ActivistUser>(data);
+                            if (user == null) throw new Exception($"POST: No {className} IS Enterd");
+                            action = user.Regiser(Configuration.MySql);
+                        }
+
                         if (action)
                         {
                             log.LogInformation($"Function Seccess to Insert {className} to database");

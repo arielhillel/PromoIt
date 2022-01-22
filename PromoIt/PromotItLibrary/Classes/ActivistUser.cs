@@ -10,7 +10,8 @@ namespace PromotItLibrary.Classes
 {
     public class ActivistUser : Users
     {
-        public ActivistUser() : base() { }
+        public ActivistUser() : base() =>  UserType = "activist";
+        
         public ActivistUser(int id, string userName, string userPassword, string name)
             : base(id, userName, userPassword, name) { }
 
