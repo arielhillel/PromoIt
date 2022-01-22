@@ -9,7 +9,7 @@ namespace PromotItLibrary.Classes
 {
     public class NonProfitUser : Users
     {
-        public NonProfitUser() : base() { }
+        public NonProfitUser() : base() => UserType = "non-profit";
         public NonProfitUser(int id, string userName, string userPassword, string name, string Email)
             : base(id, userName, userPassword, name) { }
 

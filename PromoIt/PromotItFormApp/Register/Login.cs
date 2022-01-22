@@ -68,20 +68,16 @@ namespace PromotItFormApp.PopupForms
             try
             {
                 Users user = new Users();
-                Configuration.LoginUser = user;
                 user.UserName = textBoxUsername.Text.Trim();
                 user.UserPassword = textBoxPassword.Text.Trim();
+                user = user.Login(Configuration.MySql);
+                Configuration.LoginUser = user;
 
-                MySqlDataAdapter adapter = user.Login(Configuration.MySql);
-
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                if (dataTable.Rows.Count <= 0)
+                if (user == null)
                     throw new Exception("Wrong username or password!");
 
 
-                string? type = dataTable.Rows[0]["user_type"] as string;
+                string? type = user.UserType;
                 Form? form =
                     type == "admin" ? new AdminPanel() :
                     type == "non-profit" ? new NPOrganizationPanel() :

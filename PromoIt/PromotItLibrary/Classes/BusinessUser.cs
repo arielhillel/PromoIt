@@ -9,7 +9,7 @@ namespace PromotItLibrary.Classes
 {
     public class BusinessUser : Users
     {
-        public BusinessUser() : base() { }
+        public BusinessUser() : base() => UserType = "business";
         public BusinessUser(int id, string userName, string userPassword, string name)
             : base(id, userName, userPassword, name) { }
 
