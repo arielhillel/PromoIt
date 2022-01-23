@@ -1,6 +1,6 @@
-﻿namespace PromotItFormApp.LandingPages.Actions
+﻿namespace PromotItFormApp.LandingPagesActions
 {
-    partial class NewProduct
+    partial class BusinessNewProduct
     {
         /// <summary>
         /// Required designer variable.

@@ -31,7 +31,7 @@ namespace PromotItFormApp.LandingPages
         private void buttonNew_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Actions.NewCampaign newCamp = new Actions.NewCampaign();
+            Actions.NonProfitNewCampaign newCamp = new Actions.NonProfitNewCampaign();
             newCamp.ShowDialog();
         }
 

@@ -10,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.LandingPages.Actions
+namespace PromotItFormApp.LandingPagesActions
 {
-    public partial class NewProduct : Form
+    public partial class BusinessNewProduct : Form
     {
         public string hashtag;
-        public NewProduct()
+        public BusinessNewProduct()
         {
             InitializeComponent();
         }

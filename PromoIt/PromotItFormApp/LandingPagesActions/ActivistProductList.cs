@@ -11,11 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.LandingPages.Actions
+namespace PromotItFormApp.LandingPagesActions
 {
-    public partial class ProductListBC : Form
+    public partial class ActivistProductList : Form
     {
-        ProductInCampaign product = new ProductInCampaign();
+ 
+        public ActivistProductList()
+        {
+            InitializeComponent();
+            product = new ProductInCampaign();
+        }
+
+        private ProductInCampaign product;
+
         public void Display()
         {
             try
@@ -33,12 +41,40 @@ namespace PromotItFormApp.LandingPages.Actions
                 MessageBox.Show(ex.Message);
             }
         }
-        public ProductListBC()
+
+
+        private void dataGridProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            InitializeComponent();
+            if (e.ColumnIndex == 0)
+            {
+                MessageBox.Show("0");
+            }
+            if (e.ColumnIndex == 1)
+            {
+                MessageBox.Show("1");
+            }
+            if (e.ColumnIndex == 2)
+            {
+                MessageBox.Show("2");
+            }
+
+
+            if (e.ColumnIndex == 3)
+            {
+                MessageBox.Show("3");
+            }
+
+
+            if (e.ColumnIndex == 4)
+            {
+                MessageBox.Show("4");
+            }
+
+
+
         }
 
-        private void ProductListBC_Shown(object sender, EventArgs e)
+        private void ProductList_Shown(object sender, EventArgs e)
         {
             Display();
         }

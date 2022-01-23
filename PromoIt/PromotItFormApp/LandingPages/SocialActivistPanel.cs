@@ -30,7 +30,7 @@ namespace PromotItFormApp.LandingPages
                 campaign.Hashtag = dataGridSA["clmnHashtag",e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
 
-                Actions.ProductListSA productList = new Actions.ProductListSA();
+                Actions.ProductListActivist productList = new Actions.ProductListActivist();
                 productList.ShowDialog();
             }
         }

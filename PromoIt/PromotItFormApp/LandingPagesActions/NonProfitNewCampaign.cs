@@ -10,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.LandingPages.Actions
+namespace PromotItFormApp.LandingPagesActions
 {
-    public partial class NewCampaign : Form
+    public partial class NonProfitNewCampaign : Form
     {
 
-        public NewCampaign()
+        public NonProfitNewCampaign()
         {
             InitializeComponent();
         }

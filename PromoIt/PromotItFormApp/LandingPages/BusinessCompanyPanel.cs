@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using PromotItFormApp.LandingPages;
-using PromotItFormApp.LandingPages.Actions;
+using PromotItFormApp.LandingPagesActions;
 using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
 using System;
@@ -23,28 +23,29 @@ namespace PromotItFormApp.LandingPages
         {
             InitializeComponent();
             DisplayCampaigns();
+            DisplayProductsForShipping();
         }
 
-        
+
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 1)
             {
                 Campaign campaign = new Campaign();
                 campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
 
-                NewProduct newProduct = new NewProduct();
-                newProduct.ShowDialog();
+                BusinessNewProduct businessNewProduct = new BusinessNewProduct();
+                businessNewProduct.ShowDialog();
             }
-            
-            if(e.ColumnIndex == 1)
+            else if(e.ColumnIndex == 0)
             {
                 Campaign campaign = new Campaign();
                 campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
-                ProductListBC productList = new ProductListBC();
-                productList.ShowDialog();
+                
+                BusinessProductList businessProductList = new BusinessProductList();
+                businessProductList.ShowDialog();
             }
 
         }
@@ -54,6 +55,19 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 dataGridCampains.DataSource = Campaign.BusinessDisplayAll(); ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DisplayProductsForShipping()
+        {
+            try
+            {
+                ProductDonated productDonated = new ProductDonated();
+                dataGridBuyers.DataSource = productDonated.ShowDonatedProductForShipping();
             }
             catch (Exception ex)
             {

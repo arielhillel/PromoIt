@@ -1,6 +1,6 @@
-﻿namespace PromotItFormApp.LandingPages.Actions
+﻿namespace PromotItFormApp.LandingPagesActions
 {
-    partial class NewCampaign
+    partial class NonProfitNewCampaign
     {
         /// <summary>
         /// Required designer variable.
