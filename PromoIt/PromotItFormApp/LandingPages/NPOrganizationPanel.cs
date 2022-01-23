@@ -50,7 +50,7 @@ namespace PromotItFormApp.PopupForms
 
             if (e.ColumnIndex == 0)
             {
-                if(MessageBox.Show("Are you sure you want to delete this campaign?", "Infurmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+                if(MessageBox.Show("Are you sure you want to delete this campaign?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[3].Value.ToString();
                     campaign.DeleteCampaign(hashtag);
