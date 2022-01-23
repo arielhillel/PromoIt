@@ -21,7 +21,7 @@ namespace PromotItLibrary.Classes
 
         public Campaign()
         {
-            NonProfitUser = Configuration.LoginUser;
+            NonProfitUser = Configuration.LoginUser ?? new Users();
         }
 
 

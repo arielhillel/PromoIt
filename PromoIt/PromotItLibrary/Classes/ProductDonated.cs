@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PromotItLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,8 @@ namespace PromotItLibrary.Classes
         public ProductDonated()
         {
             ProductInCampaign = new ProductInCampaign();
-            ActivistUser = new ActivistUser();
-            Campaign = new Campaign();
+            ActivistUser = Configuration.LoginUser ?? new ActivistUser();
+            Campaign = Configuration.CorrentCampaign ?? new Campaign();
         }
     }
 }
