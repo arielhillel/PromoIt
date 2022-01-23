@@ -25,6 +25,10 @@ namespace PromotItLibrary.Classes
 
         private MySQL mySQL = Configuration.MySQL;
 
+
+
+
+
         public bool InsertNewProduct()
         {
             mySQL.Quary("INSERT INTO `promoit`.`products_in_campaign` (`name`, `quantity`, `price`, `business_user_name`, `campaign_hashtag`) VALUES (@_name, @_quantity, @_price, @_business_user_name, @_campaign_hashtag);");
@@ -36,9 +40,9 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-        public MySqlDataAdapter DisplayAndSearch()
+        public MySqlDataAdapter GetList()
         {
-            mySQL.SetQuary("SELECT name, quantity, price FROM products_in_campaign WHERE campaign_hashtag = @hashtag");
+            mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag");
             mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
             return mySQL.QuaryDataAdapter();
         }
@@ -46,7 +50,7 @@ namespace PromotItLibrary.Classes
 
 
 
-        public MySqlDataAdapter DisplayAndSearchByHashtag (string hashtag)
+        public MySqlDataAdapter GetListByHashtag(string hashtag)
         {
             mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
             mySQL.QuaryParameter("@hashtag", hashtag);

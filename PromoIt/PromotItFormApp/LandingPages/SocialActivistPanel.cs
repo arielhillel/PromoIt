@@ -28,7 +28,7 @@ namespace PromotItFormApp.LandingPages
             if (e.ColumnIndex == 1)
             {
                 Campaign campaign = new Campaign();
-                campaign.Hashtag = dataGridSA["clmnHashtag",e.RowIndex].Value.ToString();
+                campaign.Hashtag = dataGridSA["clmnHashtag", e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
 
                 ActivistProductList productList = new ActivistProductList();

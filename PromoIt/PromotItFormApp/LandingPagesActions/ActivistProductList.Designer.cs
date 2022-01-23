@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridProductList = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,14 +44,15 @@
             this.dataGridProductList.AllowUserToDeleteRows = false;
             this.dataGridProductList.AllowUserToResizeColumns = false;
             this.dataGridProductList.AllowUserToResizeRows = false;
-            this.dataGridProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridProductList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridProductList.BackgroundColor = System.Drawing.Color.White;
             this.dataGridProductList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.name,
             this.quantity,
             this.price,
@@ -67,6 +69,15 @@
             this.dataGridProductList.ShowEditingIcon = false;
             this.dataGridProductList.Size = new System.Drawing.Size(812, 372);
             this.dataGridProductList.TabIndex = 2;
+            this.dataGridProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProductList_CellClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
             // name
             // 
@@ -109,13 +120,13 @@
             this.buttonBuyGrid.Text = "Buy";
             this.buttonBuyGrid.UseColumnTextForButtonValue = true;
             // 
-            // ProductListSA
+            // ActivistProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 450);
             this.Controls.Add(this.dataGridProductList);
-            this.Name = "ProductListSA";
+            this.Name = "ActivistProductList";
             this.Text = "ProductList";
             this.Shown += new System.EventHandler(this.ProductList_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).EndInit();
@@ -126,9 +137,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridProductList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewButtonColumn buttonBuyGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

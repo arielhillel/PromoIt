@@ -25,6 +25,20 @@ namespace PromotItLibrary.Classes
 
         private MySQL mySQL = new MySQL();
 
+        public bool SetBuyAnItem()
+        {
+            mySQL.Procedure("buy_a_product"); 
+            mySQL.SetParameter("_product_id", ProductInCampaign.Id);
+            mySQL.SetParameter("_quantity", int.Parse(Quantity));
+            mySQL.SetParameter("_activist_user_name", ActivistUser.UserName);
+            mySQL.SetParameter("_shipping", "not_shipped");
+
+            return mySQL.ProceduteExecute();
+        }
+
+
+
+
         public DataTable ShowDonatedProductForShipping()
         {
             // Error, no npo user

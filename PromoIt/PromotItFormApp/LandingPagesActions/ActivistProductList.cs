@@ -19,27 +19,29 @@ namespace PromotItFormApp.LandingPagesActions
         public ActivistProductList()
         {
             InitializeComponent();
-            product = new ProductInCampaign();
+            _productInCampaign = new ProductInCampaign();
+            _productDonated = new ProductDonated();
         }
 
-        private ProductInCampaign product;
+        private ProductInCampaign _productInCampaign;
+        private ProductDonated _productDonated;
 
-        public void Display()
+        private void Display()
         {
             try
             {
-                MySqlDataAdapter adapter = product.DisplayAndSearch();
+                Configuration.CorrentProduct = _productInCampaign;
+                _productInCampaign.Campaign = Configuration.CorrentCampaign;
+                MySqlDataAdapter adapter = _productInCampaign.GetList();
                 DataTable tbl = new DataTable();
                 adapter.Fill(tbl);
                 dataGridProductList.DataSource = tbl;
+                dataGridProductList.Columns["id"].HeaderText = "id";
                 dataGridProductList.Columns["name"].HeaderText = "Product Name";
                 dataGridProductList.Columns["quantity"].HeaderText = "Quantity";
                 dataGridProductList.Columns["price"].HeaderText = "Price";
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 
@@ -47,29 +49,16 @@ namespace PromotItFormApp.LandingPagesActions
         {
             if (e.ColumnIndex == 0)
             {
-                MessageBox.Show("0");
+                _productDonated.ProductInCampaign.Id = int.Parse(dataGridProductList["id", e.RowIndex].Value.ToString());
+                _productDonated.Quantity = "1";
+                _productDonated.ActivistUser = Configuration.LoginUser;
+                Configuration.CorrentProduct = _productInCampaign;
+                try
+                {
+                    _productDonated.SetBuyAnItem();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
-            if (e.ColumnIndex == 1)
-            {
-                MessageBox.Show("1");
-            }
-            if (e.ColumnIndex == 2)
-            {
-                MessageBox.Show("2");
-            }
-
-
-            if (e.ColumnIndex == 3)
-            {
-                MessageBox.Show("3");
-            }
-
-
-            if (e.ColumnIndex == 4)
-            {
-                MessageBox.Show("4");
-            }
-
 
 
         }
