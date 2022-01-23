@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using PromotItLibrary.Classes;
+using PromotItFormApp.LandingPagesActions;
 
 namespace PromotItFormApp.LandingPages
 {
@@ -31,7 +32,7 @@ namespace PromotItFormApp.LandingPages
         private void buttonNew_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Actions.NonProfitNewCampaign newCamp = new Actions.NonProfitNewCampaign();
+            NonProfitNewCampaign newCamp = new NonProfitNewCampaign();
             newCamp.ShowDialog();
         }
 

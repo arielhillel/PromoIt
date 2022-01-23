@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using PromotItFormApp.LandingPages;
+using PromotItFormApp.LandingPagesActions;
 using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
 using System;
@@ -30,7 +31,7 @@ namespace PromotItFormApp.LandingPages
                 campaign.Hashtag = dataGridSA["clmnHashtag",e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
 
-                Actions.ProductListActivist productList = new Actions.ProductListActivist();
+                ActivistProductList productList = new ActivistProductList();
                 productList.ShowDialog();
             }
         }
