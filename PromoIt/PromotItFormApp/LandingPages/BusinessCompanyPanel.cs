@@ -27,7 +27,7 @@ namespace PromotItFormApp.PopupForms
         
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 0)
             {
                 Campaign campaign = new Campaign();
                 campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
@@ -36,14 +36,16 @@ namespace PromotItFormApp.PopupForms
                 NewProduct newProduct = new NewProduct();
                 newProduct.ShowDialog();
             }
-            if(e.ColumnIndex == 2)
+            
+            if(e.ColumnIndex == 1)
             {
                 Campaign campaign = new Campaign();
-                campaign.Hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
+                campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
                 ProductListBC productList = new ProductListBC();
                 productList.ShowDialog();
             }
+
         }
 
         private void DisplayCampaigns()
