@@ -26,11 +26,11 @@ namespace PromotItFormApp.PopupForms
         {
             if (e.ColumnIndex == 1)
             {
-                string hashtag = dataGridSA.Rows[e.RowIndex].Cells[2].Value.ToString();
-                ProductListSA productList = new ProductListSA();
                 Campaign campaign = new Campaign();
-                campaign.Hashtag = hashtag;
+                campaign.Hashtag = dataGridSA["clmnHashtag",e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
+
+                ProductListSA productList = new ProductListSA();
                 productList.ShowDialog();
             }
         }

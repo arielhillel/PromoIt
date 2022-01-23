@@ -30,7 +30,7 @@ namespace PromotItFormApp.PopupForms
             if (e.ColumnIndex == 1)
             {
                 Campaign campaign = new Campaign();
-                campaign.Hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
+                campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
 
                 NewProduct newProduct = new NewProduct();

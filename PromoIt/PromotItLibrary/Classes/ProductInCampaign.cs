@@ -19,8 +19,8 @@ namespace PromotItLibrary.Classes
 
         public ProductInCampaign()
         {
-            Campaign = new Campaign();
-            BusinessUser = Configuration.LoginUser;
+            Campaign = Configuration.CorrentCampaign ?? new Campaign();
+            BusinessUser = Configuration.LoginUser ?? new Users();
         }
 
         private MySQL mySQL = Configuration.MySQL;
@@ -38,7 +38,7 @@ namespace PromotItLibrary.Classes
 
         public MySqlDataAdapter DisplayAndSearch()
         {
-            mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
+            mySQL.SetQuary("SELECT name, quantity, price FROM products_in_campaign WHERE campaign_hashtag = @hashtag");
             mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
             return mySQL.QuaryDataAdapter();
         }
