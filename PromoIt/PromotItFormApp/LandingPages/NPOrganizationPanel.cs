@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using PromotItLibrary.Classes;
 
-namespace PromotItFormApp.PopupForms
+namespace PromotItFormApp.LandingPages
 {
 
    
@@ -31,7 +31,7 @@ namespace PromotItFormApp.PopupForms
         private void buttonNew_Click(object sender, EventArgs e)
         {
             this.Hide();
-            NewCampaign newCamp = new NewCampaign();
+            Actions.NewCampaign newCamp = new Actions.NewCampaign();
             newCamp.ShowDialog();
         }
 

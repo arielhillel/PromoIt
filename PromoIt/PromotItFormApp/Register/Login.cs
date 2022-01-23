@@ -14,7 +14,7 @@ using PromotItLibrary.Models;
 using PromotItFormApp;
 using PromotItLibrary.Interfaces;
 
-namespace PromotItFormApp.PopupForms
+namespace PromotItFormApp.LandingPages
 {
 
     public partial class Login : Form

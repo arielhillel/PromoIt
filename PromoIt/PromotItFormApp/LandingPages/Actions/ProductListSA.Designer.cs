@@ -1,4 +1,4 @@
-﻿namespace PromotItFormApp.LandingPages
+﻿namespace PromotItFormApp.LandingPages.Actions
 {
     partial class ProductListSA
     {

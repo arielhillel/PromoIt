@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.PopupForms
+namespace PromotItFormApp.LandingPages
 {
     public partial class AdminPanel : Form
     {

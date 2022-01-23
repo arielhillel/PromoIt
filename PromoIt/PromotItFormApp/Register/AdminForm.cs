@@ -60,7 +60,7 @@ namespace PromotItFormApp.RoleRegister
                 }
 
                 this.Hide();
-                PopupForms.Login login = new PopupForms.Login();
+                LandingPages.Login login = new LandingPages.Login();
                 login.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

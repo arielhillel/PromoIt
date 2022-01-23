@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.LandingPages
+namespace PromotItFormApp.LandingPages.Actions
 {
     public partial class ProductListSA : Form
     {

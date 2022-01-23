@@ -1,4 +1,4 @@
-﻿namespace PromotItFormApp.PopupForms
+﻿namespace PromotItFormApp.LandingPages
 {
     partial class BusinessCompanyPanel
     {
@@ -111,8 +111,8 @@
             this.dataGridCampains.AllowUserToDeleteRows = false;
             this.dataGridCampains.AllowUserToResizeColumns = false;
             this.dataGridCampains.AllowUserToResizeRows = false;
-            this.dataGridCampains.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridCampains.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridCampains.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridCampains.BackgroundColor = System.Drawing.Color.White;
@@ -143,8 +143,8 @@
             this.dataGridBuyers.AllowUserToDeleteRows = false;
             this.dataGridBuyers.AllowUserToResizeColumns = false;
             this.dataGridBuyers.AllowUserToResizeRows = false;
-            this.dataGridBuyers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridBuyers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridBuyers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBuyers.BackgroundColor = System.Drawing.Color.White;

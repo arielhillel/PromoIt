@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.PopupForms
+namespace PromotItFormApp.LandingPages.Actions
 {
     public partial class NewCampaign : Form
     {
@@ -33,7 +33,7 @@ namespace PromotItFormApp.PopupForms
                 var result = campaign.InsertNewCampaign();
                
                 this.Hide();
-                PopupForms.NPOrganizationPanel NPOPanel = new PopupForms.NPOrganizationPanel();
+                LandingPages.NPOrganizationPanel NPOPanel = new LandingPages.NPOrganizationPanel();
                 NPOPanel.ShowDialog();
 
 

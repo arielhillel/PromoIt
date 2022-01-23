@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PromotItFormApp.PopupForms
+namespace PromotItFormApp.LandingPages
 {
     public partial class SocialActivistPanel : Form
     {
@@ -30,7 +30,7 @@ namespace PromotItFormApp.PopupForms
                 campaign.Hashtag = dataGridSA["clmnHashtag",e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
 
-                ProductListSA productList = new ProductListSA();
+                Actions.ProductListSA productList = new Actions.ProductListSA();
                 productList.ShowDialog();
             }
         }

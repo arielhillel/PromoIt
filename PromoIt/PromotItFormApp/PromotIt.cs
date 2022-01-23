@@ -72,7 +72,7 @@ namespace PromotItFormApp
         private void buttonLogin_Click(object sender, EventArgs e)
         {            
             ActivateButton(sender);
-            PopupForms.Login loginForm = new PopupForms.Login();
+            LandingPages.Login loginForm = new LandingPages.Login();
             loginForm.ShowDialog();
         }
 

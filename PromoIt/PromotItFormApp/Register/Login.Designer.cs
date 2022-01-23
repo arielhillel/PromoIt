@@ -1,4 +1,4 @@
-﻿namespace PromotItFormApp.PopupForms
+﻿namespace PromotItFormApp.LandingPages
 {
     partial class Login
     {
