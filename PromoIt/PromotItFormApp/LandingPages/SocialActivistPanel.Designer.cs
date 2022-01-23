@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialActivistPanel));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialActivistPanel));
             this.panelSADashboard = new System.Windows.Forms.Panel();
             this.dataGridSA = new System.Windows.Forms.DataGridView();
+            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridNPO = new System.Windows.Forms.DataGridView();
             this.textBoxSearchSA = new System.Windows.Forms.TextBox();
             this.pictureBoxSearchSA = new System.Windows.Forms.PictureBox();
@@ -42,10 +46,6 @@
             this.labelBalance = new System.Windows.Forms.Label();
             this.panelMessagesSA = new System.Windows.Forms.Panel();
             this.dataGridMessages = new System.Windows.Forms.DataGridView();
-            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelSADashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
@@ -99,6 +99,47 @@
             this.dataGridSA.Size = new System.Drawing.Size(1142, 288);
             this.dataGridSA.TabIndex = 5;
             this.dataGridSA.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSA_CellClick);
+            // 
+            // clmnHashtag
+            // 
+            this.clmnHashtag.DataPropertyName = "clmnHashtag";
+            this.clmnHashtag.HeaderText = "Hashtag";
+            this.clmnHashtag.MinimumWidth = 6;
+            this.clmnHashtag.Name = "clmnHashtag";
+            this.clmnHashtag.ReadOnly = true;
+            // 
+            // clmnWebpage
+            // 
+            this.clmnWebpage.DataPropertyName = "clmnWebpage";
+            this.clmnWebpage.HeaderText = "URL";
+            this.clmnWebpage.MinimumWidth = 6;
+            this.clmnWebpage.Name = "clmnWebpage";
+            this.clmnWebpage.ReadOnly = true;
+            // 
+            // balance
+            // 
+            this.balance.DataPropertyName = "balance";
+            this.balance.HeaderText = "Balance";
+            this.balance.MinimumWidth = 6;
+            this.balance.Name = "balance";
+            this.balance.ReadOnly = true;
+            // 
+            // buttonProductListGrid
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProductListGrid.HeaderText = "";
+            this.buttonProductListGrid.MinimumWidth = 6;
+            this.buttonProductListGrid.Name = "buttonProductListGrid";
+            this.buttonProductListGrid.ReadOnly = true;
+            this.buttonProductListGrid.Text = "Product List";
+            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
             // 
             // dataGridNPO
             // 
@@ -156,6 +197,7 @@
             this.panelSA.Name = "panelSA";
             this.panelSA.Size = new System.Drawing.Size(1236, 135);
             this.panelSA.TabIndex = 0;
+            this.panelSA.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSA_Paint);
             // 
             // labelSATitle
             // 
@@ -233,47 +275,6 @@
             this.dataGridMessages.ShowEditingIcon = false;
             this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
             this.dataGridMessages.TabIndex = 1;
-            // 
-            // clmnHashtag
-            // 
-            this.clmnHashtag.DataPropertyName = "clmnHashtag";
-            this.clmnHashtag.HeaderText = "Hashtag";
-            this.clmnHashtag.MinimumWidth = 6;
-            this.clmnHashtag.Name = "clmnHashtag";
-            this.clmnHashtag.ReadOnly = true;
-            // 
-            // clmnWebpage
-            // 
-            this.clmnWebpage.DataPropertyName = "clmnWebpage";
-            this.clmnWebpage.HeaderText = "URL";
-            this.clmnWebpage.MinimumWidth = 6;
-            this.clmnWebpage.Name = "clmnWebpage";
-            this.clmnWebpage.ReadOnly = true;
-            // 
-            // balance
-            // 
-            this.balance.DataPropertyName = "balance";
-            this.balance.HeaderText = "Balance";
-            this.balance.MinimumWidth = 6;
-            this.balance.Name = "balance";
-            this.balance.ReadOnly = true;
-            // 
-            // buttonProductListGrid
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProductListGrid.HeaderText = "";
-            this.buttonProductListGrid.MinimumWidth = 6;
-            this.buttonProductListGrid.Name = "buttonProductListGrid";
-            this.buttonProductListGrid.ReadOnly = true;
-            this.buttonProductListGrid.Text = "Product List";
-            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
             // 
             // SocialActivistPanel
             // 

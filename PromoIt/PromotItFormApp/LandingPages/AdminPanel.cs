@@ -21,5 +21,11 @@ namespace PromotItFormApp.LandingPages
         {
 
         }
+
+        private void panelAdmin_Paint(object sender, PaintEventArgs e)
+        {
+            panelAdmin.BackColor = ThemeColor.PrimaryColor;
+            panelAdmin.ForeColor = Color.White;
+        }
     }
 }

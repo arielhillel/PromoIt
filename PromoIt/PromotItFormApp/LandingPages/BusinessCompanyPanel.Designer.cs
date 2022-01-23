@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBCR = new System.Windows.Forms.Panel();
             this.labelBCRTitle = new System.Windows.Forms.Label();
             this.labelWinnerList = new System.Windows.Forms.Label();
@@ -37,13 +38,13 @@
             this.Hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridCampains = new System.Windows.Forms.DataGridView();
+            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridBuyers = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.buttonDonateGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelBCR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCampains)).BeginInit();
@@ -59,6 +60,7 @@
             this.panelBCR.Name = "panelBCR";
             this.panelBCR.Size = new System.Drawing.Size(1123, 135);
             this.panelBCR.TabIndex = 0;
+            this.panelBCR.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBCR_Paint);
             // 
             // labelBCRTitle
             // 
@@ -137,6 +139,56 @@
             this.dataGridCampains.TabIndex = 1;
             this.dataGridCampains.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBC_CellClick);
             // 
+            // clmnHashtag
+            // 
+            this.clmnHashtag.DataPropertyName = "clmnHashtag";
+            this.clmnHashtag.HeaderText = "Hashtag";
+            this.clmnHashtag.MinimumWidth = 6;
+            this.clmnHashtag.Name = "clmnHashtag";
+            this.clmnHashtag.ReadOnly = true;
+            // 
+            // clmnWebpage
+            // 
+            this.clmnWebpage.DataPropertyName = "clmnWebPage";
+            this.clmnWebpage.HeaderText = "URL";
+            this.clmnWebpage.MinimumWidth = 6;
+            this.clmnWebpage.Name = "clmnWebpage";
+            this.clmnWebpage.ReadOnly = true;
+            // 
+            // buttonDonateGrid
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonDonateGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDonateGrid.HeaderText = "";
+            this.buttonDonateGrid.MinimumWidth = 6;
+            this.buttonDonateGrid.Name = "buttonDonateGrid";
+            this.buttonDonateGrid.ReadOnly = true;
+            this.buttonDonateGrid.Text = "Donate";
+            this.buttonDonateGrid.UseColumnTextForButtonValue = true;
+            // 
+            // buttonProductListGrid
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProductListGrid.HeaderText = "";
+            this.buttonProductListGrid.MinimumWidth = 6;
+            this.buttonProductListGrid.Name = "buttonProductListGrid";
+            this.buttonProductListGrid.ReadOnly = true;
+            this.buttonProductListGrid.Text = "Product List";
+            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
+            // 
             // dataGridBuyers
             // 
             this.dataGridBuyers.AllowUserToAddRows = false;
@@ -185,13 +237,13 @@
             // 
             // dataGridViewButtonColumn1
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dataGridViewButtonColumn1.HeaderText = "";
             this.dataGridViewButtonColumn1.MinimumWidth = 6;
@@ -216,7 +268,7 @@
             this.clmnWebpage.Name = "clmnWebpage";
             this.clmnWebpage.ReadOnly = true;
             // 
-            // buttonProductListGrid
+            // buttonDonateGrid
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
@@ -224,24 +276,24 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProductListGrid.HeaderText = "";
-            this.buttonProductListGrid.MinimumWidth = 6;
-            this.buttonProductListGrid.Name = "buttonProductListGrid";
-            this.buttonProductListGrid.ReadOnly = true;
-            this.buttonProductListGrid.Text = "Donate";
-            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
-            // 
-            // buttonDonateGrid
-            // 
+            this.buttonDonateGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDonateGrid.HeaderText = "";
             this.buttonDonateGrid.MinimumWidth = 6;
             this.buttonDonateGrid.Name = "buttonDonateGrid";
             this.buttonDonateGrid.ReadOnly = true;
-            this.buttonDonateGrid.Text = "Product List";
+            this.buttonDonateGrid.Text = "Donate";
             this.buttonDonateGrid.UseColumnTextForButtonValue = true;
+            // 
+            // buttonProductListGrid
+            // 
+            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProductListGrid.HeaderText = "";
+            this.buttonProductListGrid.MinimumWidth = 6;
+            this.buttonProductListGrid.Name = "buttonProductListGrid";
+            this.buttonProductListGrid.ReadOnly = true;
+            this.buttonProductListGrid.Text = "Product List";
+            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
             // 
             // BusinessCompanyPanel
             // 

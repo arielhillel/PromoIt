@@ -76,7 +76,7 @@
             this.buttonContact.Name = "buttonContact";
             this.buttonContact.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.buttonContact.Size = new System.Drawing.Size(220, 60);
-            this.buttonContact.TabIndex = 6;
+            this.buttonContact.TabIndex = 0;
             this.buttonContact.Text = " Contact Us";
             this.buttonContact.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -136,12 +136,12 @@
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.buttonAbout.Size = new System.Drawing.Size(220, 60);
-            this.buttonAbout.TabIndex = 3;
+            this.buttonAbout.TabIndex = 0;
             this.buttonAbout.Text = " About PromoteIt";
             this.buttonAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAbout.UseVisualStyleBackColor = true;
-            this.buttonAbout.Click += new System.EventHandler(this.button2_Click);
+            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
             // 
             // buttonLogin
             // 
@@ -176,7 +176,7 @@
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.buttonHome.Size = new System.Drawing.Size(220, 60);
-            this.buttonHome.TabIndex = 1;
+            this.buttonHome.TabIndex = 0;
             this.buttonHome.Text = " Home";
             this.buttonHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -248,9 +248,9 @@
             this.panelDesktopPanel.Name = "panelDesktopPanel";
             this.panelDesktopPanel.Size = new System.Drawing.Size(862, 493);
             this.panelDesktopPanel.TabIndex = 2;
-            this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint_1);
+            //this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint_1);
             // 
-            // FormMainMenu
+            // PromotIt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -259,7 +259,7 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.MinimumSize = new System.Drawing.Size(900, 600);
-            this.Name = "FormMainMenu";
+            this.Name = "PromotIt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PromotIt";
             this.panelMenu.ResumeLayout(false);

@@ -47,5 +47,11 @@ namespace PromotItFormApp.LandingPages
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void panelSA_Paint(object sender, PaintEventArgs e)
+        {
+            panelSA.BackColor = ThemeColor.PrimaryColor;
+            panelSA.ForeColor = Color.White;
+        }
     }
 }

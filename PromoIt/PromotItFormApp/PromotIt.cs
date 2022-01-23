@@ -24,7 +24,7 @@ namespace PromotItFormApp
         {
             InitializeComponent();
             random = new Random();
-            buttonCloseChildForm.Visible = false;
+            buttonCloseChildForm.Visible = false;            
         }
 
         //Methods
@@ -43,47 +43,55 @@ namespace PromotItFormApp
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
-        {            
-            ActivateButton(sender);
+        {
+            OpenChildForm(new ChildPages.MenuHomePage(), sender);
+            //ActivateButton(sender);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonAbout_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new ChildPages.MenuAboutPage(), sender);
+            //ActivateButton(sender);
         }
 
         private void buttonTwitter_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new ChildPages.MenuTwitterPage(), sender);
+            //ActivateButton(sender);
         }
 
         private void buttonContact_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new ChildPages.MenuContactPage(), sender);
+            //ActivateButton(sender);
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
             RoleRegister.Main registerForm = new RoleRegister.Main();
-            registerForm.ShowDialog();   
+            buttonCloseChildForm.Visible = false;
+            registerForm.ShowDialog();            
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {            
             ActivateButton(sender);
+            PopupForms.Login loginForm = new PopupForms.Login();
+            buttonCloseChildForm.Visible = false;
+            loginForm.ShowDialog();            
             LandingPages.Login loginForm = new LandingPages.Login();
             loginForm.ShowDialog();
         }
 
         private void buttonCloseChildForm_Click(object sender, EventArgs e) 
         {
+            if (activeForm != null)            
+                activeForm.Close();            
             Reset();
         }
 
-        private void panelDesktopPanel_Paint_1(object sender, PaintEventArgs e) { }
-
-
+        //private void panelDesktopPanel_Paint_1(object sender, PaintEventArgs e) { }
 
         private void ActivateButton(object btnSender)
         {
@@ -120,16 +128,13 @@ namespace PromotItFormApp
             childForm.Dock = DockStyle.Fill;
             this.panelDesktopPanel.Controls.Add(childForm);
             this.panelDesktopPanel.Tag = childForm;
+            childForm.BringToFront();
             childForm.Show();
             labelTitle.Text = childForm.Text;
         }
 
         private void Reset()
-        {
-            if (activeForm == null) return;
-            activeForm.Close();
-            Reset();
-
+        {  
             DisableButton();
             labelTitle.Text = "HOME";
             panelTitleBar.BackColor = Color.FromArgb(141, 145, 139);
@@ -150,7 +155,5 @@ namespace PromotItFormApp
                 }
             }
         }
-
-
     }
 }

@@ -24,6 +24,7 @@ namespace PromotItFormApp.LandingPages
             InitializeComponent();
             DisplayCampaigns();
         }
+
         
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -60,6 +61,10 @@ namespace PromotItFormApp.LandingPages
             }
         }
 
-
+        private void panelBCR_Paint(object sender, PaintEventArgs e)
+        {
+            panelBCR.BackColor = ThemeColor.PrimaryColor;
+            panelBCR.ForeColor = Color.White;
+        }
     }
 }
