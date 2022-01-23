@@ -12,7 +12,6 @@ namespace PromotItLibrary.Models
     public class Configuration
     {
 
-
         public static Users LoginUser { get; set; }
         public static Campaign CorrentCampaign { get; set; }
         public static ProductInCampaign CorrentProduct { get; set; }
