@@ -20,11 +20,13 @@ namespace PromotItFormApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Users user = new Users();
+            Users user = new Users();
             //user.UserName = "np";
             //user.UserType = "non-profit";
-            //Configuration.LoginUser = user;
-            Application.Run( new PromotIt() ); //new PromotIt() 
+            user.UserName = "b";
+           // user.UserType = "";
+            Configuration.LoginUser = user;
+            Application.Run( new BusinessCompanyPanel() ); //new PromotIt() 
         }
     }
 }

@@ -14,35 +14,37 @@ namespace PromotItLibrary.Classes
         public string Name { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
-        public BusinessUser BusinessUser { get; set; }
+        public Users BusinessUser { get; set; }
         public Campaign Campaign { get; set; }
 
-        public string Campaign_Hashtag { get; set; } // fix
-        
         public ProductInCampaign()
         {
             Campaign = new Campaign();
-            BusinessUser = new BusinessUser();
+            BusinessUser = Configuration.LoginUser;
         }
 
         private MySQL mySQL = Configuration.MySQL;
 
         public bool InsertNewProduct()
         {
-            mySQL.Procedure("add_product");
+            mySQL.Quary("INSERT INTO `promoit`.`products_in_campaign` (`name`, `quantity`, `price`, `business_user_name`, `campaign_hashtag`) VALUES (@_name, @_quantity, @_price, @_business_user_name, @_campaign_hashtag);");
             mySQL.SetParameter("_name", Name);
-            mySQL.SetParameter("_quantity", Quantity);
-            mySQL.SetParameter("_price", Price);
-            mySQL.SetParameter("_campaign_hashtag", Campaign_Hashtag);
+            mySQL.SetParameter("_quantity", decimal.Parse(Quantity));
+            mySQL.SetParameter("_business_user_name", BusinessUser.UserName);
+            mySQL.SetParameter("_price", int.Parse(Price));
+            mySQL.SetParameter("_campaign_hashtag", Campaign.Hashtag);
             return mySQL.ProceduteExecute();
         }
 
         public MySqlDataAdapter DisplayAndSearch()
         {
             mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
-            mySQL.QuaryParameter("@hashtag", Campaign_Hashtag);
+            mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
             return mySQL.QuaryDataAdapter();
         }
+
+
+
 
         public MySqlDataAdapter DisplayAndSearchByHashtag (string hashtag)
         {

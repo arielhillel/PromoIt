@@ -29,27 +29,27 @@ namespace PromotItFormApp.PopupForms
         {
             if (e.ColumnIndex == 1)
             {
-                string hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
+                Campaign campaign = new Campaign();
+                campaign.Hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
+                Configuration.CorrentCampaign = campaign;
+
                 NewProduct newProduct = new NewProduct();
-                newProduct.hashtag = hashtag;
-                
                 newProduct.ShowDialog();
             }
             if(e.ColumnIndex == 2)
             {
-                string hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
+                Campaign campaign = new Campaign();
+                campaign.Hashtag = dataGridCampains.Rows[e.RowIndex].Cells[3].Value.ToString();
+                Configuration.CorrentCampaign = campaign;
                 ProductListBC productList = new ProductListBC();
-                productList.hashtag=hashtag;
                 productList.ShowDialog();
             }
         }
 
         private void DisplayCampaigns()
         {
-
             try
             {
-
                 dataGridCampains.DataSource = Campaign.BusinessDisplayAll(); ;
             }
             catch (Exception ex)

@@ -28,7 +28,9 @@ namespace PromotItFormApp.PopupForms
             {
                 string hashtag = dataGridSA.Rows[e.RowIndex].Cells[2].Value.ToString();
                 ProductListSA productList = new ProductListSA();
-                productList.hashtag = hashtag;
+                Campaign campaign = new Campaign();
+                campaign.Hashtag = hashtag;
+                Configuration.CorrentCampaign = campaign;
                 productList.ShowDialog();
             }
         }

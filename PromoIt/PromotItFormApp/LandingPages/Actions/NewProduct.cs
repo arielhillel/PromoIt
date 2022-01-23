@@ -31,7 +31,7 @@ namespace PromotItFormApp.LandingPages.Actions
                 product.Name = textBoxProductName.Text;
                 product.Quantity = textBoxQuantity.Text;
                 product.Price = textBoxPrice.Text;
-                product.Campaign_Hashtag = "#hashtag";
+                product.Campaign.Hashtag = Configuration.CorrentCampaign.Hashtag;
                 var result = product.InsertNewProduct();
                 this.Hide();
             }

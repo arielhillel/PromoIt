@@ -15,9 +15,15 @@ namespace PromotItFormApp.LandingPages
 {
     public partial class ProductListSA : Form
     {
-        ProductInCampaign product = new ProductInCampaign();
+ 
+        public ProductListSA()
+        {
+            InitializeComponent();
+            product = new ProductInCampaign();
+        }
 
-        public string hashtag;
+        private ProductInCampaign product;
+
         public void Display()
         {
             try
@@ -35,10 +41,7 @@ namespace PromotItFormApp.LandingPages
                 MessageBox.Show(ex.Message);
             }
         }
-        public ProductListSA()
-        {
-            InitializeComponent();
-        }
+
 
         private void dataGridProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
