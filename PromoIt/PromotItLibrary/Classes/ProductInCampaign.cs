@@ -42,7 +42,7 @@ namespace PromotItLibrary.Classes
 
         public MySqlDataAdapter GetList()
         {
-            mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag");
+            mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity >= 0");
             mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
             return mySQL.QuaryDataAdapter();
         }
