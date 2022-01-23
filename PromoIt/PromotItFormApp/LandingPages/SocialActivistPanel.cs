@@ -16,13 +16,11 @@ namespace PromotItFormApp.PopupForms
 {
     public partial class SocialActivistPanel : Form
     {
-
         public SocialActivistPanel()
         {
             InitializeComponent();
             DisplayCampaigns();
         }
-
 
         private void dataGridSA_CellClick(object sender, DataGridViewCellEventArgs e)
         {

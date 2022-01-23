@@ -22,7 +22,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                MySqlDataAdapter adapter = product.DisplayAndSearch(Configuration.MySQL);
+                MySqlDataAdapter adapter = product.DisplayAndSearch();
                 DataTable tbl = new DataTable();
                 adapter.Fill(tbl);
                 dataGridProductList.DataSource = tbl;

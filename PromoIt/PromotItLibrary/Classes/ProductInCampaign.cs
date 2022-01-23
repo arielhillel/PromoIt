@@ -25,7 +25,9 @@ namespace PromotItLibrary.Classes
             BusinessUser = new BusinessUser();
         }
 
-        public bool InsertNewProduct(MySQL mySQL)
+        private MySQL mySQL = Configuration.MySQL;
+
+        public bool InsertNewProduct()
         {
             mySQL.Procedure("add_product");
             mySQL.SetParameter("_name", Name);
@@ -35,14 +37,14 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-        public MySqlDataAdapter DisplayAndSearch(MySQL mySQL)
+        public MySqlDataAdapter DisplayAndSearch()
         {
             mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
             mySQL.QuaryParameter("@hashtag", Campaign_Hashtag);
             return mySQL.QuaryDataAdapter();
         }
 
-        public MySqlDataAdapter DisplayAndSearchByHashtag (MySQL mySQL, string hashtag)
+        public MySqlDataAdapter DisplayAndSearchByHashtag (string hashtag)
         {
             mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
             mySQL.QuaryParameter("@hashtag", hashtag);
