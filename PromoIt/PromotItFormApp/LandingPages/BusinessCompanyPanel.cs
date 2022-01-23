@@ -24,6 +24,7 @@ namespace PromotItFormApp.PopupForms
             InitializeComponent();
             DisplayCampaigns();
         }
+
         
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -58,6 +59,10 @@ namespace PromotItFormApp.PopupForms
             }
         }
 
-
+        private void panelBCR_Paint(object sender, PaintEventArgs e)
+        {
+            panelBCR.BackColor = ThemeColor.PrimaryColor;
+            panelBCR.ForeColor = Color.White;
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(580, 135);
             this.panelAdmin.TabIndex = 0;
+            this.panelAdmin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAdmin_Paint);
             // 
             // labelAdminTitle
             // 
