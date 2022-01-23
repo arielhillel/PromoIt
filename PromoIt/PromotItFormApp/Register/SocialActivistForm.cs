@@ -54,7 +54,7 @@ namespace PromotItFormApp.RoleRegister
                 activistUser.Email = textBoxSAEmail.Text;
                 activistUser.Address = textBoxSAAddress.Text;
                 activistUser.PhoneNumber = textBoxSAPhoneNumber.Text;
-                bool result = activistUser.Regiser(Configuration.MySQL);
+                bool result = activistUser.Regiser();
                 if (result)
                 {
                     Configuration.LoginUser = activistUser;

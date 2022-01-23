@@ -16,27 +16,11 @@ namespace PromotItFormApp.PopupForms
 {
     public partial class SocialActivistPanel : Form
     {
-        Campaign campaign = new Campaign();
-        public void Display()
-        {
 
-            try
-            {
-                MySqlDataAdapter adapter = campaign.DisplayAndSearchAll(Configuration.MySQL);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                dataGridSA.DataSource = tbl;
-                dataGridSA.Columns["hashtag"].HeaderText = "Hashtag";
-                dataGridSA.Columns["webpage"].HeaderText = "URL";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         public SocialActivistPanel()
         {
             InitializeComponent();
+            DisplayCampaigns();
         }
 
 
@@ -51,9 +35,17 @@ namespace PromotItFormApp.PopupForms
             }
         }
 
-        private void SocialActivistPanel_Shown(object sender, EventArgs e)
+        private void DisplayCampaigns()
         {
-            Display();
+
+            try
+            {
+                dataGridSA.DataSource = Campaign.BusinessDisplayAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -58,19 +58,14 @@ namespace PromotItFormApp.PopupForms
 
         private void LoginAction()
         {
-            if (textBoxUsername.Text == "" || textBoxPassword.Text == "")
-            {
-                MessageBox.Show("Please provide a username and password");
-                return;
-
-            }
-            //else
             try
             {
+                if (textBoxUsername.Text == "" || textBoxPassword.Text == "")
+                    throw new Exception("Please provide a username and password");
                 Users user = new Users();
                 user.UserName = textBoxUsername.Text.Trim();
                 user.UserPassword = textBoxPassword.Text.Trim();
-                user = user.Login(Configuration.MySQL);
+                user = user.Login();
                 Configuration.LoginUser = user;
 
                 if (user == null)
@@ -93,9 +88,5 @@ namespace PromotItFormApp.PopupForms
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

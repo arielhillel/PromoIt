@@ -53,7 +53,7 @@ namespace PromotItFormApp.RoleRegister
                 adminUser.Name = textBoxAdminName.Text;
                 adminUser.UserName = textBoxAdminUsername.Text;
                 adminUser.UserPassword = textBoxAdminPassword.Text;
-                bool result = adminUser.Register(Configuration.MySQL);
+                bool result = adminUser.Register();
                 if (result)
                 {
                     Configuration.LoginUser = adminUser;

@@ -12,16 +12,15 @@ namespace PromotItLibrary.Classes
     public class Users : IUsers
     {
         public Users() { }
-        public Users(int id, string userName, string userPassword, string name)
-            : this()
-            => (UserName, UserPassword, Name) = (userName, userPassword, name);
 
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string Name { get; set; }
         public string UserType { get; set; }
 
-        public Users Login(MySQL mySQL)
+        private MySQL mySQL = Configuration.MySQL;
+
+        public Users Login()
         {
             Users user = null;
             mySQL.SetQuary("SELECT * FROM users where user_name=@username and user_password=@password limit 1");

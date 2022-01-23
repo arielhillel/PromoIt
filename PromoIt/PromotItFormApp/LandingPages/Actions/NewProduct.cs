@@ -27,7 +27,7 @@ namespace PromotItFormApp.LandingPages.Actions
             {
                 if (textBoxProductName.Text == "" || textBoxQuantity.Text == "" || textBoxPrice.Text == "")
                     throw new Exception("Please fill the required fields");
-                Product product = new Product();
+                ProductInCampaign product = new ProductInCampaign();
                 product.Name = textBoxProductName.Text;
                 product.Quantity = textBoxQuantity.Text;
                 product.Price = textBoxPrice.Text;

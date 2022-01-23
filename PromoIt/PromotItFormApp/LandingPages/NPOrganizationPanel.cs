@@ -16,30 +16,15 @@ using PromotItLibrary.Classes;
 
 namespace PromotItFormApp.PopupForms
 {
+
+   
     public partial class NPOrganizationPanel : Form
     {
         Campaign campaign = new Campaign();
-        public void Display()
-        {
-            try
-            {
-                MySqlDataAdapter adapter = campaign.DisplayAndSearch(Configuration.MySQL);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                dataGridNPO.DataSource = tbl;
-                dataGridNPO.Columns["name"].HeaderText = "Campaign Name";
-                dataGridNPO.Columns["hashtag"].HeaderText = "Hashtag";
-                dataGridNPO.Columns["webpage"].HeaderText = "URL";
-                dataGridNPO.Columns["non_profit_user_name"].HeaderText = "Campaign Creator";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         public NPOrganizationPanel()
         {
             InitializeComponent();
+            Campaign campaign = new Campaign();
         }
 
 
@@ -57,7 +42,7 @@ namespace PromotItFormApp.PopupForms
         }
         private void NPOrganizationPanel_Shown(object sender, EventArgs e)
         {
-            Display();
+            DisplayCampaigns();
         }
 
         private void dataGridNPO_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -68,9 +53,24 @@ namespace PromotItFormApp.PopupForms
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Infurmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    campaign.DeleteCampaign(Configuration.MySQL, hashtag);
-                    Display();
+                    campaign.DeleteCampaign(hashtag);
+                    DisplayCampaigns();
                 }
+            }
+        }
+
+
+        private void DisplayCampaigns()
+        {
+            try
+            {
+                DataTable tbl = campaign.ShowNPOCampaigns();
+                dataGridNPO.DataSource = tbl;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

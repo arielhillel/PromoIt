@@ -37,10 +37,10 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonNew = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnCampaignName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.webpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.non_profit_user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnCreator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonDeleteGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelNPO.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -99,10 +99,10 @@
             this.dataGridNPO.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridNPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNPO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.hashtag,
+            this.clmnCampaignName,
+            this.clmnHashtag,
             this.webpage,
-            this.non_profit_user_name,
+            this.clmnCreator,
             this.buttonDeleteGrid});
             this.dataGridNPO.GridColor = System.Drawing.Color.White;
             this.dataGridNPO.Location = new System.Drawing.Point(17, 90);
@@ -153,37 +153,37 @@
             this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
-            // name
+            // clmnCampaignName
             // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Campaign Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
+            this.clmnCampaignName.DataPropertyName = "clmnCampaignName";
+            this.clmnCampaignName.HeaderText = "Campaign Name";
+            this.clmnCampaignName.MinimumWidth = 6;
+            this.clmnCampaignName.Name = "clmnCampaignName";
+            this.clmnCampaignName.ReadOnly = true;
             // 
-            // hashtag
+            // clmnHashtag
             // 
-            this.hashtag.DataPropertyName = "hashtag";
-            this.hashtag.HeaderText = "Hashtag";
-            this.hashtag.MinimumWidth = 6;
-            this.hashtag.Name = "hashtag";
-            this.hashtag.ReadOnly = true;
+            this.clmnHashtag.DataPropertyName = "clmnHashtag";
+            this.clmnHashtag.HeaderText = "Hashtag";
+            this.clmnHashtag.MinimumWidth = 6;
+            this.clmnHashtag.Name = "clmnHashtag";
+            this.clmnHashtag.ReadOnly = true;
             // 
             // webpage
             // 
-            this.webpage.DataPropertyName = "webpage";
+            this.webpage.DataPropertyName = "clmnWebsite";
             this.webpage.HeaderText = "URL";
             this.webpage.MinimumWidth = 6;
             this.webpage.Name = "webpage";
             this.webpage.ReadOnly = true;
             // 
-            // non_profit_user_name
+            // clmnCreator
             // 
-            this.non_profit_user_name.DataPropertyName = "non_profit_user_name";
-            this.non_profit_user_name.HeaderText = "Campaign Creator";
-            this.non_profit_user_name.MinimumWidth = 6;
-            this.non_profit_user_name.Name = "non_profit_user_name";
-            this.non_profit_user_name.ReadOnly = true;
+            this.clmnCreator.DataPropertyName = "clmnCreator";
+            this.clmnCreator.HeaderText = "Campaign Creator";
+            this.clmnCreator.MinimumWidth = 6;
+            this.clmnCreator.Name = "clmnCreator";
+            this.clmnCreator.ReadOnly = true;
             // 
             // buttonDeleteGrid
             // 
@@ -234,10 +234,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.DataGridView dataGridNPO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hashtag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnCampaignName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;
         private System.Windows.Forms.DataGridViewTextBoxColumn webpage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn non_profit_user_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnCreator;
         private System.Windows.Forms.DataGridViewButtonColumn buttonDeleteGrid;
     }
 }

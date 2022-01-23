@@ -10,11 +10,9 @@ namespace PromotItLibrary.Classes
     public class BusinessUser : Users
     {
         public BusinessUser() : base() => UserType = "business";
-        public BusinessUser(int id, string userName, string userPassword, string name)
-            : base(id, userName, userPassword, name) { }
-
-        public bool Register(MySQL mySQL) 
+        public bool Register() 
         {
+            MySQL mySQL = Configuration.MySQL;
             mySQL.Procedure("register_business");
             mySQL.SetParameter("_username", UserName);
             mySQL.SetParameter("_password", UserPassword);

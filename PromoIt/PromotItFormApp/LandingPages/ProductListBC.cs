@@ -15,7 +15,7 @@ namespace PromotItFormApp.LandingPages
 {
     public partial class ProductListBC : Form
     {
-        Product product = new Product();
+        ProductInCampaign product = new ProductInCampaign();
         public string hashtag;
         public void Display()
         {

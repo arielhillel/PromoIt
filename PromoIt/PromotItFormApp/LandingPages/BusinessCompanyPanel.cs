@@ -19,34 +19,12 @@ namespace PromotItFormApp.PopupForms
     public partial class BusinessCompanyPanel : Form
     {
 
-        Campaign campaign = new Campaign();
-        public void Display()
-        {
-
-            try
-            {
-                MySqlDataAdapter adapter = campaign.DisplayAndSearchAll(Configuration.MySQL);
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                dataGridCampains.DataSource = tbl;
-                dataGridCampains.Columns["hashtag"].HeaderText = "Hashtag";
-                dataGridCampains.Columns["webpage"].HeaderText = "URL";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         public BusinessCompanyPanel()
         {
             InitializeComponent();
+            DisplayCampaigns();
         }
-
-        private void BusinessCompanyPanel_Shown(object sender, EventArgs e)
-        {
-            Display();
-        }
-
+        
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 1)
@@ -65,5 +43,21 @@ namespace PromotItFormApp.PopupForms
                 productList.ShowDialog();
             }
         }
+
+        private void DisplayCampaigns()
+        {
+
+            try
+            {
+
+                dataGridCampains.DataSource = Campaign.BusinessDisplayAll(); ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
     }
 }

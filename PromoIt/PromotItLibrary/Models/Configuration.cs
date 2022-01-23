@@ -14,6 +14,8 @@ namespace PromotItLibrary.Models
 
 
         public static Users LoginUser { get; set; }
+        public static Campaign CorrentCampaign { get; set; }
+        public static ProductInCampaign CorrentProduct { get; set; }
         public static MySQL MySQL { get { MySQLStart(); return _mySQL; } set { _mySQL = value; } }
         public static HttpClient HttpClient { get { HttpClientStart(); return _httpClient; } set { _httpClient = value; } }
         public static string FunctionUrl { get; set; } = "http://localhost:7071/api/";

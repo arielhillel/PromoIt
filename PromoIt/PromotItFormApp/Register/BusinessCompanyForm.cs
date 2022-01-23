@@ -52,7 +52,7 @@ namespace PromotItFormApp.RoleRegister
                 businessUser.Name = textBoxBCRName.Text;
                 businessUser.UserName = textBoxBCRUsername.Text;
                 businessUser.UserPassword = textBoxBCRPassword.Text;
-                bool result = businessUser.Register(Configuration.MySQL);
+                bool result = businessUser.Register();
                 if (result)
                 {
                     Configuration.LoginUser = businessUser;

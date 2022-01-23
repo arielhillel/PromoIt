@@ -11,15 +11,14 @@ namespace PromotItLibrary.Classes
     public class ActivistUser : Users
     {
         public ActivistUser() : base() =>  UserType = "activist";
-        
-        public ActivistUser(int id, string userName, string userPassword, string name)
-            : base(id, userName, userPassword, name) { }
 
         public string Email { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
+        public string Cash { get; set; }
+        private MySQL mySQL = Configuration.MySQL;
 
-        public bool Regiser(MySQL mySQL) 
+        public bool Regiser() 
         {
             mySQL.Procedure("register_activist");
             mySQL.ProcedureParameter("_username", UserName);

@@ -20,10 +20,11 @@ namespace PromotItFormApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Users user = new Users();
-            //user.Name = "npo";
-            //Configuration.LoginUser = user;
-            Application.Run(new PromotIt()); //new NPOrganizationPanel()
+            Users user = new Users();
+            user.UserName = "np";
+            user.UserType = "non-profit";
+            Configuration.LoginUser = user;
+            Application.Run(new SocialActivistPanel()); //new PromotIt() 
         }
     }
 }

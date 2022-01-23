@@ -15,38 +15,24 @@ namespace PromotItLibrary.Classes
         public string Name { get; set; }
         public string Hashtag { get; set; }
         public string Url { get; set; }
+        public Users NonProfitUser { get; set; }
 
+        private static MySQL mySQL = Configuration.MySQL;
 
-        /*public static DataTable ShowCampaigns(MySQL mySQL) 
+        public Campaign()
         {
-            // Error, no npo user
-            if (Configuration.LoginUser == null && Configuration.LoginUser?.Name == null) return null;
-
-            DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
-            foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
-                dataTable.Columns.Add(culmn);
-
-            //mySQL.Procedute("getstudents");
-            mySQL.Quary("SELECT * FROM promoit.campaigns where non_profit_user_name=@name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-            mySQL.ProcedureParameter("name", "npo"); // = mySQL.QuaryParameter(,)
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
-            {
-                try
-                {
-                    DataRow? dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("clmnCampaignName", "name"), ("clmnHashtag", "hashtag"), ("clmnWebsite", "webpage"), ("clmnCreator", "non_profit_user_name") })
-                        dataRow[key] = results.GetValue(value);
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
-            }
-            return dataTable;
-        }*/
+            NonProfitUser = Configuration.LoginUser;
+        }
 
 
-        public bool InsertNewCampaign(MySQL mySQL)
+        public MySqlDataAdapter DisplayNPOCampaigns()
+        {
+            mySQL.SetQuary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name ");
+            mySQL.QuaryParameter("np_user_name", NonProfitUser.UserName);
+            return mySQL.QuaryDataAdapter();
+        }
+
+        public bool InsertNewCampaign()
         {
             mySQL.Procedure("add_campaign");
             mySQL.SetParameter("_name", Name);
@@ -56,24 +42,69 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-        public bool DeleteCampaign(MySQL mySQL,string hashtag)
+        public bool DeleteCampaign(string hashtag) //Deleted by mistake
         {
             mySQL.Procedure("delete_campaign");
             mySQL.QuaryParameter("_hashtag", hashtag);            
             return mySQL.ProceduteExecute();
         }
         
-        public MySqlDataAdapter DisplayAndSearch(MySQL mySQL)
+
+        public static DataTable BusinessDisplayAll()
         {
-            mySQL.SetQuary("SELECT * FROM campaigns WHERE non_profit_user_name = @non_profit_user_name");
-            mySQL.QuaryParameter("@non_profit_user_name", Configuration.LoginUser.UserName);
-            return mySQL.QuaryDataAdapter();
+            DataTable dataTable = new DataTable();
+            // Creating the same Grid clmns on the table
+            foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" }) //"clmnCampaignName", "clmnCreator"
+                dataTable.Columns.Add(culmn);
+            //mySQL.Procedute("getstudents");
+            mySQL.Quary("SELECT * FROM campaigns"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            {
+                try
+                {
+                    DataRow? dataRow = dataTable.NewRow();
+                    foreach (var (key, value) in new[] {  ("clmnHashtag", "hashtag"), ("clmnWebpage", "webpage") }) // ,("clmnCampaignName", "name"), ("clmnCreator", "non_profit_user_name")
+                        dataRow[key] = results.GetValue(value);
+                    dataTable.Rows.Add(dataRow);
+                }
+                catch { };
+            }
+            return dataTable;
         }
 
-        public MySqlDataAdapter DisplayAndSearchAll(MySQL mySQL)
-        {
-            mySQL.SetQuary("SELECT hashtag, webpage FROM campaigns");
-            return mySQL.QuaryDataAdapter();
-        }
+
+
+
+        public DataTable ShowNPOCampaigns() 
+            {
+            // Error, no npo user
+            if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
+                DataTable dataTable = new DataTable();
+                // Creating the same Grid clmns on the table
+                foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
+                    dataTable.Columns.Add(culmn);
+                //mySQL.Procedute("getstudents");
+                mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+                mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+                while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+                {
+                    try
+                    {
+                        DataRow? dataRow = dataTable.NewRow();
+                        foreach (var (key, value) in new[] { ("clmnCampaignName", "name"), ("clmnHashtag", "hashtag"), ("clmnWebsite", "webpage"), ("clmnCreator", "non_profit_user_name") })
+                            dataRow[key] = results.GetValue(value);
+                        dataTable.Rows.Add(dataRow);
+                    }
+                    catch { };
+                }
+                return dataTable;
+            }
+
+
+
+
+
     }
 }

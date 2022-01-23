@@ -16,6 +16,6 @@ namespace PromotItLibrary.Interfaces
         string UserType { get; set; }
         string Name { get; set; }
 
-        Users Login(MySQL mySQL);
+        Users Login();
     }
 }

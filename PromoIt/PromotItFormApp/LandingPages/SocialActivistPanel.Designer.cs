@@ -42,8 +42,8 @@
             this.labelBalance = new System.Windows.Forms.Label();
             this.panelMessagesSA = new System.Windows.Forms.Panel();
             this.dataGridMessages = new System.Windows.Forms.DataGridView();
-            this.hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.webpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelSADashboard.SuspendLayout();
@@ -82,8 +82,8 @@
             this.dataGridSA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridSA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hashtag,
-            this.webpage,
+            this.clmnHashtag,
+            this.clmnWebpage,
             this.balance,
             this.buttonProductListGrid});
             this.dataGridSA.GridColor = System.Drawing.Color.White;
@@ -234,21 +234,21 @@
             this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
             this.dataGridMessages.TabIndex = 1;
             // 
-            // hashtag
+            // clmnHashtag
             // 
-            this.hashtag.DataPropertyName = "hashtag";
-            this.hashtag.HeaderText = "Hashtag";
-            this.hashtag.MinimumWidth = 6;
-            this.hashtag.Name = "hashtag";
-            this.hashtag.ReadOnly = true;
+            this.clmnHashtag.DataPropertyName = "clmnHashtag";
+            this.clmnHashtag.HeaderText = "Hashtag";
+            this.clmnHashtag.MinimumWidth = 6;
+            this.clmnHashtag.Name = "clmnHashtag";
+            this.clmnHashtag.ReadOnly = true;
             // 
-            // webpage
+            // clmnWebpage
             // 
-            this.webpage.DataPropertyName = "webpage";
-            this.webpage.HeaderText = "URL";
-            this.webpage.MinimumWidth = 6;
-            this.webpage.Name = "webpage";
-            this.webpage.ReadOnly = true;
+            this.clmnWebpage.DataPropertyName = "clmnWebpage";
+            this.clmnWebpage.HeaderText = "URL";
+            this.clmnWebpage.MinimumWidth = 6;
+            this.clmnWebpage.Name = "clmnWebpage";
+            this.clmnWebpage.ReadOnly = true;
             // 
             // balance
             // 
@@ -289,7 +289,6 @@
             this.Name = "SocialActivistPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SocialActivistPanel";
-            this.Shown += new System.EventHandler(this.SocialActivistPanel_Shown);
             this.panelSADashboard.ResumeLayout(false);
             this.panelSADashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).EndInit();
@@ -319,8 +318,8 @@
         private System.Windows.Forms.Label labelSACurrency;
         private System.Windows.Forms.Label labelBalance;
         private System.Windows.Forms.DataGridView dataGridSA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hashtag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn webpage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnWebpage;
         private System.Windows.Forms.DataGridViewTextBoxColumn balance;
         private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;
     }

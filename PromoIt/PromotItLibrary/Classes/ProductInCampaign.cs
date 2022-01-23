@@ -8,14 +8,22 @@ using System.Threading.Tasks;
 
 namespace PromotItLibrary.Classes
 {
-    public class Product
+    public class ProductInCampaign
     {
-       
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
+        public BusinessUser BusinessUser { get; set; }
+        public Campaign Campaign { get; set; }
 
-        public string Campaign_Hashtag { get; set; }
+        public string Campaign_Hashtag { get; set; } // fix
+        
+        public ProductInCampaign()
+        {
+            Campaign = new Campaign();
+            BusinessUser = new BusinessUser();
+        }
 
         public bool InsertNewProduct(MySQL mySQL)
         {

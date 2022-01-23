@@ -9,11 +9,12 @@ namespace PromotItLibrary.Classes
 {
     public class AdminUser : Users
     {
+        
         public AdminUser() : base() => UserType = "admin";
-        public AdminUser(int id, string userName, string userPassword, string name)
-            : base(id, userName, userPassword, name) { }
 
-        public bool Register(MySQL mySQL)
+        private MySQL mySQL = Configuration.MySQL;
+
+        public bool Register()
         {
             mySQL.Procedure("register_admin");
             mySQL.SetParameter("_name", Name);

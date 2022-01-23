@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBCR = new System.Windows.Forms.Panel();
             this.labelBCRTitle = new System.Windows.Forms.Label();
             this.labelWinnerList = new System.Windows.Forms.Label();
@@ -37,14 +37,14 @@
             this.Hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridCampains = new System.Windows.Forms.DataGridView();
-            this.hashtag_BCR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.webpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonDonateGrid = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridBuyers = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonDonateGrid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelBCR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCampains)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBuyers)).BeginInit();
@@ -119,8 +119,8 @@
             this.dataGridCampains.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridCampains.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCampains.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hashtag_BCR,
-            this.webpage,
+            this.clmnHashtag,
+            this.clmnWebpage,
             this.buttonDonateGrid,
             this.buttonProductListGrid});
             this.dataGridCampains.GridColor = System.Drawing.Color.White;
@@ -136,49 +136,6 @@
             this.dataGridCampains.Size = new System.Drawing.Size(527, 491);
             this.dataGridCampains.TabIndex = 1;
             this.dataGridCampains.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBC_CellClick);
-            // 
-            // hashtag_BCR
-            // 
-            this.hashtag_BCR.DataPropertyName = "hashtag_BCR";
-            this.hashtag_BCR.HeaderText = "Hashtag";
-            this.hashtag_BCR.MinimumWidth = 6;
-            this.hashtag_BCR.Name = "hashtag_BCR";
-            this.hashtag_BCR.ReadOnly = true;
-            // 
-            // webpage
-            // 
-            this.webpage.DataPropertyName = "webpage";
-            this.webpage.HeaderText = "URL";
-            this.webpage.MinimumWidth = 6;
-            this.webpage.Name = "webpage";
-            this.webpage.ReadOnly = true;
-            // 
-            // buttonDonateGrid
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonDonateGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDonateGrid.HeaderText = "";
-            this.buttonDonateGrid.MinimumWidth = 6;
-            this.buttonDonateGrid.Name = "buttonDonateGrid";
-            this.buttonDonateGrid.ReadOnly = true;
-            this.buttonDonateGrid.Text = "Donate";
-            this.buttonDonateGrid.UseColumnTextForButtonValue = true;
-            // 
-            // buttonProductListGrid
-            // 
-            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProductListGrid.HeaderText = "";
-            this.buttonProductListGrid.MinimumWidth = 6;
-            this.buttonProductListGrid.Name = "buttonProductListGrid";
-            this.buttonProductListGrid.ReadOnly = true;
-            this.buttonProductListGrid.Text = "Product List";
-            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
             // 
             // dataGridBuyers
             // 
@@ -243,6 +200,49 @@
             this.dataGridViewButtonColumn1.Text = "Send product";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             // 
+            // clmnHashtag
+            // 
+            this.clmnHashtag.DataPropertyName = "clmnHashtag";
+            this.clmnHashtag.HeaderText = "Hashtag";
+            this.clmnHashtag.MinimumWidth = 6;
+            this.clmnHashtag.Name = "clmnHashtag";
+            this.clmnHashtag.ReadOnly = true;
+            // 
+            // clmnWebpage
+            // 
+            this.clmnWebpage.DataPropertyName = "clmnWebPage";
+            this.clmnWebpage.HeaderText = "URL";
+            this.clmnWebpage.MinimumWidth = 6;
+            this.clmnWebpage.Name = "clmnWebpage";
+            this.clmnWebpage.ReadOnly = true;
+            // 
+            // buttonDonateGrid
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonDonateGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDonateGrid.HeaderText = "";
+            this.buttonDonateGrid.MinimumWidth = 6;
+            this.buttonDonateGrid.Name = "buttonDonateGrid";
+            this.buttonDonateGrid.ReadOnly = true;
+            this.buttonDonateGrid.Text = "Donate";
+            this.buttonDonateGrid.UseColumnTextForButtonValue = true;
+            // 
+            // buttonProductListGrid
+            // 
+            this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProductListGrid.HeaderText = "";
+            this.buttonProductListGrid.MinimumWidth = 6;
+            this.buttonProductListGrid.Name = "buttonProductListGrid";
+            this.buttonProductListGrid.ReadOnly = true;
+            this.buttonProductListGrid.Text = "Product List";
+            this.buttonProductListGrid.UseColumnTextForButtonValue = true;
+            // 
             // BusinessCompanyPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -258,7 +258,6 @@
             this.Name = "BusinessCompanyPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusinessCompanyPanel";
-            this.Shown += new System.EventHandler(this.BusinessCompanyPanel_Shown);
             this.panelBCR.ResumeLayout(false);
             this.panelBCR.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCampains)).EndInit();
@@ -281,8 +280,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hashtag_BCR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn webpage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnWebpage;
         private System.Windows.Forms.DataGridViewButtonColumn buttonDonateGrid;
         private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;
     }
