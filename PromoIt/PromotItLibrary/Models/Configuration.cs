@@ -18,6 +18,7 @@ namespace PromotItLibrary.Models
         public static MySQL MySQL { get { MySQLStart(); return _mySQL; } set { _mySQL = value; } }
         public static HttpClient HttpClient { get { HttpClientStart(); return _httpClient; } set { _httpClient = value; } }
         public static string FunctionUrl { get; set; } = "http://localhost:7071/api/";
+        public static string Message { get; set; }
 
         public static void MySQLStart() => MySQL = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
         public static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();

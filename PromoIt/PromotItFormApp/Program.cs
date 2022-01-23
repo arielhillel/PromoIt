@@ -21,12 +21,13 @@ namespace PromotItFormApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Users user = new Users();
-            ////user.UserName = "np";
-            ////user.UserType = "non-profit";
+            //user.UserName = "b";
+            //user.UserType = "business";
+            //user.UserType = "123";
             //user.UserName = "activist";
             //user.UserType = "activist";
             //Configuration.LoginUser = user;
-            Application.Run(new PromotIt()); //SocialActivistPanel() 
+            Application.Run(new PromotIt() ); //
         }
     }
 }

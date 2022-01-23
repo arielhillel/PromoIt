@@ -20,9 +20,11 @@ namespace PromotItFormApp.LandingPages
         public SocialActivistPanel()
         {
             InitializeComponent();
-            DisplayCampaigns();
-        }
+            GetCampaigns();
+            
 
+        }
+        
         private void dataGridSA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 1)
@@ -30,18 +32,28 @@ namespace PromotItFormApp.LandingPages
                 Campaign campaign = new Campaign();
                 campaign.Hashtag = dataGridSA["clmnHashtag", e.RowIndex].Value.ToString();
                 Configuration.CorrentCampaign = campaign;
-
                 ActivistProductList productList = new ActivistProductList();
-                productList.ShowDialog();
+                DialogResult result = productList.ShowDialog();
+                if (result == DialogResult.Cancel)
+                {
+                    lblMessage.Text = Configuration.Message;
+                    GetCampaigns();
+                }
             }
         }
 
-        private void DisplayCampaigns()
-        {
 
+        private void panelSA_Paint(object sender, PaintEventArgs e)
+        {
+            panelSA.BackColor = ThemeColor.PrimaryColor;
+            panelSA.ForeColor = Color.White;
+        }
+
+        private void GetCampaigns()
+        {
             try
             {
-                dataGridSA.DataSource = Campaign.BusinessDisplayAll();
+                dataGridSA.DataSource = Campaign.BusinessGetAllCampaigns();
             }
             catch (Exception ex)
             {
@@ -49,10 +61,5 @@ namespace PromotItFormApp.LandingPages
             }
         }
 
-        private void panelSA_Paint(object sender, PaintEventArgs e)
-        {
-            panelSA.BackColor = ThemeColor.PrimaryColor;
-            panelSA.ForeColor = Color.White;
-        }
     }
 }

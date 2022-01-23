@@ -16,7 +16,18 @@ namespace PromotItFormApp.LandingPagesActions
     public partial class BusinessProductList : Form
     {
         ProductInCampaign product = new ProductInCampaign();
-        public void Display()
+
+        public BusinessProductList()
+        {
+            InitializeComponent();
+        }
+
+        private void ProductListBC_Shown(object sender, EventArgs e)
+        {
+            GetProductInCampaign();
+        }
+
+        private void GetProductInCampaign()
         {
             try
             {
@@ -33,14 +44,7 @@ namespace PromotItFormApp.LandingPagesActions
                 MessageBox.Show(ex.Message);
             }
         }
-        public BusinessProductList()
-        {
-            InitializeComponent();
-        }
 
-        private void ProductListBC_Shown(object sender, EventArgs e)
-        {
-            Display();
-        }
+
     }
 }

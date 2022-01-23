@@ -14,15 +14,16 @@ namespace PromotItFormApp.LandingPagesActions
 {
     public partial class BusinessNewProduct : Form
     {
-        public string hashtag;
         public BusinessNewProduct()
         {
             InitializeComponent();
         }
 
         private void buttonSaveProduct_Click(object sender, EventArgs e)
-        {
+            => SetCampaignProduct();
 
+        private void SetCampaignProduct()
+        {
             try
             {
                 if (textBoxProductName.Text == "" || textBoxQuantity.Text == "" || textBoxPrice.Text == "")
@@ -35,10 +36,7 @@ namespace PromotItFormApp.LandingPagesActions
                 var result = product.InsertNewProduct();
                 this.Hide();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

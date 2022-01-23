@@ -22,63 +22,79 @@ namespace PromotItFormApp.LandingPages
         public BusinessCompanyPanel()
         {
             InitializeComponent();
-            DisplayCampaigns();
-            DisplayProductsForShipping();
+            GetCampaigns();
+            GetProductsForShipping();
         }
-
 
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 1)
-            {
-                Campaign campaign = new Campaign();
-                campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
-                Configuration.CorrentCampaign = campaign;
-
-                BusinessNewProduct businessNewProduct = new BusinessNewProduct();
-                businessNewProduct.ShowDialog();
-            }
-            else if(e.ColumnIndex == 0)
-            {
-                Campaign campaign = new Campaign();
-                campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
-                Configuration.CorrentCampaign = campaign;
-                
-                BusinessProductList businessProductList = new BusinessProductList();
-                businessProductList.ShowDialog();
-            }
-
-        }
-
-        private void DisplayCampaigns()
-        {
-            try
-            {
-                dataGridCampains.DataSource = Campaign.BusinessDisplayAll(); ;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void DisplayProductsForShipping()
-        {
-            try
-            {
-                ProductDonated productDonated = new ProductDonated();
-                dataGridBuyers.DataSource = productDonated.ShowDonatedProductForShipping();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                SetNewProduct(e);
+            else if (e.ColumnIndex == 0)
+                GetProductListPage(e);
         }
 
         private void panelBCR_Paint(object sender, PaintEventArgs e)
         {
             panelBCR.BackColor = ThemeColor.PrimaryColor;
             panelBCR.ForeColor = Color.White;
+        }
+
+        private void SetNewProduct(DataGridViewCellEventArgs e)
+        {
+            Campaign campaign = new Campaign();
+            campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
+            Configuration.CorrentCampaign = campaign;
+            BusinessNewProduct businessNewProduct = new BusinessNewProduct();
+            businessNewProduct.ShowDialog();
+        }
+
+        private void GetProductListPage(DataGridViewCellEventArgs e)
+        {
+            Campaign campaign = new Campaign();
+            campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
+            Configuration.CorrentCampaign = campaign;
+            BusinessProductList businessProductList = new BusinessProductList();
+            businessProductList.ShowDialog();
+        }
+
+        private void GetCampaigns()
+        {
+            try
+            {
+                dataGridCampains.DataSource = Campaign.BusinessGetAllCampaigns(); ;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void GetProductsForShipping()
+        {
+            try
+            {
+                ProductDonated productDonated = new ProductDonated();
+                dataGridBuyers.DataSource = productDonated.ShowDonatedProductForShipping();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+
+
+        private void dataGridBuyers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+                SetProductAsShipped(e);
+        }
+
+        private void SetProductAsShipped(DataGridViewCellEventArgs e) 
+        {
+            try
+            {
+                ProductDonated productDonated = new ProductDonated();
+                productDonated.Id = dataGridBuyers["clmnProductDonatedId", e.RowIndex].Value.ToString();
+                bool result = productDonated.SetProductShipping();
+                if (result) GetProductsForShipping();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

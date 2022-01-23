@@ -21,6 +21,10 @@ namespace PromotItFormApp.LandingPagesActions
         }
 
         private void buttonSaveCamp_Click(object sender, EventArgs e)
+            => SetCampaign();
+
+
+        private void SetCampaign() 
         {
             try
             {
@@ -31,17 +35,19 @@ namespace PromotItFormApp.LandingPagesActions
                 campaign.Hashtag = textBoxCampHashtag.Text;
                 campaign.Url = textBoxCampURL.Text;
                 var result = campaign.InsertNewCampaign();
-               
+
                 this.Hide();
                 LandingPages.NPOrganizationPanel NPOPanel = new LandingPages.NPOrganizationPanel();
                 NPOPanel.ShowDialog();
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }        
+        }
+
+
     }
 }

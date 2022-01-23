@@ -45,6 +45,7 @@
             this.dataGridBuyers = new System.Windows.Forms.DataGridView();
             this.clmnActivist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductDonatedId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelBCR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCampains)).BeginInit();
@@ -205,6 +206,7 @@
             this.dataGridBuyers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnActivist,
             this.clmnProduct,
+            this.clmnProductDonatedId,
             this.dataGridViewButtonColumn1});
             this.dataGridBuyers.GridColor = System.Drawing.Color.White;
             this.dataGridBuyers.Location = new System.Drawing.Point(21, 199);
@@ -218,6 +220,7 @@
             this.dataGridBuyers.ShowEditingIcon = false;
             this.dataGridBuyers.Size = new System.Drawing.Size(516, 491);
             this.dataGridBuyers.TabIndex = 2;
+            this.dataGridBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuyers_CellClick);
             // 
             // clmnActivist
             // 
@@ -234,6 +237,15 @@
             this.clmnProduct.MinimumWidth = 6;
             this.clmnProduct.Name = "clmnProduct";
             this.clmnProduct.ReadOnly = true;
+            // 
+            // clmnProductDonatedId
+            // 
+            this.clmnProductDonatedId.DataPropertyName = "clmnProductDonatedId";
+            this.clmnProductDonatedId.HeaderText = "clmnProductDonatedId";
+            this.clmnProductDonatedId.MinimumWidth = 6;
+            this.clmnProductDonatedId.Name = "clmnProductDonatedId";
+            this.clmnProductDonatedId.ReadOnly = true;
+            this.clmnProductDonatedId.Visible = false;
             // 
             // dataGridViewButtonColumn1
             // 
@@ -292,6 +304,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn buttonDonateGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnActivist;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductDonatedId;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
     }
 }

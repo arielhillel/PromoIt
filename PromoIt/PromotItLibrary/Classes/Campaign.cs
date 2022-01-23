@@ -50,7 +50,7 @@ namespace PromotItLibrary.Classes
         }
         
 
-        public static DataTable BusinessDisplayAll()
+        public static DataTable BusinessGetAllCampaigns()
         {
             DataTable dataTable = new DataTable();
             // Creating the same Grid clmns on the table

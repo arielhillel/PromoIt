@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialActivistPanel));
             this.panelSADashboard = new System.Windows.Forms.Panel();
             this.dataGridSA = new System.Windows.Forms.DataGridView();
@@ -46,6 +46,7 @@
             this.labelBalance = new System.Windows.Forms.Label();
             this.panelMessagesSA = new System.Windows.Forms.Panel();
             this.dataGridMessages = new System.Windows.Forms.DataGridView();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.panelSADashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
@@ -126,13 +127,13 @@
             // 
             // buttonProductListGrid
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProductListGrid.HeaderText = "";
             this.buttonProductListGrid.MinimumWidth = 6;
@@ -244,6 +245,7 @@
             // panelMessagesSA
             // 
             this.panelMessagesSA.BackColor = System.Drawing.Color.White;
+            this.panelMessagesSA.Controls.Add(this.lblMessage);
             this.panelMessagesSA.Controls.Add(this.dataGridMessages);
             this.panelMessagesSA.Location = new System.Drawing.Point(610, 141);
             this.panelMessagesSA.Name = "panelMessagesSA";
@@ -276,6 +278,17 @@
             this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
             this.dataGridMessages.TabIndex = 1;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Black;
+            this.lblMessage.ForeColor = System.Drawing.Color.Brown;
+            this.lblMessage.Location = new System.Drawing.Point(41, 59);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(67, 20);
+            this.lblMessage.TabIndex = 2;
+            this.lblMessage.Text = "Message";
+            // 
             // SocialActivistPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -300,6 +313,7 @@
             this.panelBalance.ResumeLayout(false);
             this.panelBalance.PerformLayout();
             this.panelMessagesSA.ResumeLayout(false);
+            this.panelMessagesSA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMessages)).EndInit();
             this.ResumeLayout(false);
 
@@ -315,7 +329,6 @@
         private System.Windows.Forms.Panel panelBalance;
         private System.Windows.Forms.Panel panelMessagesSA;
         private System.Windows.Forms.DataGridView dataGridNPO;
-        private System.Windows.Forms.DataGridView dataGridMessages;
         private System.Windows.Forms.Label labelSACurrency;
         private System.Windows.Forms.Label labelBalance;
         private System.Windows.Forms.DataGridView dataGridSA;
@@ -323,5 +336,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnWebpage;
         private System.Windows.Forms.DataGridViewTextBoxColumn balance;
         private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.DataGridView dataGridMessages;
     }
 }

@@ -78,6 +78,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // name
             // 
@@ -138,10 +139,10 @@
 
         private System.Windows.Forms.DataGridView dataGridProductList;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewButtonColumn buttonBuyGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

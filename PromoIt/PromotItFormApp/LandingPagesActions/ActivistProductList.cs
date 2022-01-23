@@ -15,18 +15,47 @@ namespace PromotItFormApp.LandingPagesActions
 {
     public partial class ActivistProductList : Form
     {
- 
         public ActivistProductList()
         {
             InitializeComponent();
             _productInCampaign = new ProductInCampaign();
             _productDonated = new ProductDonated();
+            Configuration.Message = "";
         }
 
         private ProductInCampaign _productInCampaign;
         private ProductDonated _productDonated;
 
-        private void Display()
+        private void dataGridProductList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == 0) SetBuyAProduct(e);
+        }
+
+        private void ProductList_Shown(object sender, EventArgs e)
+        {
+            GetProducts();
+        }
+
+        private void SetBuyAProduct(DataGridViewCellEventArgs e)
+        {
+            _productDonated.ProductInCampaign.Id = int.Parse(dataGridProductList["id", e.RowIndex].Value.ToString());
+            _productDonated.ProductInCampaign.Name = dataGridProductList["name", e.RowIndex].Value.ToString();
+            _productDonated.Quantity = "1";
+            _productDonated.ActivistUser = Configuration.LoginUser;
+            try
+            {
+                bool result = _productDonated.SetBuyAnItem();
+                if (result)
+                {
+                    Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
+                    this.Dispose();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void GetProducts()
         {
             try
             {
@@ -42,30 +71,6 @@ namespace PromotItFormApp.LandingPagesActions
                 dataGridProductList.Columns["price"].HeaderText = "Price";
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-
-        private void dataGridProductList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0)
-            {
-                _productDonated.ProductInCampaign.Id = int.Parse(dataGridProductList["id", e.RowIndex].Value.ToString());
-                _productDonated.Quantity = "1";
-                _productDonated.ActivistUser = Configuration.LoginUser;
-                Configuration.CorrentProduct = _productInCampaign;
-                try
-                {
-                    _productDonated.SetBuyAnItem();
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-            }
-
-
-        }
-
-        private void ProductList_Shown(object sender, EventArgs e)
-        {
-            Display();
         }
     }
 }
