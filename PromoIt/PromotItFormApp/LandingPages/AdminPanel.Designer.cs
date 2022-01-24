@@ -34,7 +34,9 @@
             this.buttonUsersAdmin = new System.Windows.Forms.Button();
             this.buttonTweetsAdmin = new System.Windows.Forms.Button();
             this.labelReports = new System.Windows.Forms.Label();
+            this.dataGridReports = new System.Windows.Forms.DataGridView();
             this.panelAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridReports)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAdmin
@@ -43,8 +45,9 @@
             this.panelAdmin.Controls.Add(this.labelAdminTitle);
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAdmin.Location = new System.Drawing.Point(0, 0);
+            this.panelAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(580, 135);
+            this.panelAdmin.Size = new System.Drawing.Size(509, 101);
             this.panelAdmin.TabIndex = 0;
             this.panelAdmin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAdmin_Paint);
             // 
@@ -53,9 +56,9 @@
             this.labelAdminTitle.AutoSize = true;
             this.labelAdminTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAdminTitle.ForeColor = System.Drawing.Color.White;
-            this.labelAdminTitle.Location = new System.Drawing.Point(12, 65);
+            this.labelAdminTitle.Location = new System.Drawing.Point(10, 49);
             this.labelAdminTitle.Name = "labelAdminTitle";
-            this.labelAdminTitle.Size = new System.Drawing.Size(159, 28);
+            this.labelAdminTitle.Size = new System.Drawing.Size(128, 21);
             this.labelAdminTitle.TabIndex = 0;
             this.labelAdminTitle.Text = "ProLobby Owner";
             // 
@@ -65,12 +68,14 @@
             this.buttonCampaignsAdmin.FlatAppearance.BorderSize = 0;
             this.buttonCampaignsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCampaignsAdmin.ForeColor = System.Drawing.Color.White;
-            this.buttonCampaignsAdmin.Location = new System.Drawing.Point(12, 251);
+            this.buttonCampaignsAdmin.Location = new System.Drawing.Point(10, 188);
+            this.buttonCampaignsAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCampaignsAdmin.Name = "buttonCampaignsAdmin";
-            this.buttonCampaignsAdmin.Size = new System.Drawing.Size(172, 47);
+            this.buttonCampaignsAdmin.Size = new System.Drawing.Size(150, 35);
             this.buttonCampaignsAdmin.TabIndex = 0;
             this.buttonCampaignsAdmin.Text = "Campaigns";
             this.buttonCampaignsAdmin.UseVisualStyleBackColor = false;
+            this.buttonCampaignsAdmin.Click += new System.EventHandler(this.buttonCampaignsAdmin_Click);
             // 
             // buttonUsersAdmin
             // 
@@ -78,12 +83,14 @@
             this.buttonUsersAdmin.FlatAppearance.BorderSize = 0;
             this.buttonUsersAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUsersAdmin.ForeColor = System.Drawing.Color.White;
-            this.buttonUsersAdmin.Location = new System.Drawing.Point(204, 251);
+            this.buttonUsersAdmin.Location = new System.Drawing.Point(178, 188);
+            this.buttonUsersAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUsersAdmin.Name = "buttonUsersAdmin";
-            this.buttonUsersAdmin.Size = new System.Drawing.Size(172, 47);
+            this.buttonUsersAdmin.Size = new System.Drawing.Size(150, 35);
             this.buttonUsersAdmin.TabIndex = 0;
             this.buttonUsersAdmin.Text = "Users";
             this.buttonUsersAdmin.UseVisualStyleBackColor = false;
+            this.buttonUsersAdmin.Click += new System.EventHandler(this.buttonUsersAdmin_Click);
             // 
             // buttonTweetsAdmin
             // 
@@ -91,40 +98,57 @@
             this.buttonTweetsAdmin.FlatAppearance.BorderSize = 0;
             this.buttonTweetsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTweetsAdmin.ForeColor = System.Drawing.Color.White;
-            this.buttonTweetsAdmin.Location = new System.Drawing.Point(398, 251);
+            this.buttonTweetsAdmin.Location = new System.Drawing.Point(348, 188);
+            this.buttonTweetsAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTweetsAdmin.Name = "buttonTweetsAdmin";
-            this.buttonTweetsAdmin.Size = new System.Drawing.Size(172, 47);
+            this.buttonTweetsAdmin.Size = new System.Drawing.Size(150, 35);
             this.buttonTweetsAdmin.TabIndex = 0;
             this.buttonTweetsAdmin.Text = "Tweets";
             this.buttonTweetsAdmin.UseVisualStyleBackColor = false;
+            this.buttonTweetsAdmin.Click += new System.EventHandler(this.buttonTweetsAdmin_Click);
             // 
             // labelReports
             // 
             this.labelReports.AutoSize = true;
             this.labelReports.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelReports.Location = new System.Drawing.Point(12, 192);
+            this.labelReports.Location = new System.Drawing.Point(10, 144);
             this.labelReports.Name = "labelReports";
-            this.labelReports.Size = new System.Drawing.Size(97, 31);
+            this.labelReports.Size = new System.Drawing.Size(79, 25);
             this.labelReports.TabIndex = 0;
             this.labelReports.Text = "Reports:";
             // 
+            // dataGridReports
+            // 
+            this.dataGridReports.AllowUserToAddRows = false;
+            this.dataGridReports.AllowUserToDeleteRows = false;
+            this.dataGridReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridReports.Location = new System.Drawing.Point(10, 240);
+            this.dataGridReports.Name = "dataGridReports";
+            this.dataGridReports.ReadOnly = true;
+            this.dataGridReports.RowTemplate.Height = 25;
+            this.dataGridReports.Size = new System.Drawing.Size(487, 229);
+            this.dataGridReports.TabIndex = 1;
+            // 
             // AdminPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 345);
+            this.ClientSize = new System.Drawing.Size(509, 486);
+            this.Controls.Add(this.dataGridReports);
             this.Controls.Add(this.labelReports);
             this.Controls.Add(this.buttonTweetsAdmin);
             this.Controls.Add(this.buttonUsersAdmin);
             this.Controls.Add(this.buttonCampaignsAdmin);
             this.Controls.Add(this.panelAdmin);
-            this.MaximumSize = new System.Drawing.Size(598, 392);
-            this.MinimumSize = new System.Drawing.Size(598, 392);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(525, 525);
+            this.MinimumSize = new System.Drawing.Size(525, 525);
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
             this.panelAdmin.ResumeLayout(false);
             this.panelAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridReports)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +162,6 @@
         private System.Windows.Forms.Button buttonUsersAdmin;
         private System.Windows.Forms.Button buttonTweetsAdmin;
         private System.Windows.Forms.Label labelReports;
+        private System.Windows.Forms.DataGridView dataGridReports;
     }
 }

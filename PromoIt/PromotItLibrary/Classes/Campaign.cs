@@ -64,7 +64,7 @@ namespace PromotItLibrary.Classes
                 try
                 {
                     DataRow? dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] {  ("clmnHashtag", "hashtag"), ("clmnWebpage", "webpage") }) // ,("clmnCampaignName", "name"), ("clmnCreator", "non_profit_user_name")
+                    foreach (var (key, value) in new[] { ("clmnHashtag", "hashtag"), ("clmnWebpage", "webpage") }) // ,("clmnCampaignName", "name"), ("clmnCreator", "non_profit_user_name")
                         dataRow[key] = results.GetValue(value);
                     dataTable.Rows.Add(dataRow);
                 }
