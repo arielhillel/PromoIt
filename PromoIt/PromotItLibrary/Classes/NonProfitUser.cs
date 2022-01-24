@@ -27,7 +27,6 @@ namespace PromotItLibrary.Classes
 
         }
 
-
         private async Task<bool> Functions_Register()
         {
             try

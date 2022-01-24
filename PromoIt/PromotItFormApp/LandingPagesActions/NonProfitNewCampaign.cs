@@ -34,7 +34,7 @@ namespace PromotItFormApp.LandingPagesActions
                 campaign.Name = textBoxCampName.Text;
                 campaign.Hashtag = textBoxCampHashtag.Text;
                 campaign.Url = textBoxCampURL.Text;
-                var result = campaign.InsertNewCampaign();
+                var result = campaign.SetNewCampaign();
 
                 this.Hide();
                 LandingPages.NonProfitPanel NPOPanel = new LandingPages.NonProfitPanel();

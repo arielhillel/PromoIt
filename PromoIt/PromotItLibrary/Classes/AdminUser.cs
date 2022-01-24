@@ -9,7 +9,6 @@ namespace PromotItLibrary.Classes
 {
     public class AdminUser : Users
     {
-        
         public AdminUser() : base() => UserType = "admin";
 
         private MySQL mySQL = Configuration.MySQL;

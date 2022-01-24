@@ -25,14 +25,14 @@ namespace PromotItLibrary.Classes
         }
 
 
-        public MySqlDataAdapter DisplayNPOCampaigns()
+        public MySqlDataAdapter GetNonProfitCampaigns()
         {
             mySQL.SetQuary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name ");
             mySQL.QuaryParameter("np_user_name", NonProfitUser.UserName);
             return mySQL.QuaryDataAdapter();
         }
 
-        public bool InsertNewCampaign()
+        public bool SetNewCampaign()
         {
             mySQL.Procedure("add_campaign");
             mySQL.SetParameter("_name", Name);
@@ -49,8 +49,7 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
         
-
-        public static DataTable BusinessGetAllCampaigns()
+        public static DataTable GetAllCampaignsBusiness()
         {
             DataTable dataTable = new DataTable();
             // Creating the same Grid clmns on the table
@@ -73,10 +72,7 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-
-
-
-        public DataTable ShowNPOCampaigns() 
+        public DataTable GetAllCampaignsNonProfit() 
             {
             // Error, no npo user
             if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
@@ -101,10 +97,6 @@ namespace PromotItLibrary.Classes
                 }
                 return dataTable;
             }
-
-
-
-
 
     }
 }

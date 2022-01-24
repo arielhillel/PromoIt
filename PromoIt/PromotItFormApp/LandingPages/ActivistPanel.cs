@@ -67,7 +67,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                dataGridSA.DataSource = Campaign.BusinessGetAllCampaigns();
+                dataGridSA.DataSource = Campaign.GetAllCampaignsBusiness();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

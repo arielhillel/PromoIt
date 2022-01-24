@@ -33,7 +33,6 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_quantity", int.Parse(Quantity));
             mySQL.SetParameter("_activist_user_name", ActivistUser.UserName);
             mySQL.SetParameter("_shipping", "not_shipped");
-
             return mySQL.ProceduteExecute();
         }
 
@@ -43,7 +42,6 @@ namespace PromotItLibrary.Classes
             mySQL.Quary("UPDATE `promoit`.`products_donated` SET `shipped` = @_shipping WHERE (`id2` = @_donated_product_id);");
             mySQL.SetParameter("_donated_product_id", Id);
             mySQL.SetParameter("_shipping", "shipped");
-
             return mySQL.ProceduteExecute();
         }
 

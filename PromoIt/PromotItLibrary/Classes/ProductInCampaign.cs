@@ -29,7 +29,7 @@ namespace PromotItLibrary.Classes
 
 
 
-        public bool InsertNewProduct()
+        public bool SetNewProduct()
         {
             mySQL.Quary("INSERT INTO `promoit`.`products_in_campaign` (`name`, `quantity`, `price`, `business_user_name`, `campaign_hashtag`) VALUES (@_name, @_quantity, @_price, @_business_user_name, @_campaign_hashtag);");
             mySQL.SetParameter("_name", Name);
