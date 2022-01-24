@@ -14,7 +14,7 @@ namespace PromotItLibrary.Models
         public string DataBase { get { return _dataBase; } set { _dataBase = value; ConnectionReset(); } }
 
         private string Stm { get; set; }
-        private MySqlDataReader Rdr { get; set; } //multy results  // Must to set using and set this one!
+        private MySqlDataReader Rdr { get; set; }
         private MySqlConnection Con { get; set; }
 
         private string _server;
@@ -66,7 +66,13 @@ namespace PromotItLibrary.Models
                 Rdr = Cmd?.ExecuteReader();
                 results = Rdr;
                 NullifiedValues(); // cant nullified rdr!, it will nulified results
-            }catch {}
+            }
+            catch 
+            {
+                Rdr.Dispose();
+                try{ Rdr = Cmd?.ExecuteReader();  results = Rdr; NullifiedValues(); }
+                catch (Exception ex) { throw new Exception(ex.Message);}
+            }
             return results;
         }
         public MySqlDataReader Select() => GetQueryMultyResults();
@@ -82,7 +88,6 @@ namespace PromotItLibrary.Models
         {
             if (ConnectionString() == null || Con != null && Con?.State != ConnectionState.Closed)
                 { Console.WriteLine("No connection sting"); return; }
-            //else
             Con = new MySqlConnection(ConnectionString()); Con.Open(); SetCmd(); 
         }
         private void ConnectionReset() { if (Con != null && Con.State == ConnectionState.Open) { ConnectClose(); ConnectionOpen(); } } // recheck

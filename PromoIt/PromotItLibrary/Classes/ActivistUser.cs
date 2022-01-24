@@ -34,7 +34,6 @@ namespace PromotItLibrary.Classes
                 }
                 catch { throw new Exception($"error to get cash for {UserName}"); };
             }
-
             return str;
         }
 

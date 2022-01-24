@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PromoitTesting\PromoitTesting.csproj" />
     <ProjectReference Include="..\PromotItLibrary\PromotItLibrary.csproj" />
   </ItemGroup>
 
