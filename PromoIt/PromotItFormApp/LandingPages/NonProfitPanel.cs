@@ -50,7 +50,7 @@ namespace PromotItFormApp.LandingPages
             {
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    string? hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
                     campaign.DeleteCampaign(hashtag);
                     DisplayCampaigns();
                 }

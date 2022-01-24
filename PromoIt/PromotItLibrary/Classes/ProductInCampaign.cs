@@ -40,7 +40,7 @@ namespace PromotItLibrary.Classes
         public DataTable GetList_DataTable() //for business and for activist
         {
             DataTable dataTable = new DataTable();
-            List<ProductInCampaign> productInCampaignList = GetList();
+            List<ProductInCampaign> productInCampaignList = MySQL_GetList_List();
             foreach (string culmn in new[] { "clmnProductId", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
                 dataTable.Columns.Add(culmn);
             foreach (ProductInCampaign productInCampaign in productInCampaignList)
@@ -59,7 +59,7 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public List<ProductInCampaign> GetList() //for business and for activist
+        public List<ProductInCampaign> MySQL_GetList_List() //for business and for activist
         {
             if (Campaign.Hashtag == null ) throw new Exception("No set for Campaign Hashtag");
             mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");

@@ -72,11 +72,10 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 ProductDonated productDonated = new ProductDonated();
-                dataGridBuyers.DataSource = productDonated.ShowDonatedProductForShipping_DataTable();
+                dataGridBuyers.DataSource = productDonated.GetDonatedProductForShipping_DataTable();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
 
 
         private void dataGridBuyers_CellClick(object sender, DataGridViewCellEventArgs e)

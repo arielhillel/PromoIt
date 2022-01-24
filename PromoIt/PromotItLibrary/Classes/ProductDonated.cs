@@ -46,5 +46,54 @@ namespace PromotItLibrary.Classes
         }
 
 
+
+        public List<ProductDonated> MySQL_GetDonatedProductForShipping_List()
+        {
+            // Error, no business user
+            if (ProductInCampaign.BusinessUser.UserType != "business" && ProductInCampaign.BusinessUser.UserName == null) throw new Exception("No set for business User");
+            mySQL.Quary(" SELECT * FROM products_in_campaign pic JOIN products_donated pd on pic.id = pd.product_in_campaign_id WHERE pd.shipped = @_shipped AND pic.business_user_name = @_business_user_name LIMIT @_limit"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+            mySQL.ProcedureParameter("_shipped", "not_shipped");
+            mySQL.ProcedureParameter("_business_user_name", ProductInCampaign.BusinessUser.UserName);
+            mySQL.ProcedureParameter("_limit", 10);
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+
+            List<ProductDonated> productDonatedList = new List<ProductDonated>();
+            while (results != null && results.Read())
+            {
+                try
+                {
+                    ProductDonated productDonated = new ProductDonated();
+                    productDonated.ActivistUser.UserName = results.GetValue("activist_user_name").ToString();
+                    productDonated.ProductInCampaign.Name = results.GetValue("name").ToString();
+                    productDonated.Id = results.GetValue("id2").ToString();
+                    productDonatedList.Add(productDonated);
+                }
+                catch { };
+            }
+            return productDonatedList;
+        }
+
+
+        public DataTable GetDonatedProductForShipping_DataTable()
+        {
+            DataTable dataTable = new DataTable();
+            List<ProductDonated> productDonatedList = MySQL_GetDonatedProductForShipping_List();
+            foreach (string culmn in new[] { "clmnActivist", "clmnProduct", "clmnProductDonatedId" })
+                dataTable.Columns.Add(culmn);
+            foreach (ProductDonated productDonated in productDonatedList)
+            {
+                try
+                {
+                    DataRow dataRow = dataTable.NewRow();
+                    dataRow["clmnActivist"] = productDonated.ActivistUser.UserName;
+                    dataRow["clmnProduct"] = productDonated.ProductInCampaign.Name;
+                    dataRow["clmnProductDonatedId"] = productDonated.Id;
+                    dataTable.Rows.Add(dataRow);
+                }
+                catch { };
+            }
+            return dataTable;
+        }
+
     }
 }
