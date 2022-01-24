@@ -42,11 +42,11 @@
             this.panelSA = new System.Windows.Forms.Panel();
             this.labelSATitle = new System.Windows.Forms.Label();
             this.panelBalance = new System.Windows.Forms.Panel();
-            this.labelSACurrency = new System.Windows.Forms.Label();
+            this.txtCash = new System.Windows.Forms.Label();
             this.labelBalance = new System.Windows.Forms.Label();
             this.panelMessagesSA = new System.Windows.Forms.Panel();
-            this.dataGridMessages = new System.Windows.Forms.DataGridView();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.dataGridMessages = new System.Windows.Forms.DataGridView();
             this.panelSADashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
@@ -214,23 +214,23 @@
             // panelBalance
             // 
             this.panelBalance.BackColor = System.Drawing.Color.White;
-            this.panelBalance.Controls.Add(this.labelSACurrency);
+            this.panelBalance.Controls.Add(this.txtCash);
             this.panelBalance.Controls.Add(this.labelBalance);
             this.panelBalance.Location = new System.Drawing.Point(20, 147);
             this.panelBalance.Name = "panelBalance";
             this.panelBalance.Size = new System.Drawing.Size(396, 124);
             this.panelBalance.TabIndex = 1;
             // 
-            // labelSACurrency
+            // txtCash
             // 
-            this.labelSACurrency.AutoSize = true;
-            this.labelSACurrency.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSACurrency.ForeColor = System.Drawing.Color.Green;
-            this.labelSACurrency.Location = new System.Drawing.Point(143, 18);
-            this.labelSACurrency.Name = "labelSACurrency";
-            this.labelSACurrency.Size = new System.Drawing.Size(77, 25);
-            this.labelSACurrency.TabIndex = 0;
-            this.labelSACurrency.Text = "100.00$";
+            this.txtCash.AutoSize = true;
+            this.txtCash.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCash.ForeColor = System.Drawing.Color.Green;
+            this.txtCash.Location = new System.Drawing.Point(143, 18);
+            this.txtCash.Name = "txtCash";
+            this.txtCash.Size = new System.Drawing.Size(28, 25);
+            this.txtCash.TabIndex = 0;
+            this.txtCash.Text = "|$";
             // 
             // labelBalance
             // 
@@ -251,6 +251,17 @@
             this.panelMessagesSA.Name = "panelMessagesSA";
             this.panelMessagesSA.Size = new System.Drawing.Size(614, 124);
             this.panelMessagesSA.TabIndex = 0;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Black;
+            this.lblMessage.ForeColor = System.Drawing.Color.Brown;
+            this.lblMessage.Location = new System.Drawing.Point(41, 59);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(67, 20);
+            this.lblMessage.TabIndex = 2;
+            this.lblMessage.Text = "Message";
             // 
             // dataGridMessages
             // 
@@ -277,17 +288,6 @@
             this.dataGridMessages.ShowEditingIcon = false;
             this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
             this.dataGridMessages.TabIndex = 1;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Black;
-            this.lblMessage.ForeColor = System.Drawing.Color.Brown;
-            this.lblMessage.Location = new System.Drawing.Point(41, 59);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(67, 20);
-            this.lblMessage.TabIndex = 2;
-            this.lblMessage.Text = "Message";
             // 
             // SocialActivistPanel
             // 
@@ -329,7 +329,7 @@
         private System.Windows.Forms.Panel panelBalance;
         private System.Windows.Forms.Panel panelMessagesSA;
         private System.Windows.Forms.DataGridView dataGridNPO;
-        private System.Windows.Forms.Label labelSACurrency;
+        private System.Windows.Forms.Label txtCash;
         private System.Windows.Forms.Label labelBalance;
         private System.Windows.Forms.DataGridView dataGridSA;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;

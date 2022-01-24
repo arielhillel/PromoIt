@@ -14,7 +14,7 @@ namespace PromotItLibrary.Models
         public string DataBase { get { return _dataBase; } set { _dataBase = value; ConnectionReset(); } }
 
         private string Stm { get; set; }
-        private MySqlDataReader Rdr { get; set; } //multy results
+        private MySqlDataReader Rdr { get; set; } //multy results  // Must to set using and set this one!
         private MySqlConnection Con { get; set; }
 
         private string _server;

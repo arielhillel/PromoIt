@@ -18,7 +18,7 @@ namespace PromotItLibrary.Classes
         public string Name { get; set; }
         public string UserType { get; set; }
 
-        private MySQL mySQL = Configuration.MySQL;
+        private static MySQL mySQL = Configuration.MySQL;
 
         public Users Login()
         {

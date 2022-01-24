@@ -4,19 +4,40 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using PromotItLibrary.Models;
 
 namespace PromotItLibrary.Classes
 {
     public class ActivistUser : Users
     {
-        public ActivistUser() : base() =>  UserType = "activist";
-
+        public ActivistUser() : base()  => UserType = "activist"; 
         public string Email { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Cash { get; set; }
+
         private MySQL mySQL = Configuration.MySQL;
+
+        public string GetCash()
+        {
+            string str = "";
+            mySQL.Quary("SELECT cash FROM promoit.users_activists Where user_name = @_username LIMIT 1");
+            mySQL.ProcedureParameter("_username", UserName);
+            using MySqlDataReader results = mySQL.GetQueryMultyResults();
+            if (results == null) throw new Exception($"no cash {UserName}");
+            while (results != null && results.Read())
+            {
+                try
+                {
+                    str = results.GetDecimal("cash").ToString() + "$";
+                }
+                catch { throw new Exception($"error to get cash for {UserName}"); };
+            }
+
+            return str;
+        }
+
 
         public bool Regiser() 
         {
@@ -27,7 +48,7 @@ namespace PromotItLibrary.Classes
             mySQL.ProcedureParameter("_email", Email);
             mySQL.ProcedureParameter("_address", Address);
             mySQL.ProcedureParameter("_phone", PhoneNumber);
-            mySQL.ProcedureParameter("_cash", 10000.0);
+            mySQL.ProcedureParameter("_cash", Cash ?? "10000.0");
             return mySQL.ProceduteExecute();
         }
     }

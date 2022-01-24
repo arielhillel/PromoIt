@@ -21,8 +21,7 @@ namespace PromotItFormApp.LandingPages
         {
             InitializeComponent();
             GetCampaigns();
-            
-
+            GetCashAmount();
         }
         
         private void dataGridSA_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -49,16 +48,27 @@ namespace PromotItFormApp.LandingPages
             panelSA.ForeColor = Color.White;
         }
 
+
+        private void GetCashAmount()
+        {
+            try
+            {
+
+                ActivistUser activistUser = new ActivistUser();
+                activistUser.UserName = Configuration.LoginUser.UserName;
+                txtCash.Text = activistUser.GetCash();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
         private void GetCampaigns()
         {
             try
             {
                 dataGridSA.DataSource = Campaign.BusinessGetAllCampaigns();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
     }
