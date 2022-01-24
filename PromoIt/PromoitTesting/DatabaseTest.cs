@@ -38,7 +38,7 @@ namespace PromoitTesting
             activistUser.PhoneNumber = "FDGDFGD";
 
 
-            bool result1 = activistUser.Regiser();
+            bool result1 = activistUser.Register();
             Assert.True(result1, "User Should Register");
 
             Users loggedInUser = user.Login();

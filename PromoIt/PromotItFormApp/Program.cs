@@ -27,7 +27,7 @@ namespace PromotItFormApp
             //user.UserName = "activist";
             //user.UserType = "activist";
             //Configuration.LoginUser = user;
-            Application.Run(new PromotIt() ); //
+            Application.Run(new PromotIt() );
         }
     }
 }

@@ -19,8 +19,18 @@ namespace PromotItLibrary.Classes
         public string UserType { get; set; }
 
         private static MySQL mySQL = Configuration.MySQL;
+        private static Modes GlobalMode = Configuration.Mode;
+        public Users Login(Modes mode = null)
+        {
+            if ( (mode ?? Configuration.Mode) == Modes.MySQL)
+              return MySQL_Login();
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return null;
 
-        public Users Login()
+            return null;
+        }
+
+        private Users MySQL_Login()
         {
             Users user = null;
             mySQL.SetQuary("SELECT * FROM users where user_name=@username and user_password=@password limit 1");
@@ -42,5 +52,7 @@ namespace PromotItLibrary.Classes
             }
             return user;
         }
+
+
     }
 }

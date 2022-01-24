@@ -37,8 +37,18 @@ namespace PromotItLibrary.Classes
             return str;
         }
 
+        public bool Register(Modes mode = null)
+        {
+            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+                return MySQL_Register();
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return false;
 
-        public bool Regiser() 
+            return false;
+
+        }
+
+        public bool MySQL_Register() 
         {
             mySQL.Procedure("register_activist");
             mySQL.ProcedureParameter("_username", UserName);

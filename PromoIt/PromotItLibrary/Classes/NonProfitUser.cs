@@ -16,7 +16,19 @@ namespace PromotItLibrary.Classes
 
         private MySQL mySQL = Configuration.MySQL;
 
-        public bool Register() 
+        public bool Register(Modes mode = null) 
+        {
+            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+                return MySQL_Register();
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return false;
+
+            return false;
+
+        }
+
+
+        private bool MySQL_Register()
         {
             MySQL mySQL = Configuration.MySQL;
             mySQL.Procedure("register_non_profit");
@@ -27,7 +39,6 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_website", WebSite);
             return mySQL.ProceduteExecute();
         }
-
 
     }
 }

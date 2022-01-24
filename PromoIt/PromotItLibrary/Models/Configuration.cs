@@ -11,7 +11,7 @@ namespace PromotItLibrary.Models
 {
     public class Configuration
     {
-
+        public static Modes Mode { get; set; } = Modes.setDataBaseFor(Modes.Functions, Modes.MySQL); //Modes.setDataBaseFor(Modes.Functions, Modes.MySQL);
         public static Users LoginUser { get; set; }
         public static Campaign CorrentCampaign { get; set; }
         public static ProductInCampaign CorrentProduct { get; set; }

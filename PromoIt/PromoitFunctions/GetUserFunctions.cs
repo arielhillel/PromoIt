@@ -14,7 +14,7 @@ using PromotItLibrary.Classes;
 
 namespace PromoitFunction
 {
-    public static class Function1
+    public static class GetUserFunctions
     {
         [FunctionName("GetUser")]
         public static async Task<IActionResult> Run(
@@ -33,7 +33,7 @@ namespace PromoitFunction
                     if (user == null) throw new Exception($"GET: No {className} IS Enterd");
                     try
                     {
-                        user = user.Login();
+                        user = user.Login(Modes.Database);
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!"); 
                         log.LogInformation($"Function Find {className} ({user.Name}) Type ({user.UserType})");
                         return new OkObjectResult(Functions.ObjectToJsonString(user));
@@ -55,9 +55,6 @@ namespace PromoitFunction
                     Dictionary<string, string> keyValuePairs = Functions.PostMessageSplit(requestBody);
                     string data = keyValuePairs["data"].ToString();
                     data = Functions.HttpUrlDecode(data);
-
-
-
                     try 
                     {
                         dynamic userDataDynamic = Functions.JsonStringToSingleObject<NonProfitUser>(data);
@@ -68,37 +65,37 @@ namespace PromoitFunction
                         {
                             NonProfitUser user = Functions.JsonStringToSingleObject<NonProfitUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register();
+                            action = user.Register(Modes.Database);
                         }
                         else if (userDataDynamic.UserType == "admin")
                         {
                             AdminUser user = Functions.JsonStringToSingleObject<AdminUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register();
+                            action = user.Register(Modes.Database);
                         }
                         else if (userDataDynamic.UserType == "business")
                         {
                             BusinessUser user = Functions.JsonStringToSingleObject<BusinessUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register();
+                            action = user.Register(Modes.Database);
                         }
                         else if (userDataDynamic.UserType == "activist")
                         {
                             ActivistUser user = Functions.JsonStringToSingleObject<ActivistUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Regiser();
+                            action = user.Register(Modes.Database);
                         }
 
                         if (action)
                         {
                             log.LogInformation($"Function Seccess to Insert {className} to database");
-                            return new OkObjectResult("ok");
+                            return new OkObjectResult("ok");        //good result
                         }
                     }
                     catch (Exception ex) 
                     {
                         log.LogInformation($"Function Not-Seccess to Insert {className} to database\nDetails:{ex}");
-                        return new BadRequestObjectResult("fail");
+                        return new BadRequestObjectResult("fail"); //bad result
                     }
                     log.LogInformation($"Function Failed to Insert after Tried to Insert {className} to database");
                     return new BadRequestObjectResult("no access to database");

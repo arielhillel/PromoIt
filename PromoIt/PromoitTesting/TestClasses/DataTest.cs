@@ -19,7 +19,8 @@ namespace PromoitTesting.TestClasses
         public string UserType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public Users Login()
+
+        public Users Login(Modes mode = null)
         {
             throw new NotImplementedException();
         }
