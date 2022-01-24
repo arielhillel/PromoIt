@@ -33,7 +33,8 @@ namespace PromoitFunction
                     if (user == null) throw new Exception($"GET: No {className} IS Enterd");
                     try
                     {
-                        user = user.Login(Modes.Database);
+                        user = await user.LoginAsync(Configuration.DatabaseMode);
+
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!"); 
                         log.LogInformation($"Function Find {className} ({user.Name}) Type ({user.UserType})");
                         return new OkObjectResult(Functions.ObjectToJsonString(user));
@@ -65,25 +66,25 @@ namespace PromoitFunction
                         {
                             NonProfitUser user = Functions.JsonStringToSingleObject<NonProfitUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register(Modes.Database);
+                            action = await user.RegisterAsync(Configuration.DatabaseMode);
                         }
                         else if (userDataDynamic.UserType == "admin")
                         {
                             AdminUser user = Functions.JsonStringToSingleObject<AdminUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register(Modes.Database);
+                            action = await user.RegisterAsync(Configuration.DatabaseMode);
                         }
                         else if (userDataDynamic.UserType == "business")
                         {
                             BusinessUser user = Functions.JsonStringToSingleObject<BusinessUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register(Modes.Database);
+                            action = await user.RegisterAsync(Configuration.DatabaseMode);
                         }
                         else if (userDataDynamic.UserType == "activist")
                         {
                             ActivistUser user = Functions.JsonStringToSingleObject<ActivistUser>(data);
                             if (user == null) throw new Exception($"POST: No {className} IS Enterd");
-                            action = user.Register(Modes.Database);
+                            action = await user.RegisterAsync(Configuration.DatabaseMode);
                         }
 
                         if (action)

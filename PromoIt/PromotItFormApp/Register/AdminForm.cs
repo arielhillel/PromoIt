@@ -30,7 +30,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void buttonCloseAdminForm_Click(object sender, EventArgs e) => CloseWindow();
 
-        private void buttonAdminRegister_Click(object sender, EventArgs e) => AdminRegister();
+        private void buttonAdminRegister_Click(object sender, EventArgs e) => AdminRegisterAsync();
         private void AdminForm_Load(object sender, EventArgs e) { }
 
 
@@ -42,7 +42,7 @@ namespace PromotItFormApp.RoleRegister
             roleSystem.ShowDialog();
         }
 
-        private void AdminRegister() 
+        private async Task AdminRegisterAsync() 
         {
             try
             {
@@ -53,7 +53,7 @@ namespace PromotItFormApp.RoleRegister
                 adminUser.Name = textBoxAdminName.Text;
                 adminUser.UserName = textBoxAdminUsername.Text;
                 adminUser.UserPassword = textBoxAdminPassword.Text;
-                bool result = adminUser.Register();
+                bool result = await adminUser.RegisterAsync();
                 if (result)
                 {
                     Configuration.LoginUser = adminUser;

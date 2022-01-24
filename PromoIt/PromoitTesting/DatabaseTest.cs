@@ -4,6 +4,7 @@ using PromotItLibrary.Classes;
 using PromotItLibrary.Interfaces;
 using PromotItLibrary.Models;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace PromoitTesting
@@ -14,7 +15,7 @@ namespace PromoitTesting
     {
         private MySQL mySQL = Configuration.MySQL;
         [Fact]
-        public void DataBaseUserRegisterLogin()
+        public async Task DataBaseUserRegisterLoginAsync()
         {
 
 
@@ -38,10 +39,10 @@ namespace PromoitTesting
             activistUser.PhoneNumber = "FDGDFGD";
 
 
-            bool result1 = activistUser.Register();
+            bool result1 = await activistUser.RegisterAsync();
             Assert.True(result1, "User Should Register");
 
-            Users loggedInUser = user.Login();
+            Users loggedInUser = await user.LoginAsync();
 
             bool result2 = loggedInUser != null;
             Assert.True(result2, "Login User Should Accepted");

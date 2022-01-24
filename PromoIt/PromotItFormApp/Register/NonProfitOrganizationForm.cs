@@ -29,7 +29,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void buttonCloseNPOForm_Click(object sender, EventArgs e) => CloseWindow();
 
-        private void buttonNPORegister_Click(object sender, EventArgs e) => RegisterNonProfitOrganization();
+        private void buttonNPORegister_Click(object sender, EventArgs e) => RegisterNonProfitOrganizationAsync();
 
         private void NonProfitOrganizationForm_Load(object sender, EventArgs e) { }
 
@@ -41,7 +41,7 @@ namespace PromotItFormApp.RoleRegister
             roleSystem.ShowDialog();
         }
 
-        private void RegisterNonProfitOrganization()
+        private async Task RegisterNonProfitOrganizationAsync()
         {
             try
             {
@@ -54,7 +54,7 @@ namespace PromotItFormApp.RoleRegister
                 nonProfitUser.UserPassword = textBoxNPOPassword.Text;
                 nonProfitUser.Email = textBoxNPOEmail.Text;
                 nonProfitUser.WebSite = textBoxNPOWebsite.Text;
-                bool result = nonProfitUser.Register();
+                bool result = await nonProfitUser.RegisterAsync();
                 if (result)
                 {
                     Configuration.LoginUser = nonProfitUser;

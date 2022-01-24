@@ -36,11 +36,11 @@ namespace PromotItFormApp.RoleRegister
             }
         }
 
-        private void buttonSARegister_Click(object sender, EventArgs e) => RegisterSocialActivist();
+        private void buttonSARegister_Click(object sender, EventArgs e) => RegisterSocialActivistAsync();
         private void SocialActivistForm_Load(object sender, EventArgs e) { }
 
 
-        private void RegisterSocialActivist()
+        private async Task RegisterSocialActivistAsync()
         {
             try
             {
@@ -54,7 +54,7 @@ namespace PromotItFormApp.RoleRegister
                 activistUser.Email = textBoxSAEmail.Text;
                 activistUser.Address = textBoxSAAddress.Text;
                 activistUser.PhoneNumber = textBoxSAPhoneNumber.Text;
-                bool result = activistUser.Register();
+                bool result = await activistUser.RegisterAsync();
                 if (result)
                 {
                     Configuration.LoginUser = activistUser;

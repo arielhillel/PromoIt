@@ -20,14 +20,25 @@ namespace PromotItLibrary.Classes
 
         private static MySQL mySQL = Configuration.MySQL;
         private static Modes GlobalMode = Configuration.Mode;
-        public Users Login(Modes mode = null)
+
+
+        public async Task<Users> LoginAsync(Modes mode = null)
         {
             if ( (mode ?? Configuration.Mode) == Modes.MySQL)
               return MySQL_Login();
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return null;
+              return await Functions_LoginAsync();
 
             return null;
+        }
+
+        private async Task<Users> Functions_LoginAsync()
+        {
+            try
+            {
+                return await Functions.GetSingleDataRequest("GetUser", this);
+            }
+            catch { throw new Exception($"Functions error"); };
         }
 
         private Users MySQL_Login()
@@ -52,7 +63,6 @@ namespace PromotItLibrary.Classes
             }
             return user;
         }
-
 
     }
 }

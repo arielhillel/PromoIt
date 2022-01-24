@@ -14,16 +14,26 @@ namespace PromotItLibrary.Classes
 
         private MySQL mySQL = Configuration.MySQL;
 
-        public bool Register(Modes mode = null)
+        public async Task<bool> RegisterAsync(Modes mode = null)
         {
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
                 return MySQL_Register();
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return false;
+                return await Functions_Register();
 
             return false;
 
         }
+
+        private async Task<bool> Functions_Register()
+        {
+            try
+            {
+                return (bool)await Functions.PostSingleDataRequest("GetUser", this);
+            }
+            catch { throw new Exception($"Functions error"); };
+        }
+
         private bool MySQL_Register()
         {
             mySQL.Procedure("register_admin");

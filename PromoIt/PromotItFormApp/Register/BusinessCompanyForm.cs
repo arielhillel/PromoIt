@@ -28,7 +28,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void buttonCloseBCRForm_Click(object sender, EventArgs e) => CloseWindow();
 
-        private void buttonCompanyRegister_Click(object sender, EventArgs e) => RegisterBusinessCompany();
+        private void buttonCompanyRegister_Click(object sender, EventArgs e) => RegisterBusinessCompanyAsync();
 
         private void BusinessCompanyForm_Load(object sender, EventArgs e) { }
 
@@ -41,7 +41,7 @@ namespace PromotItFormApp.RoleRegister
             roleSystem.ShowDialog();
         }
 
-        private void RegisterBusinessCompany() 
+        private async Task RegisterBusinessCompanyAsync() 
         {
             try
             {
@@ -52,7 +52,7 @@ namespace PromotItFormApp.RoleRegister
                 businessUser.Name = textBoxBCRName.Text;
                 businessUser.UserName = textBoxBCRUsername.Text;
                 businessUser.UserPassword = textBoxBCRPassword.Text;
-                bool result = businessUser.Register();
+                bool result = await businessUser.RegisterAsync();
                 if (result)
                 {
                     Configuration.LoginUser = businessUser;

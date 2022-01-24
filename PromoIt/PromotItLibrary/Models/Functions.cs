@@ -71,6 +71,7 @@ namespace PromotItLibrary.Models
 
         public async static Task<string> GetRequest(string getFolder, string getRequest)
         {
+            Configuration.HttpClient = new HttpClient();
             using HttpResponseMessage response = await (Configuration.HttpClient).GetAsync(Configuration.FunctionUrl + getFolder + getRequest);
             using HttpContent content = response.Content;
             //Response
