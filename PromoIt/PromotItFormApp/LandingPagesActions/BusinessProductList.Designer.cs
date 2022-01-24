@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridProductList = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +50,10 @@
             this.dataGridProductList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.quantity,
-            this.price});
+            this.clmnProductId,
+            this.clmnProductName,
+            this.clmnProductQuantity,
+            this.clmnProductPrice});
             this.dataGridProductList.GridColor = System.Drawing.Color.White;
             this.dataGridProductList.Location = new System.Drawing.Point(25, 39);
             this.dataGridProductList.MultiSelect = false;
@@ -65,37 +67,46 @@
             this.dataGridProductList.Size = new System.Drawing.Size(621, 372);
             this.dataGridProductList.TabIndex = 2;
             // 
-            // name
+            // clmnProductId
             // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Product Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
+            this.clmnProductId.DataPropertyName = "clmnProductId";
+            this.clmnProductId.HeaderText = "clmnProductId";
+            this.clmnProductId.MinimumWidth = 6;
+            this.clmnProductId.Name = "clmnProductId";
+            this.clmnProductId.ReadOnly = true;
+            this.clmnProductId.Visible = false;
             // 
-            // quantity
+            // clmnProductName
             // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
+            this.clmnProductName.DataPropertyName = "clmnProductName";
+            this.clmnProductName.HeaderText = "Product Name";
+            this.clmnProductName.MinimumWidth = 6;
+            this.clmnProductName.Name = "clmnProductName";
+            this.clmnProductName.ReadOnly = true;
             // 
-            // price
+            // clmnProductQuantity
             // 
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Price";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
+            this.clmnProductQuantity.DataPropertyName = "clmnProductQuantity";
+            this.clmnProductQuantity.HeaderText = "Quantity";
+            this.clmnProductQuantity.MinimumWidth = 6;
+            this.clmnProductQuantity.Name = "clmnProductQuantity";
+            this.clmnProductQuantity.ReadOnly = true;
             // 
-            // ProductListBC
+            // clmnProductPrice
+            // 
+            this.clmnProductPrice.DataPropertyName = "clmnProductPrice";
+            this.clmnProductPrice.HeaderText = "Price";
+            this.clmnProductPrice.MinimumWidth = 6;
+            this.clmnProductPrice.Name = "clmnProductPrice";
+            this.clmnProductPrice.ReadOnly = true;
+            // 
+            // BusinessProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 450);
             this.Controls.Add(this.dataGridProductList);
-            this.Name = "ProductListBC";
+            this.Name = "BusinessProductList";
             this.Text = "ProductListBC";
             this.Shown += new System.EventHandler(this.ProductListBC_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).EndInit();
@@ -106,8 +117,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridProductList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductPrice;
     }
 }

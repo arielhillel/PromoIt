@@ -2,6 +2,7 @@
 using PromotItLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,7 @@ namespace PromotItLibrary.Classes
             BusinessUser = Configuration.LoginUser ?? new Users();
         }
 
-        private MySQL mySQL = Configuration.MySQL;
-
-
-
-
+        private static MySQL mySQL = Configuration.MySQL;
 
         public bool SetNewProduct()
         {
@@ -40,21 +37,29 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-        public MySqlDataAdapter GetList()
+        public DataTable GetList() //for business and for activist
         {
+            if (Campaign.Hashtag == null ) throw new Exception("No set for Campaign Hashtag");
+            DataTable dataTable = new DataTable();
+            // Creating the same Grid clmns on the table
+            foreach (string culmn in new[] { "clmnProductId", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
+                dataTable.Columns.Add(culmn);
             mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");
             mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
-            return mySQL.QuaryDataAdapter();
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            while (results != null && results.Read())
+            {
+                try
+                {
+                    DataRow dataRow = dataTable.NewRow();
+                    foreach (var (key, value) in new[] { ("clmnProductId", "id"), ("clmnProductName", "name"), ("clmnProductQuantity", "quantity"), ("clmnProductPrice", "price") })
+                        dataRow[key] = results.GetValue(value);
+                    dataTable.Rows.Add(dataRow);
+                }
+                catch { };
+            }
+            return dataTable;
         }
 
-
-
-
-        public MySqlDataAdapter GetListByHashtag(string hashtag)
-        {
-            mySQL.SetQuary("SELECT name, quantity, price FROM products WHERE campaign_hashtag  = @hashtag");
-            mySQL.QuaryParameter("@hashtag", hashtag);
-            return mySQL.QuaryDataAdapter();
-        }
     }
 }

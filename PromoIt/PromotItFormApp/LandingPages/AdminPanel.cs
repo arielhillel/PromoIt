@@ -13,46 +13,6 @@ namespace PromotItFormApp.LandingPages
 {
     public partial class AdminPanel : Form
     {
-        Reports reports = new Reports();
-        private void DisplayCampaigns()
-        {
-            try
-            {
-                DataTable tbl = reports.GetAllCampaigns();
-                dataGridReports.DataSource = tbl;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void DisplayUsers()
-        {
-            try
-            {
-                DataTable tbl = reports.GetAllUsers();
-                dataGridReports.DataSource = tbl;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void DisplayTweets()
-        {
-            try
-            {
-                DataTable tbl = reports.GetAllTweets();
-                dataGridReports.DataSource = tbl;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         public AdminPanel()
         {
             InitializeComponent();
@@ -65,19 +25,52 @@ namespace PromotItFormApp.LandingPages
             panelAdmin.ForeColor = Color.White;
         }
 
-        private void buttonUsersAdmin_Click(object sender, EventArgs e)
+        private void buttonUsersAdmin_Click(object sender, EventArgs e) => DisplayUsers();
+
+        private void buttonCampaignsAdmin_Click(object sender, EventArgs e) => DisplayCampaigns();
+
+        private void buttonTweetsAdmin_Click(object sender, EventArgs e) => DisplayTweets();
+
+        private void DisplayCampaigns()
         {
-            DisplayUsers();
+            try
+            {
+                DataTable tbl = AdminUser.GetAllCampaigns();
+                dataGridReports.DataSource = tbl;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void DisplayUsers()
+        {
+            try
+            {
+                DataTable tbl = AdminUser.GetAllUsers();
+                dataGridReports.DataSource = tbl;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void buttonCampaignsAdmin_Click(object sender, EventArgs e)
+        private void DisplayTweets()
         {
-            DisplayCampaigns();
+            try
+            {
+                DataTable tbl = AdminUser.GetAllTweets();
+                dataGridReports.DataSource = tbl;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void buttonTweetsAdmin_Click(object sender, EventArgs e)
-        {
-            DisplayTweets();
-        }
     }
 }

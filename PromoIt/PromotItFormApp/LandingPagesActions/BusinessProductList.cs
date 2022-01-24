@@ -15,36 +15,24 @@ namespace PromotItFormApp.LandingPagesActions
 {
     public partial class BusinessProductList : Form
     {
-        ProductInCampaign product = new ProductInCampaign();
 
         public BusinessProductList()
         {
             InitializeComponent();
         }
 
-        private void ProductListBC_Shown(object sender, EventArgs e)
-        {
-            GetProductInCampaign();
-        }
-
-        private void GetProductInCampaign()
+        private void ProductListBC_Shown(object sender, EventArgs e) => GetProductsInCampaigns();
+        
+        private void GetProductsInCampaigns()
         {
             try
             {
-                MySqlDataAdapter adapter = product.GetList();
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                dataGridProductList.DataSource = tbl;
-                dataGridProductList.Columns["name"].HeaderText = "Product Name";
-                dataGridProductList.Columns["quantity"].HeaderText = "Quantity";
-                dataGridProductList.Columns["price"].HeaderText = "Price";
+                ProductInCampaign productInCampaign = new ProductInCampaign();
+                productInCampaign.Campaign = Configuration.CorrentCampaign;
+                dataGridProductList.DataSource = productInCampaign.GetList();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
 
     }
 }

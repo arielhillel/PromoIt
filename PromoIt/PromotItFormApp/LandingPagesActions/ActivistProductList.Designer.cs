@@ -30,10 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridProductList = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonBuyGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).BeginInit();
             this.SuspendLayout();
@@ -52,10 +52,10 @@
             this.dataGridProductList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.name,
-            this.quantity,
-            this.price,
+            this.clmnProductId,
+            this.clmnProductName,
+            this.clmnProductQuantity,
+            this.clmnProductPrice,
             this.buttonBuyGrid});
             this.dataGridProductList.GridColor = System.Drawing.Color.White;
             this.dataGridProductList.Location = new System.Drawing.Point(24, 39);
@@ -71,38 +71,38 @@
             this.dataGridProductList.TabIndex = 2;
             this.dataGridProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProductList_CellClick);
             // 
-            // id
+            // clmnProductId
             // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.clmnProductId.DataPropertyName = "clmnProductId";
+            this.clmnProductId.HeaderText = "clmnProductId";
+            this.clmnProductId.MinimumWidth = 6;
+            this.clmnProductId.Name = "clmnProductId";
+            this.clmnProductId.ReadOnly = true;
+            this.clmnProductId.Visible = false;
             // 
-            // name
+            // clmnProductName
             // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Product Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
+            this.clmnProductName.DataPropertyName = "clmnProductName";
+            this.clmnProductName.HeaderText = "Product Name";
+            this.clmnProductName.MinimumWidth = 6;
+            this.clmnProductName.Name = "clmnProductName";
+            this.clmnProductName.ReadOnly = true;
             // 
-            // quantity
+            // clmnProductQuantity
             // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
+            this.clmnProductQuantity.DataPropertyName = "clmnProductQuantity";
+            this.clmnProductQuantity.HeaderText = "Quantity";
+            this.clmnProductQuantity.MinimumWidth = 6;
+            this.clmnProductQuantity.Name = "clmnProductQuantity";
+            this.clmnProductQuantity.ReadOnly = true;
             // 
-            // price
+            // clmnProductPrice
             // 
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Price";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
+            this.clmnProductPrice.DataPropertyName = "clmnProductPrice";
+            this.clmnProductPrice.HeaderText = "Price";
+            this.clmnProductPrice.MinimumWidth = 6;
+            this.clmnProductPrice.Name = "clmnProductPrice";
+            this.clmnProductPrice.ReadOnly = true;
             // 
             // buttonBuyGrid
             // 
@@ -138,10 +138,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridProductList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductPrice;
         private System.Windows.Forms.DataGridViewButtonColumn buttonBuyGrid;
     }
 }

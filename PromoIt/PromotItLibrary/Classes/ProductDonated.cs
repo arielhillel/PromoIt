@@ -48,8 +48,8 @@ namespace PromotItLibrary.Classes
 
         public DataTable ShowDonatedProductForShipping()
         {
-            // Error, no npo user
-            if (ProductInCampaign.BusinessUser.UserType != "business" && ProductInCampaign.BusinessUser.UserName == null) throw new Exception("No set for npo User");
+            // Error, no business user
+            if (ProductInCampaign.BusinessUser.UserType != "business" && ProductInCampaign.BusinessUser.UserName == null) throw new Exception("No set for business User");
             DataTable dataTable = new DataTable();
             // Creating the same Grid clmns on the table
             foreach (string culmn in new[] { "clmnActivist", "clmnProduct", "clmnProductDonatedId" } )
@@ -60,7 +60,7 @@ namespace PromotItLibrary.Classes
             mySQL.ProcedureParameter("_business_user_name", ProductInCampaign.BusinessUser.UserName);
             mySQL.ProcedureParameter("_limit", 10);
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            while (results != null && results.Read())
             {
                 try
                 {

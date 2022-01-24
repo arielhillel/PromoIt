@@ -23,7 +23,6 @@ namespace PromotItLibrary.Classes
             NonProfitUser = Configuration.LoginUser ?? new Users();
         }
 
-
         public MySqlDataAdapter GetNonProfitCampaigns()
         {
             mySQL.SetQuary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name ");
@@ -40,8 +39,7 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_non_profit_user_name", Configuration.LoginUser.UserName);
             return mySQL.ProceduteExecute();
         }
-
-        public bool DeleteCampaign(string hashtag) //Deleted by mistake
+        public bool DeleteCampaign(string hashtag)
         {
             mySQL.Procedure("delete_campaign");
             mySQL.QuaryParameter("_hashtag", hashtag);            
@@ -70,7 +68,6 @@ namespace PromotItLibrary.Classes
             }
             return dataTable;
         }
-
         public DataTable GetAllCampaignsNonProfit() 
             {
             // Error, no npo user

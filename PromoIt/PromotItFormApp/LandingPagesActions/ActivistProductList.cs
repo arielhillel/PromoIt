@@ -39,8 +39,8 @@ namespace PromotItFormApp.LandingPagesActions
 
         private void SetBuyAProduct(DataGridViewCellEventArgs e)
         {
-            _productDonated.ProductInCampaign.Id = int.Parse(dataGridProductList["id", e.RowIndex].Value.ToString());
-            _productDonated.ProductInCampaign.Name = dataGridProductList["name", e.RowIndex].Value.ToString();
+            _productDonated.ProductInCampaign.Id = int.Parse(dataGridProductList["clmnProductId", e.RowIndex].Value.ToString());
+            _productDonated.ProductInCampaign.Name = dataGridProductList["clmnProductName", e.RowIndex].Value.ToString();
             _productDonated.Quantity = "1";
             _productDonated.ActivistUser = Configuration.LoginUser;
             try
@@ -61,14 +61,7 @@ namespace PromotItFormApp.LandingPagesActions
             {
                 Configuration.CorrentProduct = _productInCampaign;
                 _productInCampaign.Campaign = Configuration.CorrentCampaign;
-                MySqlDataAdapter adapter = _productInCampaign.GetList();
-                DataTable tbl = new DataTable();
-                adapter.Fill(tbl);
-                dataGridProductList.DataSource = tbl;
-                dataGridProductList.Columns["id"].HeaderText = "id";
-                dataGridProductList.Columns["name"].HeaderText = "Product Name";
-                dataGridProductList.Columns["quantity"].HeaderText = "Quantity";
-                dataGridProductList.Columns["price"].HeaderText = "Price";
+                dataGridProductList.DataSource = _productInCampaign.GetList();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
