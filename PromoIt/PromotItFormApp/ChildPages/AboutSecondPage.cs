@@ -10,16 +10,12 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp.ChildPages
 {
-    public partial class MenuAboutPage : Form
+    public partial class AboutSecondPage : Form
     {
         private Form activeForm;
-        public MenuAboutPage()
+        public AboutSecondPage()
         {
             InitializeComponent();
-        }
-        private void MenuAboutPage_Load(object sender, EventArgs e)
-        {
-            LoadTheme();
         }
         private void LoadTheme()
         {
@@ -33,10 +29,11 @@ namespace PromotItFormApp.ChildPages
                     button.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
 
-                labelAboutUs.BackColor = ThemeColor.PrimaryColor;
-                labelAboutCoop.BackColor = ThemeColor.SecondaryColor;
+                labelTermsService.BackColor = ThemeColor.PrimaryColor;
+                labelPoints.BackColor = ThemeColor.SecondaryColor;
             }
         }
+
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -52,9 +49,15 @@ namespace PromotItFormApp.ChildPages
             childForm.BringToFront();
             childForm.Show();
         }
-        private void buttonAboutNext_Click(object sender, EventArgs e)
+
+        private void buttonPreviousAbout_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ChildPages.AboutSecondPage(), sender);
+            OpenChildForm(new ChildPages.MenuAboutPage(), sender);
+        }
+
+        private void AboutSecondPage_Load(object sender, EventArgs e)
+        {
+            LoadTheme();
         }
     }
 }

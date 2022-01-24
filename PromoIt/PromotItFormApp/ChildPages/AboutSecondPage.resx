@@ -57,13 +57,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="labelUsDesc.Text" xml:space="preserve">
-    <value>Promoit? What is it?
-Promoit is a campaign-friendly application based on social media platforms, this application is still under development thus it
-supports Twitter only.
-In such a modern society, when the social media is the main core of the advertising world - we thought of a way to actually 
-benefit the users into better agenda and better ideologies by promoting non-profit campaigns through our application.
-We are encouraging the younger generation for better future by letting them the option to earn products by particpating 
-in our program.</value>
+  <data name="labelServiceTerms.Text" xml:space="preserve">
+    <value>We are all eager to earn products now but there are a few steps beforehand.
+It is better to mention that a full registration both to Twitter and Promoit is mandatory so our system will keep a 
+trace through your progress.
+
+You can select from many campaigns that are being offered in your user's panel.
+All offered campaigns available, the campaigns are created by different organizations and support different agendas. 
+Bare in mind, ONLY displayed campaigns are eligible for earnings.</value>
   </data>
 </root>

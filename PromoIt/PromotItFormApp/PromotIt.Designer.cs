@@ -137,7 +137,7 @@
             this.buttonAbout.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.buttonAbout.Size = new System.Drawing.Size(220, 60);
             this.buttonAbout.TabIndex = 0;
-            this.buttonAbout.Text = " About PromoteIt";
+            this.buttonAbout.Text = " About Promoit";
             this.buttonAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAbout.UseVisualStyleBackColor = true;
@@ -177,7 +177,7 @@
             this.buttonHome.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.buttonHome.Size = new System.Drawing.Size(220, 60);
             this.buttonHome.TabIndex = 0;
-            this.buttonHome.Text = " Home";
+            this.buttonHome.Text = " ZioNet";
             this.buttonHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonHome.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(403, 25);
+            this.labelTitle.Location = new System.Drawing.Point(367, 20);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(87, 35);
             this.labelTitle.TabIndex = 0;
@@ -247,8 +247,7 @@
             this.panelDesktopPanel.Location = new System.Drawing.Point(220, 80);
             this.panelDesktopPanel.Name = "panelDesktopPanel";
             this.panelDesktopPanel.Size = new System.Drawing.Size(862, 493);
-            this.panelDesktopPanel.TabIndex = 2;
-            //this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint_1);
+            this.panelDesktopPanel.TabIndex = 0;
             // 
             // PromotIt
             // 
@@ -258,7 +257,8 @@
             this.Controls.Add(this.panelDesktopPanel);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MaximumSize = new System.Drawing.Size(1100, 620);
+            this.MinimumSize = new System.Drawing.Size(1100, 620);
             this.Name = "PromotIt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PromotIt";
