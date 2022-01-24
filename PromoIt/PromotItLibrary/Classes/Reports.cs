@@ -24,7 +24,7 @@ namespace PromotItLibrary.Classes
             {
                 try
                 {
-                    DataRow? dataRow = dataTable.NewRow();
+                    DataRow dataRow = dataTable.NewRow();
                     foreach (var (key, value) in new[] { ("Hashtag", "hashtag"), ("Webpage", "webpage"),  ("Creator", "non_profit_user_name") })
                         dataRow[key] = results.GetValue(value);
                     dataTable.Rows.Add(dataRow);
@@ -46,7 +46,7 @@ namespace PromotItLibrary.Classes
             {
                 try
                 {
-                    DataRow? dataRow = dataTable.NewRow();
+                    DataRow dataRow = dataTable.NewRow();
                     foreach (var (key, value) in new[] { ("Name", "name"), ("UserName", "user_name"), ("Type", "user_type") })
                         dataRow[key] = results.GetValue(value);
                     dataTable.Rows.Add(dataRow);
@@ -68,7 +68,7 @@ namespace PromotItLibrary.Classes
             {
                 try
                 {
-                    DataRow? dataRow = dataTable.NewRow();
+                    DataRow dataRow = dataTable.NewRow();
                     foreach (var (key, value) in new[] { ("Hashtag", "campaign_hashtag"), ("UserName", "activist_user_name") })
                         dataRow[key] = results.GetValue(value);
                     dataTable.Rows.Add(dataRow);

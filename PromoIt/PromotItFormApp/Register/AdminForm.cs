@@ -30,7 +30,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void buttonCloseAdminForm_Click(object sender, EventArgs e) => CloseWindow();
 
-        private void buttonAdminRegister_Click(object sender, EventArgs e) => AdminRegisterAsync();
+        private void buttonAdminRegister_ClickAsync(object sender, EventArgs e) =>  AdminRegisterAsync();
         private void AdminForm_Load(object sender, EventArgs e) { }
 
 

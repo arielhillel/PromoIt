@@ -6,7 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 namespace PromotItLibrary.Classes
 {
@@ -62,7 +61,7 @@ namespace PromotItLibrary.Classes
             {
                 try
                 {
-                    DataRow? dataRow = dataTable.NewRow();
+                    DataRow dataRow = dataTable.NewRow();
                     foreach (var (key, value) in new[] { ("clmnHashtag", "hashtag"), ("clmnWebpage", "webpage") }) // ,("clmnCampaignName", "name"), ("clmnCreator", "non_profit_user_name")
                         dataRow[key] = results.GetValue(value);
                     dataTable.Rows.Add(dataRow);
@@ -88,7 +87,7 @@ namespace PromotItLibrary.Classes
                 {
                     try
                     {
-                        DataRow? dataRow = dataTable.NewRow();
+                        DataRow dataRow = dataTable.NewRow();
                         foreach (var (key, value) in new[] { ("clmnCampaignName", "name"), ("clmnHashtag", "hashtag"), ("clmnWebsite", "webpage"), ("clmnCreator", "non_profit_user_name") })
                             dataRow[key] = results.GetValue(value);
                         dataTable.Rows.Add(dataRow);

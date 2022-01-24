@@ -138,7 +138,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridProductList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;

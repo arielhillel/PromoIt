@@ -33,7 +33,7 @@ namespace PromoitFunction
                     if (user == null) throw new Exception($"GET: No {className} IS Enterd");
                     try
                     {
-                        user = await user.LoginAsync();
+                        user = user.Login();
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!"); 
                         log.LogInformation($"Function Find {className} ({user.Name}) Type ({user.UserType})");
                         return new OkObjectResult(Functions.ObjectToJsonString(user));

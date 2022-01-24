@@ -26,7 +26,7 @@ namespace PromotItLibrary.Classes
         {
             try
             {
-                return (bool)await Functions.PostSingleDataRequest("GetUser", this);
+                return (bool)await Functions.PostSingleDataRequest("SetUser", this);
             }
             catch { throw new Exception($"Functions error"); };
         }

@@ -12,7 +12,7 @@ namespace PromotItLibrary.Models
         public string Password { private get { return _password; } set { _password = value; ConnectionReset(); } }
         public string DataBase { get { return _dataBase; } set { _dataBase = value; ConnectionReset(); } }
 
-        private MySqlCommand? Cmd { get; set; }
+        private MySqlCommand Cmd { get; set; }
         private string Stm { get; set; }
         private MySqlDataReader Rdr { get; set; }
         private MySqlConnection Con { get; set; }
@@ -35,7 +35,7 @@ namespace PromotItLibrary.Models
         public void Procedure() { if (Cmd != null) Cmd.CommandType = CommandType.StoredProcedure; }
         public void ProcedureParameter<T>(string name, T value) => SetParameter<T>(name, value);
         public bool ProceduteExecute() => QuaryExecute(); 
-        public MySqlDataReader? ProceduteExecuteMultyResults() => GetQueryMultyResults();
+        public MySqlDataReader ProceduteExecuteMultyResults() => GetQueryMultyResults();
         public void Quary(string stmQuary) { Stm = stmQuary; SetCmd(); }
         public void SetQuary(string stmQuary) => Quary(stmQuary);
         public void QuaryParameter<T>(string name, T value) => SetParameter(name, value);

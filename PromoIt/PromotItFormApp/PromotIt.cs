@@ -13,10 +13,10 @@ namespace PromotItFormApp
     public partial class PromotIt : Form
     {
         //Fields
-        private Button currentButton;
+        private Button? currentButton;
         private Random random;
         private int tempIndex;
-        private Form activeForm;
+        private Form? activeForm;
 
         //Constructor
 

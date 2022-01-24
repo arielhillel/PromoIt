@@ -22,21 +22,25 @@ namespace PromotItLibrary.Classes
         private static Modes GlobalMode = Configuration.Mode;
 
 
-        public async Task<Users> LoginAsync(Modes mode = null)
+        public Users Login(Modes mode = null)
         {
-            if ( (mode ?? Configuration.Mode) == Modes.MySQL)
-              return MySQL_Login();
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-              return await Functions_LoginAsync();
-
+            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+                return MySQL_Login();
             return null;
+        }
+
+        public async Task<Users> LoginAsync(Modes mode = null)      //will not use!, only for testing
+        {
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return await Functions_LoginAsync();
+            return Login(mode);
         }
 
         private async Task<Users> Functions_LoginAsync()
         {
             try
             {
-                return await Functions.GetSingleDataRequest("GetUser", this);
+                return await Functions.GetSingleDataRequest("SetUser", this);
             }
             catch { throw new Exception($"Functions error"); };
         }

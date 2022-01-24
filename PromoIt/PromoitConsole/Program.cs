@@ -28,24 +28,10 @@ namespace PromoitConsole
             {
                 try
                 {
-                    //// 2 Insert 1 user (Post)
                     Console.WriteLine($"Insert the user ({userToRegiser.UserName}) get ok/fail answare:");
                     Console.ReadLine();
                     
-                    bool? result =  await Functions.PostSingleDataRequest<NonProfitUser>("GetUser", userToRegiser);
-                    if(result == true) Console.WriteLine($"Yesss");
-                    else if (result == false) Console.WriteLine($"Noooo");
-                    else if (result == null) Console.WriteLine($"Faillll");
 
-                    // 1 Select 1 user (Login) (Get)
-                    Users user = new Users();
-                    user.UserName = "npo";
-                    user.UserPassword = "12344445";
-                    Console.WriteLine($"Send the user ({user.UserName}) throth the function get his type:");
-                    Console.ReadLine();
-
-                    Users? userResult = await Functions.GetSingleDataRequest<Users>("GetUser", user);
-                    Console.WriteLine(userResult?.UserType);
                 }
                 catch (Exception ex) { Console.WriteLine("Fail"); Console.WriteLine(ex); }
 

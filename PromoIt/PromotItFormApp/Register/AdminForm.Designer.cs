@@ -114,7 +114,7 @@
             this.buttonAdminRegister.TabIndex = 4;
             this.buttonAdminRegister.Text = "Register";
             this.buttonAdminRegister.UseVisualStyleBackColor = false;
-            this.buttonAdminRegister.Click += new System.EventHandler(this.buttonAdminRegister_Click);
+            this.buttonAdminRegister.Click += new System.EventHandler(this.buttonAdminRegister_ClickAsync);
             // 
             // panelAdminRegistr
             // 

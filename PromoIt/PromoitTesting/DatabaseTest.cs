@@ -42,7 +42,7 @@ namespace PromoitTesting
             bool result1 = await activistUser.RegisterAsync();
             Assert.True(result1, "User Should Register");
 
-            Users loggedInUser = await user.LoginAsync();
+            Users loggedInUser = user.Login();
 
             bool result2 = loggedInUser != null;
             Assert.True(result2, "Login User Should Accepted");

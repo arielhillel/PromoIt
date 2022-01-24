@@ -55,15 +55,15 @@ namespace PromotItLibrary.Models
 
 
 
-        public async static Task<T?> GetSingleDataRequest<T>(string getFolder, T obj)
+        public async static Task<T> GetSingleDataRequest<T>(string getFolder, T obj)
         {
             string objString = Functions.ObjectToJsonString(obj);
             string getRequest = "?data=" + objString;
             //Response
-            string? mycontent = await GetRequest(getFolder, getRequest);
+            string mycontent = await GetRequest(getFolder, getRequest);
             try
             {
-                T? t = Functions.JsonStringToSingleObject<T>(mycontent);
+                T t = Functions.JsonStringToSingleObject<T>(mycontent);
                 return t;
             }
             catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }

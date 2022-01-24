@@ -14,9 +14,9 @@ using PromotItLibrary.Classes;
 
 namespace PromoitFunction
 {
-    public static class GetUserFunctions
+    public static class SetUserFunctions
     {
-        [FunctionName("GetUser")]
+        [FunctionName("SetUser")]
         public static async Task<IActionResult> Run(
                     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
                     ILogger log)
@@ -33,7 +33,7 @@ namespace PromoitFunction
                     if (user == null) throw new Exception($"GET: No {className} IS Enterd");
                     try
                     {
-                        user = await user.LoginAsync(Configuration.DatabaseMode);
+                        user = user.Login(Configuration.DatabaseMode);
 
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!"); 
                         log.LogInformation($"Function Find {className} ({user.Name}) Type ({user.UserType})");
