@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp.RoleRegister
 {
-    partial class SocialActivistForm
+    partial class ActivistForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialActivistForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivistForm));
             this.buttonSARegister = new System.Windows.Forms.Button();
             this.textBoxSAAddress = new System.Windows.Forms.TextBox();
             this.textBoxSAEmail = new System.Windows.Forms.TextBox();

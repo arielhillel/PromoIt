@@ -6,13 +6,13 @@ namespace PromotItLibrary.Models
 {
     public class MySQL
     {
-        public MySqlCommand? Cmd { get; set; }
         //Connection string get\set
         public string Server { get { return _server; } set { _server = value; ConnectionReset(); } }
         public string UserId { get { return _userId; } set { _userId = value; ConnectionReset(); } }
         public string Password { private get { return _password; } set { _password = value; ConnectionReset(); } }
         public string DataBase { get { return _dataBase; } set { _dataBase = value; ConnectionReset(); } }
 
+        private MySqlCommand? Cmd { get; set; }
         private string Stm { get; set; }
         private MySqlDataReader Rdr { get; set; }
         private MySqlConnection Con { get; set; }
@@ -39,7 +39,7 @@ namespace PromotItLibrary.Models
         public void Quary(string stmQuary) { Stm = stmQuary; SetCmd(); }
         public void SetQuary(string stmQuary) => Quary(stmQuary);
         public void QuaryParameter<T>(string name, T value) => SetParameter(name, value);
-        public MySqlDataAdapter QuaryDataAdapter() => new MySqlDataAdapter(Cmd);
+        public MySqlDataAdapter QuaryDataAdapter() => new MySqlDataAdapter(Cmd); //Check how dispose it If running twice
         public bool QuaryExecute(string stmQuary) { Quary(stmQuary); return QuaryExecute(); }
         public bool QuaryExecute()  // inserts
         {
@@ -71,7 +71,8 @@ namespace PromotItLibrary.Models
             {
                 Rdr.Dispose();
                 try{ Rdr = Cmd?.ExecuteReader();  results = Rdr; NullifiedValues(); }
-                catch (Exception ex) { throw new Exception(ex.Message);}
+                catch (Exception ex) { throw new Exception(ex.Message); }    //Try to add reset for databese
+                finally { throw new Exception("MySqlDataReader not closed before, using required"); }
             }
             return results;
         }
@@ -81,7 +82,7 @@ namespace PromotItLibrary.Models
         public void ConnectClose() { if (Con != null && Con.State == ConnectionState.Open) { NullifiedValues(); Rdr = null; Con.Close(); } } //close connection to database
 
         private void SetCmd() => Cmd = ((Stm, Cmd) != (null, null) ? new MySqlCommand(Stm, Con) : null);
-        private void NullifiedValues() { (Stm, Cmd) = (null, null); } //myview = null;
+        private void NullifiedValues() { (Stm, Cmd) = (null, null); } //myview = null; //Check if you can dispose some of theme
         private string ConnectionString() => Server != null && UserId != null && Password != null && DataBase != null
             ? @$"server={Server};userid={UserId};password={Password};database={DataBase}" : null;
         private void ConnectionOpen()

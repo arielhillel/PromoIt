@@ -47,7 +47,7 @@ namespace PromotItFormApp.RoleRegister
                 else if (radioButtonBSR.Checked)
                     new BusinessCompanyForm().ShowDialog();
                 else if (radioButtonSA.Checked)
-                    new SocialActivistForm().ShowDialog();
+                    new ActivistForm().ShowDialog();
                 else
                     throw new Exception("Please select your role");
                 this.Hide();

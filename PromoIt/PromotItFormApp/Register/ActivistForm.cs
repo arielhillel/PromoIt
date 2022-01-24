@@ -13,9 +13,9 @@ using PromotItLibrary.Classes;
 
 namespace PromotItFormApp.RoleRegister
 {
-    public partial class SocialActivistForm : Form
+    public partial class ActivistForm : Form
     {
-        public SocialActivistForm()
+        public ActivistForm()
         {
             InitializeComponent();
         }
