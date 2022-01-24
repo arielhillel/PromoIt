@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp.LandingPages
 {
-    partial class BusinessCompanyPanel
+    partial class BusinessPanel
     {
         /// <summary>
         /// Required designer variable.

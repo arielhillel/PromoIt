@@ -17,11 +17,6 @@ namespace PromotItFormApp.LandingPages
             InitializeComponent();
         }
 
-        private void AdminPanel_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void panelAdmin_Paint(object sender, PaintEventArgs e)
         {
             panelAdmin.BackColor = ThemeColor.PrimaryColor;

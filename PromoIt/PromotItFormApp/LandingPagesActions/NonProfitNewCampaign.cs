@@ -37,7 +37,7 @@ namespace PromotItFormApp.LandingPagesActions
                 var result = campaign.InsertNewCampaign();
 
                 this.Hide();
-                LandingPages.NPOrganizationPanel NPOPanel = new LandingPages.NPOrganizationPanel();
+                LandingPages.NonProfitPanel NPOPanel = new LandingPages.NonProfitPanel();
                 NPOPanel.ShowDialog();
 
 

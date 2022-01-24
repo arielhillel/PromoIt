@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp.LandingPages
 {
-    partial class NPOrganizationPanel
+    partial class NonProfitPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NPOrganizationPanel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NonProfitPanel));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNPO = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();

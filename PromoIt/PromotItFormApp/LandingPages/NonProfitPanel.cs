@@ -19,10 +19,10 @@ namespace PromotItFormApp.LandingPages
 {
 
    
-    public partial class NPOrganizationPanel : Form
+    public partial class NonProfitPanel : Form
     {
         Campaign campaign = new Campaign();
-        public NPOrganizationPanel()
+        public NonProfitPanel()
         {
             InitializeComponent();
             Campaign campaign = new Campaign();

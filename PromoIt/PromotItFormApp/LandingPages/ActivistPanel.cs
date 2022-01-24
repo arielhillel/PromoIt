@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp.LandingPages
 {
-    public partial class SocialActivistPanel : Form
+    public partial class ActivistPanel : Form
     {
-        public SocialActivistPanel()
+        public ActivistPanel()
         {
             InitializeComponent();
             GetCampaigns();
@@ -37,6 +37,7 @@ namespace PromotItFormApp.LandingPages
                 {
                     lblMessage.Text = Configuration.Message;
                     GetCampaigns();
+                    GetCashAmount();
                 }
             }
         }
@@ -71,5 +72,9 @@ namespace PromotItFormApp.LandingPages
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        private void panelBalance_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

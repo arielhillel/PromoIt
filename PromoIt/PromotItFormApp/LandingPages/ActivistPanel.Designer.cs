@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp.LandingPages
 {
-    partial class SocialActivistPanel
+    partial class ActivistPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialActivistPanel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivistPanel));
             this.panelSADashboard = new System.Windows.Forms.Panel();
             this.dataGridSA = new System.Windows.Forms.DataGridView();
             this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,13 +127,13 @@
             // 
             // buttonProductListGrid
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProductListGrid.HeaderText = "";
             this.buttonProductListGrid.MinimumWidth = 6;
@@ -220,6 +220,7 @@
             this.panelBalance.Name = "panelBalance";
             this.panelBalance.Size = new System.Drawing.Size(396, 124);
             this.panelBalance.TabIndex = 1;
+            this.panelBalance.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBalance_Paint);
             // 
             // txtCash
             // 

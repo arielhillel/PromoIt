@@ -16,10 +16,10 @@ using System.Windows.Forms;
 namespace PromotItFormApp.LandingPages
 {
    
-    public partial class BusinessCompanyPanel : Form
+    public partial class BusinessPanel : Form
     {
 
-        public BusinessCompanyPanel()
+        public BusinessPanel()
         {
             InitializeComponent();
             GetCampaigns();

@@ -75,9 +75,9 @@ namespace PromotItFormApp.LandingPages
                 string? type = user.UserType;
                 Form? form =
                     type == "admin" ? new AdminPanel() :
-                    type == "non-profit" ? new NPOrganizationPanel() :
-                    type == "business" ? new BusinessCompanyPanel() :
-                    type == "activist" ? new SocialActivistPanel() :
+                    type == "non-profit" ? new NonProfitPanel() :
+                    type == "business" ? new BusinessPanel() :
+                    type == "activist" ? new ActivistPanel() :
                     null;
                 if (form == null)
                     throw new Exception("The system does not recognize you!");
