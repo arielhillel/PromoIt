@@ -58,7 +58,7 @@ namespace PromotItFormApp.LandingPages
                 ActivistUser activistUser = new ActivistUser();
                 activistUser.UserName = Configuration.LoginUser.UserName;
                 txtCash.Text = activistUser.GetCash();
-
+                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -67,14 +67,11 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                dataGridSA.DataSource = Campaign.GetAllCampaignsBusiness();
+                dataGridSA.DataSource = Campaign.GetAllCampaigns_DataTable();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void panelBalance_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

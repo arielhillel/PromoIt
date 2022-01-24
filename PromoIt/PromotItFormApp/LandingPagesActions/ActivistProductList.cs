@@ -39,7 +39,7 @@ namespace PromotItFormApp.LandingPagesActions
 
         private void SetBuyAProduct(DataGridViewCellEventArgs e)
         {
-            _productDonated.ProductInCampaign.Id = int.Parse(dataGridProductList["clmnProductId", e.RowIndex].Value.ToString());
+            _productDonated.ProductInCampaign.Id = dataGridProductList["clmnProductId", e.RowIndex].Value.ToString();
             _productDonated.ProductInCampaign.Name = dataGridProductList["clmnProductName", e.RowIndex].Value.ToString();
             _productDonated.Quantity = "1";
             _productDonated.ActivistUser = Configuration.LoginUser;
@@ -61,7 +61,7 @@ namespace PromotItFormApp.LandingPagesActions
             {
                 Configuration.CorrentProduct = _productInCampaign;
                 _productInCampaign.Campaign = Configuration.CorrentCampaign;
-                dataGridProductList.DataSource = _productInCampaign.GetList();
+                dataGridProductList.DataSource = _productInCampaign.GetList_DataTable();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

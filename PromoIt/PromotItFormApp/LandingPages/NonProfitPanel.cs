@@ -62,7 +62,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                DataTable tbl = campaign.GetAllCampaignsNonProfit();
+                DataTable tbl = campaign.GetAllCampaignsNonProfit_DataTable();
                 dataGridNPO.DataSource = tbl;
 
             }

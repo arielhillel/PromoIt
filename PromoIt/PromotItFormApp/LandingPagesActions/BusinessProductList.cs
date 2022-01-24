@@ -29,7 +29,7 @@ namespace PromotItFormApp.LandingPagesActions
             {
                 ProductInCampaign productInCampaign = new ProductInCampaign();
                 productInCampaign.Campaign = Configuration.CorrentCampaign;
-                dataGridProductList.DataSource = productInCampaign.GetList();
+                dataGridProductList.DataSource = productInCampaign.GetList_DataTable();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

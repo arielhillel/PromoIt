@@ -11,7 +11,7 @@ namespace PromotItLibrary.Classes
 {
     public class ProductInCampaign
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
@@ -37,28 +37,50 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-        public DataTable GetList() //for business and for activist
+        public DataTable GetList_DataTable() //for business and for activist
         {
-            if (Campaign.Hashtag == null ) throw new Exception("No set for Campaign Hashtag");
             DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
+            List<ProductInCampaign> productInCampaignList = GetList();
             foreach (string culmn in new[] { "clmnProductId", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
                 dataTable.Columns.Add(culmn);
-            mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");
-            mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read())
+            foreach (ProductInCampaign productInCampaign in productInCampaignList)
             {
                 try
                 {
                     DataRow dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("clmnProductId", "id"), ("clmnProductName", "name"), ("clmnProductQuantity", "quantity"), ("clmnProductPrice", "price") })
-                        dataRow[key] = results.GetValue(value);
+                    dataRow["clmnProductId"] = productInCampaign.Id;
+                    dataRow["clmnProductName"] = productInCampaign.Name;
+                    dataRow["clmnProductQuantity"] = productInCampaign.Quantity;
+                    dataRow["clmnProductPrice"] = productInCampaign.Price;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
             }
             return dataTable;
+        }
+
+        public List<ProductInCampaign> GetList() //for business and for activist
+        {
+            if (Campaign.Hashtag == null ) throw new Exception("No set for Campaign Hashtag");
+            mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");
+            mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+
+            List<ProductInCampaign> productInCampaignList = new List<ProductInCampaign>();
+            while (results != null && results.Read())
+            {
+                try
+                {
+                    ProductInCampaign productInCampaign = new ProductInCampaign();
+                    productInCampaign.Id = results.GetValue("id").ToString();
+                    productInCampaign.Name = results.GetValue("name").ToString();
+                    productInCampaign.Quantity = results.GetValue("quantity").ToString();
+                    productInCampaign.Price = results.GetValue("price").ToString();
+                    productInCampaignList.Add(productInCampaign);
+                }
+                catch { };
+            }
+            return productInCampaignList;
         }
 
     }

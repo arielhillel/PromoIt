@@ -62,7 +62,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                dataGridCampains.DataSource = Campaign.GetAllCampaignsBusiness(); ;
+                dataGridCampains.DataSource = Campaign.GetAllCampaigns_DataTable(); ;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -72,7 +72,7 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 ProductDonated productDonated = new ProductDonated();
-                dataGridBuyers.DataSource = productDonated.ShowDonatedProductForShipping();
+                dataGridBuyers.DataSource = productDonated.ShowDonatedProductForShipping_DataTable();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

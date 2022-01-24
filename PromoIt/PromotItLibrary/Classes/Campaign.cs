@@ -45,54 +45,103 @@ namespace PromotItLibrary.Classes
             mySQL.QuaryParameter("_hashtag", hashtag);            
             return mySQL.ProceduteExecute();
         }
-        
-        public static DataTable GetAllCampaignsBusiness()
+
+
+
+
+        public static List<Campaign> GetAllCampaigns()
+        {
+            mySQL.Quary("SELECT * FROM campaigns");
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            List<Campaign> campaignsList = new List<Campaign>();
+            while (results != null && results.Read())
+            {
+                try
+                {
+                    Campaign campaign = new Campaign();
+                    campaign.Hashtag = results.GetValue("hashtag").ToString();
+                    campaign.Url = results.GetValue("webpage").ToString();
+                    campaignsList.Add(campaign);
+                }
+                catch { };
+            }
+            return campaignsList;
+        }
+
+
+        public static DataTable GetAllCampaigns_DataTable()
         {
             DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
-            foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" }) //"clmnCampaignName", "clmnCreator"
+            List<Campaign> campaignsList = GetAllCampaigns();
+            foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" })
                 dataTable.Columns.Add(culmn);
-            //mySQL.Procedute("getstudents");
-            mySQL.Quary("SELECT * FROM campaigns"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+
+            foreach (string culmn in new[] { "clmnHashtag", "clmnWebpage" })
+                dataTable.Columns.Add(culmn);
+            foreach (Campaign campaign in campaignsList)
             {
                 try
                 {
                     DataRow dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("clmnHashtag", "hashtag"), ("clmnWebpage", "webpage") }) // ,("clmnCampaignName", "name"), ("clmnCreator", "non_profit_user_name")
-                        dataRow[key] = results.GetValue(value);
+                    dataRow["clmnHashtag"] = campaign.Hashtag;
+                    dataRow["clmnWebpage"] = campaign.Url;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
             }
             return dataTable;
         }
-        public DataTable GetAllCampaignsNonProfit() 
-            {
+
+
+
+
+        public List<Campaign> GetAllCampaignsNonProfit()
+        {
             // Error, no npo user
             if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
-                DataTable dataTable = new DataTable();
-                // Creating the same Grid clmns on the table
-                foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
-                    dataTable.Columns.Add(culmn);
-                //mySQL.Procedute("getstudents");
-                mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-                mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
-                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-                while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+            mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            List<Campaign> campaignsList = new List<Campaign>();
+            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            {
+                try
                 {
-                    try
-                    {
-                        DataRow dataRow = dataTable.NewRow();
-                        foreach (var (key, value) in new[] { ("clmnCampaignName", "name"), ("clmnHashtag", "hashtag"), ("clmnWebsite", "webpage"), ("clmnCreator", "non_profit_user_name") })
-                            dataRow[key] = results.GetValue(value);
-                        dataTable.Rows.Add(dataRow);
-                    }
-                    catch { };
+                    Campaign campaign = new Campaign();
+                    campaign.Name = results.GetValue("name").ToString();
+                    campaign.Hashtag = results.GetValue("hashtag").ToString();
+                    campaign.Url = results.GetValue("webpage").ToString();
+                    campaign.NonProfitUser.UserName = results.GetValue("non_profit_user_name").ToString();
+                    campaignsList.Add(campaign);
+
                 }
-                return dataTable;
+                catch { };
             }
+            return campaignsList;
+        }
+
+
+        public DataTable GetAllCampaignsNonProfit_DataTable()
+        {
+            DataTable dataTable = new DataTable();
+            List<Campaign> campaignsList = GetAllCampaignsNonProfit();
+            foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
+                dataTable.Columns.Add(culmn);
+            foreach (Campaign campaign in campaignsList)
+            {
+                try
+                {
+                    DataRow dataRow = dataTable.NewRow();
+                    dataRow["clmnCampaignName"] = campaign.Name;
+                    dataRow["clmnHashtag"] = campaign.Hashtag;
+                    dataRow["clmnWebsite"] = campaign.Url;
+                    dataRow["clmnCreator"] = campaign.NonProfitUser.UserName;
+                    dataTable.Rows.Add(dataRow);
+                }
+                catch { };
+            }
+            return dataTable;
+        }
 
     }
 }

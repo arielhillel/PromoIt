@@ -45,7 +45,6 @@ namespace PromotItLibrary.Classes
                 return await Functions_Register();
 
             return false;
-
         }
 
         private async Task<bool> Functions_Register()

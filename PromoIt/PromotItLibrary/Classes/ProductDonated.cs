@@ -46,33 +46,5 @@ namespace PromotItLibrary.Classes
         }
 
 
-        public DataTable ShowDonatedProductForShipping()
-        {
-            // Error, no business user
-            if (ProductInCampaign.BusinessUser.UserType != "business" && ProductInCampaign.BusinessUser.UserName == null) throw new Exception("No set for business User");
-            DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
-            foreach (string culmn in new[] { "clmnActivist", "clmnProduct", "clmnProductDonatedId" } )
-                dataTable.Columns.Add(culmn);
-            //mySQL.Procedute("getstudents");
-            mySQL.Quary(" SELECT * FROM products_in_campaign pic JOIN products_donated pd on pic.id = pd.product_in_campaign_id WHERE pd.shipped = @_shipped AND pic.business_user_name = @_business_user_name LIMIT @_limit"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-            mySQL.ProcedureParameter("_shipped", "not_shipped");
-            mySQL.ProcedureParameter("_business_user_name", ProductInCampaign.BusinessUser.UserName);
-            mySQL.ProcedureParameter("_limit", 10);
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read())
-            {
-                try
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("clmnActivist", "activist_user_name"), ("clmnProduct", "name") , ("clmnProductDonatedId", "id2") } )
-                        dataRow[key] = results.GetValue(value);
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
-            }
-            return dataTable;
-        }
-
     }
 }

@@ -220,7 +220,6 @@
             this.panelBalance.Name = "panelBalance";
             this.panelBalance.Size = new System.Drawing.Size(396, 124);
             this.panelBalance.TabIndex = 1;
-            this.panelBalance.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBalance_Paint);
             // 
             // txtCash
             // 
