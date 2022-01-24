@@ -1,4 +1,7 @@
+using Moq;
+using PromoitTesting.TestClasses;
 using PromotItLibrary.Classes;
+using PromotItLibrary.Interfaces;
 using PromotItLibrary.Models;
 using System;
 using Xunit;
@@ -7,7 +10,7 @@ namespace PromoitTesting
 {
 
 
-    public class UnitTest1
+    public class DatabaseTest
     {
         private MySQL mySQL = Configuration.MySQL;
         [Fact]
@@ -35,12 +38,15 @@ namespace PromoitTesting
             activistUser.PhoneNumber = "FDGDFGD";
 
 
-            activistUser.Regiser();
+            bool result1 = activistUser.Regiser();
+            Assert.True(result1, "User Should Register");
 
             Users loggedInUser = user.Login();
 
+            bool result2 = loggedInUser != null;
+            Assert.True(result2, "Login User Should Accepted");
 
-            bool result =
+            bool result3 =
                 (loggedInUser.Name, loggedInUser.UserName, loggedInUser.UserPassword, loggedInUser.UserType)
                 == (user.Name, user.UserName, user.UserPassword, user.UserType);
 
@@ -48,14 +54,9 @@ namespace PromoitTesting
             mySQL.QuaryExecute($"DELETE FROM `promoit`.`users_activists` WHERE (`user_name` = '{user.UserName}');");
             mySQL.QuaryExecute($"DELETE FROM `promoit`.`users` WHERE (`user_name` = '{user.UserName}');");
 
-            Assert.True(result, "Random User Shoul Register and Login to the System");
+            Assert.True(result3, "Random User Shoul Register and Login to the System with same Values to Result");
         }
 
 
-        [Fact]
-        public void TrueTest()
-        {
-            Assert.True(true, "Result for regular Testing X Unit");
-        }
     }
 }
