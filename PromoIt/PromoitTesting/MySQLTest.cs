@@ -10,19 +10,21 @@ using Xunit;
 namespace PromoitTesting
 {
 
-
-    public class DatabaseTest
+    public class MySQLTest
     {
         private MySQL mySQL = Configuration.MySQL;
         [Fact]
-        public async Task DataBaseUserRegisterLoginAsync()
+        public async Task MySQLUserRegisterLoginAsync()
         {
-
-
-            Users user = new Users();
-            user.Name = "testing Name For User";
+            Modes currentMode = Configuration.Mode;
+            Modes currentDatabase = Configuration.DatabaseMode;
+            Configuration.Mode = Modes.MySQL;
+            Configuration.DatabaseMode = Modes.MySQL;
+            
+           Users user = new Users();
+            user.Name = "testin11g Name For User";
             user.UserPassword = "1212asdasd";
-            user.UserName = "fdgfdggsdgs";
+            user.UserName = "fdg242fdggsdgs";
             user.UserType = "activist";
                 //Try Delete First
             mySQL.QuaryExecute($"DELETE FROM `promoit`.`users_activists` WHERE (`user_name` = '{user.UserName}');");
@@ -56,6 +58,9 @@ namespace PromoitTesting
             mySQL.QuaryExecute($"DELETE FROM `promoit`.`users` WHERE (`user_name` = '{user.UserName}');");
 
             Assert.True(result3, "Random User Shoul Register and Login to the System with same Values to Result");
+
+            Configuration.Mode = currentMode;
+            Configuration.DatabaseMode = currentDatabase;
         }
 
 

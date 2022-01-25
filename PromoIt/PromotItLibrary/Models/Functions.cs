@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Web;
 
 namespace PromotItLibrary.Models
 {
@@ -15,7 +16,7 @@ namespace PromotItLibrary.Models
         public static string ObjectToJsonString<T>(T data) => Newtonsoft.Json.JsonConvert.SerializeObject(data);
         public static T JsonStringToSingleObject<T>(string mycontent) => JsonConvert.DeserializeObject<T>(mycontent);
         public static List<T> JsonStringToObjectList<T>(string mycontent) => JsonConvert.DeserializeObject<List<T>>(mycontent);
-        public static string HttpUrlDecode(string data) => Uri.UnescapeDataString(data);
+        public static string HttpUrlDecode(string data) => HttpUtility.UrlDecode(data);
 
 
 
