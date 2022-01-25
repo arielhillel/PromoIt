@@ -96,8 +96,8 @@ namespace PromotItLibrary.Classes
                 try
                 {
                     Campaign campaign = new Campaign();
-                    campaign.Hashtag = results.GetValue("hashtag").ToString();
-                    campaign.Url = results.GetValue("webpage").ToString();
+                    campaign.Hashtag = results.GetString("hashtag");
+                    campaign.Url = results.GetString("webpage");
                     campaignsList.Add(campaign);
                 }
                 catch { };

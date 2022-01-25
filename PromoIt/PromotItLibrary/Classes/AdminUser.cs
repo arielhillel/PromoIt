@@ -50,7 +50,7 @@ namespace PromotItLibrary.Classes
                     Campaign campaign = new Campaign();
                     campaign.Hashtag = results.GetString("hashtag");
                     campaign.Url = results.GetString("webpage");
-                    campaign.NonProfitUser.UserName = results.GetValue("non_profit_user_name").ToString();
+                    campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
                     campaignsList.Add(campaign);
                 }
                 catch { };

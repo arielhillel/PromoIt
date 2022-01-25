@@ -73,10 +73,10 @@ namespace PromotItLibrary.Classes
                 try
                 {
                     ProductInCampaign productInCampaign = new ProductInCampaign();
-                    productInCampaign.Id = results.GetValue("id").ToString();
-                    productInCampaign.Name = results.GetValue("name").ToString();
-                    productInCampaign.Quantity = results.GetValue("quantity").ToString();
-                    productInCampaign.Price = results.GetValue("price").ToString();
+                    productInCampaign.Id = results.GetString("id");
+                    productInCampaign.Name = results.GetString("name");
+                    productInCampaign.Quantity = results.GetString("quantity");
+                    productInCampaign.Price = results.GetString("price");
                     productInCampaignList.Add(productInCampaign);
                 }
                 catch { };

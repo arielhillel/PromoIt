@@ -20,14 +20,17 @@ namespace PromotItLibrary.Models
 
 
         //Post
-        public async static Task<bool?> PostSingleDataRequest<T>(string postFolder, T obj)
+        public async static Task<bool?> PostSingleDataRequest<T>(string postFolder, string type = "", T obj)
         {
             string objString = Functions.ObjectToJsonString(obj);
             IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
-                { new KeyValuePair<string, string>("data", objString) };
-            var mycontent = await PostRequest(postFolder, queries);
+            {
+                new KeyValuePair<string, string>("type", type),
+                new KeyValuePair<string, string>("data", objString)
+            };
             try
             {
+                var mycontent = await PostRequest(postFolder, queries);
                 if (mycontent == "ok") return true;
                 else if (mycontent == "fail") return false;
                 throw new Exception(mycontent);
@@ -45,10 +48,20 @@ namespace PromotItLibrary.Models
         }
 
         //Get
-        public async static Task<T> GetSingleDataRequest<T>(string getFolder, T obj)
+
+        public async static Task<List<T>> GetMultipleDataRequest<T>(string getFolder, T obj, string type = "")
         {
             string objString = Functions.ObjectToJsonString(obj);
-            string getRequest = "?data=" + objString;
+            string getRequest = "?type=" + type + "&data=" + objString;
+            string mycontent = await GetRequest(getFolder, getRequest); //Response
+            try { return Functions.JsonStringToSingleObject<List<T>>(mycontent); }
+            catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }
+        }
+
+        public async static Task<T> GetSingleDataRequest<T>(string getFolder, T obj, string type = "")
+        {
+            string objString = Functions.ObjectToJsonString(obj);
+            string getRequest = "?type=" + type + "&data=" + objString ;
             string mycontent = await GetRequest(getFolder, getRequest); //Response
             try { return Functions.JsonStringToSingleObject<T>(mycontent); }
             catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }

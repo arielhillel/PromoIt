@@ -61,9 +61,9 @@ namespace PromotItLibrary.Classes
                 try
                 {
                     ProductDonated productDonated = new ProductDonated();
-                    productDonated.ActivistUser.UserName = results.GetValue("activist_user_name").ToString();
-                    productDonated.ProductInCampaign.Name = results.GetValue("name").ToString();
-                    productDonated.Id = results.GetValue("id2").ToString();
+                    productDonated.ActivistUser.UserName = results.GetString("activist_user_name");
+                    productDonated.ProductInCampaign.Name = results.GetString("name");
+                    productDonated.Id = results.GetString("id2");
                     productDonatedList.Add(productDonated);
                 }
                 catch { };
