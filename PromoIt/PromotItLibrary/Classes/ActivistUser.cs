@@ -26,12 +26,9 @@ namespace PromotItLibrary.Classes
             mySQL.ProcedureParameter("_username", UserName);
             using MySqlDataReader results = mySQL.GetQueryMultyResults();
             if (results == null) throw new Exception($"no cash {UserName}");
-            while (results != null && results.Read())
+            if (results != null && results.Read())
             {
-                try
-                {
-                    str = results.GetDecimal("cash").ToString() + "$";
-                }
+                try {  str = results.GetDecimal("cash").ToString() + "$"; }
                 catch { throw new Exception($"error to get cash for {UserName}"); };
             }
             return str;
@@ -40,33 +37,26 @@ namespace PromotItLibrary.Classes
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
-                return MySQL_Register();
+            {
+                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return await Functions_Register();
+            {
+                mySQL.Procedure("register_activist");
+                mySQL.ProcedureParameter("_username", UserName);
+                mySQL.ProcedureParameter("_password", UserPassword);
+                mySQL.ProcedureParameter("_name", Name);
+                mySQL.ProcedureParameter("_email", Email);
+                mySQL.ProcedureParameter("_address", Address);
+                mySQL.ProcedureParameter("_phone", PhoneNumber);
+                mySQL.ProcedureParameter("_cash", Cash ?? "10000.0");
+                return mySQL.ProceduteExecute();
+            }
 
             return false;
         }
 
-        private async Task<bool> Functions_Register()
-        {
-            try
-            {
-                return (bool)await Functions.PostSingleDataRequest("SetUser", this);
-            }
-            catch { throw new Exception($"Functions error"); };
-        }
-
-        private bool MySQL_Register() 
-        {
-            mySQL.Procedure("register_activist");
-            mySQL.ProcedureParameter("_username", UserName);
-            mySQL.ProcedureParameter("_password", UserPassword);
-            mySQL.ProcedureParameter("_name", Name);
-            mySQL.ProcedureParameter("_email", Email);
-            mySQL.ProcedureParameter("_address", Address);
-            mySQL.ProcedureParameter("_phone", PhoneNumber);
-            mySQL.ProcedureParameter("_cash", Cash ?? "10000.0");
-            return mySQL.ProceduteExecute();
-        }
     }
 }

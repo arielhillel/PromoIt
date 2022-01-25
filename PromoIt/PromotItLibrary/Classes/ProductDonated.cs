@@ -11,17 +11,17 @@ namespace PromotItLibrary.Classes
 {
     public class ProductDonated
     {
-        public ProductInCampaign ProductInCampaign { get; set; }
-        public Users ActivistUser { get; set; }
-        public string Quantity { get; set; }
-        public string Shipped { get; set; }
-        public string Id { get; set; }
-
         public ProductDonated()
         {
             ProductInCampaign = new ProductInCampaign();
             ActivistUser = Configuration.LoginUser ?? new ActivistUser();
         }
+
+        public ProductInCampaign ProductInCampaign { get; set; }
+        public Users ActivistUser { get; set; }
+        public string Quantity { get; set; }
+        public string Shipped { get; set; }
+        public string Id { get; set; }
 
         private MySQL mySQL = new MySQL();
 
@@ -43,7 +43,6 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_shipping", "shipped");
             return mySQL.ProceduteExecute();
         }
-
 
 
         public List<ProductDonated> MySQL_GetDonatedProductForShipping_List()

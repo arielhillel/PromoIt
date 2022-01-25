@@ -10,27 +10,18 @@ using System.Threading.Tasks;
 namespace PromotItLibrary.Classes
 {
     public class Campaign
-    {        
+    {
+        public Campaign()
+        {
+            NonProfitUser = Configuration.LoginUser ?? new Users();
+        }
+
         public string Name { get; set; }
         public string Hashtag { get; set; }
         public string Url { get; set; }
         public Users NonProfitUser { get; set; }
 
         private static MySQL mySQL = Configuration.MySQL;
-
-        public Campaign()
-        {
-            NonProfitUser = Configuration.LoginUser ?? new Users();
-        }
-
-
-
-        public MySqlDataAdapter GetNonProfitCampaigns()
-        {
-            mySQL.SetQuary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name ");
-            mySQL.QuaryParameter("np_user_name", NonProfitUser.UserName);
-            return mySQL.QuaryDataAdapter();
-        }
 
         public bool SetNewCampaign()
         {
@@ -48,27 +39,6 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-        public DataTable GetAllCampaignsNonProfit_DataTable()
-        {
-            DataTable dataTable = new DataTable();
-            List<Campaign> campaignsList = MySql_GetAllCampaignsNonProfit_List();
-            foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
-                dataTable.Columns.Add(culmn);
-            foreach (Campaign campaign in campaignsList)
-            {
-                try
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnCampaignName"] = campaign.Name;
-                    dataRow["clmnHashtag"] = campaign.Hashtag;
-                    dataRow["clmnWebsite"] = campaign.Url;
-                    dataRow["clmnCreator"] = campaign.NonProfitUser.UserName;
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
-            }
-            return dataTable;
-        }
 
         public List<Campaign> MySql_GetAllCampaignsNonProfit_List()
         {
@@ -94,26 +64,27 @@ namespace PromotItLibrary.Classes
             return campaignsList;
         }
 
-        public static DataTable GetAllCampaigns_DataTable()
+        public DataTable GetAllCampaignsNonProfit_DataTable()
         {
             DataTable dataTable = new DataTable();
-            List<Campaign> campaignsList = MySQL_GetAllCampaigns_List();
-            foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" })
+            List<Campaign> campaignsList = MySql_GetAllCampaignsNonProfit_List();
+            foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
             {
                 try
                 {
                     DataRow dataRow = dataTable.NewRow();
+                    dataRow["clmnCampaignName"] = campaign.Name;
                     dataRow["clmnHashtag"] = campaign.Hashtag;
-                    dataRow["clmnWebpage"] = campaign.Url;
+                    dataRow["clmnWebsite"] = campaign.Url;
+                    dataRow["clmnCreator"] = campaign.NonProfitUser.UserName;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
             }
             return dataTable;
         }
-
 
         public static List<Campaign> MySQL_GetAllCampaigns_List()
         {
@@ -132,6 +103,26 @@ namespace PromotItLibrary.Classes
                 catch { };
             }
             return campaignsList;
+        }
+
+        public static DataTable GetAllCampaigns_DataTable()
+        {
+            DataTable dataTable = new DataTable();
+            List<Campaign> campaignsList = MySQL_GetAllCampaigns_List();
+            foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" })
+                dataTable.Columns.Add(culmn);
+            foreach (Campaign campaign in campaignsList)
+            {
+                try
+                {
+                    DataRow dataRow = dataTable.NewRow();
+                    dataRow["clmnHashtag"] = campaign.Hashtag;
+                    dataRow["clmnWebpage"] = campaign.Url;
+                    dataTable.Rows.Add(dataRow);
+                }
+                catch { };
+            }
+            return dataTable;
         }
 
     }

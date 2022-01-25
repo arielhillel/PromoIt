@@ -32,15 +32,30 @@ namespace PromotItLibrary.Models
         ~MySQL() => ConnectClose();
 
         public void Procedure(string proc) { Quary(proc); Procedure(); }
+
         public void Procedure() { if (Cmd != null) Cmd.CommandType = CommandType.StoredProcedure; }
+
         public void ProcedureParameter<T>(string name, T value) => SetParameter<T>(name, value);
+
         public bool ProceduteExecute() => QuaryExecute(); 
-        public MySqlDataReader ProceduteExecuteMultyResults() => GetQueryMultyResults();
+
+
         public void Quary(string stmQuary) { Stm = stmQuary; SetCmd(); }
+
         public void SetQuary(string stmQuary) => Quary(stmQuary);
+
+
         public void QuaryParameter<T>(string name, T value) => SetParameter(name, value);
+
+        public void SetParameter<T>(string name, T value) => Cmd?.Parameters.AddWithValue(name, value);
+
+
+        public MySqlDataReader ProceduteExecuteMultyResults() => GetQueryMultyResults();
+
         public MySqlDataAdapter QuaryDataAdapter() => new MySqlDataAdapter(Cmd); //Check how dispose it If running twice
+
         public bool QuaryExecute(string stmQuary) { Quary(stmQuary); return QuaryExecute(); }
+
         public bool QuaryExecute()  // inserts
         {
             if (Stm == null) { Console.WriteLine("No Quary"); return false; }
@@ -53,11 +68,7 @@ namespace PromotItLibrary.Models
             Console.WriteLine($"Quary failed, {Stm}");
             return false;
         }
-        public void SetParameter<T>(string name, T value) => Cmd?.Parameters.AddWithValue(name, value);
-        public bool InsertLine(string stmQuary) => QuaryExecute(stmQuary);
-        public bool InsertLine() => QuaryExecute();
-        public bool InsertParameters(string stmQuary) => QuaryExecute(stmQuary);
-        public bool InsertParameters() => QuaryExecute();
+        
         public MySqlDataReader GetQueryMultyResults() // selects
         {
             MySqlDataReader results = null;
@@ -76,21 +87,25 @@ namespace PromotItLibrary.Models
             }
             return results;
         }
-        public MySqlDataReader Select() => GetQueryMultyResults();
-        public MySqlDataReader Select(string stmQuary) { Quary(stmQuary); return Select(); }
+
         public string QuaryScalarExecute() { if (Stm == null) return "NoQuery"; string output = Cmd?.ExecuteScalar().ToString(); NullifiedValues(); return output; } //1 value data as string
+        
         public void ConnectClose() { if (Con != null && Con.State == ConnectionState.Open) { NullifiedValues(); Rdr = null; Con.Close(); } } //close connection to database
 
         private void SetCmd() => Cmd = ((Stm, Cmd) != (null, null) ? new MySqlCommand(Stm, Con) : null);
+
         private void NullifiedValues() { (Stm, Cmd) = (null, null); } //myview = null; //Check if you can dispose some of theme
-        private string ConnectionString() => Server != null && UserId != null && Password != null && DataBase != null
-            ? @$"server={Server};userid={UserId};password={Password};database={DataBase}" : null;
+
+        private string ConnectionString()
+            => Server != null && UserId != null && Password != null && DataBase != null? @$"server={Server};userid={UserId};password={Password};database={DataBase}" : null;
+
         private void ConnectionOpen()
         {
-            if (ConnectionString() == null || Con != null && Con?.State != ConnectionState.Closed)
-                { Console.WriteLine("No connection sting"); return; }
+            if (ConnectionString() == null || Con != null && Con?.State != ConnectionState.Closed) { Console.WriteLine("Connection Fail: No connection sting"); return; }
             Con = new MySqlConnection(ConnectionString()); Con.Open(); SetCmd(); 
         }
+
         private void ConnectionReset() { if (Con != null && Con.State == ConnectionState.Open) { ConnectClose(); ConnectionOpen(); } } // recheck
+
     }
 }

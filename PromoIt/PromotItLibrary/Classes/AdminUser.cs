@@ -17,31 +17,24 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
+
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
-                return MySQL_Register();
+            {
+                try
+                { return (bool)await Functions.PostSingleDataRequest("SetUser", this); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return await Functions_Register();
+            {
+                mySQL.Procedure("register_admin");
+                mySQL.SetParameter("_name", Name);
+                mySQL.SetParameter("_username", UserName);
+                mySQL.SetParameter("_password", UserPassword);
+                return mySQL.ProceduteExecute();
+            }
 
             return false;
-
-        }
-
-        private async Task<bool> Functions_Register()
-        {
-            try
-            {
-                return (bool)await Functions.PostSingleDataRequest("SetUser", this);
-            }
-            catch { throw new Exception($"Functions error"); };
-        }
-
-        private bool MySQL_Register()
-        {
-            mySQL.Procedure("register_admin");
-            mySQL.SetParameter("_name", Name);
-            mySQL.SetParameter("_username", UserName);
-            mySQL.SetParameter("_password", UserPassword);
-            return mySQL.ProceduteExecute();
         }
 
 
@@ -73,15 +66,11 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
             {
-                try
-                {
                     DataRow dataRow = dataTable.NewRow();
                     dataRow["Hashtag"] = campaign.Hashtag;
                     dataRow["Webpage"] = campaign.Url;
                     dataRow["Creator"] = campaign.NonProfitUser.UserName;
                     dataTable.Rows.Add(dataRow);
-                }
-                catch { };
             }
             return dataTable;
         }
@@ -115,15 +104,11 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (Users user in userList)
             {
-                try
-                {
                     DataRow dataRow = dataTable.NewRow();
                     dataRow["Name"] = user.Name;
                     dataRow["UserName"] = user.UserName;
                     dataRow["Type"] = user.UserType;
                     dataTable.Rows.Add(dataRow);
-                }
-                catch { };
             }
             return dataTable;
         }
@@ -157,14 +142,10 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (Tweet tweet in tweetList)
             {
-                try
-                {
                     DataRow dataRow = dataTable.NewRow();
                     dataRow["clmnHashtag"] = tweet.Campaign.Hashtag;
                     dataRow["clmnWebpage"] = tweet.ActivistUser.UserName;
                     dataTable.Rows.Add(dataRow);
-                }
-                catch { };
             }
             return dataTable;
         }

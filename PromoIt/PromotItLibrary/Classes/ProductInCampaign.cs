@@ -11,6 +11,12 @@ namespace PromotItLibrary.Classes
 {
     public class ProductInCampaign
     {
+        public ProductInCampaign()
+        {
+            BusinessUser = Configuration.LoginUser ?? new Users();
+            Campaign = Configuration.CorrentCampaign ?? new Campaign();
+        }
+
         public string Id { get; set; }
         public string Name { get; set; }
         public string Quantity { get; set; }
@@ -18,11 +24,6 @@ namespace PromotItLibrary.Classes
         public Users BusinessUser { get; set; }
         public Campaign Campaign { get; set; }
 
-        public ProductInCampaign()
-        {
-            BusinessUser = Configuration.LoginUser ?? new Users();
-            Campaign = Configuration.CorrentCampaign ?? new Campaign();
-        }
 
         private static MySQL mySQL = Configuration.MySQL;
 
