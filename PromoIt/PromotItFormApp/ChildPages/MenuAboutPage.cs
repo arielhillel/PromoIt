@@ -12,7 +12,7 @@ namespace PromotItFormApp.ChildPages
 {
     public partial class MenuAboutPage : Form
     {
-        private Form activeForm;
+        private Form? activeForm;
         public MenuAboutPage()
         {
             InitializeComponent();
@@ -40,9 +40,7 @@ namespace PromotItFormApp.ChildPages
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
-            {
                 activeForm.Close();
-            }
             activeForm = childForm;
             activeForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;

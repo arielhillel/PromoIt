@@ -24,7 +24,7 @@ namespace PromotItLibrary.Classes
 
         public Users Login(Modes mode = null)
         {
-            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.Mode) == Modes.MySQL)
                 return MySQL_Login();
             return null;
         }
