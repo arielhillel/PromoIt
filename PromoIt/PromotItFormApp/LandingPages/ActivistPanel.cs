@@ -28,17 +28,23 @@ namespace PromotItFormApp.LandingPages
         {
             if (e.ColumnIndex == 1)
             {
-                Campaign campaign = new Campaign();
-                campaign.Hashtag = dataGridSA["clmnHashtag", e.RowIndex].Value.ToString();
-                Configuration.CorrentCampaign = campaign;
-                ActivistProductList productList = new ActivistProductList();
-                DialogResult result = productList.ShowDialog();
-                if (result == DialogResult.Cancel)
+                try
                 {
-                    lblMessage.Text = Configuration.Message;
-                    GetCampaigns();
-                    GetCashAmount();
+                    if (string.IsNullOrEmpty(dataGridSA["clmnHashtag", e.RowIndex].Value.ToString())) return;
+
+                    Campaign campaign = new Campaign();
+                    campaign.Hashtag = dataGridSA["clmnHashtag", e.RowIndex].Value.ToString();
+                    Configuration.CorrentCampaign = campaign;
+                    ActivistProductList productList = new ActivistProductList();
+                    DialogResult result = productList.ShowDialog();
+                    if (result == DialogResult.Cancel)
+                    {
+                        lblMessage.Text = Configuration.Message;
+                        GetCampaigns();
+                        GetCashAmount();
+                    }
                 }
+                catch { }
             }
         }
 
