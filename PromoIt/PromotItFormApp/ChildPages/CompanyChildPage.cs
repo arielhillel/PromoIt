@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp.ChildPages
 {
-    public partial class AboutSecondPage : Form
+    public partial class CompanyChildPage : Form
     {
-        private Form? activeForm;
-        public AboutSecondPage()
+        private Form activeForm;
+
+        public CompanyChildPage()
         {
             InitializeComponent();
         }
+
         private void LoadTheme()
         {
             foreach (Control buttons in this.Controls)
@@ -29,8 +31,8 @@ namespace PromotItFormApp.ChildPages
                     button.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
 
-                labelTermsService.BackColor = ThemeColor.PrimaryColor;
-                labelPoints.BackColor = ThemeColor.SecondaryColor;
+                labelServiceComp.BackColor = ThemeColor.PrimaryColor;
+                //labelSecond.BackColor = ThemeColor.SecondaryColor;
             }
         }
 
@@ -44,25 +46,20 @@ namespace PromotItFormApp.ChildPages
             activeForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panel1.Controls.Add(childForm);
-            this.panel1.Tag = childForm;
+            this.panelCompanyAbout.Controls.Add(childForm);
+            this.panelCompanyAbout.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
 
-        private void buttonPreviousAbout_Click(object sender, EventArgs e)
+        private void buttonPreviousCompany_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ChildPages.MenuAboutPage(), sender);
+            OpenChildForm(new ChildPages.AboutSecondPage(), sender);
         }
 
-        private void AboutSecondPage_Load(object sender, EventArgs e)
+        private void CompanyChildPage_Load(object sender, EventArgs e)
         {
             LoadTheme();
-        }
-
-        private void buttoNextAboutS_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ChildPages.CompanyChildPage(), sender);
         }
     }
 }

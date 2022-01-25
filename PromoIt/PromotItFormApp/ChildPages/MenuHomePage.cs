@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,11 @@ namespace PromotItFormApp.ChildPages
                 labelHomeDesc.BackColor = ThemeColor.PrimaryColor;
                 labelHomeInfo.BackColor = ThemeColor.SecondaryColor;
             }
+        }
+
+        private void buttonGitHub_Click(object sender, EventArgs e)
+        {            
+            Process.Start(new ProcessStartInfo("https://github.com/w3arthur/PromoIt") { UseShellExecute = true });
         }
     }
 }
