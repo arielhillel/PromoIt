@@ -22,12 +22,6 @@ namespace PromotItLibrary.Classes
 
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
                 mySQL.Procedure("register_non_profit");
                 mySQL.SetParameter("_username", UserName);
                 mySQL.SetParameter("_password", UserPassword);
@@ -36,6 +30,14 @@ namespace PromotItLibrary.Classes
                 mySQL.SetParameter("_website", WebSite);
                 return mySQL.ProceduteExecute();
             }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+
 
             return false;
         }

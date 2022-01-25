@@ -17,21 +17,19 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
-
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
-            {
-                try
-                { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 mySQL.Procedure("register_admin");
                 mySQL.SetParameter("_name", Name);
                 mySQL.SetParameter("_username", UserName);
                 mySQL.SetParameter("_password", UserPassword);
                 return mySQL.ProceduteExecute();
+            }
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try
+                { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                catch { throw new Exception($"Functions error"); };
             }
 
             return false;

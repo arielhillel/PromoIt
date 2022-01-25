@@ -13,8 +13,8 @@ namespace PromotItLibrary.Classes
     {
         public ProductInCampaign()
         {
-            BusinessUser =  new Users();    //Configuration.CorrentUser ??
-            Campaign =  new Campaign();     //Configuration.CorrentCampaign ??
+            BusinessUser = Configuration.CorrentUser ?? new Users();    //
+            Campaign = Configuration.CorrentCampaign ?? new Campaign();     //
         }
 
         public string Id { get; set; }

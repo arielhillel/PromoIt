@@ -13,7 +13,6 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
-
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
             {
                 MySQL mySQL = Configuration.MySQL;

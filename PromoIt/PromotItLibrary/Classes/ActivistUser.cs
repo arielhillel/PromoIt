@@ -38,12 +38,6 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
                 mySQL.Procedure("register_activist");
                 mySQL.ProcedureParameter("_username", UserName);
                 mySQL.ProcedureParameter("_password", UserPassword);
@@ -53,6 +47,12 @@ namespace PromotItLibrary.Classes
                 mySQL.ProcedureParameter("_phone", PhoneNumber);
                 mySQL.ProcedureParameter("_cash", Cash ?? "10000.0");
                 return mySQL.ProceduteExecute();
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                catch { throw new Exception($"Functions error"); };
             }
 
             return false;

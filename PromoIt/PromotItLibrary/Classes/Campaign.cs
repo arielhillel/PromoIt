@@ -13,7 +13,7 @@ namespace PromotItLibrary.Classes
     {
         public Campaign()
         {
-            NonProfitUser =  new Users();   //Configuration.CorrentUser ??
+            NonProfitUser = Configuration.CorrentUser ?? new Users();   //
         }
 
         public string Name { get; set; }

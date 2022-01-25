@@ -57,6 +57,7 @@ namespace PromotItFormApp.RoleRegister
                 if (result)
                 {
                     Configuration.CorrentUser = adminUser;
+                    Configuration.LognUser = new Users(adminUser);
                 }
 
                 this.Hide();

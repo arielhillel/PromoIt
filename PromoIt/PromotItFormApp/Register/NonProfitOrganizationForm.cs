@@ -58,6 +58,7 @@ namespace PromotItFormApp.RoleRegister
                 if (result)
                 {
                     Configuration.CorrentUser = nonProfitUser;
+                    Configuration.LognUser = new Users(nonProfitUser);
                 }
 
                 this.Hide();
