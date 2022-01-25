@@ -11,5 +11,6 @@ namespace PromotItLibrary.Classes
         public Campaign Campaign { get; set; }
         public ActivistUser ActivistUser { get; set; }
         public string Cash { get; set; }
+
     }
 }

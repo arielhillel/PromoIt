@@ -35,7 +35,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                DataTable tbl = AdminUser.GetAllCampaigns();
+                DataTable tbl = AdminUser.GetAllCampaigns_DataTable();
                 dataGridReports.DataSource = tbl;
 
             }
@@ -48,7 +48,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                DataTable tbl = AdminUser.GetAllUsers();
+                DataTable tbl = AdminUser.GetAllUsers_DataTable();
                 dataGridReports.DataSource = tbl;
 
             }
@@ -62,7 +62,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                DataTable tbl = AdminUser.GetAllTweets();
+                DataTable tbl = AdminUser.GetAllTweets_DataTable();
                 dataGridReports.DataSource = tbl;
 
             }

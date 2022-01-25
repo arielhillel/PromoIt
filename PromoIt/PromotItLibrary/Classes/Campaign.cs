@@ -23,6 +23,8 @@ namespace PromotItLibrary.Classes
             NonProfitUser = Configuration.LoginUser ?? new Users();
         }
 
+
+
         public MySqlDataAdapter GetNonProfitCampaigns()
         {
             mySQL.SetQuary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name ");
@@ -42,7 +44,7 @@ namespace PromotItLibrary.Classes
         public bool DeleteCampaign(string hashtag)
         {
             mySQL.Procedure("delete_campaign");
-            mySQL.QuaryParameter("_hashtag", hashtag);            
+            mySQL.QuaryParameter("_hashtag", hashtag);
             return mySQL.ProceduteExecute();
         }
 
@@ -68,6 +70,30 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
+        public List<Campaign> MySql_GetAllCampaignsNonProfit_List()
+        {
+            // Error, no npo user
+            if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
+            mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+            mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
+            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            List<Campaign> campaignsList = new List<Campaign>();
+            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            {
+                try
+                {
+                    Campaign campaign = new Campaign();
+                    campaign.Name = results.GetString("name");
+                    campaign.Hashtag = results.GetString("hashtag");
+                    campaign.Url = results.GetString("webpage");
+                    campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
+                    campaignsList.Add(campaign);
+                }
+                catch { };
+            }
+            return campaignsList;
+        }
+
         public static DataTable GetAllCampaigns_DataTable()
         {
             DataTable dataTable = new DataTable();
@@ -88,31 +114,6 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-
-        public List<Campaign> MySql_GetAllCampaignsNonProfit_List()
-        {
-            // Error, no npo user
-            if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
-            mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-            mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            List<Campaign> campaignsList = new List<Campaign>();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
-            {
-                try
-                {
-                    Campaign campaign = new Campaign();
-                    campaign.Name = results.GetValue("name").ToString();
-                    campaign.Hashtag = results.GetValue("hashtag").ToString();
-                    campaign.Url = results.GetValue("webpage").ToString();
-                    campaign.NonProfitUser.UserName = results.GetValue("non_profit_user_name").ToString();
-                    campaignsList.Add(campaign);
-
-                }
-                catch { };
-            }
-            return campaignsList;
-        }
 
         public static List<Campaign> MySQL_GetAllCampaigns_List()
         {

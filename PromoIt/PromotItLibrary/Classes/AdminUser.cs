@@ -45,21 +45,40 @@ namespace PromotItLibrary.Classes
         }
 
 
-        public static DataTable GetAllCampaigns()
+        public static List<Campaign> MySQL_GetAllCampaigns_List()
         {
-            DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
-            foreach (string culmn in new[] { "Hashtag", "Webpage", "Creator" })
-                dataTable.Columns.Add(culmn);
             mySQL.Quary("SELECT hashtag,webpage,non_profit_user_name FROM campaigns");
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            List<Campaign> campaignsList = new List<Campaign>();
             while (results != null && results.Read())
             {
                 try
                 {
+                    Campaign campaign = new Campaign();
+                    campaign.Hashtag = results.GetString("hashtag");
+                    campaign.Url = results.GetString("webpage");
+                    campaign.NonProfitUser.UserName = results.GetValue("non_profit_user_name").ToString();
+                    campaignsList.Add(campaign);
+                }
+                catch { };
+            }
+            return campaignsList;
+        }
+
+        public static DataTable GetAllCampaigns_DataTable()
+        {
+            DataTable dataTable = new DataTable();
+            List<Campaign> campaignsList = MySQL_GetAllCampaigns_List();
+            foreach (string culmn in new[] { "Hashtag", "Webpage", "Creator" })
+                dataTable.Columns.Add(culmn);
+            foreach (Campaign campaign in campaignsList)
+            {
+                try
+                {
                     DataRow dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("Hashtag", "hashtag"), ("Webpage", "webpage"), ("Creator", "non_profit_user_name") })
-                        dataRow[key] = results.GetValue(value);
+                    dataRow["Hashtag"] = campaign.Hashtag;
+                    dataRow["Webpage"] = campaign.Url;
+                    dataRow["Creator"] = campaign.NonProfitUser.UserName;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
@@ -67,21 +86,41 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public static DataTable GetAllUsers()
+
+        public static List<Users> MySQL_GetAllUsers_List()
         {
-            DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
-            foreach (string culmn in new[] { "Name", "UserName", "Type" })
-                dataTable.Columns.Add(culmn);
             mySQL.Quary("SELECT name,user_name,user_type FROM users");
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read())
+            List<Users> userList = new List<Users>();
+            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            {
+                try
+                {
+                    Users user = new Users();
+                    user.Name = results.GetString("name");
+                    user.UserName = results.GetString("user_name");
+                    user.UserType = results.GetString("user_type");
+                    userList.Add(user);
+                }
+                catch { };
+            }
+            return userList;
+        }
+
+        public static DataTable GetAllUsers_DataTable()
+        {
+            DataTable dataTable = new DataTable();
+            List<Users> userList = MySQL_GetAllUsers_List();
+            foreach (string culmn in new[] { "Name", "UserName", "Type" })
+                dataTable.Columns.Add(culmn);
+            foreach (Users user in userList)
             {
                 try
                 {
                     DataRow dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("Name", "name"), ("UserName", "user_name"), ("Type", "user_type") })
-                        dataRow[key] = results.GetValue(value);
+                    dataRow["Name"] = user.Name;
+                    dataRow["UserName"] = user.UserName;
+                    dataRow["Type"] = user.UserType;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
@@ -89,26 +128,46 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public static DataTable GetAllTweets()
+
+        public static List<Tweet> MySQL_GetAllTweets_List()
         {
-            DataTable dataTable = new DataTable();
-            // Creating the same Grid clmns on the table
-            foreach (string culmn in new[] { "Hashtag", "UserName" })
-                dataTable.Columns.Add(culmn);
+            List<Tweet> tweetList = new List<Tweet>();
             mySQL.Quary("SELECT campaign_hashtag,activist_user_name FROM tweets");
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read())
+            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            {
+                try
+                {
+                    Tweet tweet = new Tweet();
+                    tweet.Campaign.Hashtag = results.GetString("campaign_hashtag");
+                    tweet.ActivistUser.UserName = results.GetString("activist_user_name");
+                    tweetList.Add(tweet);
+                }
+                catch { };
+            }
+            return tweetList;
+        }
+
+        public static DataTable GetAllTweets_DataTable()
+        {
+
+            DataTable dataTable = new DataTable();
+            List<Tweet> tweetList = MySQL_GetAllTweets_List();
+            foreach (string culmn in new[] { "Hashtag", "UserName" })
+                dataTable.Columns.Add(culmn);
+            foreach (Tweet tweet in tweetList)
             {
                 try
                 {
                     DataRow dataRow = dataTable.NewRow();
-                    foreach (var (key, value) in new[] { ("Hashtag", "campaign_hashtag"), ("UserName", "activist_user_name") })
-                        dataRow[key] = results.GetValue(value);
+                    dataRow["clmnHashtag"] = tweet.Campaign.Hashtag;
+                    dataRow["clmnWebpage"] = tweet.ActivistUser.UserName;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
             }
             return dataTable;
         }
+
     }
 }
