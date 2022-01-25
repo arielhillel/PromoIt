@@ -11,6 +11,11 @@ namespace PromotItLibrary.Classes
         public Campaign Campaign { get; set; }
         public ActivistUser ActivistUser { get; set; }
         public string Cash { get; set; }
+        public Tweet() 
+        {
+            Campaign = new Campaign();
+            ActivistUser = new ActivistUser();
+        }
 
     }
 }

@@ -20,7 +20,6 @@ namespace PromotItLibrary.Classes
         public ProductDonated()
         {
             ProductInCampaign = new ProductInCampaign();
-
             ActivistUser = Configuration.LoginUser ?? new ActivistUser();
         }
 

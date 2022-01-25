@@ -20,8 +20,8 @@ namespace PromotItLibrary.Classes
 
         public ProductInCampaign()
         {
-            Campaign = Configuration.CorrentCampaign ?? new Campaign();
             BusinessUser = Configuration.LoginUser ?? new Users();
+            Campaign = Configuration.CorrentCampaign ?? new Campaign();
         }
 
         private static MySQL mySQL = Configuration.MySQL;

@@ -11,6 +11,7 @@ namespace PromotItLibrary.Classes
     public class NonProfitUser : Users
     {
         public NonProfitUser() : base() => UserType = "non-profit";
+
         public string Email { get; set; }
         public string WebSite { get; set; }
 
@@ -22,7 +23,6 @@ namespace PromotItLibrary.Classes
                 return MySQL_Register();
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
                 return await Functions_Register();
-
             return false;
 
         }
