@@ -129,6 +129,7 @@
             this.buttoNextAboutS.TabIndex = 2;
             this.buttoNextAboutS.Text = "Next";
             this.buttoNextAboutS.UseVisualStyleBackColor = false;
+            this.buttoNextAboutS.Click += new System.EventHandler(this.buttoNextAboutS_Click);
             // 
             // labelTermsService
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,9 +34,13 @@ namespace PromotItFormApp.ChildPages
                     button.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
 
-                label1.BackColor = ThemeColor.PrimaryColor;
-                label2.BackColor = ThemeColor.SecondaryColor;
+                label1.BackColor = ThemeColor.PrimaryColor;                
             }
+        }
+
+        private void buttonTwitter_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://twitter.com/MalulYaron") { UseShellExecute = true });
         }
     }
 }

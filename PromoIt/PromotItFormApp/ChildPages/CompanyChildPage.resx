@@ -57,20 +57,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonTwitter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVFhH7ZY/KEVRHMdfkgySTJJRJoMMMpmMekkyvEEy
-        ySBJJimDJJkkk1EymEx6g2SQQZLBIEmSJEkGg/R8vuf+nufpeu+ey1PkU5945/z+vHfvOffcxD9/hkwm
-        U4b9mMZrvMVjnMMGC3uDsUaszH6owH73IQbk1uMefsYj9mElduEGblu6K5BEMWpDkSGnGk9cdnGe7e8D
-        NlsJV2TeDQdMoc0Uh9hFlxWde+zGXhzJFlnB96xjjZssADH69U9K8EDxL3iBwdrgnwX8yCXqvrmYMJjr
-        VGAM1LzRyrhCuhyfcYApDFbsOxjTF/TlBuusRAADWp3aOoXQvVvFAWxG5ehe+nJobfNhogd1b6KiWG0v
-        X3asZQ4GR1FfYBKzW6VUrFvbHAwuBXM/woy1zcFg9kH0E3Rb2xwM6jl+5KZLi25vrbXNh4lWjLOofEhb
-        u3AIaMNzF1oaUtYqHAKqUMfkLGrffydXWGGtwiGgCUu1DYetTWEI9D3doqAFXm4tCkOgXk42lfVN6PRr
-        sfLRIKEcx1EHx1cZtLL+kKyr0YE6EeMwaaXiQQFty11Xyg8dVBNWJjokSW3DIYzTWNxh0koWh2C91ajZ
-        KeplMS761WtYb6WjQ5IeQGN4hr5oletFxW+lh0ERHUrtOI1bqPfCjw8mXeJ9XEa9klVb+j+/kUTiFQM/
-        pebgsVwCAAAAAElFTkSuQmCC
-</value>
+  <data name="labelServiceTextComp.Text" xml:space="preserve">
+    <value>You have probably noticed a price next to the product, well, no worries.
+The products we offer are completely free, the system does not need any payment methods so our program is optional
+to all ages.
+Due to collaboration with companies, we are fully able to reward the ones who participate.
+
+However, the campaigns provide different products, based on the companies supporting their agenda or their promotion.</value>
   </data>
 </root>
