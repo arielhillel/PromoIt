@@ -13,7 +13,8 @@ namespace PromotItLibrary.Models
     {
         public static Modes Mode { get; set; } = Modes.MySQL;   //Modes.Functions
         public static Modes DatabaseMode { get; set; } = Modes.MySQL;
-        public static Users LoginUser { get; set; }
+        public static Users CorrentUser { get; set; }
+        public static Users LognUser { get; set; }
         public static Campaign CorrentCampaign { get; set; }
         public static ProductInCampaign CorrentProduct { get; set; }
         public static MySQL MySQL { get { MySQLStart(); return _mySQL; } set { _mySQL = value; } }

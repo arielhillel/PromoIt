@@ -42,7 +42,7 @@ namespace PromotItFormApp.LandingPagesActions
             _productDonated.ProductInCampaign.Id = dataGridProductList["clmnProductId", e.RowIndex].Value.ToString();
             _productDonated.ProductInCampaign.Name = dataGridProductList["clmnProductName", e.RowIndex].Value.ToString();
             _productDonated.Quantity = "1";
-            _productDonated.ActivistUser = Configuration.LoginUser;
+            _productDonated.ActivistUser = Configuration.CorrentUser;
             try
             {
                 bool result = _productDonated.SetBuyAnItem();

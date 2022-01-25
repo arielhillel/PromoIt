@@ -57,7 +57,7 @@ namespace PromotItFormApp.RoleRegister
                 bool result = await nonProfitUser.RegisterAsync();
                 if (result)
                 {
-                    Configuration.LoginUser = nonProfitUser;
+                    Configuration.CorrentUser = nonProfitUser;
                 }
 
                 this.Hide();

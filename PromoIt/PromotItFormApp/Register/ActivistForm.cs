@@ -57,7 +57,7 @@ namespace PromotItFormApp.RoleRegister
                 bool result = await activistUser.RegisterAsync();
                 if (result)
                 {
-                    Configuration.LoginUser = activistUser;
+                    Configuration.CorrentUser = activistUser;
                 }
 
                 this.Hide();
