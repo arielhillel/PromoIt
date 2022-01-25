@@ -40,7 +40,10 @@ namespace PromotItLibrary.Classes
         }
 
 
-        public List<Campaign> MySql_GetAllCampaignsNonProfit_List()
+
+
+
+        public List<Campaign> MySql_GetAllCampaignsNonProfit_List() //Non profit
         {
             // Error, no npo user
             if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
@@ -64,7 +67,7 @@ namespace PromotItLibrary.Classes
             return campaignsList;
         }
 
-        public DataTable GetAllCampaignsNonProfit_DataTable()
+        public DataTable GetAllCampaignsNonProfit_DataTable() //Non profit
         {
             DataTable dataTable = new DataTable();
             List<Campaign> campaignsList = MySql_GetAllCampaignsNonProfit_List();
@@ -86,7 +89,7 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public static List<Campaign> MySQL_GetAllCampaigns_List()
+        public static List<Campaign> MySQL_GetAllCampaigns_List()//Activist, business, admin, tweets
         {
             mySQL.Quary("SELECT * FROM campaigns");
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
@@ -98,6 +101,7 @@ namespace PromotItLibrary.Classes
                     Campaign campaign = new Campaign();
                     campaign.Hashtag = results.GetString("hashtag");
                     campaign.Url = results.GetString("webpage");
+                    campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
                     campaignsList.Add(campaign);
                 }
                 catch { };
@@ -105,7 +109,8 @@ namespace PromotItLibrary.Classes
             return campaignsList;
         }
 
-        public static DataTable GetAllCampaigns_DataTable()
+        public static DataTable GetAllCampaigns_DataTable() //Activist and business
+
         {
             DataTable dataTable = new DataTable();
             List<Campaign> campaignsList = MySQL_GetAllCampaigns_List();

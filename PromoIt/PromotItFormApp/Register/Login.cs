@@ -49,6 +49,7 @@ namespace PromotItFormApp.LandingPages
                 if (!string.IsNullOrEmpty(user.UserPassword))
                     textBoxPassword.Text = user.UserPassword;
             }
+            
         }
 
         private void PressingEnter(KeyEventArgs e) 

@@ -36,30 +36,11 @@ namespace PromotItLibrary.Classes
         }
 
 
-        public static List<Campaign> MySQL_GetAllCampaigns_List()
-        {
-            mySQL.Quary("SELECT hashtag,webpage,non_profit_user_name FROM campaigns");
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            List<Campaign> campaignsList = new List<Campaign>();
-            while (results != null && results.Read())
-            {
-                try
-                {
-                    Campaign campaign = new Campaign();
-                    campaign.Hashtag = results.GetString("hashtag");
-                    campaign.Url = results.GetString("webpage");
-                    campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
-                    campaignsList.Add(campaign);
-                }
-                catch { };
-            }
-            return campaignsList;
-        }
 
-        public static DataTable GetAllCampaigns_DataTable()
+        public static DataTable GetAllCampaignsAdmin_DataTable()
         {
             DataTable dataTable = new DataTable();
-            List<Campaign> campaignsList = MySQL_GetAllCampaigns_List();
+            List<Campaign> campaignsList = Campaign.MySQL_GetAllCampaigns_List();       //From Campaign Class
             foreach (string culmn in new[] { "Hashtag", "Webpage", "Creator" })
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
@@ -72,7 +53,6 @@ namespace PromotItLibrary.Classes
             }
             return dataTable;
         }
-
 
         public static List<Users> MySQL_GetAllUsers_List()
         {
@@ -106,43 +86,6 @@ namespace PromotItLibrary.Classes
                     dataRow["Name"] = user.Name;
                     dataRow["UserName"] = user.UserName;
                     dataRow["Type"] = user.UserType;
-                    dataTable.Rows.Add(dataRow);
-            }
-            return dataTable;
-        }
-
-
-        public static List<Tweet> MySQL_GetAllTweets_List()
-        {
-            List<Tweet> tweetList = new List<Tweet>();
-            mySQL.Quary("SELECT campaign_hashtag,activist_user_name FROM tweets");
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
-            {
-                try
-                {
-                    Tweet tweet = new Tweet();
-                    tweet.Campaign.Hashtag = results.GetString("campaign_hashtag");
-                    tweet.ActivistUser.UserName = results.GetString("activist_user_name");
-                    tweetList.Add(tweet);
-                }
-                catch { };
-            }
-            return tweetList;
-        }
-
-        public static DataTable GetAllTweets_DataTable()
-        {
-
-            DataTable dataTable = new DataTable();
-            List<Tweet> tweetList = MySQL_GetAllTweets_List();
-            foreach (string culmn in new[] { "Hashtag", "UserName" })
-                dataTable.Columns.Add(culmn);
-            foreach (Tweet tweet in tweetList)
-            {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnHashtag"] = tweet.Campaign.Hashtag;
-                    dataRow["clmnWebpage"] = tweet.ActivistUser.UserName;
                     dataTable.Rows.Add(dataRow);
             }
             return dataTable;
