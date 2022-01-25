@@ -14,7 +14,7 @@ namespace PromotItLibrary.Classes
         public ProductDonated()
         {
             ProductInCampaign = new ProductInCampaign();
-            ActivistUser = Configuration.CorrentUser ?? new ActivistUser(); //
+            ActivistUser = new ActivistUser(); //Configuration.CorrentUser ?? 
         }
 
         public ProductInCampaign ProductInCampaign { get; set; }

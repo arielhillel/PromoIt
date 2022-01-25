@@ -33,6 +33,7 @@ namespace PromotItFormApp.LandingPagesActions
                 product.Quantity = textBoxQuantity.Text;
                 product.Price = textBoxPrice.Text;
                 product.Campaign.Hashtag = Configuration.CorrentCampaign.Hashtag;
+                product.BusinessUser = Configuration.CorrentUser;
                 var result = product.SetNewProduct();
                 this.Hide();
             }

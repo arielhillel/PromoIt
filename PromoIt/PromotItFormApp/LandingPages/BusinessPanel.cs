@@ -72,6 +72,7 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 ProductDonated productDonated = new ProductDonated();
+                productDonated.ProductInCampaign.BusinessUser = Configuration.CorrentUser;
                 dataGridBuyers.DataSource = productDonated.GetDonatedProductForShipping_DataTable();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
