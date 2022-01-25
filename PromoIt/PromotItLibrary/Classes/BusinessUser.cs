@@ -26,7 +26,7 @@ namespace PromotItLibrary.Classes
 
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this); }
+                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
                 catch { throw new Exception($"Functions error"); };
             }
 

@@ -21,7 +21,7 @@ namespace PromotItLibrary.Classes
             if ((mode ?? Configuration.Mode) == Modes.MySQL)
             {
                 try
-                { return (bool)await Functions.PostSingleDataRequest("SetUser", this); }
+                { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
                 catch { throw new Exception($"Functions error"); };
             }
 

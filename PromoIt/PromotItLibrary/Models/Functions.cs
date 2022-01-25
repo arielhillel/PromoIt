@@ -20,7 +20,7 @@ namespace PromotItLibrary.Models
 
 
         //Post
-        public async static Task<bool?> PostSingleDataRequest<T>(string postFolder, string type = "", T obj)
+        public async static Task<bool?> PostSingleDataRequest<T>(string postFolder, T obj, string type = "")
         {
             string objString = Functions.ObjectToJsonString(obj);
             IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
