@@ -39,6 +39,7 @@ namespace PromoitFunction
                         user = user.Login(Configuration.DatabaseMode);
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!"); 
                         log.LogInformation($"Function Find {className} ({user.Name}) Type ({user.UserType})");
+
                         return new OkObjectResult(Functions.ObjectToJsonString(user));
 
                     } catch (Exception ex)  { log.LogInformation($"Function GET ({className}) Datanase SELECT/GET-data Fail:\n{ex.Message}"); return new BadRequestObjectResult($"Not Found ({className})"); }

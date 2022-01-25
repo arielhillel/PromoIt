@@ -64,8 +64,7 @@ namespace PromoitConsole
                         }
                         catch {/*Fail Procedure*/ }
 
-                        Tweet tweetSingle = new Tweet(tweetsId, tweet.Retweets, tweet.ActivistUser.UserName, allTweets[i].AuthorId, null, null);
-                        tweetList.Add(tweetSingle);
+                        tweetList.Add(tweet);
 
                         break;
                     }
