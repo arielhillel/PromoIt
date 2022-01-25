@@ -13,7 +13,7 @@ namespace PromotItLibrary.Classes
     {
         public Campaign()
         {
-            NonProfitUser = Configuration.LoginUser ?? new Users();
+            NonProfitUser =  new Users();   //Configuration.CorrentUser ??
         }
 
         public string Name { get; set; }
@@ -29,7 +29,7 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_name", Name);
             mySQL.SetParameter("_hashtag", Hashtag);
             mySQL.SetParameter("_webpage", Url);
-            mySQL.SetParameter("_non_profit_user_name", Configuration.LoginUser.UserName);
+            mySQL.SetParameter("_non_profit_user_name", Configuration.CorrentUser.UserName);
             return mySQL.ProceduteExecute();
         }
         public bool DeleteCampaign(string hashtag)

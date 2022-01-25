@@ -56,7 +56,7 @@ namespace PromotItFormApp.LandingPages
             {
 
                 ActivistUser activistUser = new ActivistUser();
-                activistUser.UserName = Configuration.LoginUser.UserName;
+                activistUser.UserName = Configuration.CorrentUser.UserName;
                 txtCash.Text = activistUser.GetCash();
                 
             }

@@ -13,6 +13,15 @@ namespace PromotItLibrary.Classes
     {
         public Users() { }
 
+        public Users(Users user) 
+        {
+            UserName = user.UserName;
+            UserPassword = user.UserPassword;
+            UserType = user.UserType;
+            Name = user.Name;
+        }
+
+
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string Name { get; set; }

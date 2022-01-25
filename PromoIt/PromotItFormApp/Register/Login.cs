@@ -42,7 +42,7 @@ namespace PromotItFormApp.LandingPages
 
         private void UserSetValues() 
         {
-            IUsers user = Configuration.LoginUser;
+            Users user = Configuration.LognUser;
             if (user != null && !string.IsNullOrEmpty(user.UserName))
             {
                 textBoxUsername.Text = user.UserName;
@@ -66,11 +66,13 @@ namespace PromotItFormApp.LandingPages
                 user.UserName = textBoxUsername.Text.Trim();
                 user.UserPassword = textBoxPassword.Text.Trim();
                 user = user.Login();
-                Configuration.LoginUser = user;
+                
 
                 if (user == null)
                     throw new Exception("Wrong username or password!");
 
+                Configuration.CorrentUser = user;
+                Configuration.LognUser = new Users(user);
 
                 string? type = user.UserType;
                 Form? form =
@@ -81,6 +83,8 @@ namespace PromotItFormApp.LandingPages
                     null;
                 if (form == null)
                     throw new Exception("The system does not recognize you!");
+                
+
 
                 this.Hide();
                 form.ShowDialog();

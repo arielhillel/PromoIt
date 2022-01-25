@@ -56,7 +56,7 @@ namespace PromotItFormApp.RoleRegister
                 bool result = await adminUser.RegisterAsync();
                 if (result)
                 {
-                    Configuration.LoginUser = adminUser;
+                    Configuration.CorrentUser = adminUser;
                 }
 
                 this.Hide();
