@@ -17,7 +17,15 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try
+                { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("register_admin");
                 mySQL.SetParameter("_name", Name);
@@ -25,22 +33,18 @@ namespace PromotItLibrary.Classes
                 mySQL.SetParameter("_password", UserPassword);
                 return mySQL.ProceduteExecute();
             }
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try
-                { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
-                catch { throw new Exception($"Functions error"); };
-            }
+
 
             return false;
         }
 
 
 
-        public static DataTable GetAllCampaignsAdmin_DataTable()
+        public async Task<DataTable> GetAllCampaignsAdmin_DataTableAsync()
         {
             DataTable dataTable = new DataTable();
-            List<Campaign> campaignsList = Campaign.MySQL_GetAllCampaigns_List();       //From Campaign Class
+            Campaign campaign1 = new Campaign();
+            List<Campaign> campaignsList = await campaign1.MySQL_GetAllCampaigns_ListAsync();       //From Campaign Class
             foreach (string culmn in new[] { "Hashtag", "Webpage", "Creator" })
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
@@ -54,7 +58,7 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public static List<Users> MySQL_GetAllUsers_List()
+        public List<Users> MySQL_GetAllUsers_List()
         {
             mySQL.Quary("SELECT name,user_name,user_type FROM users");
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
@@ -74,7 +78,7 @@ namespace PromotItLibrary.Classes
             return userList;
         }
 
-        public static DataTable GetAllUsers_DataTable()
+        public DataTable GetAllUsers_DataTable()
         {
             DataTable dataTable = new DataTable();
             List<Users> userList = MySQL_GetAllUsers_List();

@@ -21,10 +21,10 @@ namespace PromotItFormApp.LandingPagesActions
         }
 
         private void buttonSaveCamp_Click(object sender, EventArgs e)
-            => SetCampaign();
+            => SetCampaignAsync();
 
 
-        private void SetCampaign() 
+        private async Task SetCampaignAsync() 
         {
             try
             {
@@ -34,12 +34,14 @@ namespace PromotItFormApp.LandingPagesActions
                 campaign.Name = textBoxCampName.Text;
                 campaign.Hashtag = textBoxCampHashtag.Text;
                 campaign.Url = textBoxCampURL.Text;
-                var result = campaign.SetNewCampaign();
-
-                this.Hide();
-                LandingPages.NonProfitPanel NPOPanel = new LandingPages.NonProfitPanel();
-                NPOPanel.ShowDialog();
-
+                campaign.NonProfitUser = Configuration.CorrentUser;
+                var result = await campaign.SetNewCampaignAsync();
+                if (result)
+                {
+                    this.Hide();
+                    LandingPages.NonProfitPanel NPOPanel = new LandingPages.NonProfitPanel();
+                    NPOPanel.ShowDialog();
+                }
 
             }
             catch (Exception ex)

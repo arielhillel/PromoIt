@@ -41,7 +41,7 @@ namespace PromotItFormApp.LandingPages
         }
         private void NPOrganizationPanel_Shown(object sender, EventArgs e)
         {
-            GetAllCampaignsDisplay();
+            GetAllCampaignsDisplayAsync();
         }
 
         private void dataGridNPO_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -51,18 +51,18 @@ namespace PromotItFormApp.LandingPages
             {
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    string? hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    _campaign.DeleteCampaign(hashtag);
-                    GetAllCampaignsDisplay();
+                    _campaign.Hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    _campaign.DeleteCampaignAsync();
+                    GetAllCampaignsDisplayAsync();
                 }
             }
         }
 
-        private void GetAllCampaignsDisplay()
+        private async Task GetAllCampaignsDisplayAsync()
         {
             try
             {
-                DataTable tbl = _campaign.GetAllCampaignsNonProfit_DataTable();
+                DataTable tbl = await _campaign.GetAllCampaignsNonProfit_DataTableAsync();
                 dataGridNPO.DataSource = tbl;
 
             }

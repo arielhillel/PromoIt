@@ -20,9 +20,9 @@ namespace PromotItFormApp.LandingPagesActions
         }
 
         private void buttonSaveProduct_Click(object sender, EventArgs e)
-            => SetCampaignProduct();
+            => SetCampaignProductAsync();
 
-        private void SetCampaignProduct()
+        private async Task SetCampaignProductAsync()
         {
             try
             {
@@ -34,7 +34,7 @@ namespace PromotItFormApp.LandingPagesActions
                 product.Price = textBoxPrice.Text;
                 product.Campaign.Hashtag = Configuration.CorrentCampaign.Hashtag;
                 product.BusinessUser = Configuration.CorrentUser;
-                var result = product.SetNewProduct();
+                var result = await product.SetNewProductAsync();
                 this.Hide();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

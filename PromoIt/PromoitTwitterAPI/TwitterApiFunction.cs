@@ -11,24 +11,28 @@ using Tweetinvi.Parameters;
 
 namespace PromoitTwitterAPI
 {
-    public class TwitterApiTimmer
+    public class TwitterApiFunction
     {
 
         private MySQL mySQL = Configuration.MySQL;
         private TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
+ 
         [FunctionName("TwitterApiTimmerFunction")]
-        public async Task RunAsync([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
+        public async Task RunAsync([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
+
+
             log.LogInformation($"C# Twitter API Function Started on: {DateTime.Now}");
 
             List<Tweet> tweetList = new List<Tweet>();
 
-            List<Campaign> campaignList = Campaign.MySQL_GetAllCampaigns_List();    //MYSQL QUERY
+            Campaign campaign1 = new Campaign();
+            List<Campaign> campaignList = await campaign1.MySQL_GetAllCampaigns_ListAsync(Configuration.DatabaseMode);    //MYSQL QUERY
 
             foreach (Campaign campaign in campaignList)    // Each Campaogn
             {
-                
+
                 var searchIterator = twitterUserClient.SearchV2.GetSearchTweetsV2Iterator("#" + campaign.Hashtag);
                 if (searchIterator.Completed) continue;
                 var searchPage = await searchIterator.NextPageAsync();
@@ -52,7 +56,7 @@ namespace PromoitTwitterAPI
                         tweet.Cash = 1; //1$
                         tweet.Campaign.Url = campaign.Url;
                         tweet.IsApproved = true;
-                        try { tweet.SetTweetCash(); }  //Database Set
+                        try { await tweet.SetTweetCashAsync(Configuration.DatabaseMode); }  //Database Set
                         catch { tweet.IsApproved = false; }
                         tweetList.Add(tweet);
                         break;
@@ -69,7 +73,12 @@ namespace PromoitTwitterAPI
                 if (tweet.IsApproved) log.LogInformation(logString);
                 else log.LogError(logString);
             }
+            log.LogInformation($"Finish log session.\n");
 
         }
+
+
+
     }
 }
+

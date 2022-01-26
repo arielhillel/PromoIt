@@ -34,7 +34,7 @@ namespace PromotItLibrary.Classes
         public Users Login(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 Users user = null;
                 mySQL.SetQuary("SELECT * FROM users where user_name=@username and user_password=@password limit 1");

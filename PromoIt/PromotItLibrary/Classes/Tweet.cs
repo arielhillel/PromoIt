@@ -29,41 +29,63 @@ namespace PromotItLibrary.Classes
 
 
 
-        public void SetTweetCash() 
+        public async Task<bool> SetTweetCashAsync(Modes mode = null) 
         {
-            mySQL.Procedure("add_tweet");
-            mySQL.ProcedureParameter("_tweeter_id", Id);
-            mySQL.ProcedureParameter("_campaign_hashtag", Campaign.Hashtag);
-            mySQL.ProcedureParameter("_activist_user_name", ActivistUser.UserName);
-            mySQL.ProcedureParameter("_added_cash", Cash);
-            mySQL.ProcedureParameter("_tweeter_retweets", Retweets);
-            mySQL.ProceduteExecute();
-        }
-
-        public static List<Tweet> MySQL_GetAllTweets_List()
-        {
-            List<Tweet> tweetList = new List<Tweet>();
-            mySQL.Quary("SELECT campaign_hashtag,activist_user_name FROM tweets");
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try
-                {
-                    Tweet tweet = new Tweet();
-                    tweet.Campaign.Hashtag = results.GetString("campaign_hashtag");
-                    tweet.ActivistUser.UserName = results.GetString("activist_user_name");
-                    tweetList.Add(tweet);
-                }
-                catch { };
+                try { return (bool)await Functions.PostSingleDataRequest("PromoitTweetFunctions", this, "SetTweetCash"); }
+                catch { throw new Exception($"Functions error"); };
             }
-            return tweetList;
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Procedure("add_tweet");
+                mySQL.ProcedureParameter("_tweeter_id", Id);
+                mySQL.ProcedureParameter("_campaign_hashtag", Campaign.Hashtag);
+                mySQL.ProcedureParameter("_activist_user_name", ActivistUser.UserName);
+                mySQL.ProcedureParameter("_added_cash", Cash);
+                mySQL.ProcedureParameter("_tweeter_retweets", Retweets);
+                return mySQL.ProceduteExecute();
+            }
+            return false;
         }
 
-        public static DataTable GetAllTweets_DataTable()
+        public async Task<List<Tweet>> MySQL_GetAllTweets_ListAsync(Modes mode = null)
         {
 
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return await Functions.GetMultipleDataRequest("PromoitTweetFunctions", this, "GetAllTweets"); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                List<Tweet> tweetList = new List<Tweet>();
+                mySQL.Quary("SELECT campaign_hashtag,activist_user_name FROM tweets");
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+                while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+                {
+                    try
+                    {
+                        Tweet tweet = new Tweet();
+                        tweet.Campaign.Hashtag = results.GetString("campaign_hashtag");
+                        tweet.ActivistUser.UserName = results.GetString("activist_user_name");
+                        tweetList.Add(tweet);
+                    }
+                    catch { };
+                }
+                return tweetList;
+            }
+
+            return null;
+
+        }
+
+        public async Task<DataTable> GetAllTweets_DataTableAsync()
+        {
             DataTable dataTable = new DataTable();
-            List<Tweet> tweetList = MySQL_GetAllTweets_List();
+            List<Tweet> tweetList = await MySQL_GetAllTweets_ListAsync();
             foreach (string culmn in new[] { "Hashtag", "UserName" })
                 dataTable.Columns.Add(culmn);
             foreach (Tweet tweet in tweetList)

@@ -27,21 +27,36 @@ namespace PromotItLibrary.Classes
 
         private static MySQL mySQL = Configuration.MySQL;
 
-        public bool SetNewProduct()
+        public async Task<bool> SetNewProductAsync(Modes mode = null)
         {
-            mySQL.Quary("INSERT INTO `promoit`.`products_in_campaign` (`name`, `quantity`, `price`, `business_user_name`, `campaign_hashtag`) VALUES (@_name, @_quantity, @_price, @_business_user_name, @_campaign_hashtag);");
-            mySQL.SetParameter("_name", Name);
-            mySQL.SetParameter("_quantity", decimal.Parse(Quantity));
-            mySQL.SetParameter("_business_user_name", BusinessUser.UserName);
-            mySQL.SetParameter("_price", int.Parse(Price));
-            mySQL.SetParameter("_campaign_hashtag", Campaign.Hashtag);
-            return mySQL.ProceduteExecute();
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try 
+                {
+                    return (bool)await Functions.PostSingleDataRequest("PromoitProductFunctions", this, "SetNewProduct");
+                }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Quary("INSERT INTO `promoit`.`products_in_campaign` (`name`, `quantity`, `price`, `business_user_name`, `campaign_hashtag`) VALUES (@_name, @_quantity, @_price, @_business_user_name, @_campaign_hashtag);");
+                mySQL.SetParameter("_name", Name);
+                mySQL.SetParameter("_quantity", decimal.Parse(Quantity));
+                mySQL.SetParameter("_business_user_name", BusinessUser.UserName);
+                mySQL.SetParameter("_price", int.Parse(Price));
+                mySQL.SetParameter("_campaign_hashtag", Campaign.Hashtag);
+                return mySQL.ProceduteExecute();
+            }
+
+            return false;
+
         }
 
-        public DataTable GetList_DataTable() //for business and for activist
+        public async Task<DataTable> GetList_DataTableAsync() //for business and for activist
         {
             DataTable dataTable = new DataTable();
-            List<ProductInCampaign> productInCampaignList = MySQL_GetList_List();
+            List<ProductInCampaign> productInCampaignList = await MySQL_GetProductList_ListAsync();
             foreach (string culmn in new[] { "clmnProductId", "clmnBusinessUser", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
                 dataTable.Columns.Add(culmn);
             foreach (ProductInCampaign productInCampaign in productInCampaignList)
@@ -62,30 +77,43 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public List<ProductInCampaign> MySQL_GetList_List() //for business and for activist
+        public async Task<List<ProductInCampaign>> MySQL_GetProductList_ListAsync(Modes mode = null) //for business and for activist
         {
-            if (Campaign.Hashtag == null ) throw new Exception("No set for Campaign Hashtag");
-            mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");
-            mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-
-            List<ProductInCampaign> productInCampaignList = new List<ProductInCampaign>();
-            while (results != null && results.Read())
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try
-                {
-                    ProductInCampaign productInCampaign = new ProductInCampaign();
-                    productInCampaign.Name = results.GetString("name");
-                    productInCampaign.Quantity = results.GetString("quantity"); 
-                    productInCampaign.Price = results.GetString("price");
-
-                    productInCampaign.Id = results.GetString("id");
-                    productInCampaign.BusinessUser.UserName = results.GetString("business_user_name");
-                    productInCampaignList.Add(productInCampaign);
-                }
-                catch { };
+                try { return await Functions.GetMultipleDataRequest("PromoitProductFunctions", this, "GetProductList"); }
+                catch { throw new Exception($"Functions error"); };
             }
-            return productInCampaignList;
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+
+                if (Campaign.Hashtag == null) throw new Exception("No set for Campaign Hashtag");
+                mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");
+                mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+
+                List<ProductInCampaign> productInCampaignList = new List<ProductInCampaign>();
+                while (results != null && results.Read())
+                {
+                    try
+                    {
+                        ProductInCampaign productInCampaign = new ProductInCampaign();
+                        productInCampaign.Name = results.GetString("name");
+                        productInCampaign.Quantity = results.GetString("quantity");
+                        productInCampaign.Price = results.GetString("price");
+
+                        productInCampaign.Id = results.GetString("id");
+                        productInCampaign.BusinessUser.UserName = results.GetString("business_user_name");
+                        productInCampaignList.Add(productInCampaign);
+                    }
+                    catch { };
+                }
+                return productInCampaignList;
+            }
+
+            return null;
+
         }
 
     }

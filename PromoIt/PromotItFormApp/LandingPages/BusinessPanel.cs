@@ -22,14 +22,14 @@ namespace PromotItFormApp.LandingPages
         public BusinessPanel()
         {
             InitializeComponent();
-            GetCampaigns();
-            GetProductsForShipping();
+            GetCampaignsAsync();
+            GetProductsForShippingAsync();
         }
 
         private void dataGridBC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 1)
-                SetNewProduct(e);
+                SetNewProductPage(e);
             else if (e.ColumnIndex == 0)
                 GetProductListPage(e);
         }
@@ -40,7 +40,13 @@ namespace PromotItFormApp.LandingPages
             panelBCR.ForeColor = Color.White;
         }
 
-        private void SetNewProduct(DataGridViewCellEventArgs e)
+        private void dataGridBuyers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+                SetProductAsShippedAsync(e);
+        }
+
+        private void SetNewProductPage(DataGridViewCellEventArgs e)
         {
             Campaign campaign = new Campaign();
             campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
@@ -58,42 +64,37 @@ namespace PromotItFormApp.LandingPages
             businessProductList.ShowDialog();
         }
 
-        private void GetCampaigns()
+        private async Task GetCampaignsAsync()
         {
             try
             {
-                dataGridCampains.DataSource = Campaign.GetAllCampaigns_DataTable(); ;
+                Campaign campaign = new Campaign();
+                dataGridCampains.DataSource = await campaign.GetAllCampaigns_DataTableAsync(); ;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void GetProductsForShipping()
+        private async Task GetProductsForShippingAsync()
         {
             try
             {
                 ProductDonated productDonated = new ProductDonated();
                 productDonated.ProductInCampaign.BusinessUser = Configuration.CorrentUser;
-                dataGridBuyers.DataSource = productDonated.GetDonatedProductForShipping_DataTable();
+                dataGridBuyers.DataSource = await productDonated.GetDonatedProductForShipping_DataTableAsync();
                 //dataGridBuyers.Columns["clmnProductDonatedId"].Visible = false;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 
-        private void dataGridBuyers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0)
-                SetProductAsShipped(e);
-        }
-
-        private void SetProductAsShipped(DataGridViewCellEventArgs e) 
+        private async Task SetProductAsShippedAsync(DataGridViewCellEventArgs e) 
         {
             try
             {
                 ProductDonated productDonated = new ProductDonated();
                 productDonated.Id = dataGridBuyers["clmnProductDonatedId", e.RowIndex].Value.ToString();
-                bool result = productDonated.SetProductShipping();
-                if (result) GetProductsForShipping();
+                bool result = await productDonated.SetProductShippingAsync();
+                if (result) GetProductsForShippingAsync();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

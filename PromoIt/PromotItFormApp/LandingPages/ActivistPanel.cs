@@ -20,7 +20,7 @@ namespace PromotItFormApp.LandingPages
         public ActivistPanel()
         {
             InitializeComponent();
-            GetCampaigns();
+            GetCampaignsAsync();
             GetCashAmount();
         }
         
@@ -40,7 +40,7 @@ namespace PromotItFormApp.LandingPages
                     if (result == DialogResult.Cancel)
                     {
                         lblMessage.Text = Configuration.Message;
-                        GetCampaigns();
+                        GetCampaignsAsync();
                         GetCashAmount();
                     }
                 }
@@ -65,11 +65,12 @@ namespace PromotItFormApp.LandingPages
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void GetCampaigns()
+        private async Task GetCampaignsAsync()
         {
             try
             {
-                dataGridSA.DataSource = Campaign.GetAllCampaigns_DataTable();
+                Campaign campaign = new Campaign();
+                dataGridSA.DataSource = await campaign.GetAllCampaigns_DataTableAsync();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

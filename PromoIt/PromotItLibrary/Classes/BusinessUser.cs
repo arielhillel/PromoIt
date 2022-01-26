@@ -13,7 +13,14 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 MySQL mySQL = Configuration.MySQL;
                 mySQL.Procedure("register_business");
@@ -21,12 +28,6 @@ namespace PromotItLibrary.Classes
                 mySQL.SetParameter("_password", UserPassword);
                 mySQL.SetParameter("_name", Name);
                 return mySQL.ProceduteExecute();
-            }
-
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
-                catch { throw new Exception($"Functions error"); };
             }
 
             return false;

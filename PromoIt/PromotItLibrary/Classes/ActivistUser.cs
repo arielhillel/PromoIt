@@ -36,7 +36,14 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.MySQL)
+
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("register_activist");
                 mySQL.ProcedureParameter("_username", UserName);
@@ -49,11 +56,7 @@ namespace PromotItLibrary.Classes
                 return mySQL.ProceduteExecute();
             }
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
-                catch { throw new Exception($"Functions error"); };
-            }
+
 
             return false;
         }

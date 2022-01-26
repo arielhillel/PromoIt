@@ -23,54 +23,88 @@ namespace PromotItLibrary.Classes
 
         private static MySQL mySQL = Configuration.MySQL;
 
-        public bool SetNewCampaign()
+        public async Task<bool> SetNewCampaignAsync(Modes mode = null)
         {
-            mySQL.Procedure("add_campaign");
-            mySQL.SetParameter("_name", Name);
-            mySQL.SetParameter("_hashtag", Hashtag);
-            mySQL.SetParameter("_webpage", Url);
-            mySQL.SetParameter("_non_profit_user_name", Configuration.CorrentUser.UserName);
-            return mySQL.ProceduteExecute();
-        }
-        public bool DeleteCampaign(string hashtag)
-        {
-            mySQL.Procedure("delete_campaign");
-            mySQL.QuaryParameter("_hashtag", hashtag);
-            return mySQL.ProceduteExecute();
-        }
-
-
-
-
-
-        public List<Campaign> MySql_GetAllCampaignsNonProfit_List() //Non profit
-        {
-            // Error, no npo user
-            if (NonProfitUser.UserName == null) throw new Exception("No set for npo User");
-            mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-            mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            List<Campaign> campaignsList = new List<Campaign>();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try
-                {
-                    Campaign campaign = new Campaign();
-                    campaign.Name = results.GetString("name");
-                    campaign.Hashtag = results.GetString("hashtag");
-                    campaign.Url = results.GetString("webpage");
-                    campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
-                    campaignsList.Add(campaign);
-                }
-                catch { };
+                try { return (bool)await Functions.PostSingleDataRequest("PromoitCampaignFunctions", this, "SetNewCampaign"); }
+                catch { throw new Exception($"Functions error"); };
             }
-            return campaignsList;
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Procedure("add_campaign");
+                mySQL.SetParameter("_name", Name);
+                mySQL.SetParameter("_hashtag", Hashtag);
+                mySQL.SetParameter("_webpage", Url);
+                mySQL.SetParameter("_non_profit_user_name", NonProfitUser.UserName);
+                return mySQL.ProceduteExecute();
+            }
+
+            return false;
+        }
+        public async Task<bool> DeleteCampaignAsync(Modes mode = null)
+        {
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest("PromoitCampaignFunctions", this, "DeleteCampaign"); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Procedure("delete_campaign");
+                mySQL.QuaryParameter("_hashtag", Hashtag);
+                return mySQL.ProceduteExecute();
+            }
+
+            return false;
         }
 
-        public DataTable GetAllCampaignsNonProfit_DataTable() //Non profit
+
+
+
+
+        public async Task<List<Campaign>> MySql_GetAllCampaignsNonProfit_ListAsync(Modes mode = null) //Non profit
+        {
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            {
+                try { return await Functions.GetMultipleDataRequest("PromoitCampaignFunctions", this, "GetAllCampaignsNonProfit"); }
+                catch { throw new Exception($"Functions error"); };
+            }
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                // Error, no npo user
+                if (NonProfitUser.UserName == null) throw new Exception("No set for npo User");
+                mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+                mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+                List<Campaign> campaignsList = new List<Campaign>();
+                while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+                {
+                    try
+                    {
+                        Campaign campaign = new Campaign();
+                        campaign.Name = results.GetString("name");
+                        campaign.Hashtag = results.GetString("hashtag");
+                        campaign.Url = results.GetString("webpage");
+                        campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
+                        campaignsList.Add(campaign);
+                    }
+                    catch { };
+                }
+                return campaignsList;
+            }
+
+            return null;
+
+        }
+
+        public async Task<DataTable> GetAllCampaignsNonProfit_DataTableAsync() //Non profit
         {
             DataTable dataTable = new DataTable();
-            List<Campaign> campaignsList = MySql_GetAllCampaignsNonProfit_List();
+            List<Campaign> campaignsList = await MySql_GetAllCampaignsNonProfit_ListAsync();
             foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
@@ -89,31 +123,42 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public static List<Campaign> MySQL_GetAllCampaigns_List()//Activist, business, admin, tweets
+        public async Task<List<Campaign>> MySQL_GetAllCampaigns_ListAsync(Modes mode = null)//Activist, business, admin, tweets
         {
-            mySQL.Quary("SELECT * FROM campaigns");
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            List<Campaign> campaignsList = new List<Campaign>();
-            while (results != null && results.Read())
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try
-                {
-                    Campaign campaign = new Campaign();
-                    campaign.Hashtag = results.GetString("hashtag");
-                    campaign.Url = results.GetString("webpage");
-                    campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
-                    campaignsList.Add(campaign);
-                }
-                catch { };
+                try { return await Functions.GetMultipleDataRequest("PromoitCampaignFunctions", this, "GetAllCampaigns"); }
+                catch { throw new Exception($"Functions error"); };
             }
-            return campaignsList;
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Quary("SELECT * FROM campaigns");
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+                List<Campaign> campaignsList = new List<Campaign>();
+                while (results != null && results.Read())
+                {
+                    try
+                    {
+                        Campaign campaign = new Campaign();
+                        campaign.Hashtag = results.GetString("hashtag");
+                        campaign.Url = results.GetString("webpage");
+                        campaign.NonProfitUser.UserName = results.GetString("non_profit_user_name");
+                        campaignsList.Add(campaign);
+                    }
+                    catch { };
+                }
+                return campaignsList;
+            }
+            return null;
+
         }
 
-        public static DataTable GetAllCampaigns_DataTable() //Activist and business
+        public async Task<DataTable> GetAllCampaigns_DataTableAsync() //Activist and business
 
         {
             DataTable dataTable = new DataTable();
-            List<Campaign> campaignsList = MySQL_GetAllCampaigns_List();
+            List<Campaign> campaignsList = await MySQL_GetAllCampaigns_ListAsync();
             foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" })
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)

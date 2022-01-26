@@ -35,7 +35,6 @@ namespace PromoitFunction
 
                     try
                     {
-
                         user = user.Login(Configuration.DatabaseMode);
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!"); 
                         log.LogInformation($"Function Find {className} ({user.Name}) Type ({user.UserType})");
@@ -53,9 +52,9 @@ namespace PromoitFunction
                 string requestBody = await streamReader.ReadToEndAsync();
                 if (!string.IsNullOrEmpty(requestBody))
                 {
-                    Dictionary<string, string> keyValuePairs = Functions.PostMessageSplit(requestBody);
-                    string data = keyValuePairs["data"].ToString();
-                    data = Functions.HttpUrlDecode(data);
+                    requestBody=Functions.HttpUrlDecode(requestBody);
+                       Dictionary<string, string> keyValuePairs = Functions.PostMessageSplit(requestBody);
+                      string data = keyValuePairs["data"].ToString();
                     try 
                     {
 
@@ -65,7 +64,7 @@ namespace PromoitFunction
 
                         bool action = false;
 
-                        switch (userDataDynamic.User)
+                        switch (userDataDynamic.UserType)
                         {
                             case "non-profit":
                                 NonProfitUser user = Functions.JsonStringToSingleObject<NonProfitUser>(data);

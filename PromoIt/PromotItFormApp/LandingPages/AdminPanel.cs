@@ -16,7 +16,7 @@ namespace PromotItFormApp.LandingPages
         public AdminPanel()
         {
             InitializeComponent();
-            DisplayCampaigns();
+            DisplayCampaignsAsync();
         }
 
         private void panelAdmin_Paint(object sender, PaintEventArgs e)
@@ -27,15 +27,16 @@ namespace PromotItFormApp.LandingPages
 
         private void buttonUsersAdmin_Click(object sender, EventArgs e) => DisplayUsers();
 
-        private void buttonCampaignsAdmin_Click(object sender, EventArgs e) => DisplayCampaigns();
+        private void buttonCampaignsAdmin_Click(object sender, EventArgs e) => DisplayCampaignsAsync();
 
-        private void buttonTweetsAdmin_Click(object sender, EventArgs e) => DisplayTweets();
+        private void buttonTweetsAdmin_Click(object sender, EventArgs e) => DisplayTweetsAsync();
 
-        private void DisplayCampaigns()
+        private async Task DisplayCampaignsAsync()
         {
             try
             {
-                DataTable tbl = AdminUser.GetAllCampaignsAdmin_DataTable();
+                AdminUser adminUser = new AdminUser();
+                DataTable tbl = await adminUser.GetAllCampaignsAdmin_DataTableAsync();
                 dataGridReports.DataSource = tbl;
 
             }
@@ -48,7 +49,8 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                DataTable tbl = AdminUser.GetAllUsers_DataTable();
+                AdminUser adminUser = new AdminUser();
+                DataTable tbl = adminUser.GetAllUsers_DataTable();
                 dataGridReports.DataSource = tbl;
 
             }
@@ -58,11 +60,12 @@ namespace PromotItFormApp.LandingPages
             }
         }
 
-        private void DisplayTweets()
+        private async Task DisplayTweetsAsync()
         {
             try
             {
-                DataTable tbl = Tweet.GetAllTweets_DataTable();
+                Tweet tweet = new Tweet();
+                DataTable tbl = await tweet.GetAllTweets_DataTableAsync();
                 dataGridReports.DataSource = tbl;
 
             }

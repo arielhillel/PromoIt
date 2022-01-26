@@ -8,19 +8,20 @@ using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
 using Newtonsoft.Json;
 
-
+using Tweetinvi;
+using Tweetinvi.Parameters;
 
 namespace PromoitConsole
 {
     public class Program
     {
-
+        private MySQL mySQL = Configuration.MySQL;
+        private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
         static async Task Main(string[] args)
         {
 
-          
-
+           
 
         }
 

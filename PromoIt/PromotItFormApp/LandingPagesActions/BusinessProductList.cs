@@ -21,15 +21,15 @@ namespace PromotItFormApp.LandingPagesActions
             InitializeComponent();
         }
 
-        private void ProductListBC_Shown(object sender, EventArgs e) => GetProductsInCampaigns();
+        private void ProductListBC_Shown(object sender, EventArgs e) => GetProductsInCampaignsAsync();
         
-        private void GetProductsInCampaigns()
+        private async Task GetProductsInCampaignsAsync()
         {
             try
             {
                 ProductInCampaign productInCampaign = new ProductInCampaign();
                 productInCampaign.Campaign = Configuration.CorrentCampaign;
-                dataGridProductList.DataSource = productInCampaign.GetList_DataTable();
+                dataGridProductList.DataSource = await productInCampaign.GetList_DataTableAsync();
                 //dataGridProductList.Columns["clmnProductId"].Visible = false;
                 //dataGridProductList.Columns["clmnBusinessUser"].Visible = false;
             }
