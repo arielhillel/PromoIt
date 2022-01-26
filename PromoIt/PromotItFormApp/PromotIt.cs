@@ -60,12 +60,6 @@ namespace PromotItFormApp
             //ActivateButton(sender);
         }
 
-        private void buttonContact_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ChildPages.MenuContactPage(), sender);
-            //ActivateButton(sender);
-        }
-
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);

@@ -48,7 +48,7 @@
             this.buttonCompanyRegister.FlatAppearance.BorderSize = 0;
             this.buttonCompanyRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCompanyRegister.ForeColor = System.Drawing.Color.White;
-            this.buttonCompanyRegister.Location = new System.Drawing.Point(129, 340);
+            this.buttonCompanyRegister.Location = new System.Drawing.Point(141, 394);
             this.buttonCompanyRegister.Name = "buttonCompanyRegister";
             this.buttonCompanyRegister.Size = new System.Drawing.Size(172, 47);
             this.buttonCompanyRegister.TabIndex = 4;
@@ -58,21 +58,21 @@
             // 
             // textBoxBCRPassword
             // 
-            this.textBoxBCRPassword.Location = new System.Drawing.Point(12, 248);
+            this.textBoxBCRPassword.Location = new System.Drawing.Point(14, 267);
             this.textBoxBCRPassword.Name = "textBoxBCRPassword";
             this.textBoxBCRPassword.Size = new System.Drawing.Size(407, 27);
             this.textBoxBCRPassword.TabIndex = 2;
             // 
             // textBoxBCRUsername
             // 
-            this.textBoxBCRUsername.Location = new System.Drawing.Point(14, 185);
+            this.textBoxBCRUsername.Location = new System.Drawing.Point(14, 205);
             this.textBoxBCRUsername.Name = "textBoxBCRUsername";
             this.textBoxBCRUsername.Size = new System.Drawing.Size(407, 27);
             this.textBoxBCRUsername.TabIndex = 1;
             // 
             // textBoxBCRName
             // 
-            this.textBoxBCRName.Location = new System.Drawing.Point(12, 128);
+            this.textBoxBCRName.Location = new System.Drawing.Point(14, 143);
             this.textBoxBCRName.Name = "textBoxBCRName";
             this.textBoxBCRName.Size = new System.Drawing.Size(407, 27);
             this.textBoxBCRName.TabIndex = 0;
@@ -80,7 +80,7 @@
             // labelCompanyPassword
             // 
             this.labelCompanyPassword.AutoSize = true;
-            this.labelCompanyPassword.Location = new System.Drawing.Point(14, 225);
+            this.labelCompanyPassword.Location = new System.Drawing.Point(14, 244);
             this.labelCompanyPassword.Name = "labelCompanyPassword";
             this.labelCompanyPassword.Size = new System.Drawing.Size(73, 20);
             this.labelCompanyPassword.TabIndex = 3;
@@ -89,7 +89,7 @@
             // labelCompanyUsername
             // 
             this.labelCompanyUsername.AutoSize = true;
-            this.labelCompanyUsername.Location = new System.Drawing.Point(14, 162);
+            this.labelCompanyUsername.Location = new System.Drawing.Point(14, 182);
             this.labelCompanyUsername.Name = "labelCompanyUsername";
             this.labelCompanyUsername.Size = new System.Drawing.Size(145, 20);
             this.labelCompanyUsername.TabIndex = 4;
@@ -98,7 +98,7 @@
             // labelCompanyName
             // 
             this.labelCompanyName.AutoSize = true;
-            this.labelCompanyName.Location = new System.Drawing.Point(12, 105);
+            this.labelCompanyName.Location = new System.Drawing.Point(14, 120);
             this.labelCompanyName.Name = "labelCompanyName";
             this.labelCompanyName.Size = new System.Drawing.Size(119, 20);
             this.labelCompanyName.TabIndex = 5;
@@ -110,7 +110,7 @@
             this.labelCompanyTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelCompanyTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelCompanyTitle.ForeColor = System.Drawing.Color.White;
-            this.labelCompanyTitle.Location = new System.Drawing.Point(86, 36);
+            this.labelCompanyTitle.Location = new System.Drawing.Point(14, 30);
             this.labelCompanyTitle.Name = "labelCompanyTitle";
             this.labelCompanyTitle.Size = new System.Drawing.Size(300, 28);
             this.labelCompanyTitle.TabIndex = 6;

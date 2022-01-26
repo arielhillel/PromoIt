@@ -41,7 +41,7 @@
             // radioButtonAdmin
             // 
             this.radioButtonAdmin.AutoSize = true;
-            this.radioButtonAdmin.Location = new System.Drawing.Point(146, 133);
+            this.radioButtonAdmin.Location = new System.Drawing.Point(162, 140);
             this.radioButtonAdmin.Name = "radioButtonAdmin";
             this.radioButtonAdmin.Size = new System.Drawing.Size(74, 24);
             this.radioButtonAdmin.TabIndex = 0;
@@ -53,7 +53,7 @@
             // radioButtonNPO
             // 
             this.radioButtonNPO.AutoSize = true;
-            this.radioButtonNPO.Location = new System.Drawing.Point(146, 172);
+            this.radioButtonNPO.Location = new System.Drawing.Point(162, 193);
             this.radioButtonNPO.Name = "radioButtonNPO";
             this.radioButtonNPO.Size = new System.Drawing.Size(190, 24);
             this.radioButtonNPO.TabIndex = 1;
@@ -65,7 +65,7 @@
             // radioButtonBSR
             // 
             this.radioButtonBSR.AutoSize = true;
-            this.radioButtonBSR.Location = new System.Drawing.Point(146, 216);
+            this.radioButtonBSR.Location = new System.Drawing.Point(162, 240);
             this.radioButtonBSR.Name = "radioButtonBSR";
             this.radioButtonBSR.Size = new System.Drawing.Size(152, 24);
             this.radioButtonBSR.TabIndex = 2;
@@ -77,7 +77,7 @@
             // radioButtonSA
             // 
             this.radioButtonSA.AutoSize = true;
-            this.radioButtonSA.Location = new System.Drawing.Point(146, 259);
+            this.radioButtonSA.Location = new System.Drawing.Point(162, 294);
             this.radioButtonSA.Name = "radioButtonSA";
             this.radioButtonSA.Size = new System.Drawing.Size(122, 24);
             this.radioButtonSA.TabIndex = 3;
@@ -92,9 +92,9 @@
             this.buttonRegisterRole.FlatAppearance.BorderSize = 0;
             this.buttonRegisterRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegisterRole.ForeColor = System.Drawing.Color.White;
-            this.buttonRegisterRole.Location = new System.Drawing.Point(146, 302);
+            this.buttonRegisterRole.Location = new System.Drawing.Point(116, 402);
             this.buttonRegisterRole.Name = "buttonRegisterRole";
-            this.buttonRegisterRole.Size = new System.Drawing.Size(172, 47);
+            this.buttonRegisterRole.Size = new System.Drawing.Size(246, 47);
             this.buttonRegisterRole.TabIndex = 4;
             this.buttonRegisterRole.Text = "Confirm";
             this.buttonRegisterRole.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@
             this.labelRoleSystemRegister.BackColor = System.Drawing.Color.Transparent;
             this.labelRoleSystemRegister.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelRoleSystemRegister.ForeColor = System.Drawing.Color.White;
-            this.labelRoleSystemRegister.Location = new System.Drawing.Point(163, 41);
+            this.labelRoleSystemRegister.Location = new System.Drawing.Point(12, 33);
             this.labelRoleSystemRegister.Name = "labelRoleSystemRegister";
             this.labelRoleSystemRegister.Size = new System.Drawing.Size(135, 28);
             this.labelRoleSystemRegister.TabIndex = 2;

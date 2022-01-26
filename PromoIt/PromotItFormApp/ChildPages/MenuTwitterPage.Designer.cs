@@ -83,7 +83,8 @@
             this.MaximumSize = new System.Drawing.Size(872, 497);
             this.MinimumSize = new System.Drawing.Size(872, 497);
             this.Name = "MenuTwitterPage";
-            this.Text = "MenuTwitterPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Twitter Page";
             this.Load += new System.EventHandler(this.MenuTwitterPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

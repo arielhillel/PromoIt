@@ -52,7 +52,7 @@
             this.buttonNPORegister.FlatAppearance.BorderSize = 0;
             this.buttonNPORegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNPORegister.ForeColor = System.Drawing.Color.White;
-            this.buttonNPORegister.Location = new System.Drawing.Point(127, 464);
+            this.buttonNPORegister.Location = new System.Drawing.Point(151, 436);
             this.buttonNPORegister.Name = "buttonNPORegister";
             this.buttonNPORegister.Size = new System.Drawing.Size(172, 47);
             this.buttonNPORegister.TabIndex = 5;
@@ -62,21 +62,21 @@
             // 
             // textBoxNPOPassword
             // 
-            this.textBoxNPOPassword.Location = new System.Drawing.Point(12, 236);
+            this.textBoxNPOPassword.Location = new System.Drawing.Point(12, 257);
             this.textBoxNPOPassword.Name = "textBoxNPOPassword";
             this.textBoxNPOPassword.Size = new System.Drawing.Size(407, 27);
             this.textBoxNPOPassword.TabIndex = 2;
             // 
             // textBoxNPOUsername
             // 
-            this.textBoxNPOUsername.Location = new System.Drawing.Point(12, 168);
+            this.textBoxNPOUsername.Location = new System.Drawing.Point(12, 195);
             this.textBoxNPOUsername.Name = "textBoxNPOUsername";
             this.textBoxNPOUsername.Size = new System.Drawing.Size(407, 27);
             this.textBoxNPOUsername.TabIndex = 1;
             // 
             // textBoxNPOName
             // 
-            this.textBoxNPOName.Location = new System.Drawing.Point(12, 106);
+            this.textBoxNPOName.Location = new System.Drawing.Point(12, 133);
             this.textBoxNPOName.Name = "textBoxNPOName";
             this.textBoxNPOName.Size = new System.Drawing.Size(407, 27);
             this.textBoxNPOName.TabIndex = 0;
@@ -84,7 +84,7 @@
             // labelNPOPassword
             // 
             this.labelNPOPassword.AutoSize = true;
-            this.labelNPOPassword.Location = new System.Drawing.Point(12, 213);
+            this.labelNPOPassword.Location = new System.Drawing.Point(12, 234);
             this.labelNPOPassword.Name = "labelNPOPassword";
             this.labelNPOPassword.Size = new System.Drawing.Size(73, 20);
             this.labelNPOPassword.TabIndex = 11;
@@ -93,7 +93,7 @@
             // labelNPOUsername
             // 
             this.labelNPOUsername.AutoSize = true;
-            this.labelNPOUsername.Location = new System.Drawing.Point(12, 145);
+            this.labelNPOUsername.Location = new System.Drawing.Point(12, 172);
             this.labelNPOUsername.Name = "labelNPOUsername";
             this.labelNPOUsername.Size = new System.Drawing.Size(78, 20);
             this.labelNPOUsername.TabIndex = 12;
@@ -102,7 +102,7 @@
             // labelNPOName
             // 
             this.labelNPOName.AutoSize = true;
-            this.labelNPOName.Location = new System.Drawing.Point(12, 83);
+            this.labelNPOName.Location = new System.Drawing.Point(12, 110);
             this.labelNPOName.Name = "labelNPOName";
             this.labelNPOName.Size = new System.Drawing.Size(142, 20);
             this.labelNPOName.TabIndex = 13;
@@ -114,7 +114,7 @@
             this.labelNPOTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelNPOTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelNPOTitle.ForeColor = System.Drawing.Color.White;
-            this.labelNPOTitle.Location = new System.Drawing.Point(74, 28);
+            this.labelNPOTitle.Location = new System.Drawing.Point(12, 22);
             this.labelNPOTitle.Name = "labelNPOTitle";
             this.labelNPOTitle.Size = new System.Drawing.Size(345, 28);
             this.labelNPOTitle.TabIndex = 14;
@@ -123,7 +123,7 @@
             // labelNPOEmail
             // 
             this.labelNPOEmail.AutoSize = true;
-            this.labelNPOEmail.Location = new System.Drawing.Point(12, 348);
+            this.labelNPOEmail.Location = new System.Drawing.Point(12, 358);
             this.labelNPOEmail.Name = "labelNPOEmail";
             this.labelNPOEmail.Size = new System.Drawing.Size(49, 20);
             this.labelNPOEmail.TabIndex = 11;
@@ -131,7 +131,7 @@
             // 
             // textBoxNPOEmail
             // 
-            this.textBoxNPOEmail.Location = new System.Drawing.Point(12, 301);
+            this.textBoxNPOEmail.Location = new System.Drawing.Point(12, 319);
             this.textBoxNPOEmail.Name = "textBoxNPOEmail";
             this.textBoxNPOEmail.Size = new System.Drawing.Size(407, 27);
             this.textBoxNPOEmail.TabIndex = 3;
@@ -139,7 +139,7 @@
             // labelNPOWebsite
             // 
             this.labelNPOWebsite.AutoSize = true;
-            this.labelNPOWebsite.Location = new System.Drawing.Point(12, 278);
+            this.labelNPOWebsite.Location = new System.Drawing.Point(12, 296);
             this.labelNPOWebsite.Name = "labelNPOWebsite";
             this.labelNPOWebsite.Size = new System.Drawing.Size(95, 20);
             this.labelNPOWebsite.TabIndex = 11;
@@ -147,7 +147,7 @@
             // 
             // textBoxNPOWebsite
             // 
-            this.textBoxNPOWebsite.Location = new System.Drawing.Point(12, 371);
+            this.textBoxNPOWebsite.Location = new System.Drawing.Point(12, 381);
             this.textBoxNPOWebsite.Name = "textBoxNPOWebsite";
             this.textBoxNPOWebsite.Size = new System.Drawing.Size(407, 27);
             this.textBoxNPOWebsite.TabIndex = 4;
