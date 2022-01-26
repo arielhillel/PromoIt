@@ -26,11 +26,15 @@ namespace PromotItLibrary.Classes
         private MySQL mySQL = new MySQL();
 
 
-        public async Task SetTwitterMessage_SetBuyAnItemAsync()
+        public async Task SetTwitterMessagTweet_SetBuyAnItemAsync()
         {
-            await Functions.SetTwitterMessage_SetBuyAnItemAsync($"Product: {ProductInCampaign.Name}, Quantity {Quantity}" +
-                $"\nOrdered by Social Activist: @{ActivistUser.UserName}" +
-                $"\nFrom Business: {ProductInCampaign.BusinessUser.UserName}");
+            try
+            {
+                await Functions.SetTwitterMessage_SetBuyAnItemAsync($"Product: {ProductInCampaign.Name}, Quantity {Quantity}" +
+                    $"\nOrdered by Social Activist: @{ActivistUser.UserName}" +
+                    $"\nFrom Business: {ProductInCampaign.BusinessUser.UserName}");
+            }
+            catch { }//Twitter exeption
         }
 
 

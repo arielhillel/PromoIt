@@ -19,19 +19,30 @@ namespace PromotItLibrary.Classes
 
         private MySQL mySQL = Configuration.MySQL;
 
-        public string GetCash()
+        public async Task<ActivistUser> GetCashAmountAsync(Modes mode = null)
         {
-            string str = "";
-            mySQL.Quary("SELECT cash FROM promoit.users_activists Where user_name = @_username LIMIT 1");
-            mySQL.ProcedureParameter("_username", UserName);
-            using MySqlDataReader results = mySQL.GetQueryMultyResults();
-            if (results == null) throw new Exception($"no cash {UserName}");
-            if (results != null && results.Read())
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try {  str = results.GetDecimal("cash").ToString() + "$"; }
-                catch { throw new Exception($"error to get cash for {UserName}"); };
+                try { return await Functions.GetSingleDataRequest("PromoitProductFunctions", this, "GetCashAmount"); }
+                catch { throw new Exception($"Functions error"); };
             }
-            return str;
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Quary("SELECT cash FROM promoit.users_activists Where user_name = @_username LIMIT 1");
+                mySQL.ProcedureParameter("_username", UserName);
+                using MySqlDataReader results = mySQL.GetQueryMultyResults();
+                if (results == null) throw new Exception($"no cash {UserName}");
+                ActivistUser activistUser = new ActivistUser();
+                if (results != null && results.Read())
+                {
+                    try { activistUser.Cash = results.GetDecimal("cash").ToString() + "$"; }
+                    catch { throw new Exception($"error to get cash for {UserName}"); };
+                }
+                return activistUser;
+            }
+            return null;
+
         }
 
         public async Task<bool> RegisterAsync(Modes mode = null)
@@ -61,5 +72,9 @@ namespace PromotItLibrary.Classes
             return false;
         }
 
+        public static implicit operator List<object>(ActivistUser v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -55,6 +55,16 @@ namespace PromoitFunction
                         }
 
 
+                        if (type == "GetCashAmount")
+                        {
+                            className = "Activist Get Cash Amount";
+                            ActivistUser activistUser = Functions.JsonStringToSingleObject<ActivistUser>(data);
+                            if (activistUser == null) throw new Exception($"GET: No {className} Found In Databae!");
+                            activistUser = await activistUser.GetCashAmountAsync(Configuration.DatabaseMode);
+                            log.LogInformation($"Function Found {className}");
+                            return new OkObjectResult(Functions.ObjectToJsonString(activistUser));
+                        }
+
 
                     }
                     catch (Exception ex)  { log.LogInformation($"Function GET ({className}) Datanase SELECT/GET-data Fail:\n{ex.Message}"); return new BadRequestObjectResult($"Not Found ({className})"); }

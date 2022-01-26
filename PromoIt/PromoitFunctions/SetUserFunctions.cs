@@ -27,8 +27,20 @@ namespace PromoitFunction
             try
             {   //get
                 string data = req.Query["data"];
+                string type = req.Query["type"];
                 if (data != null)
                 {
+                    if(type == "GetAllUsers")
+                    {
+                        className = "Get All Users List";
+                        //Users user1 = Functions.JsonStringToSingleObject<Users>(data);
+                        //if (user == null) throw new Exception($"GET: No {className} Found In Databae!");
+                        AdminUser adminUser = new AdminUser();
+                        List<Users> userList = await adminUser.MySQL_GetAllUsers_ListAsync(Configuration.DatabaseMode);
+                        log.LogInformation($"Function Found {className}");
+                        return new OkObjectResult(Functions.ObjectToJsonString(userList));
+                    }
+
 
                     Users user = Functions.JsonStringToSingleObject<Users>(data);    //var userJson = user = Functions.JsonStrinToObjectList<Users>(data);
                     if (user == null) throw new Exception($"GET: No {className} IS Enterd");

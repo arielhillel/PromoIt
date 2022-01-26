@@ -21,7 +21,7 @@ namespace PromotItFormApp.LandingPages
         {
             InitializeComponent();
             GetCampaignsAsync();
-            GetCashAmount();
+            GetCashAmountAsync();
         }
         
         private void dataGridSA_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -41,7 +41,7 @@ namespace PromotItFormApp.LandingPages
                     {
                         lblMessage.Text = Configuration.Message;
                         GetCampaignsAsync();
-                        GetCashAmount();
+                        GetCashAmountAsync();
                     }
                 }
                 catch { }
@@ -54,13 +54,14 @@ namespace PromotItFormApp.LandingPages
             panelSA.ForeColor = Color.White;
         }
 
-        private void GetCashAmount()
+        private async Task GetCashAmountAsync()
         {
             try
             {
                 ActivistUser activistUser = new ActivistUser();
                 activistUser.UserName = Configuration.CorrentUser.UserName;
-                txtCash.Text = activistUser.GetCash();
+                activistUser.Cash = (await activistUser.GetCashAmountAsync()).Cash;
+                txtCash.Text = activistUser.Cash;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
