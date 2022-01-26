@@ -69,20 +69,4 @@
   <metadata name="buttonProductListGrid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBoxSearchSA.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAb
-        rQAAG60BIeRSlQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIKSURBVFhHtZa7
-        TsNAEEUp6KhoQFCAKFPw+oMoTyS3lCgFHR0/gPIBFDQIvoKGGpSCLqLjHyLxioQoQKEw91q71mQ9ya7B
-        Wxxnvbl3ZrwveyFN05l0Op2VVquVgH6z2bzF74iYdp//UaN5Q1E76/X6IpKcIcEEpB4m1NKjxfJR6EDA
-        GhiKBKHQU3Pj+Zi6QYAe+DIBLQMzGkm3210jbJu+gdFY6O3JmD7yBox8cpl83G63j6RYgxpqhY8xgkci
-        u3D+YJLD/oDA6654FtTSI/zD0DWRXcxwWjOfPDi5xRSRjwRjajoXu9Xy1c4h1YQh0GvjMGbIFuXcc59b
-        00ATlYExRLxE00ho4IGSGUKHbR7OdPY1jYQGnmrBFftgDBuPsTWNhAYer5mBe1wTlcGcE/aBRppGEruA
-        F00jiToFwLuooy5CtC81jaR0xT4YQ8Q70TSSmAfRN9jQdJLsIocNVHIUg3NN55JdIryMxkmSLGtal7wB
-        U1WvY3KDqV3S9C5TNzD+94NE8gnNoYyvUeiA8a+fZE/gyun78RWhdpb8KP0Ap8azivar+I/MLULttJgt
-        6n6WP4M7cAGOmVR60LcP3kFQEYWOKkDC4CKmbqoEu2MPSd98RUyZqgY7ZtdXRMFUNb4iVFPVINkOkmq7
-        40A1xGBGEY+qOBZIuA3yIlDUvSqMCc6WLSS/Jo1GY/MX3jQBPc2yy3oAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

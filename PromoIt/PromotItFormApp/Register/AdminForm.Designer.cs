@@ -158,7 +158,7 @@
             this.MinimumSize = new System.Drawing.Size(505, 570);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminForm";
+            this.Text = "Registry - Admin";
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.panelAdminRegistr.ResumeLayout(false);
             this.panelAdminRegistr.PerformLayout();

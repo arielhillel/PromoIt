@@ -198,7 +198,7 @@
             this.MinimumSize = new System.Drawing.Size(505, 570);
             this.Name = "NonProfitOrganizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NonProfitOrganizationForm";
+            this.Text = "Registry - Non-Profit Organization";
             this.Load += new System.EventHandler(this.NonProfitOrganizationForm_Load);
             this.panelNPORegistr.ResumeLayout(false);
             this.panelNPORegistr.PerformLayout();

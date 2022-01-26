@@ -194,7 +194,7 @@
             this.buttonCloseSAForm.UseVisualStyleBackColor = true;
             this.buttonCloseSAForm.Click += new System.EventHandler(this.buttonCloseSAForm_Click);
             // 
-            // SocialActivistForm
+            // ActivistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,9 +215,9 @@
             this.Controls.Add(this.panelSARegister);
             this.MaximumSize = new System.Drawing.Size(505, 570);
             this.MinimumSize = new System.Drawing.Size(505, 570);
-            this.Name = "SocialActivistForm";
+            this.Name = "ActivistForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SocialActivistForm";
+            this.Text = "Registry - Social Activist";
             this.Load += new System.EventHandler(this.SocialActivistForm_Load);
             this.panelSARegister.ResumeLayout(false);
             this.panelSARegister.PerformLayout();

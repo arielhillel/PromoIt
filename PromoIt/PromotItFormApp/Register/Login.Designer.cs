@@ -103,11 +103,11 @@
             this.labelLoginForm.BackColor = System.Drawing.Color.Transparent;
             this.labelLoginForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelLoginForm.ForeColor = System.Drawing.Color.White;
-            this.labelLoginForm.Location = new System.Drawing.Point(97, 34);
+            this.labelLoginForm.Location = new System.Drawing.Point(211, 42);
             this.labelLoginForm.Name = "labelLoginForm";
-            this.labelLoginForm.Size = new System.Drawing.Size(275, 28);
+            this.labelLoginForm.Size = new System.Drawing.Size(61, 28);
             this.labelLoginForm.TabIndex = 0;
-            this.labelLoginForm.Text = "Insert username and password";
+            this.labelLoginForm.Text = "Login";
             // 
             // Login
             // 
@@ -124,7 +124,7 @@
             this.MinimumSize = new System.Drawing.Size(505, 570);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PromoteIt - Login";
+            this.Text = "Login";
             this.panelLoginForm.ResumeLayout(false);
             this.panelLoginForm.PerformLayout();
             this.ResumeLayout(false);
