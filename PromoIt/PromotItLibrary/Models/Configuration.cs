@@ -27,7 +27,7 @@ namespace PromotItLibrary.Models
 
 
         private static void TwitterUserClientStart() => TwitterUserClient = _twitterUserClient ?? new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
-        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
+        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("promoit-db.mysql.database.azure.com", "arielhillel", "PromoIt9023014", "promoit");
         private static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
 
         private static MySQL _mySQL;
