@@ -41,7 +41,7 @@
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Location = new System.Drawing.Point(97, 220);
+            this.labelUsername.Location = new System.Drawing.Point(192, 159);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(78, 20);
             this.labelUsername.TabIndex = 0;
@@ -50,7 +50,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(102, 270);
+            this.labelPassword.Location = new System.Drawing.Point(192, 228);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(73, 20);
             this.labelPassword.TabIndex = 0;
@@ -58,17 +58,17 @@
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(183, 213);
+            this.textBoxUsername.Location = new System.Drawing.Point(134, 182);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(125, 27);
+            this.textBoxUsername.Size = new System.Drawing.Size(208, 27);
             this.textBoxUsername.TabIndex = 0;
             this.textBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUsername_KeyDown);
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(183, 263);
+            this.textBoxPassword.Location = new System.Drawing.Point(134, 251);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(125, 27);
+            this.textBoxPassword.Size = new System.Drawing.Size(208, 27);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
@@ -78,9 +78,9 @@
             this.buttonLoginForm.FlatAppearance.BorderSize = 0;
             this.buttonLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoginForm.ForeColor = System.Drawing.Color.White;
-            this.buttonLoginForm.Location = new System.Drawing.Point(158, 411);
+            this.buttonLoginForm.Location = new System.Drawing.Point(120, 348);
             this.buttonLoginForm.Name = "buttonLoginForm";
-            this.buttonLoginForm.Size = new System.Drawing.Size(172, 47);
+            this.buttonLoginForm.Size = new System.Drawing.Size(239, 47);
             this.buttonLoginForm.TabIndex = 3;
             this.buttonLoginForm.Text = "Login";
             this.buttonLoginForm.UseVisualStyleBackColor = false;
@@ -103,7 +103,7 @@
             this.labelLoginForm.BackColor = System.Drawing.Color.Transparent;
             this.labelLoginForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelLoginForm.ForeColor = System.Drawing.Color.White;
-            this.labelLoginForm.Location = new System.Drawing.Point(211, 42);
+            this.labelLoginForm.Location = new System.Drawing.Point(12, 33);
             this.labelLoginForm.Name = "labelLoginForm";
             this.labelLoginForm.Size = new System.Drawing.Size(61, 28);
             this.labelLoginForm.TabIndex = 0;

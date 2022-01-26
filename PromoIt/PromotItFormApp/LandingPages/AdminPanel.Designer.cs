@@ -55,7 +55,7 @@
             this.labelAdminTitle.AutoSize = true;
             this.labelAdminTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAdminTitle.ForeColor = System.Drawing.Color.White;
-            this.labelAdminTitle.Location = new System.Drawing.Point(11, 65);
+            this.labelAdminTitle.Location = new System.Drawing.Point(11, 43);
             this.labelAdminTitle.Name = "labelAdminTitle";
             this.labelAdminTitle.Size = new System.Drawing.Size(159, 28);
             this.labelAdminTitle.TabIndex = 0;

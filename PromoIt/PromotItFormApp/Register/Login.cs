@@ -92,6 +92,5 @@ namespace PromotItFormApp.LandingPages
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
     }
 }

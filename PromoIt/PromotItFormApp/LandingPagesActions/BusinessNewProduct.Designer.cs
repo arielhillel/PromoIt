@@ -49,7 +49,7 @@
             this.panelNewProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNewProduct.Location = new System.Drawing.Point(0, 0);
             this.panelNewProduct.Name = "panelNewProduct";
-            this.panelNewProduct.Size = new System.Drawing.Size(477, 135);
+            this.panelNewProduct.Size = new System.Drawing.Size(477, 122);
             this.panelNewProduct.TabIndex = 0;
             // 
             // labelNewProduct
@@ -57,7 +57,7 @@
             this.labelNewProduct.AutoSize = true;
             this.labelNewProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelNewProduct.ForeColor = System.Drawing.Color.White;
-            this.labelNewProduct.Location = new System.Drawing.Point(12, 65);
+            this.labelNewProduct.Location = new System.Drawing.Point(12, 44);
             this.labelNewProduct.Name = "labelNewProduct";
             this.labelNewProduct.Size = new System.Drawing.Size(125, 28);
             this.labelNewProduct.TabIndex = 0;
@@ -84,7 +84,7 @@
             this.buttonSaveProduct.FlatAppearance.BorderSize = 0;
             this.buttonSaveProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveProduct.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveProduct.Location = new System.Drawing.Point(14, 297);
+            this.buttonSaveProduct.Location = new System.Drawing.Point(31, 298);
             this.buttonSaveProduct.Name = "buttonSaveProduct";
             this.buttonSaveProduct.Size = new System.Drawing.Size(392, 47);
             this.buttonSaveProduct.TabIndex = 0;
@@ -94,7 +94,7 @@
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(14, 221);
+            this.textBoxPrice.Location = new System.Drawing.Point(14, 191);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(392, 27);
             this.textBoxPrice.TabIndex = 0;
@@ -103,7 +103,7 @@
             // 
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPrice.Location = new System.Drawing.Point(14, 190);
+            this.labelPrice.Location = new System.Drawing.Point(14, 163);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(53, 25);
             this.labelPrice.TabIndex = 0;
@@ -111,7 +111,7 @@
             // 
             // textBoxQuantity
             // 
-            this.textBoxQuantity.Location = new System.Drawing.Point(14, 149);
+            this.textBoxQuantity.Location = new System.Drawing.Point(14, 121);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(392, 27);
             this.textBoxQuantity.TabIndex = 0;
@@ -120,7 +120,7 @@
             // 
             this.labelQuantity.AutoSize = true;
             this.labelQuantity.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelQuantity.Location = new System.Drawing.Point(14, 118);
+            this.labelQuantity.Location = new System.Drawing.Point(14, 93);
             this.labelQuantity.Name = "labelQuantity";
             this.labelQuantity.Size = new System.Drawing.Size(84, 25);
             this.labelQuantity.TabIndex = 0;
@@ -128,7 +128,7 @@
             // 
             // textBoxProductName
             // 
-            this.textBoxProductName.Location = new System.Drawing.Point(14, 78);
+            this.textBoxProductName.Location = new System.Drawing.Point(14, 53);
             this.textBoxProductName.Name = "textBoxProductName";
             this.textBoxProductName.Size = new System.Drawing.Size(392, 27);
             this.textBoxProductName.TabIndex = 0;
@@ -137,7 +137,7 @@
             // 
             this.labelProductName.AutoSize = true;
             this.labelProductName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelProductName.Location = new System.Drawing.Point(14, 47);
+            this.labelProductName.Location = new System.Drawing.Point(14, 25);
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(130, 25);
             this.labelProductName.TabIndex = 0;

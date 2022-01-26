@@ -30,27 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PromotIt));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.buttonContact = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.buttonTwitter = new System.Windows.Forms.Button();
             this.buttonAbout = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.labelLogoMain = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.buttonCloseChildForm = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelDesktopPanel = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(56)))));
-            this.panelMenu.Controls.Add(this.buttonContact);
             this.panelMenu.Controls.Add(this.buttonRegister);
             this.panelMenu.Controls.Add(this.buttonTwitter);
             this.panelMenu.Controls.Add(this.buttonAbout);
@@ -62,26 +58,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 573);
             this.panelMenu.TabIndex = 0;
-            // 
-            // buttonContact
-            // 
-            this.buttonContact.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonContact.FlatAppearance.BorderSize = 0;
-            this.buttonContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonContact.Font = new System.Drawing.Font("Segoe UI Light", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonContact.ForeColor = System.Drawing.Color.White;
-            this.buttonContact.Image = global::PromotItFormApp.Properties.Resources.chat_4_32;
-            this.buttonContact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonContact.Location = new System.Drawing.Point(0, 260);
-            this.buttonContact.Name = "buttonContact";
-            this.buttonContact.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.buttonContact.Size = new System.Drawing.Size(220, 60);
-            this.buttonContact.TabIndex = 0;
-            this.buttonContact.Text = " Contact Us";
-            this.buttonContact.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonContact.UseVisualStyleBackColor = true;
-            this.buttonContact.Click += new System.EventHandler(this.buttonContact_Click);
             // 
             // buttonRegister
             // 
@@ -186,23 +162,13 @@
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.panelLogo.Controls.Add(this.labelLogoMain);
+            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(220, 80);
             this.panelLogo.TabIndex = 0;
-            // 
-            // labelLogoMain
-            // 
-            this.labelLogoMain.AutoSize = true;
-            this.labelLogoMain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelLogoMain.ForeColor = System.Drawing.Color.White;
-            this.labelLogoMain.Location = new System.Drawing.Point(24, 25);
-            this.labelLogoMain.Name = "labelLogoMain";
-            this.labelLogoMain.Size = new System.Drawing.Size(134, 28);
-            this.labelLogoMain.TabIndex = 0;
-            this.labelLogoMain.Text = "Zionet Project";
             // 
             // panelTitleBar
             // 
@@ -233,11 +199,11 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(367, 20);
+            this.labelTitle.Location = new System.Drawing.Point(358, 27);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(87, 35);
+            this.labelTitle.Size = new System.Drawing.Size(83, 35);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "HOME";
+            this.labelTitle.Text = "Home";
             // 
             // panelDesktopPanel
             // 
@@ -263,8 +229,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PromotIt";
             this.panelMenu.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
-            this.panelLogo.PerformLayout();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.ResumeLayout(false);
@@ -274,7 +238,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button buttonContact;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonTwitter;
         private System.Windows.Forms.Button buttonAbout;
@@ -283,7 +246,6 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Label labelLogoMain;
         private System.Windows.Forms.Panel panelDesktopPanel;
         private System.Windows.Forms.Button buttonCloseChildForm;
     }

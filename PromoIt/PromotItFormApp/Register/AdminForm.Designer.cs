@@ -48,7 +48,7 @@
             this.labelAdminTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelAdminTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAdminTitle.ForeColor = System.Drawing.Color.White;
-            this.labelAdminTitle.Location = new System.Drawing.Point(146, 29);
+            this.labelAdminTitle.Location = new System.Drawing.Point(13, 29);
             this.labelAdminTitle.Name = "labelAdminTitle";
             this.labelAdminTitle.Size = new System.Drawing.Size(190, 28);
             this.labelAdminTitle.TabIndex = 0;
@@ -57,7 +57,7 @@
             // labelAdminFullName
             // 
             this.labelAdminFullName.AutoSize = true;
-            this.labelAdminFullName.Location = new System.Drawing.Point(12, 95);
+            this.labelAdminFullName.Location = new System.Drawing.Point(13, 108);
             this.labelAdminFullName.Name = "labelAdminFullName";
             this.labelAdminFullName.Size = new System.Drawing.Size(79, 20);
             this.labelAdminFullName.TabIndex = 0;
@@ -66,7 +66,7 @@
             // labelAdminUsername
             // 
             this.labelAdminUsername.AutoSize = true;
-            this.labelAdminUsername.Location = new System.Drawing.Point(13, 170);
+            this.labelAdminUsername.Location = new System.Drawing.Point(13, 172);
             this.labelAdminUsername.Name = "labelAdminUsername";
             this.labelAdminUsername.Size = new System.Drawing.Size(78, 20);
             this.labelAdminUsername.TabIndex = 0;
@@ -75,7 +75,7 @@
             // labelAdminPassword
             // 
             this.labelAdminPassword.AutoSize = true;
-            this.labelAdminPassword.Location = new System.Drawing.Point(18, 267);
+            this.labelAdminPassword.Location = new System.Drawing.Point(12, 234);
             this.labelAdminPassword.Name = "labelAdminPassword";
             this.labelAdminPassword.Size = new System.Drawing.Size(73, 20);
             this.labelAdminPassword.TabIndex = 0;
@@ -83,21 +83,21 @@
             // 
             // textBoxAdminName
             // 
-            this.textBoxAdminName.Location = new System.Drawing.Point(12, 122);
+            this.textBoxAdminName.Location = new System.Drawing.Point(12, 131);
             this.textBoxAdminName.Name = "textBoxAdminName";
             this.textBoxAdminName.Size = new System.Drawing.Size(407, 27);
             this.textBoxAdminName.TabIndex = 0;
             // 
             // textBoxAdminUsername
             // 
-            this.textBoxAdminUsername.Location = new System.Drawing.Point(12, 208);
+            this.textBoxAdminUsername.Location = new System.Drawing.Point(12, 195);
             this.textBoxAdminUsername.Name = "textBoxAdminUsername";
             this.textBoxAdminUsername.Size = new System.Drawing.Size(407, 27);
             this.textBoxAdminUsername.TabIndex = 2;
             // 
             // textBoxAdminPassword
             // 
-            this.textBoxAdminPassword.Location = new System.Drawing.Point(13, 300);
+            this.textBoxAdminPassword.Location = new System.Drawing.Point(12, 257);
             this.textBoxAdminPassword.Name = "textBoxAdminPassword";
             this.textBoxAdminPassword.Size = new System.Drawing.Size(407, 27);
             this.textBoxAdminPassword.TabIndex = 3;
@@ -108,7 +108,7 @@
             this.buttonAdminRegister.FlatAppearance.BorderSize = 0;
             this.buttonAdminRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdminRegister.ForeColor = System.Drawing.Color.White;
-            this.buttonAdminRegister.Location = new System.Drawing.Point(107, 379);
+            this.buttonAdminRegister.Location = new System.Drawing.Point(149, 413);
             this.buttonAdminRegister.Name = "buttonAdminRegister";
             this.buttonAdminRegister.Size = new System.Drawing.Size(172, 47);
             this.buttonAdminRegister.TabIndex = 4;

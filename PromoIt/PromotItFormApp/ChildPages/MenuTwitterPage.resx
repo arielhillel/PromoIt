@@ -60,17 +60,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonTwitter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVFhH7ZY/KEVRHMdfkgySTJJRJoMMMpmMekkyvEEy
-        ySBJJimDJJkkk1EymEx6g2SQQZLBIEmSJEkGg/R8vuf+nufpeu+ey1PkU5945/z+vHfvOffcxD9/hkwm
-        U4b9mMZrvMVjnMMGC3uDsUaszH6owH73IQbk1uMefsYj9mElduEGblu6K5BEMWpDkSGnGk9cdnGe7e8D
-        NlsJV2TeDQdMoc0Uh9hFlxWde+zGXhzJFlnB96xjjZssADH69U9K8EDxL3iBwdrgnwX8yCXqvrmYMJjr
-        VGAM1LzRyrhCuhyfcYApDFbsOxjTF/TlBuusRAADWp3aOoXQvVvFAWxG5ehe+nJobfNhogd1b6KiWG0v
-        X3asZQ4GR1FfYBKzW6VUrFvbHAwuBXM/woy1zcFg9kH0E3Rb2xwM6jl+5KZLi25vrbXNh4lWjLOofEhb
-        u3AIaMNzF1oaUtYqHAKqUMfkLGrffydXWGGtwiGgCUu1DYetTWEI9D3doqAFXm4tCkOgXk42lfVN6PRr
-        sfLRIKEcx1EHx1cZtLL+kKyr0YE6EeMwaaXiQQFty11Xyg8dVBNWJjokSW3DIYzTWNxh0koWh2C91ajZ
-        KeplMS761WtYb6WjQ5IeQGN4hr5oletFxW+lh0ERHUrtOI1bqPfCjw8mXeJ9XEa9klVb+j+/kUTiFQM/
-        pebgsVwCAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAf9JREFUWEftlj8oRVEcx1+SDJJMklEmgwwymYx6STK8QTLJIEkmKYMkmSSTUTKY
+        THqDZJBBksEgSZIkSQaD9Hy+5/6e5+l6757LU+RTn3jn/P68d+8599zEP3+GTCZThv2Yxmu8xWOcwwYL
+        e4OxRqzMfqjAfvchBuTW4x5+xiP2YSV24QZuW7orkEQxakORIacaT1x2cZ7t7wM2WwlXZN4NB0yhzRSH
+        2EWXFZ177MZeHMkWWcH3rGONmywAMfr1T0rwQPEveIHB2uCfBfzIJeq+uZgwmOtUYAzUvNHKuEK6HJ9x
+        gCkMVuw7GNMX9OUG66xEAANando6hdC9W8UBbEbl6F76cmht82GiB3VvoqJYbS9fdqxlDgZHUV9gErNb
+        pVSsW9scDC4Fcz/CjLXNwWD2QfQTdFvbHAzqOX7kpkuLbm+ttc2HiVaMs6h8SFu7cAhow3MXWhpS1ioc
+        AqpQx+Qsat9/J1dYYa3CIaAJS7UNh61NYQj0Pd2ioAVebi0KQ6BeTjaV9U3o9Gux8tEgoRzHUQfHVxm0
+        sv6QrKvRgToR4zBppeJBAW3LXVfKDx1UE1YmOiRJbcMhjNNY3GHSShaHYL3VqNkp6mUxLvrVa1hvpaND
+        kh5AY3iGvmiV60XFb6WHQREdSu04jVuo98KPDyZd4n1cRr2SVVv6P7+RROIVAz+l5uCxXAIAAAAASUVO
+        RK5CYII=
 </value>
   </data>
 </root>
