@@ -118,6 +118,7 @@
             this.ClientSize = new System.Drawing.Size(671, 450);
             this.Controls.Add(this.dataGridProductList);
             this.Name = "BusinessProductList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Business Company - Products List";
             this.Shown += new System.EventHandler(this.ProductListBC_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).EndInit();

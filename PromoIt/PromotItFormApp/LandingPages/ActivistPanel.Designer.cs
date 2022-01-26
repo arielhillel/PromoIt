@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivistPanel));
             this.panelSADashboard = new System.Windows.Forms.Panel();
             this.dataGridSA = new System.Windows.Forms.DataGridView();
             this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,14 +44,12 @@
             this.labelBalance = new System.Windows.Forms.Label();
             this.panelMessagesSA = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.dataGridMessages = new System.Windows.Forms.DataGridView();
             this.panelSADashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
             this.panelSA.SuspendLayout();
             this.panelBalance.SuspendLayout();
             this.panelMessagesSA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridMessages)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSADashboard
@@ -121,13 +120,13 @@
             // 
             // buttonProductListGrid
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProductListGrid.HeaderText = "";
             this.buttonProductListGrid.MinimumWidth = 6;
@@ -178,7 +177,7 @@
             this.labelSATitle.AutoSize = true;
             this.labelSATitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSATitle.ForeColor = System.Drawing.Color.White;
-            this.labelSATitle.Location = new System.Drawing.Point(12, 65);
+            this.labelSATitle.Location = new System.Drawing.Point(12, 50);
             this.labelSATitle.Name = "labelSATitle";
             this.labelSATitle.Size = new System.Drawing.Size(133, 28);
             this.labelSATitle.TabIndex = 0;
@@ -199,7 +198,7 @@
             this.txtCash.AutoSize = true;
             this.txtCash.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCash.ForeColor = System.Drawing.Color.Green;
-            this.txtCash.Location = new System.Drawing.Point(143, 18);
+            this.txtCash.Location = new System.Drawing.Point(131, 18);
             this.txtCash.Name = "txtCash";
             this.txtCash.Size = new System.Drawing.Size(28, 25);
             this.txtCash.TabIndex = 0;
@@ -208,18 +207,19 @@
             // labelBalance
             // 
             this.labelBalance.AutoSize = true;
-            this.labelBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelBalance.Location = new System.Drawing.Point(13, 15);
+            this.labelBalance.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelBalance.Location = new System.Drawing.Point(8, 18);
             this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(129, 28);
+            this.labelBalance.Size = new System.Drawing.Size(117, 25);
             this.labelBalance.TabIndex = 0;
             this.labelBalance.Text = "Total Balance:";
             // 
             // panelMessagesSA
             // 
             this.panelMessagesSA.BackColor = System.Drawing.Color.White;
+            this.panelMessagesSA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMessagesSA.BackgroundImage")));
+            this.panelMessagesSA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelMessagesSA.Controls.Add(this.lblMessage);
-            this.panelMessagesSA.Controls.Add(this.dataGridMessages);
             this.panelMessagesSA.Location = new System.Drawing.Point(610, 141);
             this.panelMessagesSA.Name = "panelMessagesSA";
             this.panelMessagesSA.Size = new System.Drawing.Size(614, 124);
@@ -228,39 +228,14 @@
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Black;
-            this.lblMessage.ForeColor = System.Drawing.Color.Brown;
-            this.lblMessage.Location = new System.Drawing.Point(39, 10);
+            this.lblMessage.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblMessage.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage.Location = new System.Drawing.Point(15, 14);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(67, 20);
+            this.lblMessage.Size = new System.Drawing.Size(72, 23);
             this.lblMessage.TabIndex = 2;
             this.lblMessage.Text = "Message";
-            // 
-            // dataGridMessages
-            // 
-            this.dataGridMessages.AllowUserToAddRows = false;
-            this.dataGridMessages.AllowUserToDeleteRows = false;
-            this.dataGridMessages.AllowUserToResizeColumns = false;
-            this.dataGridMessages.AllowUserToResizeRows = false;
-            this.dataGridMessages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridMessages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridMessages.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridMessages.GridColor = System.Drawing.Color.White;
-            this.dataGridMessages.Location = new System.Drawing.Point(7, 10);
-            this.dataGridMessages.MultiSelect = false;
-            this.dataGridMessages.Name = "dataGridMessages";
-            this.dataGridMessages.ReadOnly = true;
-            this.dataGridMessages.RowHeadersVisible = false;
-            this.dataGridMessages.RowHeadersWidth = 51;
-            this.dataGridMessages.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridMessages.RowTemplate.Height = 29;
-            this.dataGridMessages.ShowEditingIcon = false;
-            this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
-            this.dataGridMessages.TabIndex = 1;
             // 
             // ActivistPanel
             // 
@@ -285,7 +260,6 @@
             this.panelBalance.PerformLayout();
             this.panelMessagesSA.ResumeLayout(false);
             this.panelMessagesSA.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridMessages)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,6 +280,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn balance;
         private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.DataGridView dataGridMessages;
     }
 }

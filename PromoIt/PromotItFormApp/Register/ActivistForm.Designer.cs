@@ -54,7 +54,7 @@
             this.buttonSARegister.FlatAppearance.BorderSize = 0;
             this.buttonSARegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSARegister.ForeColor = System.Drawing.Color.White;
-            this.buttonSARegister.Location = new System.Drawing.Point(131, 473);
+            this.buttonSARegister.Location = new System.Drawing.Point(147, 464);
             this.buttonSARegister.Name = "buttonSARegister";
             this.buttonSARegister.Size = new System.Drawing.Size(172, 47);
             this.buttonSARegister.TabIndex = 6;
@@ -64,7 +64,7 @@
             // 
             // textBoxSAAddress
             // 
-            this.textBoxSAAddress.Location = new System.Drawing.Point(12, 376);
+            this.textBoxSAAddress.Location = new System.Drawing.Point(12, 365);
             this.textBoxSAAddress.Name = "textBoxSAAddress";
             this.textBoxSAAddress.Size = new System.Drawing.Size(407, 27);
             this.textBoxSAAddress.TabIndex = 4;
@@ -86,7 +86,7 @@
             // labelSAAddress
             // 
             this.labelSAAddress.AutoSize = true;
-            this.labelSAAddress.Location = new System.Drawing.Point(12, 350);
+            this.labelSAAddress.Location = new System.Drawing.Point(12, 342);
             this.labelSAAddress.Name = "labelSAAddress";
             this.labelSAAddress.Size = new System.Drawing.Size(65, 20);
             this.labelSAAddress.TabIndex = 19;
@@ -102,7 +102,7 @@
             // labelSAEmail
             // 
             this.labelSAEmail.AutoSize = true;
-            this.labelSAEmail.Location = new System.Drawing.Point(12, 288);
+            this.labelSAEmail.Location = new System.Drawing.Point(12, 289);
             this.labelSAEmail.Name = "labelSAEmail";
             this.labelSAEmail.Size = new System.Drawing.Size(49, 20);
             this.labelSAEmail.TabIndex = 20;
@@ -118,7 +118,7 @@
             // labelSAPassword
             // 
             this.labelSAPassword.AutoSize = true;
-            this.labelSAPassword.Location = new System.Drawing.Point(12, 224);
+            this.labelSAPassword.Location = new System.Drawing.Point(12, 227);
             this.labelSAPassword.Name = "labelSAPassword";
             this.labelSAPassword.Size = new System.Drawing.Size(73, 20);
             this.labelSAPassword.TabIndex = 21;
@@ -127,11 +127,12 @@
             // labelSAUsername
             // 
             this.labelSAUsername.AutoSize = true;
+            this.labelSAUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelSAUsername.Location = new System.Drawing.Point(12, 163);
             this.labelSAUsername.Name = "labelSAUsername";
-            this.labelSAUsername.Size = new System.Drawing.Size(78, 20);
+            this.labelSAUsername.Size = new System.Drawing.Size(138, 20);
             this.labelSAUsername.TabIndex = 22;
-            this.labelSAUsername.Text = "Username:";
+            this.labelSAUsername.Text = "Twitter Username:";
             // 
             // labelSAFullname
             // 
@@ -148,7 +149,7 @@
             this.labelSATitle.BackColor = System.Drawing.Color.Transparent;
             this.labelSATitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSATitle.ForeColor = System.Drawing.Color.White;
-            this.labelSATitle.Location = new System.Drawing.Point(103, 30);
+            this.labelSATitle.Location = new System.Drawing.Point(12, 30);
             this.labelSATitle.Name = "labelSATitle";
             this.labelSATitle.Size = new System.Drawing.Size(253, 28);
             this.labelSATitle.TabIndex = 24;
@@ -157,7 +158,7 @@
             // labelSAPhoneNumber
             // 
             this.labelSAPhoneNumber.AutoSize = true;
-            this.labelSAPhoneNumber.Location = new System.Drawing.Point(12, 410);
+            this.labelSAPhoneNumber.Location = new System.Drawing.Point(12, 404);
             this.labelSAPhoneNumber.Name = "labelSAPhoneNumber";
             this.labelSAPhoneNumber.Size = new System.Drawing.Size(111, 20);
             this.labelSAPhoneNumber.TabIndex = 19;
@@ -165,7 +166,7 @@
             // 
             // textBoxSAPhoneNumber
             // 
-            this.textBoxSAPhoneNumber.Location = new System.Drawing.Point(12, 437);
+            this.textBoxSAPhoneNumber.Location = new System.Drawing.Point(12, 427);
             this.textBoxSAPhoneNumber.Name = "textBoxSAPhoneNumber";
             this.textBoxSAPhoneNumber.Size = new System.Drawing.Size(407, 27);
             this.textBoxSAPhoneNumber.TabIndex = 5;
