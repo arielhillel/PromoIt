@@ -90,6 +90,7 @@
             this.clmnBusinessUser.Name = "clmnBusinessUser";
             this.clmnBusinessUser.ReadOnly = true;
             this.clmnBusinessUser.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.clmnBusinessUser.Visible = false;
             // 
             // clmnProductName
             // 
