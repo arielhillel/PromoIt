@@ -18,11 +18,12 @@ namespace PromotItFormApp.LandingPages
    
     public partial class NonProfitPanel : Form
     {
-        Campaign campaign = new Campaign();
+        Campaign _campaign = new Campaign();
         public NonProfitPanel()
         {
             InitializeComponent();
-            Campaign campaign = new Campaign();
+            _campaign = new Campaign();
+            _campaign.NonProfitUser = Configuration.CorrentUser;
         }
 
 
@@ -40,7 +41,7 @@ namespace PromotItFormApp.LandingPages
         }
         private void NPOrganizationPanel_Shown(object sender, EventArgs e)
         {
-            DisplayCampaigns();
+            GetAllCampaignsDisplay();
         }
 
         private void dataGridNPO_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -51,18 +52,17 @@ namespace PromotItFormApp.LandingPages
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string? hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    campaign.DeleteCampaign(hashtag);
-                    DisplayCampaigns();
+                    _campaign.DeleteCampaign(hashtag);
+                    GetAllCampaignsDisplay();
                 }
             }
         }
 
-
-        private void DisplayCampaigns()
+        private void GetAllCampaignsDisplay()
         {
             try
             {
-                DataTable tbl = campaign.GetAllCampaignsNonProfit_DataTable();
+                DataTable tbl = _campaign.GetAllCampaignsNonProfit_DataTable();
                 dataGridNPO.DataSource = tbl;
 
             }

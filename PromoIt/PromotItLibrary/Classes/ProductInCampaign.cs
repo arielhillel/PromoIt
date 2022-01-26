@@ -54,7 +54,7 @@ namespace PromotItLibrary.Classes
                     dataRow["clmnProductPrice"] = productInCampaign.Price;
 
                     dataRow["clmnProductId"] = productInCampaign.Id;
-                    dataRow["clmnBusinessUser"] = productInCampaign.BusinessUser;
+                    dataRow["clmnBusinessUser"] = productInCampaign.BusinessUser.UserName;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
@@ -80,7 +80,7 @@ namespace PromotItLibrary.Classes
                     productInCampaign.Price = results.GetString("price");
 
                     productInCampaign.Id = results.GetString("id");
-                    productInCampaign.Name = results.GetString("business_user_name");
+                    productInCampaign.BusinessUser.UserName = results.GetString("business_user_name");
                     productInCampaignList.Add(productInCampaign);
                 }
                 catch { };

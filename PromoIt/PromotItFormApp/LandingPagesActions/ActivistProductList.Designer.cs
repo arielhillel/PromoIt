@@ -89,7 +89,7 @@
             this.clmnBusinessUser.MinimumWidth = 6;
             this.clmnBusinessUser.Name = "clmnBusinessUser";
             this.clmnBusinessUser.ReadOnly = true;
-            this.clmnBusinessUser.Visible = false;
+            this.clmnBusinessUser.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // clmnProductName
             // 

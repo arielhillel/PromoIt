@@ -13,7 +13,7 @@ namespace PromotItLibrary.Classes
     {
         public Campaign()
         {
-            NonProfitUser =  new Users();   //
+            NonProfitUser =  new Users();
         }
 
         public string Name { get; set; }
@@ -46,7 +46,7 @@ namespace PromotItLibrary.Classes
         public List<Campaign> MySql_GetAllCampaignsNonProfit_List() //Non profit
         {
             // Error, no npo user
-            if (NonProfitUser.UserType != "non-profit" && NonProfitUser.UserName == null) throw new Exception("No set for npo User");
+            if (NonProfitUser.UserName == null) throw new Exception("No set for npo User");
             mySQL.Quary("SELECT * FROM campaigns where non_profit_user_name=@np_user_name"); //replace with mySQL.Procedure() //add LIMIT 20 ~
             mySQL.ProcedureParameter("np_user_name", NonProfitUser.UserName);
             using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
