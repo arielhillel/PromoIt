@@ -13,7 +13,7 @@ namespace PromotItLibrary.Models
 {
     public class Configuration
     {
-        public static Modes Mode { get; set; } = Modes.Functions;   //Modes.Functions
+        public static Modes Mode { get; set; } = Modes.MySQL;   //Modes.Functions
         public static Modes DatabaseMode { get; set; } = Modes.MySQL;
         public static Users CorrentUser { get; set; }
         public static Users LognUser { get; set; }
@@ -27,9 +27,10 @@ namespace PromotItLibrary.Models
 
 
         private static void TwitterUserClientStart() => TwitterUserClient = _twitterUserClient ?? new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
-        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("promoit-db.mysql.database.azure.com", "arielhillel", "PromoIt9023014", "promoit");
+        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
+        //new MySQL("promoit-db.mysql.database.azure.com", "arielhillel", "PromoIt9023014", "promoit");
         private static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
-
+       
         private static MySQL _mySQL;
         private static HttpClient _httpClient;
         private static TwitterClient _twitterUserClient;
