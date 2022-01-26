@@ -18,32 +18,27 @@ namespace PromotItLibrary.Classes
             ActivistUser = new ActivistUser();
         }
 
+        public string Id { get; set; }
         public Campaign Campaign { get; set; }
-        public ActivistUser ActivistUser { get; set; }
-        public double Cash { get; set; }
+        public Users ActivistUser { get; set; }
+        public decimal Cash { get; set; }
         public int Retweets { get; set; }
+        public bool IsApproved { get; set; }
 
         private static MySQL mySQL = Configuration.MySQL;
 
 
 
-        public Tweet(string tweetsId, int retweets, string username, string authorId, string hashtag, string url)
+        public void SetTweetCash() 
         {
-            TweetsId = tweetsId;
-            Username = username;
-            AuthorId = authorId;
-            Hashtag = hashtag;
-            URL = url;
+            mySQL.Procedure("add_tweet");
+            mySQL.ProcedureParameter("_tweeter_id", Id);
+            mySQL.ProcedureParameter("_campaign_hashtag", Campaign.Hashtag);
+            mySQL.ProcedureParameter("_activist_user_name", ActivistUser.UserName);
+            mySQL.ProcedureParameter("_added_cash", Cash);
+            mySQL.ProcedureParameter("_tweeter_retweets", Retweets);
+            mySQL.ProceduteExecute();
         }
-
-        private string TweetsId { get; }
-   //     private int Retweets { get; }
-        private string Username { get; }
-        private string AuthorId { get; }
-        public string Hashtag { get; }
-        public string URL { get; }
-
-
 
         public static List<Tweet> MySQL_GetAllTweets_List()
         {

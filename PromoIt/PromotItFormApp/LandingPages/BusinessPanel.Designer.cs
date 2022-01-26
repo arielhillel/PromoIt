@@ -264,7 +264,7 @@
             this.dataGridViewButtonColumn1.Text = "Send product";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             // 
-            // BusinessCompanyPanel
+            // BusinessPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -276,7 +276,7 @@
             this.Controls.Add(this.panelBCR);
             this.MaximumSize = new System.Drawing.Size(1141, 766);
             this.MinimumSize = new System.Drawing.Size(1141, 766);
-            this.Name = "BusinessCompanyPanel";
+            this.Name = "BusinessPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusinessCompanyPanel";
             this.panelBCR.ResumeLayout(false);

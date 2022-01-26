@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridProductList = new System.Windows.Forms.DataGridView();
             this.clmnProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmnBusinessUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +54,7 @@
             this.dataGridProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnProductId,
+            this.clmnBusinessUser,
             this.clmnProductName,
             this.clmnProductQuantity,
             this.clmnProductPrice,
@@ -79,6 +81,15 @@
             this.clmnProductId.Name = "clmnProductId";
             this.clmnProductId.ReadOnly = true;
             this.clmnProductId.Visible = false;
+            // 
+            // clmnBusinessUser
+            // 
+            this.clmnBusinessUser.DataPropertyName = "clmnBusinessUser";
+            this.clmnBusinessUser.HeaderText = "clmnBusinessUser";
+            this.clmnBusinessUser.MinimumWidth = 6;
+            this.clmnBusinessUser.Name = "clmnBusinessUser";
+            this.clmnBusinessUser.ReadOnly = true;
+            this.clmnBusinessUser.Visible = false;
             // 
             // clmnProductName
             // 
@@ -139,6 +150,7 @@
 
         private System.Windows.Forms.DataGridView dataGridProductList;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmnBusinessUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductPrice;

@@ -42,17 +42,19 @@ namespace PromotItLibrary.Classes
         {
             DataTable dataTable = new DataTable();
             List<ProductInCampaign> productInCampaignList = MySQL_GetList_List();
-            foreach (string culmn in new[] { "clmnProductId", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
+            foreach (string culmn in new[] { "clmnProductId", "clmnBusinessUser", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
                 dataTable.Columns.Add(culmn);
             foreach (ProductInCampaign productInCampaign in productInCampaignList)
             {
                 try
                 {
                     DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnProductId"] = productInCampaign.Id;
                     dataRow["clmnProductName"] = productInCampaign.Name;
                     dataRow["clmnProductQuantity"] = productInCampaign.Quantity;
                     dataRow["clmnProductPrice"] = productInCampaign.Price;
+
+                    dataRow["clmnProductId"] = productInCampaign.Id;
+                    dataRow["clmnBusinessUser"] = productInCampaign.BusinessUser;
                     dataTable.Rows.Add(dataRow);
                 }
                 catch { };
@@ -73,10 +75,12 @@ namespace PromotItLibrary.Classes
                 try
                 {
                     ProductInCampaign productInCampaign = new ProductInCampaign();
-                    productInCampaign.Id = results.GetString("id");
                     productInCampaign.Name = results.GetString("name");
-                    productInCampaign.Quantity = results.GetString("quantity");
+                    productInCampaign.Quantity = results.GetString("quantity"); 
                     productInCampaign.Price = results.GetString("price");
+
+                    productInCampaign.Id = results.GetString("id");
+                    productInCampaign.Name = results.GetString("business_user_name");
                     productInCampaignList.Add(productInCampaign);
                 }
                 catch { };

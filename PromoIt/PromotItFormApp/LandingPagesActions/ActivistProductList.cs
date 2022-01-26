@@ -21,6 +21,7 @@ namespace PromotItFormApp.LandingPagesActions
             _productInCampaign = new ProductInCampaign();
             _productDonated = new ProductDonated();
             Configuration.Message = "";
+            
         }
 
         private ProductInCampaign _productInCampaign;
@@ -28,7 +29,6 @@ namespace PromotItFormApp.LandingPagesActions
 
         private void dataGridProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == 0) SetBuyAProduct(e);
         }
 
@@ -43,14 +43,14 @@ namespace PromotItFormApp.LandingPagesActions
             _productDonated.ProductInCampaign.Name = dataGridProductList["clmnProductName", e.RowIndex].Value.ToString();
             _productDonated.Quantity = "1";
             _productDonated.ActivistUser = Configuration.CorrentUser;
+            _productDonated.ProductInCampaign.BusinessUser.UserName = dataGridProductList["clmnBusinessUser", e.RowIndex].Value.ToString();   //Receive from database
             try
             {
                 bool result = _productDonated.SetBuyAnItem();
-                if (result)
-                {
-                    Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
-                    this.Dispose();
-                }
+                if (!result) return;
+                Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
+                Task sendATweet = _productDonated.SetTwitterMessage_SetBuyAnItemAsync();
+                this.Dispose();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -62,6 +62,8 @@ namespace PromotItFormApp.LandingPagesActions
                 Configuration.CorrentProduct = _productInCampaign;
                 _productInCampaign.Campaign = Configuration.CorrentCampaign;
                 dataGridProductList.DataSource = _productInCampaign.GetList_DataTable();
+                dataGridProductList.Columns["clmnProductId"].Visible = false;
+                dataGridProductList.Columns["clmnBusinessUser"].Visible = false;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

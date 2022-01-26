@@ -30,6 +30,8 @@ namespace PromotItFormApp.LandingPagesActions
                 ProductInCampaign productInCampaign = new ProductInCampaign();
                 productInCampaign.Campaign = Configuration.CorrentCampaign;
                 dataGridProductList.DataSource = productInCampaign.GetList_DataTable();
+                dataGridProductList.Columns["clmnProductId"].Visible = false;
+                dataGridProductList.Columns["clmnBusinessUser"].Visible = false;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

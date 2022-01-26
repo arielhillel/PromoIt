@@ -12,7 +12,7 @@ namespace PromotItFormApp.ChildPages
 {
     public partial class CompanyChildPage : Form
     {
-        private Form activeForm;
+        private Form? activeForm;
 
         public CompanyChildPage()
         {

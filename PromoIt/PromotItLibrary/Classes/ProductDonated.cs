@@ -1,11 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
-using PromotItLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PromotItLibrary.Models;
 
 namespace PromotItLibrary.Classes
 {
@@ -25,6 +25,15 @@ namespace PromotItLibrary.Classes
 
         private MySQL mySQL = new MySQL();
 
+
+        public async Task SetTwitterMessage_SetBuyAnItemAsync()
+        {
+            await Functions.SetTwitterMessage_SetBuyAnItemAsync($"Product: {ProductInCampaign.Name}, Quantity {Quantity}" +
+                $"\nOrdered by Social Activist: @{ActivistUser.UserName}" +
+                $"\nFrom Business: {ProductInCampaign.BusinessUser.UserName}");
+        }
+
+
         public bool SetBuyAnItem()
         {
             mySQL.Procedure("buy_a_product"); 
@@ -35,7 +44,6 @@ namespace PromotItLibrary.Classes
             return mySQL.ProceduteExecute();
         }
 
-
         public bool SetProductShipping()
         {
             mySQL.Quary("UPDATE `promoit`.`products_donated` SET `shipped` = @_shipping WHERE (`id2` = @_donated_product_id);");
@@ -43,7 +51,6 @@ namespace PromotItLibrary.Classes
             mySQL.SetParameter("_shipping", "shipped");
             return mySQL.ProceduteExecute();
         }
-
 
         public List<ProductDonated> MySQL_GetDonatedProductForShipping_List()
         {

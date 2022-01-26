@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using PromotItLibrary.Classes;
 using PromotItLibrary.Interfaces;
+using Tweetinvi;
+using Tweetinvi.Parameters;
 
 namespace PromotItLibrary.Models
 {
@@ -21,12 +23,20 @@ namespace PromotItLibrary.Models
         public static HttpClient HttpClient { get { HttpClientStart(); return _httpClient; } set { _httpClient = value; } }
         public static string FunctionUrl { get; set; } = "http://localhost:7071/api/";
         public static string Message { get; set; }
+        public static TwitterClient TwitterUserClient { get { TwitterUserClientStart(); return _twitterUserClient; } set { _twitterUserClient = value; } }
 
-        public static void MySQLStart() => MySQL = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
-        public static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
+
+        private static void TwitterUserClientStart() => TwitterUserClient = _twitterUserClient ?? new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
+        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
+        private static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
 
         private static MySQL _mySQL;
         private static HttpClient _httpClient;
+        private static TwitterClient _twitterUserClient;
+        private static string APIKey = "w0KWvkEaKehQUu6qNUx5rsb1f";
+        private static string APISecret = "XRJRoCLUMOIiqncw00uQikWxRxxDHT2tQ2YIWwrrMQX5ujQwZC";
+        private static string APIToken = "1342513925515046912-EvpeAWTw5ixCneJKuBgSFdD7At8RXD";
+        private static string APITokenSecret = "nVlxITA0DfmSjfo5ndcO9mcxkxypS6u4VZeeqDB4FM5Gf";
 
         ~Configuration() 
         { 

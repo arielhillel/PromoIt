@@ -48,23 +48,19 @@ namespace PromotItFormApp.LandingPages
             }
         }
 
-
         private void panelSA_Paint(object sender, PaintEventArgs e)
         {
             panelSA.BackColor = ThemeColor.PrimaryColor;
             panelSA.ForeColor = Color.White;
         }
 
-
         private void GetCashAmount()
         {
             try
             {
-
                 ActivistUser activistUser = new ActivistUser();
                 activistUser.UserName = Configuration.CorrentUser.UserName;
                 txtCash.Text = activistUser.GetCash();
-                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

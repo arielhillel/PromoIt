@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Web;
+using Tweetinvi;
+using Tweetinvi.Parameters;
 
 namespace PromotItLibrary.Models
 {
@@ -17,6 +19,18 @@ namespace PromotItLibrary.Models
         public static T JsonStringToSingleObject<T>(string mycontent) => JsonConvert.DeserializeObject<T>(mycontent);
         public static List<T> JsonStringToObjectList<T>(string mycontent) => JsonConvert.DeserializeObject<List<T>>(mycontent);
         public static string HttpUrlDecode(string data) => HttpUtility.UrlDecode(data);
+
+        private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
+
+        //Twitter Message
+        public static async Task SetTwitterMessage_SetBuyAnItemAsync(string message)
+        {
+            PublishTweetParameters tweetParam = new PublishTweetParameters
+            {
+                Text = message,
+            };
+            await twitterUserClient.Tweets.PublishTweetAsync(tweetParam);
+        }
 
 
         //Post
