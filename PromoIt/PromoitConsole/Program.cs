@@ -20,8 +20,10 @@ namespace PromoitConsole
 
         static async Task Main(string[] args)
         {
+            //Configuration.Mode = Modes.Functions;
+            //new MySQL("localhost", "root", "admin", "promoit"); ;
 
-            List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync();
+            //List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync();
 
         }
     }
