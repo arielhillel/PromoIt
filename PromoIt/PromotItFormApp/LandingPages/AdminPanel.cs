@@ -25,7 +25,7 @@ namespace PromotItFormApp.LandingPages
             panelAdmin.ForeColor = Color.White;
         }
 
-        private void buttonUsersAdmin_Click(object sender, EventArgs e) => DisplayUsers();
+        private void buttonUsersAdmin_Click(object sender, EventArgs e) => DisplayUsersAsync();
 
         private void buttonCampaignsAdmin_Click(object sender, EventArgs e) => DisplayCampaignsAsync();
 
@@ -45,12 +45,12 @@ namespace PromotItFormApp.LandingPages
                 MessageBox.Show(ex.Message);
             }
         }
-        private void DisplayUsers()
+        private async Task DisplayUsersAsync()
         {
             try
             {
                 AdminUser adminUser = new AdminUser();
-                DataTable tbl = adminUser.GetAllUsers_DataTable();
+                DataTable tbl = await adminUser.GetAllUsers_DataTableAsync();
                 dataGridReports.DataSource = tbl;
 
             }

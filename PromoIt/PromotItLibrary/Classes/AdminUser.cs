@@ -58,30 +58,41 @@ namespace PromotItLibrary.Classes
             return dataTable;
         }
 
-        public List<Users> MySQL_GetAllUsers_List()
+        public async Task<List<Users>> MySQL_GetAllUsers_ListAsync(Modes mode = null)
         {
-            mySQL.Quary("SELECT name,user_name,user_type FROM users");
-            using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
-            List<Users> userList = new List<Users>();
-            while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+            if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try
-                {
-                    Users user = new Users();
-                    user.Name = results.GetString("name");
-                    user.UserName = results.GetString("user_name");
-                    user.UserType = results.GetString("user_type");
-                    userList.Add(user);
-                }
-                catch { };
+                Users user = new Users();
+                try { return await Functions.GetMultipleDataRequest("SetUser", user, "GetAllUsers"); }
+                catch { throw new Exception($"Functions error"); };
             }
-            return userList;
+
+            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                mySQL.Quary("SELECT name,user_name,user_type FROM users");
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+                List<Users> userList = new List<Users>();
+                while (results != null && results.Read()) //for 1 result: if (mdr.Read())
+                {
+                    try
+                    {
+                        Users user = new Users();
+                        user.Name = results.GetString("name");
+                        user.UserName = results.GetString("user_name");
+                        user.UserType = results.GetString("user_type");
+                        userList.Add(user);
+                    }
+                    catch { };
+                }
+                return userList;
+            }
+            return null;
         }
 
-        public DataTable GetAllUsers_DataTable()
+        public async Task<DataTable> GetAllUsers_DataTableAsync()
         {
             DataTable dataTable = new DataTable();
-            List<Users> userList = MySQL_GetAllUsers_List();
+            List<Users> userList = await MySQL_GetAllUsers_ListAsync();
             foreach (string culmn in new[] { "Name", "UserName", "Type" })
                 dataTable.Columns.Add(culmn);
             foreach (Users user in userList)

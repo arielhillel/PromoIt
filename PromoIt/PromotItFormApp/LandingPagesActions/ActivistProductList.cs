@@ -49,7 +49,7 @@ namespace PromotItFormApp.LandingPagesActions
                 bool result = await _productDonated.SetBuyAnItemAsync();
                 if (!result) return;
                 Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
-                Task sendATweet =  _productDonated.SetTwitterMessage_SetBuyAnItemAsync();
+                Task sendATweet =  _productDonated.SetTwitterMessagTweet_SetBuyAnItemAsync();
                 await sendATweet;
                 this.Dispose();
             }

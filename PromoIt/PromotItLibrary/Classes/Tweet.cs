@@ -91,8 +91,8 @@ namespace PromotItLibrary.Classes
             foreach (Tweet tweet in tweetList)
             {
                 DataRow dataRow = dataTable.NewRow();
-                dataRow["clmnHashtag"] = tweet.Campaign.Hashtag;
-                dataRow["clmnWebpage"] = tweet.ActivistUser.UserName;
+                dataRow["Hashtag"] = tweet.Campaign.Hashtag;
+                dataRow["UserName"] = tweet.ActivistUser.UserName;
                 dataTable.Rows.Add(dataRow);
             }
             return dataTable;
