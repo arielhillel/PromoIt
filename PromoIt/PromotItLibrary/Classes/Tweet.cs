@@ -62,7 +62,7 @@ namespace PromotItLibrary.Classes
             else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 List<Tweet> tweetList = new List<Tweet>();
-                mySQL.Quary("SELECT campaign_hashtag,activist_user_name FROM tweets");
+                mySQL.Quary("SELECT campaign_hashtag,activist_user_name,retweets FROM tweets");
                 using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
                 while (results != null && results.Read()) //for 1 result: if (mdr.Read())
                 {
@@ -71,6 +71,7 @@ namespace PromotItLibrary.Classes
                         Tweet tweet = new Tweet();
                         tweet.Campaign.Hashtag = results.GetString("campaign_hashtag");
                         tweet.ActivistUser.UserName = results.GetString("activist_user_name");
+                        tweet.Retweets = int.Parse(results.GetString("retweets"));
                         tweetList.Add(tweet);
                     }
                     catch { };
@@ -86,13 +87,14 @@ namespace PromotItLibrary.Classes
         {
             DataTable dataTable = new DataTable();
             List<Tweet> tweetList = await MySQL_GetAllTweets_ListAsync();
-            foreach (string culmn in new[] { "Hashtag", "UserName" })
+            foreach (string culmn in new[] { "Hashtag", "UserName", "Retweets" })
                 dataTable.Columns.Add(culmn);
             foreach (Tweet tweet in tweetList)
             {
                 DataRow dataRow = dataTable.NewRow();
                 dataRow["Hashtag"] = tweet.Campaign.Hashtag;
                 dataRow["UserName"] = tweet.ActivistUser.UserName;
+                dataRow["Retweets"] = tweet.Retweets;
                 dataTable.Rows.Add(dataRow);
             }
             return dataTable;
