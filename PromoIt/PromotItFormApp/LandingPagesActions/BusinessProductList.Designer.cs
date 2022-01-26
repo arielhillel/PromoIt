@@ -67,7 +67,7 @@
             this.dataGridProductList.RowTemplate.Height = 29;
             this.dataGridProductList.ShowEditingIcon = false;
             this.dataGridProductList.Size = new System.Drawing.Size(621, 372);
-            this.dataGridProductList.TabIndex = 2;
+            this.dataGridProductList.TabIndex = 0;
             // 
             // clmnProductId
             // 
@@ -118,7 +118,7 @@
             this.ClientSize = new System.Drawing.Size(671, 450);
             this.Controls.Add(this.dataGridProductList);
             this.Name = "BusinessProductList";
-            this.Text = "ProductListBC";
+            this.Text = "Business Company - Products List";
             this.Shown += new System.EventHandler(this.ProductListBC_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).EndInit();
             this.ResumeLayout(false);

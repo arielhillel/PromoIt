@@ -143,7 +143,7 @@
             this.labelProductName.TabIndex = 0;
             this.labelProductName.Text = "Product Name:";
             // 
-            // NewProduct
+            // BusinessNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,8 +152,8 @@
             this.Controls.Add(this.panelProductMain);
             this.MaximumSize = new System.Drawing.Size(495, 664);
             this.MinimumSize = new System.Drawing.Size(495, 664);
-            this.Name = "NewProduct";
-            this.Text = "NewProduct";
+            this.Name = "BusinessNewProduct";
+            this.Text = "New Product";
             this.panelNewProduct.ResumeLayout(false);
             this.panelNewProduct.PerformLayout();
             this.panelProductMain.ResumeLayout(false);

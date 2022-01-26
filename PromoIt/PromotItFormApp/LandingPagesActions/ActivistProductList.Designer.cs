@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridProductList = new System.Windows.Forms.DataGridView();
             this.clmnProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnBusinessUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +70,7 @@
             this.dataGridProductList.RowTemplate.Height = 29;
             this.dataGridProductList.ShowEditingIcon = false;
             this.dataGridProductList.Size = new System.Drawing.Size(812, 372);
-            this.dataGridProductList.TabIndex = 2;
+            this.dataGridProductList.TabIndex = 0;
             this.dataGridProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProductList_CellClick);
             // 
             // clmnProductId
@@ -118,13 +118,13 @@
             // 
             // buttonBuyGrid
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonBuyGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonBuyGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.buttonBuyGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuyGrid.HeaderText = "";
             this.buttonBuyGrid.MinimumWidth = 6;
@@ -140,7 +140,7 @@
             this.ClientSize = new System.Drawing.Size(860, 450);
             this.Controls.Add(this.dataGridProductList);
             this.Name = "ActivistProductList";
-            this.Text = "ProductList";
+            this.Text = "Products List";
             this.Shown += new System.EventHandler(this.ProductList_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductList)).EndInit();
             this.ResumeLayout(false);

@@ -158,7 +158,7 @@
             this.MinimumSize = new System.Drawing.Size(505, 570);
             this.Name = "BusinessCompanyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BusinessCompanyForm";
+            this.Text = "Registry - Business Company";
             this.Load += new System.EventHandler(this.BusinessCompanyForm_Load);
             this.panelBSRRegister.ResumeLayout(false);
             this.panelBSRRegister.PerformLayout();

@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivistPanel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSADashboard = new System.Windows.Forms.Panel();
             this.dataGridSA = new System.Windows.Forms.DataGridView();
             this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,8 +36,6 @@
             this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridNPO = new System.Windows.Forms.DataGridView();
-            this.textBoxSearchSA = new System.Windows.Forms.TextBox();
-            this.pictureBoxSearchSA = new System.Windows.Forms.PictureBox();
             this.panelSA = new System.Windows.Forms.Panel();
             this.labelSATitle = new System.Windows.Forms.Label();
             this.panelBalance = new System.Windows.Forms.Panel();
@@ -50,7 +47,6 @@
             this.panelSADashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchSA)).BeginInit();
             this.panelSA.SuspendLayout();
             this.panelBalance.SuspendLayout();
             this.panelMessagesSA.SuspendLayout();
@@ -62,8 +58,6 @@
             this.panelSADashboard.BackColor = System.Drawing.Color.White;
             this.panelSADashboard.Controls.Add(this.dataGridSA);
             this.panelSADashboard.Controls.Add(this.dataGridNPO);
-            this.panelSADashboard.Controls.Add(this.textBoxSearchSA);
-            this.panelSADashboard.Controls.Add(this.pictureBoxSearchSA);
             this.panelSADashboard.Location = new System.Drawing.Point(20, 283);
             this.panelSADashboard.Name = "panelSADashboard";
             this.panelSADashboard.Size = new System.Drawing.Size(1204, 417);
@@ -88,7 +82,7 @@
             this.balance,
             this.buttonProductListGrid});
             this.dataGridSA.GridColor = System.Drawing.Color.White;
-            this.dataGridSA.Location = new System.Drawing.Point(32, 65);
+            this.dataGridSA.Location = new System.Drawing.Point(33, 28);
             this.dataGridSA.MultiSelect = false;
             this.dataGridSA.Name = "dataGridSA";
             this.dataGridSA.ReadOnly = true;
@@ -97,7 +91,7 @@
             this.dataGridSA.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridSA.RowTemplate.Height = 29;
             this.dataGridSA.ShowEditingIcon = false;
-            this.dataGridSA.Size = new System.Drawing.Size(1142, 288);
+            this.dataGridSA.Size = new System.Drawing.Size(1142, 372);
             this.dataGridSA.TabIndex = 5;
             this.dataGridSA.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSA_CellClick);
             // 
@@ -127,13 +121,13 @@
             // 
             // buttonProductListGrid
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProductListGrid.HeaderText = "";
             this.buttonProductListGrid.MinimumWidth = 6;
@@ -167,27 +161,6 @@
             this.dataGridNPO.ShowEditingIcon = false;
             this.dataGridNPO.Size = new System.Drawing.Size(608, 143);
             this.dataGridNPO.TabIndex = 1;
-            // 
-            // textBoxSearchSA
-            // 
-            this.textBoxSearchSA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchSA.Location = new System.Drawing.Point(905, 27);
-            this.textBoxSearchSA.Name = "textBoxSearchSA";
-            this.textBoxSearchSA.Size = new System.Drawing.Size(234, 27);
-            this.textBoxSearchSA.TabIndex = 0;
-            // 
-            // pictureBoxSearchSA
-            // 
-            this.pictureBoxSearchSA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSearchSA.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxSearchSA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSearchSA.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSearchSA.Image")));
-            this.pictureBoxSearchSA.Location = new System.Drawing.Point(1138, 27);
-            this.pictureBoxSearchSA.Name = "pictureBoxSearchSA";
-            this.pictureBoxSearchSA.Size = new System.Drawing.Size(36, 27);
-            this.pictureBoxSearchSA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSearchSA.TabIndex = 4;
-            this.pictureBoxSearchSA.TabStop = false;
             // 
             // panelSA
             // 
@@ -257,7 +230,7 @@
             this.lblMessage.AutoSize = true;
             this.lblMessage.BackColor = System.Drawing.Color.Black;
             this.lblMessage.ForeColor = System.Drawing.Color.Brown;
-            this.lblMessage.Location = new System.Drawing.Point(41, 59);
+            this.lblMessage.Location = new System.Drawing.Point(39, 10);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(67, 20);
             this.lblMessage.TabIndex = 2;
@@ -273,7 +246,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridMessages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridMessages.BackgroundColor = System.Drawing.Color.Black;
+            this.dataGridMessages.BackgroundColor = System.Drawing.Color.White;
             this.dataGridMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMessages.GridColor = System.Drawing.Color.White;
@@ -289,7 +262,7 @@
             this.dataGridMessages.Size = new System.Drawing.Size(600, 112);
             this.dataGridMessages.TabIndex = 1;
             // 
-            // SocialActivistPanel
+            // ActivistPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,14 +273,12 @@
             this.Controls.Add(this.panelSADashboard);
             this.MaximumSize = new System.Drawing.Size(1254, 759);
             this.MinimumSize = new System.Drawing.Size(1254, 759);
-            this.Name = "SocialActivistPanel";
+            this.Name = "ActivistPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SocialActivistPanel";
+            this.Text = "Social Activist Dashboard";
             this.panelSADashboard.ResumeLayout(false);
-            this.panelSADashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchSA)).EndInit();
             this.panelSA.ResumeLayout(false);
             this.panelSA.PerformLayout();
             this.panelBalance.ResumeLayout(false);
@@ -322,8 +293,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelSADashboard;
-        private System.Windows.Forms.TextBox textBoxSearchSA;
-        private System.Windows.Forms.PictureBox pictureBoxSearchSA;
         private System.Windows.Forms.Panel panelSA;
         private System.Windows.Forms.Label labelSATitle;
         private System.Windows.Forms.Panel panelBalance;
