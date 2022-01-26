@@ -9,6 +9,19 @@ using PromotItLibrary.Interfaces;
 using Tweetinvi;
 using Tweetinvi.Parameters;
 
+/**
+ * Copyright:
+ *  Author: Arierl
+ *  Email: 
+ *  Author: Yaron
+ *  Email: 
+ *  Author: Arthur Zarankin
+ *  Email: w3arthur@gmail.com
+ *  Site: http://www.arthur.tk
+ *  Begin Date: 14/01/2022
+ *  Edited At:  27/01/2022
+**/
+
 namespace PromotItLibrary.Models
 {
     public class Configuration
