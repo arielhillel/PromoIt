@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PromotItLibrary.Models;
 using PromotItLibrary.Classes;
+using System.Threading;
 
 namespace PromoitFunction
 {
@@ -21,11 +22,14 @@ namespace PromoitFunction
                     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
                     ILogger log)
         {
+            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
             string className = "Data";
             log.LogInformation($"Function Find {className} Activated");
 
             try
             {   //get
+
                 string data = req.Query["data"];
                 string type = req.Query["type"];
                 if (data != null && type != null)
@@ -131,8 +135,6 @@ namespace PromoitFunction
                 } 
             }
             catch (Exception ex) { log.LogInformation($"Function POST ({className}) Error Fail:{ex.Message}"); return new BadRequestObjectResult($"Function Error Fail:{ex.Message}"); }
-
-
 
 
             return new BadRequestObjectResult("");//No Results

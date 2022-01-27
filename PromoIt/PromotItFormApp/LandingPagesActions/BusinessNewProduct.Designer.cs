@@ -153,6 +153,7 @@
             this.MaximumSize = new System.Drawing.Size(495, 664);
             this.MinimumSize = new System.Drawing.Size(495, 664);
             this.Name = "BusinessNewProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Product";
             this.panelNewProduct.ResumeLayout(false);
             this.panelNewProduct.PerformLayout();
