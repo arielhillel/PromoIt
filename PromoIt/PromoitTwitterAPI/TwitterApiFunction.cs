@@ -43,37 +43,41 @@ namespace PromoitTwitterAPI
                         int tweetsCount = allTweets.Length;
                         for (int i = 0; i <= tweetsCount - 1; i++)    // Every post
                         {
-
-                            if (allTweets[i].Entities.Urls != null)
+                            try
                             {
-                                for (int k = 0; k <= allTweets[i].Entities.Urls.Length - 1; k++)    // Every site in post
-                                {
-                                    if (campaign.Url != allTweets[i].Entities.Urls[k].DisplayUrl.ToString()) continue;      //Check Site Url Remained in tweeter post
-                                    Tweet tweet = new Tweet();
-                                    tweet.Id = allTweets[i].Id.ToString();
-                                    tweet.Retweets = allTweets[i].PublicMetrics.RetweetCount;
-                                    var userResponse = await twitterUserClient.UsersV2.GetUserByIdAsync(allTweets[i].AuthorId);
-                                    tweet.ActivistUser.UserName = userResponse.User.Username.ToString();
-                                    tweet.Campaign.Hashtag = campaign.Hashtag;
-                                    tweet.Cash = 1; //1$
-                                    tweet.Campaign.Url = campaign.Url;
-                                    tweet.IsApproved = true;
-                                    try { await tweet.SetTweetCashAsync(); }  //Database Set
-                                    catch { tweet.IsApproved = false; }
-                                    tweetList.Add(tweet);
-
-                                    string logString = $"Activist UserName ({tweet.ActivistUser.UserName}) Campaign WebPage ({tweet.Campaign.Url}) Is Approved ({tweet.IsApproved})" +
-                                        $" \n Retweets ({tweet.Retweets}) Cash PerTweet ({tweet.Cash})  Camaign Hashtag (#{tweet.Campaign.Hashtag}) Id ({tweet.Id})";
-                                    if (tweet.IsApproved) log.LogInformation(logString);
-                                    else log.LogError(logString);
-
-                                    break;
-                                }
+                                if (allTweets[i].Entities == null) continue;
+                                if (allTweets[i].Entities.Urls == null) continue;
                             }
+                            catch (NullReferenceException) { log.LogError($"*Global Fail system fail for #{campaign.Hashtag}"); } //no sites
+
+                            for (int k = 0; k <= allTweets[i].Entities.Urls.Length - 1; k++)    // Every site in post
+                            {
+                                if (campaign.Url != allTweets[i].Entities.Urls[k].DisplayUrl.ToString()) continue;      //Check Site Url Remained in tweeter post
+                                Tweet tweet = new Tweet();
+                                tweet.Id = allTweets[i].Id.ToString();
+                                tweet.Retweets = allTweets[i].PublicMetrics.RetweetCount;
+                                var userResponse = await twitterUserClient.UsersV2.GetUserByIdAsync(allTweets[i].AuthorId);
+                                tweet.ActivistUser.UserName = userResponse.User.Username.ToString();
+                                tweet.Campaign.Hashtag = campaign.Hashtag;
+                                tweet.Cash = 1; //1$
+                                tweet.Campaign.Url = campaign.Url;
+                                tweet.IsApproved = true;
+                                try { await tweet.SetTweetCashAsync(); }  //Database Set
+                                catch { tweet.IsApproved = false; }
+                                tweetList.Add(tweet);
+
+                                string logString = $"Activist UserName ({tweet.ActivistUser.UserName}) Campaign WebPage ({tweet.Campaign.Url}) Is Approved ({tweet.IsApproved})" +
+                                    $" \n Retweets ({tweet.Retweets}) Cash PerTweet ({tweet.Cash})  Camaign Hashtag (#{tweet.Campaign.Hashtag}) Id ({tweet.Id})";
+                                if (tweet.IsApproved) log.LogInformation(logString);
+                                else log.LogError(logString);
+
+                                break;
+                            }
+
                         }
                     }
-                    catch (NullReferenceException) { log.LogError($"*Global Fail system fail for #{campaign.Hashtag}"); }
-                    catch (Exception) { log.LogError($"*Global Fail / Campaign Name wrote wrong! #{campaign.Hashtag}"); break; }
+                    
+                    catch { log.LogError($"*Global Fail / Campaign Name wrote wrong! #{campaign.Hashtag}"); break; }
                 }
 
             }
