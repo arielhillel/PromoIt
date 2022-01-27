@@ -71,6 +71,7 @@ namespace PromotItLibrary.Models
             string getRequest = "type=" + type + "&data=" + objString;
             if (Configuration.LocalMode == Modes.Local) getRequest = "?" + getRequest;
             else if (Configuration.LocalMode == Modes.NotLocal) getRequest = "&" + getRequest;
+            else throw new Exception("Multy Get Reguest wrong, Local Mode not set");
             string mycontent = await GetRequest(getUrl, getRequest); //Response
             try { return Functions.JsonStringToSingleObject<List<T>>(mycontent); }
             catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }
@@ -79,10 +80,10 @@ namespace PromotItLibrary.Models
         public async static Task<T> GetSingleDataRequest<T>(string getUrl, T obj, string type = "")
         {
             string objString = Functions.ObjectToJsonString(obj);
-
             string getRequest = "type=" + type + "&data=" + objString ;
             if (Configuration.LocalMode == Modes.Local) getRequest = "?" + getRequest;
             else if (Configuration.LocalMode == Modes.NotLocal) getRequest = "&" + getRequest;
+            else throw new Exception("Single Get Reguest wrong, Local Mode not set");
             string mycontent = await GetRequest(getUrl, getRequest); //Response
             try { return Functions.JsonStringToSingleObject<T>(mycontent); }
             catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }

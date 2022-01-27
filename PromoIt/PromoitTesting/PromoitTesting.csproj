@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PromoitFunctions\PromoitFunctions.csproj" />
     <ProjectReference Include="..\PromotItLibrary\PromotItLibrary.csproj" />
   </ItemGroup>
 

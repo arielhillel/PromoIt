@@ -22,8 +22,6 @@ namespace PromoitFunction
                     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
                     ILogger log)
         {
-            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
             string className = "Data";
             log.LogInformation($"Function Find {className} Activated");
 
@@ -33,9 +31,6 @@ namespace PromoitFunction
                 string type = req.Query["type"];
                 if (data != null && type != null)
                 {
-
-                    //Users user = Functions.JsonStringToSingleObject<Users>(data);    //var userJson = user = Functions.JsonStrinToObjectList<Users>(data);
-                    //if (user == null) throw new Exception($"GET: No {className} IS Enterd");
 
                     try
                     {
@@ -58,10 +53,6 @@ namespace PromoitFunction
                             log.LogInformation($"Function Found {className}");
                             return new OkObjectResult(Functions.ObjectToJsonString(campaignList));
                         }
-
-
-
-
 
                     }
                     catch (Exception ex)  { log.LogInformation($"Function GET ({className}) Datanase SELECT/GET-data Fail:\n{ex.Message}"); return new BadRequestObjectResult($"Not Found ({className})"); }
@@ -97,7 +88,6 @@ namespace PromoitFunction
                                 action = await campaign2.DeleteCampaignAsync(Configuration.DatabaseMode);
                                 break;
 
-
                             default:
                                 break;
                         }
@@ -109,8 +99,6 @@ namespace PromoitFunction
                         }
 
 
-
-
                     }
                     catch (Exception ex) { log.LogInformation($"Function Not-Seccess to Insert {className} to database\nDetails:{ex}");  return new BadRequestObjectResult("fail"); } //bad result
                     log.LogInformation($"Function Failed to Insert after Tried to Insert {className} to database");
@@ -118,9 +106,6 @@ namespace PromoitFunction
                 } 
             }
             catch (Exception ex) { log.LogInformation($"Function POST ({className}) Error Fail:{ex.Message}"); return new BadRequestObjectResult($"Function Error Fail:{ex.Message}"); }
-
-
-
 
             return new BadRequestObjectResult("");//No Results
         }

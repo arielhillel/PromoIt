@@ -22,8 +22,6 @@ namespace PromoitFunction
                     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
                     ILogger log)
         {
-            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
             string className = "Data";
             log.LogInformation($"Function Find {className} Activated");
 
@@ -124,8 +122,6 @@ namespace PromoitFunction
                             log.LogInformation($"Function Seccess to Insert {className} to database");
                             return new OkObjectResult("ok");        //good result
                         }
-
-
 
 
                     }

@@ -22,8 +22,6 @@ namespace PromoitFunction
                     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
                     ILogger log)
         {
-            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
             string className = "User";
             log.LogInformation($"Function Find {className} Activated");
 
@@ -111,9 +109,6 @@ namespace PromoitFunction
                             return new OkObjectResult("ok");        //good result
                         }
 
-
-
-
                     }
                     catch (Exception ex) { log.LogInformation($"Function Not-Seccess to Insert {className} to database\nDetails:{ex}");  return new BadRequestObjectResult("fail"); } //bad result
                     log.LogInformation($"Function Failed to Insert after Tried to Insert {className} to database");
@@ -123,9 +118,8 @@ namespace PromoitFunction
             catch (Exception ex) { log.LogInformation($"Function POST ({className}) Error Fail:{ex.Message}"); return new BadRequestObjectResult($"Function Error Fail:{ex.Message}"); }
 
 
-
-
             return new BadRequestObjectResult("");//No Results
+
         }
     }
 }
