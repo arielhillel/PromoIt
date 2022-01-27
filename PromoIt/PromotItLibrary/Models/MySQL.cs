@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Threading;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace PromotItLibrary.Models
@@ -58,6 +60,7 @@ namespace PromotItLibrary.Models
 
         public bool QuaryExecute()  // inserts
         {
+
             if (Stm == null) { Console.WriteLine("No Quary"); return false; }
             if (Cmd?.CommandType == CommandType.StoredProcedure) { } //procedure
             else if (Cmd?.Parameters.Count > 0) Cmd?.Prepare(); //parametars
@@ -71,6 +74,8 @@ namespace PromotItLibrary.Models
         
         public MySqlDataReader GetQueryMultyResults() // selects
         {
+            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
             MySqlDataReader results = null;
             try
             {
@@ -78,13 +83,14 @@ namespace PromotItLibrary.Models
                 results = Rdr;
                 NullifiedValues(); // cant nullified rdr!, it will nulified results
             }
-            catch 
+            catch
             {
-                Rdr.Dispose();
-                try{ Rdr = Cmd?.ExecuteReader();  results = Rdr; NullifiedValues(); }
+                if (Rdr != null) Rdr.Dispose();
+                try { Rdr = Cmd?.ExecuteReader(); results = Rdr; NullifiedValues(); }
                 catch (Exception ex) { throw new Exception(ex.Message); }    //Try to add reset for databese
-                finally { throw new Exception("MySqlDataReader not closed before, using required"); }
+                finally { throw new Exception("MySqlDataReader Failed or not closed before, using required"); }
             }
+
             return results;
         }
 

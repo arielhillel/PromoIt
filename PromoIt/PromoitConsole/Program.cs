@@ -7,24 +7,48 @@ using System.Collections.Generic;
 using PromotItLibrary.Classes;
 using PromotItLibrary.Models;
 using Newtonsoft.Json;
-
+using Microsoft.Extensions.Logging;
 using Tweetinvi;
 using Tweetinvi.Parameters;
 using PromoitTwitterAPI;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace PromoitConsole
 {
     public class Program
     {
+
+        private static ILogger<object> _logger = (ILogger<object>) (new ServiceCollection().AddLogging().BuildServiceProvider()).GetService<ILoggerFactory>().CreateLogger<object>();
         private MySQL mySQL = Configuration.MySQL;
         private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
         static async Task Main(string[] args)
         {
+            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
+
+
+            var token1 = cancellationTokenSource.Token;
+
+            cancellationTokenSource.Cancel();
+            try
+            {
+                if (token1.IsCancellationRequested)
+                    token1.ThrowIfCancellationRequested();
+                Console.WriteLine("hi");
+            }
+            catch { }
+            Console.WriteLine("1");
+
+           
+
+
+
             //Configuration.Mode = Modes.Functions;
             //new MySQL("localhost", "root", "admin", "promoit"); ;
 
-            //List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync();
-
+            //List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync(_logger);
+            Console.ReadLine();
         }
     }
 }

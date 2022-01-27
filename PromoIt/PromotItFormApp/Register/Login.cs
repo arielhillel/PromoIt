@@ -89,6 +89,7 @@ namespace PromotItFormApp.LandingPages
 
                 this.Hide();
                 form.ShowDialog();
+                this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

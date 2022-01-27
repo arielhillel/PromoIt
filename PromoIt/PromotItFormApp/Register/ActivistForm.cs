@@ -64,6 +64,7 @@ namespace PromotItFormApp.RoleRegister
                 this.Hide();
                 LandingPages.Login login = new LandingPages.Login();
                 login.ShowDialog();
+                this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

@@ -40,6 +40,7 @@ namespace PromotItFormApp.RoleRegister
         {
             try
             {
+                this.Hide();
                 if (radioButtonAdmin.Checked)
                     new AdminForm().ShowDialog();
                 else if (radioButtonNPO.Checked)
@@ -50,7 +51,7 @@ namespace PromotItFormApp.RoleRegister
                     new ActivistForm().ShowDialog();
                 else
                     throw new Exception("Please select your role");
-                this.Hide();
+                this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
