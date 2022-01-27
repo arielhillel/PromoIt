@@ -74,8 +74,6 @@ namespace PromotItLibrary.Models
         
         public MySqlDataReader GetQueryMultyResults() // selects
         {
-            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
             MySqlDataReader results = null;
             try
             {

@@ -55,9 +55,6 @@ namespace PromotItLibrary.Models
 
         public async static Task<string> PostRequest(string postFolder, IEnumerable<KeyValuePair<string, string>> queries) // another check method 
         {
-            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
-
             using HttpContent q = new FormUrlEncodedContent(queries);
             using HttpResponseMessage response = await (Configuration.HttpClient).PostAsync(Configuration.FunctionUrl + postFolder, q);
             using HttpContent content = response.Content;
@@ -87,9 +84,6 @@ namespace PromotItLibrary.Models
 
         public async static Task<string> GetRequest(string getFolder, string getRequest)
         {
-            using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
-            while (true) { }
             Configuration.HttpClient = new HttpClient();
             using HttpResponseMessage response = await (Configuration.HttpClient).GetAsync(Configuration.FunctionUrl + getFolder + getRequest);
             using HttpContent content = response.Content;
