@@ -13,6 +13,7 @@ using Tweetinvi.Parameters;
 using PromoitTwitterAPI;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace PromoitConsole
 {
@@ -23,11 +24,22 @@ namespace PromoitConsole
         private MySQL mySQL = Configuration.MySQL;
         private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
-        static async Task Main(string[] args)
+
+
+
+        static void Main(string[] args)
         {
 
 
+            
 
+
+            Serilog.ILogger Log2= Log.Logger;
+
+            Log2.Information("informatio2222");
+            Console.WriteLine();
+
+            /*
 
             using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
             var a = () =>
@@ -67,14 +79,14 @@ namespace PromoitConsole
             catch { }
             Console.WriteLine("1");
 
-           
+           */
 
 
 
             //Configuration.Mode = Modes.Functions;
             //new MySQL("localhost", "root", "admin", "promoit"); ;
 
-         //   List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync(_logger);
+            //   List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync(_logger);
             Console.ReadLine();
         }
     }

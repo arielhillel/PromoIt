@@ -1,2 +1,2 @@
 # PromoIt
-PromoIt, Made by Arthur Zarankin And Yair
+PromoIt, Made by Arthur Zarankin And Yaron Malol And Ariel

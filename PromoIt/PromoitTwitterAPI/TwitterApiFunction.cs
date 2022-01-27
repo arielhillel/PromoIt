@@ -49,7 +49,7 @@ namespace PromoitTwitterAPI
                                 if (allTweets[i].Entities.Urls == null) continue;
                             }
                             catch (NullReferenceException) { log.LogError($"*Global Fail system fail for #{campaign.Hashtag}"); } //no sites
-
+                            
                             for (int k = 0; k <= allTweets[i].Entities.Urls.Length - 1; k++)    // Every site in post
                             {
                                 if (campaign.Url != allTweets[i].Entities.Urls[k].DisplayUrl.ToString()) continue;      //Check Site Url Remained in tweeter post
@@ -73,6 +73,7 @@ namespace PromoitTwitterAPI
 
                                 break;
                             }
+                            //if(i%10 == 0) Thread.Sleep(500);
 
                         }
                     }
