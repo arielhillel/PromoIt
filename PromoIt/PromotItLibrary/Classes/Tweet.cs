@@ -40,7 +40,7 @@ namespace PromotItLibrary.Classes
             else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("add_tweet");
-                mySQL.ProcedureParameter("_tweeter_id", Id);
+                mySQL.ProcedureParameter("_tweeter_id", long.Parse(Id));
                 mySQL.ProcedureParameter("_campaign_hashtag", Campaign.Hashtag);
                 mySQL.ProcedureParameter("_activist_user_name", ActivistUser.UserName);
                 mySQL.ProcedureParameter("_added_cash", Cash);

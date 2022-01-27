@@ -12,6 +12,7 @@ using Tweetinvi;
 using Tweetinvi.Parameters;
 using PromoitTwitterAPI;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace PromoitConsole
 {
@@ -24,10 +25,36 @@ namespace PromoitConsole
 
         static async Task Main(string[] args)
         {
+
+
+
+
             using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            var a = () =>
+            {
+                cancellationTokenSource.CancelAfter(10000000);
+                while (true) { }
+            };
+
+            
+            
+
             _ = Task.Run(async () => { await Task.Delay(TimeSpan.FromMinutes(1)); cancellationTokenSource.Cancel(); });
 
 
+
+            HttpClient httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromMinutes(10);
+            Console.WriteLine("asdsad");
+
+
+
+
+
+
+
+
+         
             var token1 = cancellationTokenSource.Token;
 
             cancellationTokenSource.Cancel();
