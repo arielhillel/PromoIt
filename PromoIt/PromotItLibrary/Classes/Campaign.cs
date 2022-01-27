@@ -27,7 +27,7 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("PromoitCampaignFunctions", this, "SetNewCampaign"); }
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign"); }
                 catch { throw new Exception($"Functions error"); };
             }
 
@@ -47,7 +47,7 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("PromoitCampaignFunctions", this, "DeleteCampaign"); }
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign"); }
                 catch { throw new Exception($"Functions error"); };
             }
 
@@ -69,7 +69,7 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return await Functions.GetMultipleDataRequest("PromoitCampaignFunctions", this, "GetAllCampaignsNonProfit"); }
+                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaignsNonProfit"); }
                 catch { throw new Exception($"Functions error"); };
             }
 
@@ -127,7 +127,7 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return await Functions.GetMultipleDataRequest("PromoitCampaignFunctions", this, "GetAllCampaigns"); }
+                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaigns"); }
                 catch { throw new Exception($"Functions error"); };
             }
 

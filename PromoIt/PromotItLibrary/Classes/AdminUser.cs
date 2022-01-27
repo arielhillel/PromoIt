@@ -21,7 +21,7 @@ namespace PromotItLibrary.Classes
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try
-                { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, ""); }
                 catch { throw new Exception($"Functions error"); };
             }
 
@@ -63,7 +63,7 @@ namespace PromotItLibrary.Classes
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 Users user = new Users();
-                try { return await Functions.GetMultipleDataRequest("SetUser", user, "GetAllUsers"); }
+                try { return await Functions.GetMultipleDataRequest(Configuration.SetUserFunctions, user, "GetAllUsers"); }
                 catch { throw new Exception($"Functions error"); };
             }
 

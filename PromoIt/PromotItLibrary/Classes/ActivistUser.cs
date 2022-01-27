@@ -23,7 +23,7 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return await Functions.GetSingleDataRequest("PromoitProductFunctions", this, "GetCashAmount"); }
+                try { return await Functions.GetSingleDataRequest(Configuration.PromoitProductFunctions, this, "GetCashAmount"); }
                 catch { throw new Exception($"Functions error"); };
             }
 
@@ -50,7 +50,7 @@ namespace PromotItLibrary.Classes
 
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("SetUser", this, ""); }
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, ""); }
                 catch { throw new Exception($"Functions error"); };
             }
 

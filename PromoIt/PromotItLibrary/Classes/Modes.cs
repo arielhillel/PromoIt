@@ -13,6 +13,9 @@ namespace PromotItLibrary.Classes
         public static Modes Functions { get; } = new Modes();
         public static Modes Queue { get; } = new Modes();
 
+        public static Modes NotLocal { get; } = new Modes();
+        public static Modes Local { get; } = new Modes();
+
     }
 
 

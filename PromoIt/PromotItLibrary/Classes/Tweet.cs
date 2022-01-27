@@ -33,7 +33,7 @@ namespace PromotItLibrary.Classes
         {
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return (bool)await Functions.PostSingleDataRequest("PromoitTweetFunctions", this, "SetTweetCash"); }
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetFunctions, this, "SetTweetCash"); }
                 catch { throw new Exception($"Functions error"); };
             }
 
@@ -55,7 +55,7 @@ namespace PromotItLibrary.Classes
 
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return await Functions.GetMultipleDataRequest("PromoitTweetFunctions", this, "GetAllTweets"); }
+                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetFunctions, this, "GetAllTweets"); }
                 catch { throw new Exception($"Functions error"); };
             }
 

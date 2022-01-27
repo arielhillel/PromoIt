@@ -25,7 +25,7 @@ namespace PromotItFormApp.LandingPages
             UserSetValues();
         }
 
-        private void buttonLoginForm_Click(object sender, EventArgs e) => GetLogin();
+        private void buttonLoginForm_Click(object sender, EventArgs e) => GetLoginAsync();
 
         private void panelLoginForm_Paint(object sender, PaintEventArgs e)
         {
@@ -57,7 +57,7 @@ namespace PromotItFormApp.LandingPages
             if (e.KeyCode == Keys.Enter) buttonLoginForm.PerformClick();
         }
 
-        private void GetLogin()
+        private async Task GetLoginAsync()
         {
             try
             {
@@ -66,7 +66,7 @@ namespace PromotItFormApp.LandingPages
                 Users user = new Users();
                 user.UserName = textBoxUsername.Text.Trim();
                 user.UserPassword = textBoxPassword.Text.Trim();
-                user = user.Login();
+                user = await user.LoginAsync();
                 
 
                 if (user == null)

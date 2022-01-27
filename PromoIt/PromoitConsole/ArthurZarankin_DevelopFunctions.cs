@@ -31,7 +31,7 @@ namespace PromoitConsole
                     Console.WriteLine($"Insert the user ({userToRegiser.UserName}) get ok/fail answare:");
                     Console.ReadLine();
 
-                    bool? result = await Functions.PostSingleDataRequest<NonProfitUser>("SetUser", userToRegiser);
+                    bool? result = await Functions.PostSingleDataRequest<NonProfitUser>(Configuration.SetUserFunctions, userToRegiser);
                     if (result == true) Console.WriteLine($"Yesss");
                     else if (result == false) Console.WriteLine($"Noooo");
                     else if (result == null) Console.WriteLine($"Faillll");
@@ -43,7 +43,7 @@ namespace PromoitConsole
                     Console.WriteLine($"Send the user ({user.UserName}) throth the function get his type:");
                     Console.ReadLine();
 
-                    Users? userResult = await Functions.GetSingleDataRequest<Users>("SetUser", user);
+                    Users? userResult = await Functions.GetSingleDataRequest<Users>(Configuration.SetUserFunctions, user);
                     Console.WriteLine(userResult?.UserType);
                 }
                 catch (Exception ex) { Console.WriteLine("Fail"); Console.WriteLine(ex); }
