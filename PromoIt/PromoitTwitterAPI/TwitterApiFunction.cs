@@ -16,25 +16,18 @@ namespace PromoitTwitterAPI
     {
 
         private MySQL mySQL = Configuration.MySQL;
-        //private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
+        private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
         [FunctionName("TwitterApiTimmerFunction")]
         public async Task RunAsync([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
         {
-
-            string APIKey = "w0KWvkEaKehQUu6qNUx5rsb1f";
-            string APISecret = "XRJRoCLUMOIiqncw00uQikWxRxxDHT2tQ2YIWwrrMQX5ujQwZC";
-            string APIToken = "1342513925515046912-EvpeAWTw5ixCneJKuBgSFdD7At8RXD";
-            string APITokenSecret = "nVlxITA0DfmSjfo5ndcO9mcxkxypS6u4VZeeqDB4FM5Gf";
-
-            var twitterUserClient = new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
 
             log.LogInformation($"C# Twitter API Function Started on: {DateTime.Now}");
 
             log.LogInformation($"C# Twitter API Function Started Logs, List of twits");
 
 
-            List<Tweet> tweetList = new List<Tweet>();
+            //List<Tweet> tweetList = new List<Tweet>();
             Campaign campaign1 = new Campaign();
             List<Campaign> campaignList = await campaign1.MySQL_GetAllCampaigns_ListAsync();    //MYSQL QUERY
             foreach (Campaign campaign in campaignList)    // Each Campaogn
@@ -64,7 +57,7 @@ namespace PromoitTwitterAPI
                                 tweet.IsApproved = true;
                                 try { await tweet.SetTweetCashAsync(Configuration.DatabaseMode); }  //Database Set
                                 catch { tweet.IsApproved = false; }
-                                tweetList.Add(tweet);
+                               // tweetList.Add(tweet);
 
                                 string logString = $"Activist UserName ({tweet.ActivistUser.UserName}) Campaign WebPage ({tweet.Campaign.Url}) Is Approved ({tweet.IsApproved})" +
                                     $" \n Retweets ({tweet.Retweets}) Cash PerTweet ({tweet.Cash})  Camaign Hashtag (#{tweet.Campaign.Hashtag}) Id ({tweet.Id})";
@@ -83,7 +76,7 @@ namespace PromoitTwitterAPI
             log.LogInformation($"Finish log session.\n");
 
 
-            var a = tweetList;
+            //var a = tweetList;
 
         }
 

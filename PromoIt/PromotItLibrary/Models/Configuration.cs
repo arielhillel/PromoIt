@@ -30,10 +30,16 @@ namespace PromotItLibrary.Models
         public static Modes DatabaseMode { get; set; } = Modes.MySQL;
 
         public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Modes.Local
-        public static string PromoitCampaignFunctions { get; set; } = "http://localhost:7074/api/PromoitCampaignFunctions";
-        public static string PromoitProductFunctions { get; set; } = "http://localhost:7074/api/PromoitProductFunctions";
-        public static string PromoitTweetFunctions { get; set; } = "http://localhost:7074/api/PromoitTweetFunctions";
-        public static string SetUserFunctions { get; set; } = "http://localhost:7074/api/SetUser";
+
+        public static string PromoitCampaignFunctions { get; set; } = "https://promoitfunctions.azurewebsites.net/api/PromoitCampaignFunctions?code=4eO//Ox3YpaYcEh9eO8TU7Q80Z15a5CjUiU76LwtRuYHpvOBotOrFA==";
+        public static string PromoitProductFunctions { get; set; } = "https://promoitfunctions.azurewebsites.net/api/PromoitProductFunctions?code=q70fpS79wKahROnIkrEEBdDrCWI8KXznnwhOG1Q/fezUMFsdnu2WNg==";
+        public static string PromoitTweetFunctions { get; set; } = "https://promoitfunctions.azurewebsites.net/api/PromoitTweetFunctions?code=xrnkBdiGMGqZvV72kStF3YNJmcRwF6C8vcMNgHLKbC9DHXfaQdjCWQ==";
+        public static string SetUserFunctions { get; set; } = "https://promoitfunctions.azurewebsites.net/api/SetUser?code=zmxBUYwSG6YVlh7D0ZRBavd7YaEW4n3CnaOsiAROloak/3JX9Ge/HA==";
+
+        //public static string PromoitCampaignFunctions { get; set; } = "http://localhost:7074/api/PromoitCampaignFunctions";
+        //public static string PromoitProductFunctions { get; set; } = "http://localhost:7074/api/PromoitProductFunctions";
+        //public static string PromoitTweetFunctions { get; set; } = "http://localhost:7074/api/PromoitTweetFunctions";
+        //public static string SetUserFunctions { get; set; } = "http://localhost:7074/api/SetUser";
 
         public static Users CorrentUser { get; set; }
         public static Users LognUser { get; set; }
@@ -47,10 +53,10 @@ namespace PromotItLibrary.Models
 
 
         private static void TwitterUserClientStart() => TwitterUserClient = _twitterUserClient ?? new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
-        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("localhost", "root", "admin", "promoit");
+        private static void MySQLStart() => MySQL = _mySQL ?? new MySQL("promoit-db.mysql.database.azure.com", "arielhillel", "PromoIt9023014", "promoit");
 
-        //new MySQL("localhost", "root", "admin", "promoit");
-        //new MySQL("151.106.97.192", "u225520479_promoit", "F=gIu0zLg^1", "u225520479_promoit");
+        //new MySQL("localhost", "root", "admin", "promoit"); //
+
         private static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
        
         private static MySQL _mySQL;
