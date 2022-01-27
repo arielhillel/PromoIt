@@ -26,9 +26,8 @@ namespace PromotItLibrary.Models
 {
     public class Configuration
     {
-        public static Modes LocalMode { get; set; } = Modes.Local;   //Modes.Local or Modes.NotLocal
+        public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Modes.Local or Modes.NotLocal
         public static Modes ApplicationMode { get; set; } = FunctionMode;  // DatabaseMode or FunctionMode
-
 
 
 
