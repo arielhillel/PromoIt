@@ -74,7 +74,7 @@ namespace PromoitConsole
             //Configuration.Mode = Modes.Functions;
             //new MySQL("localhost", "root", "admin", "promoit"); ;
 
-            //List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync(_logger);
+         //   List<Tweet> tweetList = await TwitterApiFunction.TweetsPerCampaign_DatabaseCount_ListAsync(_logger);
             Console.ReadLine();
         }
     }

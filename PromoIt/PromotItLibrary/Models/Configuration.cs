@@ -29,7 +29,7 @@ namespace PromotItLibrary.Models
         public static Modes Mode { get; set; } = Modes.Functions;   //Modes.Functions
         public static Modes DatabaseMode { get; set; } = Modes.MySQL;
 
-        public static Modes LocalMode { get; set; } = Modes.NotLocal;
+        public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Modes.Local
         public static string PromoitCampaignFunctions { get; set; } = "http://localhost:7074/api/PromoitCampaignFunctions";
         public static string PromoitProductFunctions { get; set; } = "http://localhost:7074/api/PromoitProductFunctions";
         public static string PromoitTweetFunctions { get; set; } = "http://localhost:7074/api/PromoitTweetFunctions";
