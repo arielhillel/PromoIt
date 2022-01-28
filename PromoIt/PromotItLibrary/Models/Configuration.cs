@@ -29,9 +29,9 @@ namespace PromotItLibrary.Models
         /// System global mode settings
         /// </summary>
         public static Modes LocalMode { get; set; } = Modes.Local;   //Modes.Local or Modes.NotLocal //Local is for testing purposes
-        public static Modes Mode { get; set; } = Modes.Queue; // Modes.Queue or Modes.Functions or null
-        public static Modes DatabaseMode { get; set; } = Modes.MySQL; // Modes.MySQL only
-
+        public static Modes Mode { get; set; } = null; // Modes.Queue or Modes.Functions or null
+        public static Modes DatabaseMode { get; set; } = Modes.MySQL;
+        
 
         /// <summary>
         /// Public Sources
