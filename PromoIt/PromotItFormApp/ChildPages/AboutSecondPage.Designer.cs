@@ -29,107 +29,107 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutSecondPage));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelTextAbout = new System.Windows.Forms.Label();
-            this.labelPointsExp = new System.Windows.Forms.Label();
-            this.labelPointsDesc = new System.Windows.Forms.Label();
-            this.labelServiceTerms = new System.Windows.Forms.Label();
-            this.buttonPreviousAbout = new System.Windows.Forms.Button();
-            this.buttoNextAboutS = new System.Windows.Forms.Button();
+            this.pnlPanelGlobal = new System.Windows.Forms.Panel();
+            this.lblLableBottomLeft3 = new System.Windows.Forms.Label();
+            this.lblLableBottomLeft2 = new System.Windows.Forms.Label();
+            this.lblLableBottomLeft1 = new System.Windows.Forms.Label();
+            this.lblLableTop = new System.Windows.Forms.Label();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.labelTermsService = new System.Windows.Forms.Label();
             this.labelPoints = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelPointsAmount = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.lblLableBottomRight = new System.Windows.Forms.Label();
+            this.pnlPanelGlobal.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlPanelGlobal
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.labelTextAbout);
-            this.panel1.Controls.Add(this.labelPointsExp);
-            this.panel1.Controls.Add(this.labelPointsDesc);
-            this.panel1.Controls.Add(this.labelServiceTerms);
-            this.panel1.Controls.Add(this.buttonPreviousAbout);
-            this.panel1.Controls.Add(this.buttoNextAboutS);
-            this.panel1.Controls.Add(this.labelTermsService);
-            this.panel1.Controls.Add(this.labelPoints);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(862, 459);
-            this.panel1.TabIndex = 0;
+            this.pnlPanelGlobal.BackColor = System.Drawing.Color.White;
+            this.pnlPanelGlobal.Controls.Add(this.lblLableBottomLeft3);
+            this.pnlPanelGlobal.Controls.Add(this.lblLableBottomLeft2);
+            this.pnlPanelGlobal.Controls.Add(this.lblLableBottomLeft1);
+            this.pnlPanelGlobal.Controls.Add(this.lblLableTop);
+            this.pnlPanelGlobal.Controls.Add(this.btnPrevious);
+            this.pnlPanelGlobal.Controls.Add(this.btnNext);
+            this.pnlPanelGlobal.Controls.Add(this.labelTermsService);
+            this.pnlPanelGlobal.Controls.Add(this.labelPoints);
+            this.pnlPanelGlobal.Controls.Add(this.panel2);
+            this.pnlPanelGlobal.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelGlobal.Name = "pnlPanelGlobal";
+            this.pnlPanelGlobal.Size = new System.Drawing.Size(862, 459);
+            this.pnlPanelGlobal.TabIndex = 0;
             // 
-            // labelTextAbout
+            // lblLableBottomLeft3
             // 
-            this.labelTextAbout.AutoSize = true;
-            this.labelTextAbout.Location = new System.Drawing.Point(12, 337);
-            this.labelTextAbout.Name = "labelTextAbout";
-            this.labelTextAbout.Size = new System.Drawing.Size(578, 20);
-            this.labelTextAbout.TabIndex = 0;
-            this.labelTextAbout.Text = "An authorized tweet will get the user a dollar and re-tweet will get you another " +
+            this.lblLableBottomLeft3.AutoSize = true;
+            this.lblLableBottomLeft3.Location = new System.Drawing.Point(12, 337);
+            this.lblLableBottomLeft3.Name = "lblLableBottomLeft3";
+            this.lblLableBottomLeft3.Size = new System.Drawing.Size(578, 20);
+            this.lblLableBottomLeft3.TabIndex = 0;
+            this.lblLableBottomLeft3.Text = "An authorized tweet will get the user a dollar and re-tweet will get you another " +
     "dollar.";
             // 
-            // labelPointsExp
+            // lblLableBottomLeft2
             // 
-            this.labelPointsExp.AutoSize = true;
-            this.labelPointsExp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPointsExp.Location = new System.Drawing.Point(12, 288);
-            this.labelPointsExp.Name = "labelPointsExp";
-            this.labelPointsExp.Size = new System.Drawing.Size(498, 40);
-            this.labelPointsExp.TabIndex = 3;
-            this.labelPointsExp.Text = "Hashtag - The campaign\'s hashtag (Can be seen within the userpanel).\r\nWebsite/URL" +
+            this.lblLableBottomLeft2.AutoSize = true;
+            this.lblLableBottomLeft2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLableBottomLeft2.Location = new System.Drawing.Point(12, 288);
+            this.lblLableBottomLeft2.Name = "lblLableBottomLeft2";
+            this.lblLableBottomLeft2.Size = new System.Drawing.Size(498, 40);
+            this.lblLableBottomLeft2.TabIndex = 3;
+            this.lblLableBottomLeft2.Text = "Hashtag - The campaign\'s hashtag (Can be seen within the userpanel).\r\nWebsite/URL" +
     " - Landing page to whom created the campaign.\r\n";
             // 
-            // labelPointsDesc
+            // lblLableBottomLeft1
             // 
-            this.labelPointsDesc.AutoSize = true;
-            this.labelPointsDesc.Location = new System.Drawing.Point(12, 239);
-            this.labelPointsDesc.Name = "labelPointsDesc";
-            this.labelPointsDesc.Size = new System.Drawing.Size(502, 40);
-            this.labelPointsDesc.TabIndex = 0;
-            this.labelPointsDesc.Text = "You found an interested campaign to promote? Now comes the easy step. \r\nAll you h" +
+            this.lblLableBottomLeft1.AutoSize = true;
+            this.lblLableBottomLeft1.Location = new System.Drawing.Point(12, 239);
+            this.lblLableBottomLeft1.Name = "lblLableBottomLeft1";
+            this.lblLableBottomLeft1.Size = new System.Drawing.Size(502, 40);
+            this.lblLableBottomLeft1.TabIndex = 0;
+            this.lblLableBottomLeft1.Text = "You found an interested campaign to promote? Now comes the easy step. \r\nAll you h" +
     "ave to do is posting a new tweet, following two factors: \r\n";
             // 
-            // labelServiceTerms
+            // lblLableTop
             // 
-            this.labelServiceTerms.AutoSize = true;
-            this.labelServiceTerms.Location = new System.Drawing.Point(12, 51);
-            this.labelServiceTerms.Name = "labelServiceTerms";
-            this.labelServiceTerms.Size = new System.Drawing.Size(790, 140);
-            this.labelServiceTerms.TabIndex = 0;
-            this.labelServiceTerms.Text = resources.GetString("labelServiceTerms.Text");
+            this.lblLableTop.AutoSize = true;
+            this.lblLableTop.Location = new System.Drawing.Point(12, 51);
+            this.lblLableTop.Name = "lblLableTop";
+            this.lblLableTop.Size = new System.Drawing.Size(790, 140);
+            this.lblLableTop.TabIndex = 0;
+            this.lblLableTop.Text = resources.GetString("lblLableTop.Text");
             // 
-            // buttonPreviousAbout
+            // btnPrevious
             // 
-            this.buttonPreviousAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonPreviousAbout.FlatAppearance.BorderSize = 0;
-            this.buttonPreviousAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPreviousAbout.ForeColor = System.Drawing.Color.White;
-            this.buttonPreviousAbout.Location = new System.Drawing.Point(12, 403);
-            this.buttonPreviousAbout.Name = "buttonPreviousAbout";
-            this.buttonPreviousAbout.Size = new System.Drawing.Size(151, 35);
-            this.buttonPreviousAbout.TabIndex = 2;
-            this.buttonPreviousAbout.Text = "Previous";
-            this.buttonPreviousAbout.UseVisualStyleBackColor = false;
-            this.buttonPreviousAbout.Click += new System.EventHandler(this.buttonPreviousAbout_Click);
+            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.btnPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.ForeColor = System.Drawing.Color.White;
+            this.btnPrevious.Location = new System.Drawing.Point(12, 403);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(151, 35);
+            this.btnPrevious.TabIndex = 2;
+            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.buttonPreviousAbout_Click);
             // 
-            // buttoNextAboutS
+            // btnNext
             // 
-            this.buttoNextAboutS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttoNextAboutS.FlatAppearance.BorderSize = 0;
-            this.buttoNextAboutS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttoNextAboutS.ForeColor = System.Drawing.Color.White;
-            this.buttoNextAboutS.Location = new System.Drawing.Point(691, 403);
-            this.buttoNextAboutS.Name = "buttoNextAboutS";
-            this.buttoNextAboutS.Size = new System.Drawing.Size(151, 35);
-            this.buttoNextAboutS.TabIndex = 2;
-            this.buttoNextAboutS.Text = "Next";
-            this.buttoNextAboutS.UseVisualStyleBackColor = false;
-            this.buttoNextAboutS.Click += new System.EventHandler(this.buttoNextAboutS_Click);
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(691, 403);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(151, 35);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.buttoNextAboutS_Click);
             // 
             // labelTermsService
             // 
@@ -160,7 +160,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.labelPointsAmount);
+            this.panel2.Controls.Add(this.lblLableBottomRight);
             this.panel2.Location = new System.Drawing.Point(673, 255);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(169, 60);
@@ -188,28 +188,28 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "$";
             // 
-            // labelPointsAmount
+            // lblLableBottomRight
             // 
-            this.labelPointsAmount.AutoSize = true;
-            this.labelPointsAmount.Location = new System.Drawing.Point(3, 11);
-            this.labelPointsAmount.Name = "labelPointsAmount";
-            this.labelPointsAmount.Size = new System.Drawing.Size(99, 40);
-            this.labelPointsAmount.TabIndex = 0;
-            this.labelPointsAmount.Text = "Twitter Post =\r\nRe-Tweet =";
+            this.lblLableBottomRight.AutoSize = true;
+            this.lblLableBottomRight.Location = new System.Drawing.Point(3, 11);
+            this.lblLableBottomRight.Name = "lblLableBottomRight";
+            this.lblLableBottomRight.Size = new System.Drawing.Size(99, 40);
+            this.lblLableBottomRight.TabIndex = 0;
+            this.lblLableBottomRight.Text = "Twitter Post =\r\nRe-Tweet =";
             // 
             // AboutSecondPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 450);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlPanelGlobal);
             this.MaximumSize = new System.Drawing.Size(872, 497);
             this.MinimumSize = new System.Drawing.Size(872, 497);
             this.Name = "AboutSecondPage";
-            this.Text = "AboutSecondPage";
+            this.Text = "Promoit - AboutSecondPage";
             this.Load += new System.EventHandler(this.AboutSecondPage_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlPanelGlobal.ResumeLayout(false);
+            this.pnlPanelGlobal.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -218,17 +218,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlPanelGlobal;
         private System.Windows.Forms.Label labelTermsService;
         private System.Windows.Forms.Label labelPoints;
-        private System.Windows.Forms.Button buttonPreviousAbout;
-        private System.Windows.Forms.Button buttoNextAboutS;
-        private System.Windows.Forms.Label labelServiceTerms;
-        private System.Windows.Forms.Label labelTextAbout;
-        private System.Windows.Forms.Label labelPointsExp;
-        private System.Windows.Forms.Label labelPointsDesc;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblLableTop;
+        private System.Windows.Forms.Label lblLableBottomLeft3;
+        private System.Windows.Forms.Label lblLableBottomLeft2;
+        private System.Windows.Forms.Label lblLableBottomLeft1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelPointsAmount;
+        private System.Windows.Forms.Label lblLableBottomRight;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

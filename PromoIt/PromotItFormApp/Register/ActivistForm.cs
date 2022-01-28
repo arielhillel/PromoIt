@@ -22,13 +22,13 @@ namespace PromotItFormApp.RoleRegister
 
         private void panelSARegister_Paint(object sender, PaintEventArgs e)
         {
-            panelSARegister.BackColor = ThemeColor.PrimaryColor;
-            panelSARegister.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void buttonCloseSAForm_Click(object sender, EventArgs e)
         {
-            if (buttonCloseSAForm != null)
+            if (btnX != null)
             {
                 Close();
                 Register roleSystem = new Register();
@@ -44,16 +44,16 @@ namespace PromotItFormApp.RoleRegister
         {
             try
             {
-                if (textBoxSAName.Text == "" || textBoxSAUsername.Text == "" || textBoxSAPassword.Text == "" || textBoxSAEmail.Text == "" || textBoxSAAddress.Text == "" || textBoxSAPhoneNumber.Text == "")
+                if (btnName.Text == "" || txtUserName.Text == "" || txtPassword.Text == "" || txtEmail.Text == "" || txtAddress.Text == "" || txtPhoneNumber.Text == "")
                     throw new Exception("Please fill the fields required!");
 
                 ActivistUser activistUser = new ActivistUser();
-                activistUser.Name = textBoxSAName.Text;
-                activistUser.UserName = textBoxSAUsername.Text;
-                activistUser.UserPassword = textBoxSAPassword.Text;
-                activistUser.Email = textBoxSAEmail.Text;
-                activistUser.Address = textBoxSAAddress.Text;
-                activistUser.PhoneNumber = textBoxSAPhoneNumber.Text;
+                activistUser.Name = btnName.Text;
+                activistUser.UserName = txtUserName.Text;
+                activistUser.UserPassword = txtPassword.Text;
+                activistUser.Email = txtEmail.Text;
+                activistUser.Address = txtAddress.Text;
+                activistUser.PhoneNumber = txtPhoneNumber.Text;
                 bool result = await activistUser.RegisterAsync();
                 if (!result)
                 {

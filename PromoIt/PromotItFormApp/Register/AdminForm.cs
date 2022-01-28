@@ -24,8 +24,8 @@ namespace PromotItFormApp.RoleRegister
 
         private void panelAdminRegistr_Paint(object sender, PaintEventArgs e)
         {
-            panelAdminRegistr.BackColor = ThemeColor.PrimaryColor;
-            panelAdminRegistr.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void buttonCloseAdminForm_Click(object sender, EventArgs e) => CloseWindow();
@@ -36,7 +36,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void CloseWindow()
         {
-            if (buttonCloseAdminForm != null) this.CloseWindow();
+            if (btnX != null) this.CloseWindow();
 
             Register roleSystem = new Register();
             roleSystem.ShowDialog();
@@ -46,13 +46,13 @@ namespace PromotItFormApp.RoleRegister
         {
             try
             {
-                if (textBoxAdminName.Text == "" || textBoxAdminUsername.Text == "" || textBoxAdminPassword.Text == "")
+                if (txtName.Text == "" || txtUserName.Text == "" || txtPassword.Text == "")
                     throw new Exception("Please fill the fields required!");
 
                 AdminUser adminUser = new AdminUser();
-                adminUser.Name = textBoxAdminName.Text;
-                adminUser.UserName = textBoxAdminUsername.Text;
-                adminUser.UserPassword = textBoxAdminPassword.Text;
+                adminUser.Name = txtName.Text;
+                adminUser.UserName = txtUserName.Text;
+                adminUser.UserPassword = txtPassword.Text;
                 bool result = await adminUser.RegisterAsync();
                 if (!result)
                 {

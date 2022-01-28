@@ -21,8 +21,8 @@ namespace PromotItFormApp.RoleRegister
 
         private void panelRoleRegister_Paint(object sender, PaintEventArgs e)
         {
-            panelRoleRegister.BackColor = ThemeColor.PrimaryColor;
-            panelRoleRegister.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
         private void radioButtonAdmin_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
         private void radioButtonNPO_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
@@ -33,7 +33,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void PressingEnter(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) buttonRegisterRole.PerformClick();
+            if (e.KeyCode == Keys.Enter) btnRegister.PerformClick();
         }
 
         private void GetRadioButtonPage() 
@@ -41,13 +41,13 @@ namespace PromotItFormApp.RoleRegister
             try
             {
                 this.Hide();
-                if (radioButtonAdmin.Checked)
+                if (chkAdmin.Checked)
                     new AdminForm().ShowDialog();
-                else if (radioButtonNPO.Checked)
+                else if (chkNonProfit.Checked)
                     new NonProfitOrganizationForm().ShowDialog();
-                else if (radioButtonBSR.Checked)
+                else if (chkBuisness.Checked)
                     new BusinessCompanyForm().ShowDialog();
-                else if (radioButtonSA.Checked)
+                else if (chkActivist.Checked)
                     new ActivistForm().ShowDialog();
                 else
                     throw new Exception("Please select your role");

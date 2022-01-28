@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp.LandingPages
 {
-    public partial class AdminPanel : Form
+    public partial class pnlAdmin : Form
     {
-        public AdminPanel()
+        public pnlAdmin()
         {
             InitializeComponent();
             DisplayCampaignsAsync();
@@ -22,8 +22,8 @@ namespace PromotItFormApp.LandingPages
 
         private void panelAdmin_Paint(object sender, PaintEventArgs e)
         {
-            panelAdmin.BackColor = ThemeColor.PrimaryColor;
-            panelAdmin.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void buttonUsersAdmin_Click(object sender, EventArgs e) => DisplayUsersAsync();
@@ -39,7 +39,7 @@ namespace PromotItFormApp.LandingPages
                 AdminUser adminUser = new AdminUser();
                 adminUser.UserName = Configuration.CorrentUser.UserName;
                 DataTable tbl = await adminUser.GetAllCampaignsAdmin_DataTableAsync();
-                dataGridReports.DataSource = tbl;
+                dgrdReportsData.DataSource = tbl;
 
             } catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -50,7 +50,7 @@ namespace PromotItFormApp.LandingPages
                 AdminUser adminUser = new AdminUser();
                 adminUser.UserName = Configuration.CorrentUser.UserName;
                 DataTable tbl = await adminUser.GetAllUsers_DataTableAsync();
-                dataGridReports.DataSource = tbl;
+                dgrdReportsData.DataSource = tbl;
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -62,7 +62,7 @@ namespace PromotItFormApp.LandingPages
             {
                 Tweet tweet = new Tweet();
                 DataTable tbl = await tweet.GetAllTweets_DataTableAsync();
-                dataGridReports.DataSource = tbl;
+                dgrdReportsData.DataSource = tbl;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

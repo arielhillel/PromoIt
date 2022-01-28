@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuHomePage));
-            this.buttonGitHub = new System.Windows.Forms.Button();
+            this.btnGitHub = new System.Windows.Forms.Button();
             this.labelHomeDesc = new System.Windows.Forms.Label();
             this.labelHomeInfo = new System.Windows.Forms.Label();
-            this.panelZionetPage = new System.Windows.Forms.Panel();
-            this.panelZionetPage.SuspendLayout();
+            this.pnlPanelGlobal = new System.Windows.Forms.Panel();
+            this.pnlPanelGlobal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonGitHub
+            // btnGitHub
             // 
-            this.buttonGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonGitHub.FlatAppearance.BorderSize = 0;
-            this.buttonGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGitHub.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonGitHub.Image = ((System.Drawing.Image)(resources.GetObject("buttonGitHub.Image")));
-            this.buttonGitHub.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGitHub.Location = new System.Drawing.Point(341, 121);
-            this.buttonGitHub.Name = "buttonGitHub";
-            this.buttonGitHub.Size = new System.Drawing.Size(173, 43);
-            this.buttonGitHub.TabIndex = 0;
-            this.buttonGitHub.Text = "GitHub";
-            this.buttonGitHub.UseVisualStyleBackColor = false;
-            this.buttonGitHub.Click += new System.EventHandler(this.buttonGitHub_Click);
+            this.btnGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.btnGitHub.FlatAppearance.BorderSize = 0;
+            this.btnGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGitHub.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGitHub.Image = ((System.Drawing.Image)(resources.GetObject("btnGitHub.Image")));
+            this.btnGitHub.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGitHub.Location = new System.Drawing.Point(341, 121);
+            this.btnGitHub.Name = "btnGitHub";
+            this.btnGitHub.Size = new System.Drawing.Size(173, 43);
+            this.btnGitHub.TabIndex = 0;
+            this.btnGitHub.Text = "GitHub";
+            this.btnGitHub.UseVisualStyleBackColor = false;
+            this.btnGitHub.Click += new System.EventHandler(this.buttonGitHub_Click);
             // 
             // labelHomeDesc
             // 
@@ -74,41 +74,41 @@
             this.labelHomeInfo.TabIndex = 2;
             this.labelHomeInfo.Text = "Ariel Hillel, Yaron Malul and Arthur Zarankin.";
             // 
-            // panelZionetPage
+            // pnlPanelGlobal
             // 
-            this.panelZionetPage.BackColor = System.Drawing.Color.White;
-            this.panelZionetPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelZionetPage.BackgroundImage")));
-            this.panelZionetPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelZionetPage.Controls.Add(this.labelHomeInfo);
-            this.panelZionetPage.Controls.Add(this.labelHomeDesc);
-            this.panelZionetPage.Controls.Add(this.buttonGitHub);
-            this.panelZionetPage.Location = new System.Drawing.Point(-1, -6);
-            this.panelZionetPage.Name = "panelZionetPage";
-            this.panelZionetPage.Size = new System.Drawing.Size(865, 465);
-            this.panelZionetPage.TabIndex = 0;
+            this.pnlPanelGlobal.BackColor = System.Drawing.Color.White;
+            this.pnlPanelGlobal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlPanelGlobal.BackgroundImage")));
+            this.pnlPanelGlobal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlPanelGlobal.Controls.Add(this.labelHomeInfo);
+            this.pnlPanelGlobal.Controls.Add(this.labelHomeDesc);
+            this.pnlPanelGlobal.Controls.Add(this.btnGitHub);
+            this.pnlPanelGlobal.Location = new System.Drawing.Point(-1, -6);
+            this.pnlPanelGlobal.Name = "pnlPanelGlobal";
+            this.pnlPanelGlobal.Size = new System.Drawing.Size(865, 465);
+            this.pnlPanelGlobal.TabIndex = 0;
             // 
             // MenuHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 450);
-            this.Controls.Add(this.panelZionetPage);
+            this.Controls.Add(this.pnlPanelGlobal);
             this.MaximumSize = new System.Drawing.Size(872, 497);
             this.MinimumSize = new System.Drawing.Size(872, 497);
             this.Name = "MenuHomePage";
-            this.Text = "ZioNet";
+            this.Text = "Promoit - ZioNet";
             this.Load += new System.EventHandler(this.MenuHomePage_Load);
-            this.panelZionetPage.ResumeLayout(false);
-            this.panelZionetPage.PerformLayout();
+            this.pnlPanelGlobal.ResumeLayout(false);
+            this.pnlPanelGlobal.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonGitHub;
+        private System.Windows.Forms.Button btnGitHub;
         private System.Windows.Forms.Label labelHomeDesc;
         private System.Windows.Forms.Label labelHomeInfo;
-        private System.Windows.Forms.Panel panelZionetPage;
+        private System.Windows.Forms.Panel pnlPanelGlobal;
     }
 }

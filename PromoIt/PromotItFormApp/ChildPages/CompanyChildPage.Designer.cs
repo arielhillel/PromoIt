@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyChildPage));
-            this.panelCompanyAbout = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelServiceTextComp = new System.Windows.Forms.Label();
+            this.pnlPanelGlobal = new System.Windows.Forms.Panel();
+            this.lblBottom = new System.Windows.Forms.Label();
+            this.lblLableTop = new System.Windows.Forms.Label();
             this.labelServiceComp = new System.Windows.Forms.Label();
-            this.buttonPreviousCompany = new System.Windows.Forms.Button();
-            this.panelCompanyAbout.SuspendLayout();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.pnlPanelGlobal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelCompanyAbout
+            // pnlPanelGlobal
             // 
-            this.panelCompanyAbout.BackColor = System.Drawing.Color.White;
-            this.panelCompanyAbout.Controls.Add(this.label1);
-            this.panelCompanyAbout.Controls.Add(this.labelServiceTextComp);
-            this.panelCompanyAbout.Controls.Add(this.labelServiceComp);
-            this.panelCompanyAbout.Controls.Add(this.buttonPreviousCompany);
-            this.panelCompanyAbout.Location = new System.Drawing.Point(-2, 0);
-            this.panelCompanyAbout.Name = "panelCompanyAbout";
-            this.panelCompanyAbout.Size = new System.Drawing.Size(863, 461);
-            this.panelCompanyAbout.TabIndex = 0;
+            this.pnlPanelGlobal.BackColor = System.Drawing.Color.White;
+            this.pnlPanelGlobal.Controls.Add(this.lblBottom);
+            this.pnlPanelGlobal.Controls.Add(this.lblLableTop);
+            this.pnlPanelGlobal.Controls.Add(this.labelServiceComp);
+            this.pnlPanelGlobal.Controls.Add(this.btnPrevious);
+            this.pnlPanelGlobal.Location = new System.Drawing.Point(-2, 0);
+            this.pnlPanelGlobal.Name = "pnlPanelGlobal";
+            this.pnlPanelGlobal.Size = new System.Drawing.Size(863, 461);
+            this.pnlPanelGlobal.TabIndex = 0;
             // 
-            // label1
+            // lblBottom
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(14, 181);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(604, 60);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Conditions should be fully achieved before a deposit takes place in the user\'s ba" +
+            this.lblBottom.AutoSize = true;
+            this.lblBottom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBottom.Location = new System.Drawing.Point(14, 181);
+            this.lblBottom.Name = "lblBottom";
+            this.lblBottom.Size = new System.Drawing.Size(604, 60);
+            this.lblBottom.TabIndex = 0;
+            this.lblBottom.Text = "Conditions should be fully achieved before a deposit takes place in the user\'s ba" +
     "lance.\r\n\r\n (Read the previous page)";
             // 
-            // labelServiceTextComp
+            // lblLableTop
             // 
-            this.labelServiceTextComp.AutoSize = true;
-            this.labelServiceTextComp.Location = new System.Drawing.Point(14, 52);
-            this.labelServiceTextComp.Name = "labelServiceTextComp";
-            this.labelServiceTextComp.Size = new System.Drawing.Size(813, 120);
-            this.labelServiceTextComp.TabIndex = 0;
-            this.labelServiceTextComp.Text = resources.GetString("labelServiceTextComp.Text");
+            this.lblLableTop.AutoSize = true;
+            this.lblLableTop.Location = new System.Drawing.Point(14, 52);
+            this.lblLableTop.Name = "lblLableTop";
+            this.lblLableTop.Size = new System.Drawing.Size(813, 120);
+            this.lblLableTop.TabIndex = 0;
+            this.lblLableTop.Text = resources.GetString("lblLableTop.Text");
             // 
             // labelServiceComp
             // 
@@ -81,43 +81,43 @@
             this.labelServiceComp.TabIndex = 0;
             this.labelServiceComp.Text = "IS IT FREE?";
             // 
-            // buttonPreviousCompany
+            // btnPrevious
             // 
-            this.buttonPreviousCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonPreviousCompany.FlatAppearance.BorderSize = 0;
-            this.buttonPreviousCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPreviousCompany.ForeColor = System.Drawing.Color.White;
-            this.buttonPreviousCompany.Location = new System.Drawing.Point(14, 403);
-            this.buttonPreviousCompany.Name = "buttonPreviousCompany";
-            this.buttonPreviousCompany.Size = new System.Drawing.Size(151, 35);
-            this.buttonPreviousCompany.TabIndex = 0;
-            this.buttonPreviousCompany.Text = "Previous";
-            this.buttonPreviousCompany.UseVisualStyleBackColor = false;
-            this.buttonPreviousCompany.Click += new System.EventHandler(this.buttonPreviousCompany_Click);
+            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.btnPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.ForeColor = System.Drawing.Color.White;
+            this.btnPrevious.Location = new System.Drawing.Point(14, 403);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(151, 35);
+            this.btnPrevious.TabIndex = 0;
+            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.buttonPreviousCompany_Click);
             // 
             // CompanyChildPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 450);
-            this.Controls.Add(this.panelCompanyAbout);
+            this.Controls.Add(this.pnlPanelGlobal);
             this.MaximumSize = new System.Drawing.Size(872, 497);
             this.MinimumSize = new System.Drawing.Size(872, 497);
             this.Name = "CompanyChildPage";
-            this.Text = "CompanyChildPage";
+            this.Text = "Promoit - CompanyChildPage";
             this.Load += new System.EventHandler(this.CompanyChildPage_Load);
-            this.panelCompanyAbout.ResumeLayout(false);
-            this.panelCompanyAbout.PerformLayout();
+            this.pnlPanelGlobal.ResumeLayout(false);
+            this.pnlPanelGlobal.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelCompanyAbout;
-        private System.Windows.Forms.Button buttonPreviousCompany;
-        private System.Windows.Forms.Label labelServiceTextComp;
+        private System.Windows.Forms.Panel pnlPanelGlobal;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Label lblLableTop;
         private System.Windows.Forms.Label labelServiceComp;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBottom;
     }
 }

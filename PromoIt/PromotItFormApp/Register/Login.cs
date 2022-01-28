@@ -22,6 +22,8 @@ namespace PromotItFormApp.LandingPages
         public Login()
         {
             InitializeComponent();
+            txtPassword.UseSystemPasswordChar = true;
+
             UserSetValues();
         }
 
@@ -29,8 +31,8 @@ namespace PromotItFormApp.LandingPages
 
         private void panelLoginForm_Paint(object sender, PaintEventArgs e)
         {
-            panelLoginForm.BackColor = ThemeColor.PrimaryColor;
-            panelLoginForm.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e) => PressingEnter(e);
@@ -45,33 +47,33 @@ namespace PromotItFormApp.LandingPages
             Users user = Configuration.LognUser;
             if (user != null && !string.IsNullOrEmpty(user.UserName))
             {
-                textBoxUsername.Text = user.UserName;
+                txtUserName.Text = user.UserName;
                 if (!string.IsNullOrEmpty(user.UserPassword))
-                    textBoxPassword.Text = user.UserPassword;
+                    txtPassword.Text = user.UserPassword;
             }
             
         }
 
         private void PressingEnter(KeyEventArgs e) 
         {
-            if (e.KeyCode == Keys.Enter) buttonLoginForm.PerformClick();
+            if (e.KeyCode == Keys.Enter) btnLogin.PerformClick();
         }
 
         private async Task GetLoginAsync()
         {
             try
             {
-                if (textBoxUsername.Text == "" || textBoxPassword.Text == "")
+                if (txtUserName.Text == "" || txtPassword.Text == "")
                     throw new Exception("Please provide a username and password");
                 Users user = new Users();
-                user.UserName = textBoxUsername.Text.Trim();
-                user.UserPassword = textBoxPassword.Text.Trim();
+                user.UserName = txtUserName.Text.Trim();
+                user.UserPassword = txtPassword.Text.Trim();
                 user = await user.LoginAsync();
                 
 
                 if (user == null)
                 {
-                    Loggings.ErrorLog($"User cant login UserName ({textBoxUsername.Text.Trim()}), Wron UserName or Password");
+                    Loggings.ErrorLog($"User cant login UserName ({txtUserName.Text.Trim()}), Wron UserName or Password");
                     throw new Exception("Wrong username or password!");
                 }
                     
@@ -81,10 +83,10 @@ namespace PromotItFormApp.LandingPages
 
                 string? type = user.UserType;
                 Form? form =
-                    type == "admin" ? new AdminPanel() :
+                    type == "admin" ? new pnlAdmin() :
                     type == "non-profit" ? new NonProfitPanel() :
                     type == "business" ? new BusinessPanel() :
-                    type == "activist" ? new ActivistPanel() :
+                    type == "activist" ? new pnlActivist() :
                     null;
                 if (form == null)
                 {

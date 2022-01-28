@@ -46,8 +46,8 @@ namespace PromotItFormApp.ChildPages
             activeForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panelCompanyAbout.Controls.Add(childForm);
-            this.panelCompanyAbout.Tag = childForm;
+            this.pnlPanelGlobal.Controls.Add(childForm);
+            this.pnlPanelGlobal.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }

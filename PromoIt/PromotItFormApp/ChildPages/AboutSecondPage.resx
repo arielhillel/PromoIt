@@ -57,7 +57,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="labelServiceTerms.Text" xml:space="preserve">
+  <data name="lblLableTop.Text" xml:space="preserve">
     <value>We are all eager to earn products now but there are a few steps beforehand.
 It is better to mention that a full registration both to Twitter and Promoit is mandatory so our system will keep a 
 trace through your progress.

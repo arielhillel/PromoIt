@@ -57,7 +57,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="labelUsDesc.Text" xml:space="preserve">
+  <data name="lblLableTop.Text" xml:space="preserve">
     <value>Promoit? What is it?
 Promoit is a campaign-friendly application based on social media platforms, this application is still under development thus it
 supports Twitter only.

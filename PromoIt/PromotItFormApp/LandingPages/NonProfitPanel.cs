@@ -36,8 +36,8 @@ namespace PromotItFormApp.LandingPages
 
         private void panelNPO_Paint(object sender, PaintEventArgs e)
         {
-            panelNPO.BackColor = ThemeColor.PrimaryColor;
-            panelNPO.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
         private void NPOrganizationPanel_Shown(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace PromotItFormApp.LandingPages
         {
             try
             {
-                _campaign.Hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
+                _campaign.Hashtag = dgrdNonProfit.Rows[e.RowIndex].Cells[2].Value.ToString();
                 bool result = await _campaign.DeleteCampaignAsync();
                 if (!result)
                 {
@@ -81,7 +81,7 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 DataTable tbl = await _campaign.GetAllCampaignsNonProfit_DataTableAsync();
-                dataGridNPO.DataSource = tbl;
+                dgrdNonProfit.DataSource = tbl;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message);}
         }

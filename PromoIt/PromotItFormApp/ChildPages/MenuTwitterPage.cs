@@ -34,7 +34,7 @@ namespace PromotItFormApp.ChildPages
                     button.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
 
-                label1.BackColor = ThemeColor.PrimaryColor;                
+                lblTop.BackColor = ThemeColor.PrimaryColor;                
             }
         }
 

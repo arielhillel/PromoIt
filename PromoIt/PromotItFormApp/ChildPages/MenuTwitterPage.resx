@@ -58,10 +58,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonTwitter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnTwitterLink.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAf9JREFUWEftlj8oRVEcx1+SDJJMklEmgwwymYx6STK8QTLJIEkmKYMkmSSTUTKY
+        vwAADr8BOAVTJAAAAf9JREFUWEftlj8oRVEcx1+SDJJMklEmgwwymYx6STK8QTLJIEkmKYMkmSSTUTKY
         THqDZJBBksEgSZIkSQaD9Hy+5/6e5+l6757LU+RTn3jn/P68d+8599zEP3+GTCZThv2Yxmu8xWOcwwYL
         e4OxRqzMfqjAfvchBuTW4x5+xiP2YSV24QZuW7orkEQxakORIacaT1x2cZ7t7wM2WwlXZN4NB0yhzRSH
         2EWXFZ177MZeHMkWWcH3rGONmywAMfr1T0rwQPEveIHB2uCfBfzIJeq+uZgwmOtUYAzUvNHKuEK6HJ9x

@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelBCR = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pnlPanelTop = new System.Windows.Forms.Panel();
             this.labelBCRTitle = new System.Windows.Forms.Label();
-            this.labelWinnerList = new System.Windows.Forms.Label();
-            this.labelCampaignsList = new System.Windows.Forms.Label();
+            this.lblActivists = new System.Windows.Forms.Label();
+            this.lblCampaignsList = new System.Windows.Forms.Label();
             this.Hashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridCampains = new System.Windows.Forms.DataGridView();
+            this.dgrdCampains = new System.Windows.Forms.DataGridView();
             this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.buttonDonateGrid = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridBuyers = new System.Windows.Forms.DataGridView();
+            this.dgrdActivists = new System.Windows.Forms.DataGridView();
             this.clmnActivist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnProductDonatedId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panelBCR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCampains)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridBuyers)).BeginInit();
+            this.pnlPanelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdCampains)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdActivists)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelBCR
+            // pnlPanelTop
             // 
-            this.panelBCR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
-            this.panelBCR.Controls.Add(this.labelBCRTitle);
-            this.panelBCR.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBCR.Location = new System.Drawing.Point(0, 0);
-            this.panelBCR.Name = "panelBCR";
-            this.panelBCR.Size = new System.Drawing.Size(1123, 135);
-            this.panelBCR.TabIndex = 0;
-            this.panelBCR.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBCR_Paint);
+            this.pnlPanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
+            this.pnlPanelTop.Controls.Add(this.labelBCRTitle);
+            this.pnlPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelTop.Name = "pnlPanelTop";
+            this.pnlPanelTop.Size = new System.Drawing.Size(1123, 135);
+            this.pnlPanelTop.TabIndex = 0;
+            this.pnlPanelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBCR_Paint);
             // 
             // labelBCRTitle
             // 
@@ -74,25 +74,25 @@
             this.labelBCRTitle.TabIndex = 0;
             this.labelBCRTitle.Text = "Business Company Representative";
             // 
-            // labelWinnerList
+            // lblActivists
             // 
-            this.labelWinnerList.AutoSize = true;
-            this.labelWinnerList.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelWinnerList.Location = new System.Drawing.Point(30, 155);
-            this.labelWinnerList.Name = "labelWinnerList";
-            this.labelWinnerList.Size = new System.Drawing.Size(127, 31);
-            this.labelWinnerList.TabIndex = 0;
-            this.labelWinnerList.Text = "Buyers List:";
+            this.lblActivists.AutoSize = true;
+            this.lblActivists.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblActivists.Location = new System.Drawing.Point(30, 155);
+            this.lblActivists.Name = "lblActivists";
+            this.lblActivists.Size = new System.Drawing.Size(127, 31);
+            this.lblActivists.TabIndex = 0;
+            this.lblActivists.Text = "Buyers List:";
             // 
-            // labelCampaignsList
+            // lblCampaignsList
             // 
-            this.labelCampaignsList.AutoSize = true;
-            this.labelCampaignsList.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCampaignsList.Location = new System.Drawing.Point(588, 155);
-            this.labelCampaignsList.Name = "labelCampaignsList";
-            this.labelCampaignsList.Size = new System.Drawing.Size(175, 31);
-            this.labelCampaignsList.TabIndex = 0;
-            this.labelCampaignsList.Text = "Campaigns List:";
+            this.lblCampaignsList.AutoSize = true;
+            this.lblCampaignsList.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCampaignsList.Location = new System.Drawing.Point(588, 155);
+            this.lblCampaignsList.Name = "lblCampaignsList";
+            this.lblCampaignsList.Size = new System.Drawing.Size(175, 31);
+            this.lblCampaignsList.TabIndex = 0;
+            this.lblCampaignsList.Text = "Campaigns List:";
             // 
             // Hashtag
             // 
@@ -108,37 +108,37 @@
             this.URL.Name = "URL";
             this.URL.Width = 125;
             // 
-            // dataGridCampains
+            // dgrdCampains
             // 
-            this.dataGridCampains.AllowUserToAddRows = false;
-            this.dataGridCampains.AllowUserToDeleteRows = false;
-            this.dataGridCampains.AllowUserToResizeColumns = false;
-            this.dataGridCampains.AllowUserToResizeRows = false;
-            this.dataGridCampains.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgrdCampains.AllowUserToAddRows = false;
+            this.dgrdCampains.AllowUserToDeleteRows = false;
+            this.dgrdCampains.AllowUserToResizeColumns = false;
+            this.dgrdCampains.AllowUserToResizeRows = false;
+            this.dgrdCampains.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridCampains.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridCampains.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridCampains.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridCampains.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCampains.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgrdCampains.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrdCampains.BackgroundColor = System.Drawing.Color.White;
+            this.dgrdCampains.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgrdCampains.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrdCampains.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnHashtag,
             this.clmnWebpage,
             this.buttonProductListGrid,
             this.buttonDonateGrid});
-            this.dataGridCampains.GridColor = System.Drawing.Color.White;
-            this.dataGridCampains.Location = new System.Drawing.Point(576, 199);
-            this.dataGridCampains.MultiSelect = false;
-            this.dataGridCampains.Name = "dataGridCampains";
-            this.dataGridCampains.ReadOnly = true;
-            this.dataGridCampains.RowHeadersVisible = false;
-            this.dataGridCampains.RowHeadersWidth = 51;
-            this.dataGridCampains.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridCampains.RowTemplate.Height = 29;
-            this.dataGridCampains.ShowEditingIcon = false;
-            this.dataGridCampains.Size = new System.Drawing.Size(527, 491);
-            this.dataGridCampains.TabIndex = 0;
-            this.dataGridCampains.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBC_CellClick);
+            this.dgrdCampains.GridColor = System.Drawing.Color.White;
+            this.dgrdCampains.Location = new System.Drawing.Point(576, 199);
+            this.dgrdCampains.MultiSelect = false;
+            this.dgrdCampains.Name = "dgrdCampains";
+            this.dgrdCampains.ReadOnly = true;
+            this.dgrdCampains.RowHeadersVisible = false;
+            this.dgrdCampains.RowHeadersWidth = 51;
+            this.dgrdCampains.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgrdCampains.RowTemplate.Height = 29;
+            this.dgrdCampains.ShowEditingIcon = false;
+            this.dgrdCampains.Size = new System.Drawing.Size(527, 491);
+            this.dgrdCampains.TabIndex = 0;
+            this.dgrdCampains.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBC_CellClick);
             // 
             // clmnHashtag
             // 
@@ -158,13 +158,13 @@
             // 
             // buttonProductListGrid
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProductListGrid.HeaderText = "";
             this.buttonProductListGrid.MinimumWidth = 6;
@@ -175,13 +175,13 @@
             // 
             // buttonDonateGrid
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonDonateGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonDonateGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.buttonDonateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDonateGrid.HeaderText = "";
             this.buttonDonateGrid.MinimumWidth = 6;
@@ -190,37 +190,37 @@
             this.buttonDonateGrid.Text = "Donate";
             this.buttonDonateGrid.UseColumnTextForButtonValue = true;
             // 
-            // dataGridBuyers
+            // dgrdActivists
             // 
-            this.dataGridBuyers.AllowUserToAddRows = false;
-            this.dataGridBuyers.AllowUserToDeleteRows = false;
-            this.dataGridBuyers.AllowUserToResizeColumns = false;
-            this.dataGridBuyers.AllowUserToResizeRows = false;
-            this.dataGridBuyers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgrdActivists.AllowUserToAddRows = false;
+            this.dgrdActivists.AllowUserToDeleteRows = false;
+            this.dgrdActivists.AllowUserToResizeColumns = false;
+            this.dgrdActivists.AllowUserToResizeRows = false;
+            this.dgrdActivists.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridBuyers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridBuyers.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridBuyers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridBuyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridBuyers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgrdActivists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrdActivists.BackgroundColor = System.Drawing.Color.White;
+            this.dgrdActivists.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgrdActivists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrdActivists.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnActivist,
             this.clmnProduct,
             this.clmnProductDonatedId,
             this.dataGridViewButtonColumn1});
-            this.dataGridBuyers.GridColor = System.Drawing.Color.White;
-            this.dataGridBuyers.Location = new System.Drawing.Point(21, 199);
-            this.dataGridBuyers.MultiSelect = false;
-            this.dataGridBuyers.Name = "dataGridBuyers";
-            this.dataGridBuyers.ReadOnly = true;
-            this.dataGridBuyers.RowHeadersVisible = false;
-            this.dataGridBuyers.RowHeadersWidth = 51;
-            this.dataGridBuyers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridBuyers.RowTemplate.Height = 29;
-            this.dataGridBuyers.ShowEditingIcon = false;
-            this.dataGridBuyers.Size = new System.Drawing.Size(516, 491);
-            this.dataGridBuyers.TabIndex = 0;
-            this.dataGridBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuyers_CellClick);
+            this.dgrdActivists.GridColor = System.Drawing.Color.White;
+            this.dgrdActivists.Location = new System.Drawing.Point(21, 199);
+            this.dgrdActivists.MultiSelect = false;
+            this.dgrdActivists.Name = "dgrdActivists";
+            this.dgrdActivists.ReadOnly = true;
+            this.dgrdActivists.RowHeadersVisible = false;
+            this.dgrdActivists.RowHeadersWidth = 51;
+            this.dgrdActivists.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgrdActivists.RowTemplate.Height = 29;
+            this.dgrdActivists.ShowEditingIcon = false;
+            this.dgrdActivists.Size = new System.Drawing.Size(516, 491);
+            this.dgrdActivists.TabIndex = 0;
+            this.dgrdActivists.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuyers_CellClick);
             // 
             // clmnActivist
             // 
@@ -249,13 +249,13 @@
             // 
             // dataGridViewButtonColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dataGridViewButtonColumn1.HeaderText = "";
             this.dataGridViewButtonColumn1.MinimumWidth = 6;
@@ -269,20 +269,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 719);
-            this.Controls.Add(this.dataGridBuyers);
-            this.Controls.Add(this.dataGridCampains);
-            this.Controls.Add(this.labelCampaignsList);
-            this.Controls.Add(this.labelWinnerList);
-            this.Controls.Add(this.panelBCR);
+            this.Controls.Add(this.dgrdActivists);
+            this.Controls.Add(this.dgrdCampains);
+            this.Controls.Add(this.lblCampaignsList);
+            this.Controls.Add(this.lblActivists);
+            this.Controls.Add(this.pnlPanelTop);
             this.MaximumSize = new System.Drawing.Size(1141, 766);
             this.MinimumSize = new System.Drawing.Size(1141, 766);
             this.Name = "BusinessPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Business Company Dashboard";
-            this.panelBCR.ResumeLayout(false);
-            this.panelBCR.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCampains)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridBuyers)).EndInit();
+            this.pnlPanelTop.ResumeLayout(false);
+            this.pnlPanelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdCampains)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdActivists)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,14 +290,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelBCR;
+        private System.Windows.Forms.Panel pnlPanelTop;
         private System.Windows.Forms.Label labelBCRTitle;
-        private System.Windows.Forms.Label labelWinnerList;
-        private System.Windows.Forms.Label labelCampaignsList;
+        private System.Windows.Forms.Label lblActivists;
+        private System.Windows.Forms.Label lblCampaignsList;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hashtag;
         private System.Windows.Forms.DataGridViewTextBoxColumn URL;
-        private System.Windows.Forms.DataGridView dataGridCampains;
-        private System.Windows.Forms.DataGridView dataGridBuyers;
+        private System.Windows.Forms.DataGridView dgrdCampains;
+        private System.Windows.Forms.DataGridView dgrdActivists;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnWebpage;
         private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;

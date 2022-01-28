@@ -22,8 +22,8 @@ namespace PromotItFormApp.RoleRegister
 
         private void panelBSRRegister_Paint(object sender, PaintEventArgs e)
         {
-            panelBSRRegister.BackColor = ThemeColor.PrimaryColor;
-            panelBSRRegister.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void buttonCloseBCRForm_Click(object sender, EventArgs e) => CloseWindow();
@@ -35,7 +35,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void CloseWindow()
         {
-            if (buttonCloseBCRForm == null) return;
+            if (btnX == null) return;
             this.CloseWindow();
             Register roleSystem = new Register();
             roleSystem.ShowDialog();
@@ -45,13 +45,13 @@ namespace PromotItFormApp.RoleRegister
         {
             try
             {
-                if (textBoxBCRName.Text == "" || textBoxBCRUsername.Text == "" || textBoxBCRPassword.Text == "")
+                if (txtName.Text == "" || txtUserName.Text == "" || txtPassword.Text == "")
                     throw new Exception("Please fill the fields required!");
 
                 BusinessUser businessUser = new BusinessUser();
-                businessUser.Name = textBoxBCRName.Text;
-                businessUser.UserName = textBoxBCRUsername.Text;
-                businessUser.UserPassword = textBoxBCRPassword.Text;
+                businessUser.Name = txtName.Text;
+                businessUser.UserName = txtUserName.Text;
+                businessUser.UserPassword = txtPassword.Text;
                 bool result = await businessUser.RegisterAsync();
                 if (!result)
                 {

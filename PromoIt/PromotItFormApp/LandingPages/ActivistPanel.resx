@@ -82,10 +82,10 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panelMessagesSA.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="panelMessages.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAl0AAABwCAYAAAAkL8XqAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAGq5SURBVHhe7Z13WFRZmrg/2ul1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxAAAAsQAa0jvXUAAGq5SURBVHhe7Z13WFRZmrg/2ul1
         enq6p6dnpnd2fjOzs727s5N6OhoJZkEERCQnwRwQc6ttRCVHAUFERATkGEAFyUkRJOecc6hIAQVFFel3
         zq0qRft2a/c03bPL+eN9zuXUrVtXn/PH+3zfd74DU1NTFAqFQqFQFIyLCl+d/qIZoBhTwjAxWA3SjvuL
         hlMNoibSddFYpgGayDBEE+nrv5JxBn00nqaHJlLWovFUXSRNN7soydrxxUjeURNJ7rkPJXmO/zqSd2qu

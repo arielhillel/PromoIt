@@ -36,8 +36,8 @@ namespace PromotItFormApp.LandingPages
 
         private void panelBCR_Paint(object sender, PaintEventArgs e)
         {
-            panelBCR.BackColor = ThemeColor.PrimaryColor;
-            panelBCR.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void dataGridBuyers_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -49,7 +49,7 @@ namespace PromotItFormApp.LandingPages
         private void SetNewProductPage(DataGridViewCellEventArgs e)
         {
             Campaign campaign = new Campaign();
-            campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
+            campaign.Hashtag = dgrdCampains["clmnHashtag", e.RowIndex].Value.ToString();
             Configuration.CorrentCampaign = campaign;
             BusinessNewProduct businessNewProduct = new BusinessNewProduct();
             businessNewProduct.ShowDialog();
@@ -58,7 +58,7 @@ namespace PromotItFormApp.LandingPages
         private void GetProductListPage(DataGridViewCellEventArgs e)
         {
             Campaign campaign = new Campaign();
-            campaign.Hashtag = dataGridCampains["clmnHashtag", e.RowIndex].Value.ToString();
+            campaign.Hashtag = dgrdCampains["clmnHashtag", e.RowIndex].Value.ToString();
             Configuration.CorrentCampaign = campaign;
             BusinessProductList businessProductList = new BusinessProductList();
             businessProductList.ShowDialog();
@@ -69,7 +69,7 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 Campaign campaign = new Campaign();
-                dataGridCampains.DataSource = await campaign.GetAllCampaigns_DataTableAsync(); ;
+                dgrdCampains.DataSource = await campaign.GetAllCampaigns_DataTableAsync(); ;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -80,7 +80,7 @@ namespace PromotItFormApp.LandingPages
             {
                 ProductDonated productDonated = new ProductDonated();
                 productDonated.ProductInCampaign.BusinessUser = Configuration.CorrentUser;
-                dataGridBuyers.DataSource = await productDonated.GetDonatedProductForShipping_DataTableAsync();
+                dgrdActivists.DataSource = await productDonated.GetDonatedProductForShipping_DataTableAsync();
                 //dataGridBuyers.Columns["clmnProductDonatedId"].Visible = false;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -92,7 +92,7 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 ProductDonated productDonated = new ProductDonated();
-                productDonated.Id = dataGridBuyers["clmnProductDonatedId", e.RowIndex].Value.ToString();
+                productDonated.Id = dgrdActivists["clmnProductDonatedId", e.RowIndex].Value.ToString();
                 bool result = await productDonated.SetProductShippingAsync();
                 if (result) GetProductsForShippingAsync();
             }

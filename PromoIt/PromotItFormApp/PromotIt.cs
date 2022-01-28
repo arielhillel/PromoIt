@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PromotItLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace PromotItFormApp
         {
             InitializeComponent();
             random = new Random();
-            buttonCloseChildForm.Visible = false;            
+            btnX.Visible = false;            
         }
 
         //Methods
@@ -64,14 +65,14 @@ namespace PromotItFormApp
         {
             ActivateButton(sender);
             RoleRegister.Register registerForm = new RoleRegister.Register();
-            buttonCloseChildForm.Visible = false;
+            btnX.Visible = false;
             registerForm.ShowDialog();            
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {            
             ActivateButton(sender);
-            buttonCloseChildForm.Visible = false;
+            btnX.Visible = false;
             LandingPages.Login loginForm = new LandingPages.Login();
             loginForm.ShowDialog();
         }
@@ -82,6 +83,7 @@ namespace PromotItFormApp
                 activeForm.Close();            
             Reset();
         }
+
 
         //private void panelDesktopPanel_Paint_1(object sender, PaintEventArgs e) { }
 
@@ -98,10 +100,10 @@ namespace PromotItFormApp
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Segoe UI", 11.4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                     panelTitleBar.BackColor = color;
-                    panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    pnlLeftLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    buttonCloseChildForm.Visible = true;
+                    btnX.Visible = true;
 
                 }
             }
@@ -118,21 +120,21 @@ namespace PromotItFormApp
             activeForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPanel.Controls.Add(childForm);
-            this.panelDesktopPanel.Tag = childForm;
+            this.pnlMiddlePanel.Controls.Add(childForm);
+            this.pnlMiddlePanel.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            labelTitle.Text = childForm.Text;
+            lblHome.Text = childForm.Text;
         }
 
         private void Reset()
         {  
             DisableButton();
-            labelTitle.Text = "HOME";
+            lblHome.Text = "HOME";
             panelTitleBar.BackColor = Color.FromArgb(141, 145, 139);
-            panelLogo.BackColor = Color.FromArgb(36, 35, 49);
+            pnlLeftLogo.BackColor = Color.FromArgb(36, 35, 49);
             currentButton = null;
-            buttonCloseChildForm.Visible = false;
+            btnX.Visible = false;
         }
 
         private void DisableButton()
@@ -147,5 +149,6 @@ namespace PromotItFormApp
                 }
             }
         }
+
     }
 }

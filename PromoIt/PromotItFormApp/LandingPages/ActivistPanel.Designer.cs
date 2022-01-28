@@ -1,6 +1,6 @@
 ﻿namespace PromotItFormApp.LandingPages
 {
-    partial class ActivistPanel
+    partial class pnlActivist
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivistPanel));
-            this.panelSADashboard = new System.Windows.Forms.Panel();
-            this.dataGridSA = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pnlActivist));
+            this.pnlPanelBottom = new System.Windows.Forms.Panel();
+            this.dgrdCampaigns = new System.Windows.Forms.DataGridView();
             this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnWebpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonProductListGrid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridNPO = new System.Windows.Forms.DataGridView();
-            this.panelSA = new System.Windows.Forms.Panel();
+            this.pnlPanelTop = new System.Windows.Forms.Panel();
             this.labelSATitle = new System.Windows.Forms.Label();
             this.panelBalance = new System.Windows.Forms.Panel();
-            this.txtCash = new System.Windows.Forms.Label();
-            this.labelBalance = new System.Windows.Forms.Label();
-            this.panelMessagesSA = new System.Windows.Forms.Panel();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.panelSADashboard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).BeginInit();
+            this.txtCashBalanceCheck = new System.Windows.Forms.Label();
+            this.lblTotalBalance = new System.Windows.Forms.Label();
+            this.panelMessages = new System.Windows.Forms.Panel();
+            this.lblMessages = new System.Windows.Forms.Label();
+            this.pnlPanelBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdCampaigns)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
-            this.panelSA.SuspendLayout();
+            this.pnlPanelTop.SuspendLayout();
             this.panelBalance.SuspendLayout();
-            this.panelMessagesSA.SuspendLayout();
+            this.panelMessages.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelSADashboard
+            // pnlPanelBottom
             // 
-            this.panelSADashboard.BackColor = System.Drawing.Color.White;
-            this.panelSADashboard.Controls.Add(this.dataGridSA);
-            this.panelSADashboard.Controls.Add(this.dataGridNPO);
-            this.panelSADashboard.Location = new System.Drawing.Point(20, 283);
-            this.panelSADashboard.Name = "panelSADashboard";
-            this.panelSADashboard.Size = new System.Drawing.Size(1204, 417);
-            this.panelSADashboard.TabIndex = 0;
+            this.pnlPanelBottom.BackColor = System.Drawing.Color.White;
+            this.pnlPanelBottom.Controls.Add(this.dgrdCampaigns);
+            this.pnlPanelBottom.Controls.Add(this.dataGridNPO);
+            this.pnlPanelBottom.Location = new System.Drawing.Point(20, 283);
+            this.pnlPanelBottom.Name = "pnlPanelBottom";
+            this.pnlPanelBottom.Size = new System.Drawing.Size(1204, 417);
+            this.pnlPanelBottom.TabIndex = 0;
             // 
-            // dataGridSA
+            // dgrdCampaigns
             // 
-            this.dataGridSA.AllowUserToAddRows = false;
-            this.dataGridSA.AllowUserToDeleteRows = false;
-            this.dataGridSA.AllowUserToResizeColumns = false;
-            this.dataGridSA.AllowUserToResizeRows = false;
-            this.dataGridSA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgrdCampaigns.AllowUserToAddRows = false;
+            this.dgrdCampaigns.AllowUserToDeleteRows = false;
+            this.dgrdCampaigns.AllowUserToResizeColumns = false;
+            this.dgrdCampaigns.AllowUserToResizeRows = false;
+            this.dgrdCampaigns.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridSA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridSA.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridSA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridSA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridSA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgrdCampaigns.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrdCampaigns.BackgroundColor = System.Drawing.Color.White;
+            this.dgrdCampaigns.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgrdCampaigns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrdCampaigns.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnHashtag,
             this.clmnWebpage,
             this.balance,
             this.buttonProductListGrid});
-            this.dataGridSA.GridColor = System.Drawing.Color.White;
-            this.dataGridSA.Location = new System.Drawing.Point(33, 28);
-            this.dataGridSA.MultiSelect = false;
-            this.dataGridSA.Name = "dataGridSA";
-            this.dataGridSA.ReadOnly = true;
-            this.dataGridSA.RowHeadersVisible = false;
-            this.dataGridSA.RowHeadersWidth = 51;
-            this.dataGridSA.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridSA.RowTemplate.Height = 29;
-            this.dataGridSA.ShowEditingIcon = false;
-            this.dataGridSA.Size = new System.Drawing.Size(1142, 372);
-            this.dataGridSA.TabIndex = 5;
-            this.dataGridSA.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSA_CellClick);
+            this.dgrdCampaigns.GridColor = System.Drawing.Color.White;
+            this.dgrdCampaigns.Location = new System.Drawing.Point(33, 28);
+            this.dgrdCampaigns.MultiSelect = false;
+            this.dgrdCampaigns.Name = "dgrdCampaigns";
+            this.dgrdCampaigns.ReadOnly = true;
+            this.dgrdCampaigns.RowHeadersVisible = false;
+            this.dgrdCampaigns.RowHeadersWidth = 51;
+            this.dgrdCampaigns.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgrdCampaigns.RowTemplate.Height = 29;
+            this.dgrdCampaigns.ShowEditingIcon = false;
+            this.dgrdCampaigns.Size = new System.Drawing.Size(1142, 372);
+            this.dgrdCampaigns.TabIndex = 5;
+            this.dgrdCampaigns.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSA_CellClick);
             // 
             // clmnHashtag
             // 
@@ -120,13 +120,13 @@
             // 
             // buttonProductListGrid
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonProductListGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.buttonProductListGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProductListGrid.HeaderText = "";
             this.buttonProductListGrid.MinimumWidth = 6;
@@ -161,16 +161,16 @@
             this.dataGridNPO.Size = new System.Drawing.Size(608, 143);
             this.dataGridNPO.TabIndex = 1;
             // 
-            // panelSA
+            // pnlPanelTop
             // 
-            this.panelSA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
-            this.panelSA.Controls.Add(this.labelSATitle);
-            this.panelSA.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSA.Location = new System.Drawing.Point(0, 0);
-            this.panelSA.Name = "panelSA";
-            this.panelSA.Size = new System.Drawing.Size(1236, 135);
-            this.panelSA.TabIndex = 0;
-            this.panelSA.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSA_Paint);
+            this.pnlPanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
+            this.pnlPanelTop.Controls.Add(this.labelSATitle);
+            this.pnlPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelTop.Name = "pnlPanelTop";
+            this.pnlPanelTop.Size = new System.Drawing.Size(1236, 135);
+            this.pnlPanelTop.TabIndex = 0;
+            this.pnlPanelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSA_Paint);
             // 
             // labelSATitle
             // 
@@ -186,99 +186,99 @@
             // panelBalance
             // 
             this.panelBalance.BackColor = System.Drawing.Color.White;
-            this.panelBalance.Controls.Add(this.txtCash);
-            this.panelBalance.Controls.Add(this.labelBalance);
+            this.panelBalance.Controls.Add(this.txtCashBalanceCheck);
+            this.panelBalance.Controls.Add(this.lblTotalBalance);
             this.panelBalance.Location = new System.Drawing.Point(20, 147);
             this.panelBalance.Name = "panelBalance";
             this.panelBalance.Size = new System.Drawing.Size(396, 124);
             this.panelBalance.TabIndex = 1;
             // 
-            // txtCash
+            // txtCashBalanceCheck
             // 
-            this.txtCash.AutoSize = true;
-            this.txtCash.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtCash.ForeColor = System.Drawing.Color.Green;
-            this.txtCash.Location = new System.Drawing.Point(131, 18);
-            this.txtCash.Name = "txtCash";
-            this.txtCash.Size = new System.Drawing.Size(28, 25);
-            this.txtCash.TabIndex = 0;
-            this.txtCash.Text = "|$";
+            this.txtCashBalanceCheck.AutoSize = true;
+            this.txtCashBalanceCheck.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCashBalanceCheck.ForeColor = System.Drawing.Color.Green;
+            this.txtCashBalanceCheck.Location = new System.Drawing.Point(131, 18);
+            this.txtCashBalanceCheck.Name = "txtCashBalanceCheck";
+            this.txtCashBalanceCheck.Size = new System.Drawing.Size(28, 25);
+            this.txtCashBalanceCheck.TabIndex = 0;
+            this.txtCashBalanceCheck.Text = "|$";
             // 
-            // labelBalance
+            // lblTotalBalance
             // 
-            this.labelBalance.AutoSize = true;
-            this.labelBalance.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelBalance.Location = new System.Drawing.Point(8, 18);
-            this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(117, 25);
-            this.labelBalance.TabIndex = 0;
-            this.labelBalance.Text = "Total Balance:";
+            this.lblTotalBalance.AutoSize = true;
+            this.lblTotalBalance.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalBalance.Location = new System.Drawing.Point(8, 18);
+            this.lblTotalBalance.Name = "lblTotalBalance";
+            this.lblTotalBalance.Size = new System.Drawing.Size(117, 25);
+            this.lblTotalBalance.TabIndex = 0;
+            this.lblTotalBalance.Text = "Total Balance:";
             // 
-            // panelMessagesSA
+            // panelMessages
             // 
-            this.panelMessagesSA.BackColor = System.Drawing.Color.White;
-            this.panelMessagesSA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMessagesSA.BackgroundImage")));
-            this.panelMessagesSA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelMessagesSA.Controls.Add(this.lblMessage);
-            this.panelMessagesSA.Location = new System.Drawing.Point(610, 141);
-            this.panelMessagesSA.Name = "panelMessagesSA";
-            this.panelMessagesSA.Size = new System.Drawing.Size(614, 124);
-            this.panelMessagesSA.TabIndex = 0;
+            this.panelMessages.BackColor = System.Drawing.Color.White;
+            this.panelMessages.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMessages.BackgroundImage")));
+            this.panelMessages.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelMessages.Controls.Add(this.lblMessages);
+            this.panelMessages.Location = new System.Drawing.Point(610, 141);
+            this.panelMessages.Name = "panelMessages";
+            this.panelMessages.Size = new System.Drawing.Size(614, 124);
+            this.panelMessages.TabIndex = 0;
             // 
-            // lblMessage
+            // lblMessages
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblMessage.ForeColor = System.Drawing.Color.Black;
-            this.lblMessage.Location = new System.Drawing.Point(15, 14);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(72, 23);
-            this.lblMessage.TabIndex = 2;
-            this.lblMessage.Text = "Message";
+            this.lblMessages.AutoSize = true;
+            this.lblMessages.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblMessages.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblMessages.ForeColor = System.Drawing.Color.Black;
+            this.lblMessages.Location = new System.Drawing.Point(15, 14);
+            this.lblMessages.Name = "lblMessages";
+            this.lblMessages.Size = new System.Drawing.Size(72, 23);
+            this.lblMessages.TabIndex = 2;
+            this.lblMessages.Text = "Message";
             // 
-            // ActivistPanel
+            // pnlActivist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1236, 712);
-            this.Controls.Add(this.panelMessagesSA);
+            this.Controls.Add(this.panelMessages);
             this.Controls.Add(this.panelBalance);
-            this.Controls.Add(this.panelSA);
-            this.Controls.Add(this.panelSADashboard);
+            this.Controls.Add(this.pnlPanelTop);
+            this.Controls.Add(this.pnlPanelBottom);
             this.MaximumSize = new System.Drawing.Size(1254, 759);
             this.MinimumSize = new System.Drawing.Size(1254, 759);
-            this.Name = "ActivistPanel";
+            this.Name = "pnlActivist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Social Activist Dashboard";
-            this.panelSADashboard.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSA)).EndInit();
+            this.pnlPanelBottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdCampaigns)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).EndInit();
-            this.panelSA.ResumeLayout(false);
-            this.panelSA.PerformLayout();
+            this.pnlPanelTop.ResumeLayout(false);
+            this.pnlPanelTop.PerformLayout();
             this.panelBalance.ResumeLayout(false);
             this.panelBalance.PerformLayout();
-            this.panelMessagesSA.ResumeLayout(false);
-            this.panelMessagesSA.PerformLayout();
+            this.panelMessages.ResumeLayout(false);
+            this.panelMessages.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelSADashboard;
-        private System.Windows.Forms.Panel panelSA;
+        private System.Windows.Forms.Panel pnlPanelBottom;
+        private System.Windows.Forms.Panel pnlPanelTop;
         private System.Windows.Forms.Label labelSATitle;
         private System.Windows.Forms.Panel panelBalance;
-        private System.Windows.Forms.Panel panelMessagesSA;
+        private System.Windows.Forms.Panel panelMessages;
         private System.Windows.Forms.DataGridView dataGridNPO;
-        private System.Windows.Forms.Label txtCash;
-        private System.Windows.Forms.Label labelBalance;
-        private System.Windows.Forms.DataGridView dataGridSA;
+        private System.Windows.Forms.Label txtCashBalanceCheck;
+        private System.Windows.Forms.Label lblTotalBalance;
+        private System.Windows.Forms.DataGridView dgrdCampaigns;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnWebpage;
         private System.Windows.Forms.DataGridViewTextBoxColumn balance;
         private System.Windows.Forms.DataGridViewButtonColumn buttonProductListGrid;
-        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Label lblMessages;
     }
 }

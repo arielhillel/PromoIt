@@ -23,8 +23,8 @@ namespace PromotItFormApp.RoleRegister
 
         private void panelNPORegistr_Paint(object sender, PaintEventArgs e)
         {
-            panelNPORegistr.BackColor = ThemeColor.PrimaryColor;
-            panelNPORegistr.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private void buttonCloseNPOForm_Click(object sender, EventArgs e) => CloseWindow();
@@ -35,7 +35,7 @@ namespace PromotItFormApp.RoleRegister
 
         private void CloseWindow()
         {
-            if (buttonCloseNPOForm != null) return;
+            if (btnX != null) return;
             this.CloseWindow();
             Register roleSystem = new Register();
             roleSystem.ShowDialog();
@@ -45,15 +45,15 @@ namespace PromotItFormApp.RoleRegister
         {
             try
             {
-                if (textBoxNPOName.Text == "" || textBoxNPOUsername.Text == "" || textBoxNPOPassword.Text == "" || textBoxNPOEmail.Text == "" || textBoxNPOWebsite.Text == "")
+                if (txtName.Text == "" || txtUserName.Text == "" || txtPassword.Text == "" || txtWebSite.Text == "" || txtEmail.Text == "")
                     throw new Exception("Please fill the fields required!");
 
                 NonProfitUser nonProfitUser = new NonProfitUser();
-                nonProfitUser.Name = textBoxNPOName.Text;
-                nonProfitUser.UserName = textBoxNPOUsername.Text;
-                nonProfitUser.UserPassword = textBoxNPOPassword.Text;
-                nonProfitUser.Email = textBoxNPOEmail.Text;
-                nonProfitUser.WebSite = textBoxNPOWebsite.Text;
+                nonProfitUser.Name = txtName.Text;
+                nonProfitUser.UserName = txtUserName.Text;
+                nonProfitUser.UserPassword = txtPassword.Text;
+                nonProfitUser.Email = txtEmail.Text;
+                nonProfitUser.WebSite = txtWebSite.Text;
                 bool result = await nonProfitUser.RegisterAsync();
                 if (!result)
                 {

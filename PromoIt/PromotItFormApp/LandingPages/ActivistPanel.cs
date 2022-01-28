@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 namespace PromotItFormApp.LandingPages
 {
-    public partial class ActivistPanel : Form
+    public partial class pnlActivist : Form
     {
-        public ActivistPanel()
+        public pnlActivist()
         {
             InitializeComponent();
             GetCampaignsAsync();
@@ -30,16 +30,16 @@ namespace PromotItFormApp.LandingPages
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(dataGridSA["clmnHashtag", e.RowIndex].Value.ToString())) return;
+                    if (string.IsNullOrEmpty(dgrdCampaigns["clmnHashtag", e.RowIndex].Value.ToString())) return;
 
                     Campaign campaign = new Campaign();
-                    campaign.Hashtag = dataGridSA["clmnHashtag", e.RowIndex].Value.ToString();
+                    campaign.Hashtag = dgrdCampaigns["clmnHashtag", e.RowIndex].Value.ToString();
                     Configuration.CorrentCampaign = campaign;
                     ActivistProductList productList = new ActivistProductList();
                     DialogResult result = productList.ShowDialog();
                     if (result == DialogResult.Cancel)
                     {
-                        lblMessage.Text = Configuration.Message;
+                        lblMessages.Text = Configuration.Message;
                         GetCampaignsAsync();
                         GetCashAmountAsync();
                     }
@@ -50,8 +50,8 @@ namespace PromotItFormApp.LandingPages
 
         private void panelSA_Paint(object sender, PaintEventArgs e)
         {
-            panelSA.BackColor = ThemeColor.PrimaryColor;
-            panelSA.ForeColor = Color.White;
+            pnlPanelTop.BackColor = ThemeColor.PrimaryColor;
+            pnlPanelTop.ForeColor = Color.White;
         }
 
         private async Task GetCashAmountAsync()
@@ -61,7 +61,7 @@ namespace PromotItFormApp.LandingPages
             {
                 activistUser.UserName = Configuration.CorrentUser.UserName;
                 activistUser.Cash = (await activistUser.GetCashAmountAsync()).Cash;
-                txtCash.Text = activistUser.Cash;
+                txtCashBalanceCheck.Text = activistUser.Cash;
                 Loggings.ReportLog($"Activist Cash report UserName ({activistUser.UserName}) Cash ({activistUser.Cash})");
             }
             catch (Exception ex) 
@@ -76,7 +76,7 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 Campaign campaign = new Campaign();
-                dataGridSA.DataSource = await campaign.GetAllCampaigns_DataTableAsync();
+                dgrdCampaigns.DataSource = await campaign.GetAllCampaigns_DataTableAsync();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

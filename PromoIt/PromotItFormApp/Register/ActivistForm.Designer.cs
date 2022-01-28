@@ -29,199 +29,199 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivistForm));
-            this.buttonSARegister = new System.Windows.Forms.Button();
-            this.textBoxSAAddress = new System.Windows.Forms.TextBox();
-            this.textBoxSAEmail = new System.Windows.Forms.TextBox();
-            this.textBoxSAPassword = new System.Windows.Forms.TextBox();
-            this.labelSAAddress = new System.Windows.Forms.Label();
-            this.textBoxSAUsername = new System.Windows.Forms.TextBox();
-            this.labelSAEmail = new System.Windows.Forms.Label();
-            this.textBoxSAName = new System.Windows.Forms.TextBox();
-            this.labelSAPassword = new System.Windows.Forms.Label();
-            this.labelSAUsername = new System.Windows.Forms.Label();
-            this.labelSAFullname = new System.Windows.Forms.Label();
-            this.labelSATitle = new System.Windows.Forms.Label();
-            this.labelSAPhoneNumber = new System.Windows.Forms.Label();
-            this.textBoxSAPhoneNumber = new System.Windows.Forms.TextBox();
-            this.panelSARegister = new System.Windows.Forms.Panel();
-            this.buttonCloseSAForm = new System.Windows.Forms.Button();
-            this.panelSARegister.SuspendLayout();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.btnName = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblActivist = new System.Windows.Forms.Label();
+            this.lblhoneNumber = new System.Windows.Forms.Label();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.pnlPanelTop = new System.Windows.Forms.Panel();
+            this.btnX = new System.Windows.Forms.Button();
+            this.pnlPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonSARegister
+            // btnRegister
             // 
-            this.buttonSARegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonSARegister.FlatAppearance.BorderSize = 0;
-            this.buttonSARegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSARegister.ForeColor = System.Drawing.Color.White;
-            this.buttonSARegister.Location = new System.Drawing.Point(147, 464);
-            this.buttonSARegister.Name = "buttonSARegister";
-            this.buttonSARegister.Size = new System.Drawing.Size(172, 47);
-            this.buttonSARegister.TabIndex = 6;
-            this.buttonSARegister.Text = "Register";
-            this.buttonSARegister.UseVisualStyleBackColor = false;
-            this.buttonSARegister.Click += new System.EventHandler(this.buttonSARegister_Click);
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Location = new System.Drawing.Point(147, 464);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(172, 47);
+            this.btnRegister.TabIndex = 6;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.buttonSARegister_Click);
             // 
-            // textBoxSAAddress
+            // txtAddress
             // 
-            this.textBoxSAAddress.Location = new System.Drawing.Point(12, 365);
-            this.textBoxSAAddress.Name = "textBoxSAAddress";
-            this.textBoxSAAddress.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAAddress.TabIndex = 4;
+            this.txtAddress.Location = new System.Drawing.Point(12, 365);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(407, 27);
+            this.txtAddress.TabIndex = 4;
             // 
-            // textBoxSAEmail
+            // txtEmail
             // 
-            this.textBoxSAEmail.Location = new System.Drawing.Point(12, 312);
-            this.textBoxSAEmail.Name = "textBoxSAEmail";
-            this.textBoxSAEmail.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAEmail.TabIndex = 3;
+            this.txtEmail.Location = new System.Drawing.Point(12, 312);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(407, 27);
+            this.txtEmail.TabIndex = 3;
             // 
-            // textBoxSAPassword
+            // txtPassword
             // 
-            this.textBoxSAPassword.Location = new System.Drawing.Point(12, 250);
-            this.textBoxSAPassword.Name = "textBoxSAPassword";
-            this.textBoxSAPassword.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAPassword.TabIndex = 2;
+            this.txtPassword.Location = new System.Drawing.Point(12, 250);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(407, 27);
+            this.txtPassword.TabIndex = 2;
             // 
-            // labelSAAddress
+            // lblAddress
             // 
-            this.labelSAAddress.AutoSize = true;
-            this.labelSAAddress.Location = new System.Drawing.Point(12, 342);
-            this.labelSAAddress.Name = "labelSAAddress";
-            this.labelSAAddress.Size = new System.Drawing.Size(65, 20);
-            this.labelSAAddress.TabIndex = 19;
-            this.labelSAAddress.Text = "Address:";
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Location = new System.Drawing.Point(12, 342);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(65, 20);
+            this.lblAddress.TabIndex = 19;
+            this.lblAddress.Text = "Address:";
             // 
-            // textBoxSAUsername
+            // txtUserName
             // 
-            this.textBoxSAUsername.Location = new System.Drawing.Point(12, 186);
-            this.textBoxSAUsername.Name = "textBoxSAUsername";
-            this.textBoxSAUsername.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAUsername.TabIndex = 1;
+            this.txtUserName.Location = new System.Drawing.Point(12, 186);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(407, 27);
+            this.txtUserName.TabIndex = 1;
             // 
-            // labelSAEmail
+            // lblEmail
             // 
-            this.labelSAEmail.AutoSize = true;
-            this.labelSAEmail.Location = new System.Drawing.Point(12, 289);
-            this.labelSAEmail.Name = "labelSAEmail";
-            this.labelSAEmail.Size = new System.Drawing.Size(49, 20);
-            this.labelSAEmail.TabIndex = 20;
-            this.labelSAEmail.Text = "Email:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(12, 289);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(49, 20);
+            this.lblEmail.TabIndex = 20;
+            this.lblEmail.Text = "Email:";
             // 
-            // textBoxSAName
+            // btnName
             // 
-            this.textBoxSAName.Location = new System.Drawing.Point(12, 122);
-            this.textBoxSAName.Name = "textBoxSAName";
-            this.textBoxSAName.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAName.TabIndex = 0;
+            this.btnName.Location = new System.Drawing.Point(12, 122);
+            this.btnName.Name = "btnName";
+            this.btnName.Size = new System.Drawing.Size(407, 27);
+            this.btnName.TabIndex = 0;
             // 
-            // labelSAPassword
+            // lblPassword
             // 
-            this.labelSAPassword.AutoSize = true;
-            this.labelSAPassword.Location = new System.Drawing.Point(12, 227);
-            this.labelSAPassword.Name = "labelSAPassword";
-            this.labelSAPassword.Size = new System.Drawing.Size(73, 20);
-            this.labelSAPassword.TabIndex = 21;
-            this.labelSAPassword.Text = "Password:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(12, 227);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(73, 20);
+            this.lblPassword.TabIndex = 21;
+            this.lblPassword.Text = "Password:";
             // 
-            // labelSAUsername
+            // lblUserName
             // 
-            this.labelSAUsername.AutoSize = true;
-            this.labelSAUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSAUsername.Location = new System.Drawing.Point(12, 163);
-            this.labelSAUsername.Name = "labelSAUsername";
-            this.labelSAUsername.Size = new System.Drawing.Size(138, 20);
-            this.labelSAUsername.TabIndex = 22;
-            this.labelSAUsername.Text = "Twitter Username:";
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUserName.Location = new System.Drawing.Point(12, 163);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(138, 20);
+            this.lblUserName.TabIndex = 22;
+            this.lblUserName.Text = "Twitter Username:";
             // 
-            // labelSAFullname
+            // lblName
             // 
-            this.labelSAFullname.AutoSize = true;
-            this.labelSAFullname.Location = new System.Drawing.Point(12, 99);
-            this.labelSAFullname.Name = "labelSAFullname";
-            this.labelSAFullname.Size = new System.Drawing.Size(79, 20);
-            this.labelSAFullname.TabIndex = 23;
-            this.labelSAFullname.Text = "Full Name:";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(12, 99);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(79, 20);
+            this.lblName.TabIndex = 23;
+            this.lblName.Text = "Full Name:";
             // 
-            // labelSATitle
+            // lblActivist
             // 
-            this.labelSATitle.AutoSize = true;
-            this.labelSATitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelSATitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSATitle.ForeColor = System.Drawing.Color.White;
-            this.labelSATitle.Location = new System.Drawing.Point(12, 30);
-            this.labelSATitle.Name = "labelSATitle";
-            this.labelSATitle.Size = new System.Drawing.Size(253, 28);
-            this.labelSATitle.TabIndex = 24;
-            this.labelSATitle.Text = "Social Activist Registeration";
+            this.lblActivist.AutoSize = true;
+            this.lblActivist.BackColor = System.Drawing.Color.Transparent;
+            this.lblActivist.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblActivist.ForeColor = System.Drawing.Color.White;
+            this.lblActivist.Location = new System.Drawing.Point(12, 30);
+            this.lblActivist.Name = "lblActivist";
+            this.lblActivist.Size = new System.Drawing.Size(253, 28);
+            this.lblActivist.TabIndex = 24;
+            this.lblActivist.Text = "Social Activist Registeration";
             // 
-            // labelSAPhoneNumber
+            // lblhoneNumber
             // 
-            this.labelSAPhoneNumber.AutoSize = true;
-            this.labelSAPhoneNumber.Location = new System.Drawing.Point(12, 404);
-            this.labelSAPhoneNumber.Name = "labelSAPhoneNumber";
-            this.labelSAPhoneNumber.Size = new System.Drawing.Size(111, 20);
-            this.labelSAPhoneNumber.TabIndex = 19;
-            this.labelSAPhoneNumber.Text = "Phone Number:";
+            this.lblhoneNumber.AutoSize = true;
+            this.lblhoneNumber.Location = new System.Drawing.Point(12, 404);
+            this.lblhoneNumber.Name = "lblhoneNumber";
+            this.lblhoneNumber.Size = new System.Drawing.Size(111, 20);
+            this.lblhoneNumber.TabIndex = 19;
+            this.lblhoneNumber.Text = "Phone Number:";
             // 
-            // textBoxSAPhoneNumber
+            // txtPhoneNumber
             // 
-            this.textBoxSAPhoneNumber.Location = new System.Drawing.Point(12, 427);
-            this.textBoxSAPhoneNumber.Name = "textBoxSAPhoneNumber";
-            this.textBoxSAPhoneNumber.Size = new System.Drawing.Size(407, 27);
-            this.textBoxSAPhoneNumber.TabIndex = 5;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(12, 427);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(407, 27);
+            this.txtPhoneNumber.TabIndex = 5;
             // 
-            // panelSARegister
+            // pnlPanelTop
             // 
-            this.panelSARegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
-            this.panelSARegister.Controls.Add(this.buttonCloseSAForm);
-            this.panelSARegister.Controls.Add(this.labelSATitle);
-            this.panelSARegister.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSARegister.Location = new System.Drawing.Point(0, 0);
-            this.panelSARegister.Name = "panelSARegister";
-            this.panelSARegister.Size = new System.Drawing.Size(487, 86);
-            this.panelSARegister.TabIndex = 31;
-            this.panelSARegister.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSARegister_Paint);
+            this.pnlPanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
+            this.pnlPanelTop.Controls.Add(this.btnX);
+            this.pnlPanelTop.Controls.Add(this.lblActivist);
+            this.pnlPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelTop.Name = "pnlPanelTop";
+            this.pnlPanelTop.Size = new System.Drawing.Size(487, 86);
+            this.pnlPanelTop.TabIndex = 31;
+            this.pnlPanelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSARegister_Paint);
             // 
-            // buttonCloseSAForm
+            // btnX
             // 
-            this.buttonCloseSAForm.FlatAppearance.BorderSize = 0;
-            this.buttonCloseSAForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCloseSAForm.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseSAForm.Image")));
-            this.buttonCloseSAForm.Location = new System.Drawing.Point(421, 24);
-            this.buttonCloseSAForm.Name = "buttonCloseSAForm";
-            this.buttonCloseSAForm.Size = new System.Drawing.Size(54, 46);
-            this.buttonCloseSAForm.TabIndex = 7;
-            this.buttonCloseSAForm.UseVisualStyleBackColor = true;
-            this.buttonCloseSAForm.Click += new System.EventHandler(this.buttonCloseSAForm_Click);
+            this.btnX.FlatAppearance.BorderSize = 0;
+            this.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnX.Image = ((System.Drawing.Image)(resources.GetObject("btnX.Image")));
+            this.btnX.Location = new System.Drawing.Point(421, 24);
+            this.btnX.Name = "btnX";
+            this.btnX.Size = new System.Drawing.Size(54, 46);
+            this.btnX.TabIndex = 7;
+            this.btnX.UseVisualStyleBackColor = true;
+            this.btnX.Click += new System.EventHandler(this.buttonCloseSAForm_Click);
             // 
             // ActivistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 523);
-            this.Controls.Add(this.buttonSARegister);
-            this.Controls.Add(this.textBoxSAPhoneNumber);
-            this.Controls.Add(this.textBoxSAAddress);
-            this.Controls.Add(this.textBoxSAEmail);
-            this.Controls.Add(this.labelSAPhoneNumber);
-            this.Controls.Add(this.textBoxSAPassword);
-            this.Controls.Add(this.labelSAAddress);
-            this.Controls.Add(this.textBoxSAUsername);
-            this.Controls.Add(this.labelSAEmail);
-            this.Controls.Add(this.textBoxSAName);
-            this.Controls.Add(this.labelSAPassword);
-            this.Controls.Add(this.labelSAUsername);
-            this.Controls.Add(this.labelSAFullname);
-            this.Controls.Add(this.panelSARegister);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblhoneNumber);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.btnName);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.pnlPanelTop);
             this.MaximumSize = new System.Drawing.Size(505, 570);
             this.MinimumSize = new System.Drawing.Size(505, 570);
             this.Name = "ActivistForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registry - Social Activist";
+            this.Text = "Register - Social Activist";
             this.Load += new System.EventHandler(this.SocialActivistForm_Load);
-            this.panelSARegister.ResumeLayout(false);
-            this.panelSARegister.PerformLayout();
+            this.pnlPanelTop.ResumeLayout(false);
+            this.pnlPanelTop.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,21 +229,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSARegister;
-        private System.Windows.Forms.TextBox textBoxSAAddress;
-        private System.Windows.Forms.TextBox textBoxSAEmail;
-        private System.Windows.Forms.TextBox textBoxSAPassword;
-        private System.Windows.Forms.Label labelSAAddress;
-        private System.Windows.Forms.TextBox textBoxSAUsername;
-        private System.Windows.Forms.Label labelSAEmail;
-        private System.Windows.Forms.TextBox textBoxSAName;
-        private System.Windows.Forms.Label labelSAPassword;
-        private System.Windows.Forms.Label labelSAUsername;
-        private System.Windows.Forms.Label labelSAFullname;
-        private System.Windows.Forms.Label labelSATitle;
-        private System.Windows.Forms.Label labelSAPhoneNumber;
-        private System.Windows.Forms.TextBox textBoxSAPhoneNumber;
-        private System.Windows.Forms.Panel panelSARegister;
-        private System.Windows.Forms.Button buttonCloseSAForm;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox btnName;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblActivist;
+        private System.Windows.Forms.Label lblhoneNumber;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.Panel pnlPanelTop;
+        private System.Windows.Forms.Button btnX;
     }
 }

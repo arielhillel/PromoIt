@@ -28,89 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelNPO = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridNPO = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pnlPanelTop = new System.Windows.Forms.Panel();
+            this.lblNonProfitOrganization = new System.Windows.Forms.Label();
+            this.pnlPanelBottom = new System.Windows.Forms.Panel();
+            this.dgrdNonProfit = new System.Windows.Forms.DataGridView();
             this.clmnCampaignName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnHashtag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.webpage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmnCreator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonDeleteGrid = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.panelNPO.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).BeginInit();
+            this.btnNewCampaign = new System.Windows.Forms.Button();
+            this.pnlPanelTop.SuspendLayout();
+            this.pnlPanelBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdNonProfit)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelNPO
+            // pnlPanelTop
             // 
-            this.panelNPO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
-            this.panelNPO.Controls.Add(this.label1);
-            this.panelNPO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelNPO.Location = new System.Drawing.Point(0, 0);
-            this.panelNPO.Name = "panelNPO";
-            this.panelNPO.Size = new System.Drawing.Size(1141, 135);
-            this.panelNPO.TabIndex = 0;
-            this.panelNPO.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNPO_Paint);
+            this.pnlPanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
+            this.pnlPanelTop.Controls.Add(this.lblNonProfitOrganization);
+            this.pnlPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelTop.Name = "pnlPanelTop";
+            this.pnlPanelTop.Size = new System.Drawing.Size(1141, 135);
+            this.pnlPanelTop.TabIndex = 0;
+            this.pnlPanelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNPO_Paint);
             // 
-            // label1
+            // lblNonProfitOrganization
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Non-Profit Organization";
+            this.lblNonProfitOrganization.AutoSize = true;
+            this.lblNonProfitOrganization.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNonProfitOrganization.ForeColor = System.Drawing.Color.White;
+            this.lblNonProfitOrganization.Location = new System.Drawing.Point(12, 50);
+            this.lblNonProfitOrganization.Name = "lblNonProfitOrganization";
+            this.lblNonProfitOrganization.Size = new System.Drawing.Size(225, 28);
+            this.lblNonProfitOrganization.TabIndex = 0;
+            this.lblNonProfitOrganization.Text = "Non-Profit Organization";
             // 
-            // panel2
+            // pnlPanelBottom
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlPanelBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.dataGridNPO);
-            this.panel2.Controls.Add(this.buttonNew);
-            this.panel2.Location = new System.Drawing.Point(28, 160);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1084, 429);
-            this.panel2.TabIndex = 0;
+            this.pnlPanelBottom.BackColor = System.Drawing.Color.White;
+            this.pnlPanelBottom.Controls.Add(this.dgrdNonProfit);
+            this.pnlPanelBottom.Controls.Add(this.btnNewCampaign);
+            this.pnlPanelBottom.Location = new System.Drawing.Point(28, 160);
+            this.pnlPanelBottom.Name = "pnlPanelBottom";
+            this.pnlPanelBottom.Size = new System.Drawing.Size(1084, 429);
+            this.pnlPanelBottom.TabIndex = 0;
             // 
-            // dataGridNPO
+            // dgrdNonProfit
             // 
-            this.dataGridNPO.AllowUserToAddRows = false;
-            this.dataGridNPO.AllowUserToDeleteRows = false;
-            this.dataGridNPO.AllowUserToResizeColumns = false;
-            this.dataGridNPO.AllowUserToResizeRows = false;
-            this.dataGridNPO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgrdNonProfit.AllowUserToAddRows = false;
+            this.dgrdNonProfit.AllowUserToDeleteRows = false;
+            this.dgrdNonProfit.AllowUserToResizeColumns = false;
+            this.dgrdNonProfit.AllowUserToResizeRows = false;
+            this.dgrdNonProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridNPO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridNPO.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridNPO.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridNPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridNPO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgrdNonProfit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrdNonProfit.BackgroundColor = System.Drawing.Color.White;
+            this.dgrdNonProfit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgrdNonProfit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrdNonProfit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmnCampaignName,
             this.clmnHashtag,
             this.webpage,
             this.clmnCreator,
             this.buttonDeleteGrid});
-            this.dataGridNPO.GridColor = System.Drawing.Color.White;
-            this.dataGridNPO.Location = new System.Drawing.Point(17, 90);
-            this.dataGridNPO.MultiSelect = false;
-            this.dataGridNPO.Name = "dataGridNPO";
-            this.dataGridNPO.ReadOnly = true;
-            this.dataGridNPO.RowHeadersVisible = false;
-            this.dataGridNPO.RowHeadersWidth = 51;
-            this.dataGridNPO.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridNPO.RowTemplate.Height = 29;
-            this.dataGridNPO.ShowEditingIcon = false;
-            this.dataGridNPO.Size = new System.Drawing.Size(1051, 321);
-            this.dataGridNPO.TabIndex = 0;
-            this.dataGridNPO.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridNPO_CellClick);
+            this.dgrdNonProfit.GridColor = System.Drawing.Color.White;
+            this.dgrdNonProfit.Location = new System.Drawing.Point(17, 90);
+            this.dgrdNonProfit.MultiSelect = false;
+            this.dgrdNonProfit.Name = "dgrdNonProfit";
+            this.dgrdNonProfit.ReadOnly = true;
+            this.dgrdNonProfit.RowHeadersVisible = false;
+            this.dgrdNonProfit.RowHeadersWidth = 51;
+            this.dgrdNonProfit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgrdNonProfit.RowTemplate.Height = 29;
+            this.dgrdNonProfit.ShowEditingIcon = false;
+            this.dgrdNonProfit.Size = new System.Drawing.Size(1051, 321);
+            this.dgrdNonProfit.TabIndex = 0;
+            this.dgrdNonProfit.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridNPO_CellClick);
             // 
             // clmnCampaignName
             // 
@@ -146,13 +146,13 @@
             // 
             // buttonDeleteGrid
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.buttonDeleteGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.buttonDeleteGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.buttonDeleteGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteGrid.HeaderText = "";
             this.buttonDeleteGrid.MinimumWidth = 6;
@@ -161,48 +161,48 @@
             this.buttonDeleteGrid.Text = "Delete";
             this.buttonDeleteGrid.UseColumnTextForButtonValue = true;
             // 
-            // buttonNew
+            // btnNewCampaign
             // 
-            this.buttonNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.ForeColor = System.Drawing.Color.White;
-            this.buttonNew.Location = new System.Drawing.Point(17, 21);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(172, 47);
-            this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "New";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            this.btnNewCampaign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.btnNewCampaign.FlatAppearance.BorderSize = 0;
+            this.btnNewCampaign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewCampaign.ForeColor = System.Drawing.Color.White;
+            this.btnNewCampaign.Location = new System.Drawing.Point(17, 21);
+            this.btnNewCampaign.Name = "btnNewCampaign";
+            this.btnNewCampaign.Size = new System.Drawing.Size(172, 47);
+            this.btnNewCampaign.TabIndex = 0;
+            this.btnNewCampaign.Text = "New";
+            this.btnNewCampaign.UseVisualStyleBackColor = false;
+            this.btnNewCampaign.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // NonProfitPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1141, 605);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelNPO);
+            this.Controls.Add(this.pnlPanelBottom);
+            this.Controls.Add(this.pnlPanelTop);
             this.MaximumSize = new System.Drawing.Size(1159, 652);
             this.MinimumSize = new System.Drawing.Size(1159, 652);
             this.Name = "NonProfitPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Non-Profit Organzation Dashboard";
             this.Shown += new System.EventHandler(this.NPOrganizationPanel_Shown);
-            this.panelNPO.ResumeLayout(false);
-            this.panelNPO.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridNPO)).EndInit();
+            this.pnlPanelTop.ResumeLayout(false);
+            this.pnlPanelTop.PerformLayout();
+            this.pnlPanelBottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdNonProfit)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelNPO;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.DataGridView dataGridNPO;
+        private System.Windows.Forms.Panel pnlPanelTop;
+        private System.Windows.Forms.Label lblNonProfitOrganization;
+        private System.Windows.Forms.Panel pnlPanelBottom;
+        private System.Windows.Forms.Button btnNewCampaign;
+        private System.Windows.Forms.DataGridView dgrdNonProfit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnCampaignName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmnHashtag;
         private System.Windows.Forms.DataGridViewTextBoxColumn webpage;
