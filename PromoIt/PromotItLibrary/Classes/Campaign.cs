@@ -31,11 +31,8 @@ namespace PromotItLibrary.Classes
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignQueue, this, "SetNewCampaign");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign");
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            } 
+            catch { return false;}
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -58,11 +55,8 @@ namespace PromotItLibrary.Classes
                 return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignQueue, this, "DeleteCampaign");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
                 return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign");
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            } 
+            catch{ return false; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -75,9 +69,6 @@ namespace PromotItLibrary.Classes
         }
 
 
-
-
-
         public async Task<List<Campaign>> MySql_GetAllCampaignsNonProfit_ListAsync(Modes mode = null) //Non profit
         {
 
@@ -88,10 +79,7 @@ namespace PromotItLibrary.Classes
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
                 return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaignsNonProfit");
             }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            catch { return null; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -129,17 +117,18 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
             {
-                try
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnCampaignName"] = campaign.Name;
-                    dataRow["clmnHashtag"] = campaign.Hashtag;
-                    dataRow["clmnWebsite"] = campaign.Url;
-                    dataRow["clmnCreator"] = campaign.NonProfitUser.UserName;
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["clmnCampaignName"] = campaign.Name;
+                dataRow["clmnHashtag"] = campaign.Hashtag;
+                dataRow["clmnWebsite"] = campaign.Url;
+                dataRow["clmnCreator"] = campaign.NonProfitUser.UserName;
+                dataTable.Rows.Add(dataRow);
             }
+
+            if(campaignsList.Count == 0)
+                Loggings.ErrorLog($"Non Profit Organization Not have any campaigns to show from GetAllCampaigns, UserName ({NonProfitUser.UserName})");
+            else Loggings.ReportLog($"Non Profit Organization GetAllCampaigns, UserName ({NonProfitUser.UserName})");
+
             return dataTable;
         }
 
@@ -190,16 +179,18 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (Campaign campaign in campaignsList)
             {
-                try
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnHashtag"] = campaign.Hashtag;
-                    dataRow["clmnWebpage"] = campaign.Url;
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["clmnHashtag"] = campaign.Hashtag;
+                dataRow["clmnWebpage"] = campaign.Url;
+                dataTable.Rows.Add(dataRow);
             }
+
+            if (campaignsList.Count == 0)
+                Loggings.ErrorLog($"Cant find any campaign to show from GetAllCampaigns request");
+            else Loggings.ReportLog($"GetAllCampaigns Requested");
+
             return dataTable;
+
         }
 
     }

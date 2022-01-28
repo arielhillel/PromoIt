@@ -37,10 +37,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetNewProduct");
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            catch { return false; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -65,19 +62,20 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (ProductInCampaign productInCampaign in productInCampaignList)
             {
-                try
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnProductName"] = productInCampaign.Name;
-                    dataRow["clmnProductQuantity"] = productInCampaign.Quantity;
-                    dataRow["clmnProductPrice"] = productInCampaign.Price;
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["clmnProductName"] = productInCampaign.Name;
+                dataRow["clmnProductQuantity"] = productInCampaign.Quantity;
+                dataRow["clmnProductPrice"] = productInCampaign.Price;
 
-                    dataRow["clmnProductId"] = productInCampaign.Id;
-                    dataRow["clmnBusinessUser"] = productInCampaign.BusinessUser.UserName;
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
+                dataRow["clmnProductId"] = productInCampaign.Id;    //hidden
+                dataRow["clmnBusinessUser"] = productInCampaign.BusinessUser.UserName;    //hidden
+                dataTable.Rows.Add(dataRow);
             }
+
+            if (productInCampaignList.Count == 0)
+                Loggings.ErrorLog($"No Products  in Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
+            else Loggings.ReportLog($"Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
+
             return dataTable;
         }
 
@@ -91,10 +89,7 @@ namespace PromotItLibrary.Classes
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
                 return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetProductList");
             }
-            catch (Exception ex)
-            {
-                return null;
-            };
+            catch { return null;};
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {

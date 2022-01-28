@@ -37,10 +37,8 @@ namespace PromotItLibrary.Classes
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitTweetQueue, this, "SetTweetCash");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitTweetFunctions, this, "SetTweetCash");
-            } catch (Exception ex)
-            {
-                return false;
-            }
+            } 
+            catch { return false; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -65,10 +63,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetFunctions, this, "GetAllTweets");
             }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            catch { return null; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -100,6 +95,7 @@ namespace PromotItLibrary.Classes
             List<Tweet> tweetList = await MySQL_GetAllTweets_ListAsync();
             foreach (string culmn in new[] { "Hashtag", "UserName", "Retweets" })
                 dataTable.Columns.Add(culmn);
+            Loggings.TweeterLogs.LogInformation($"Tweet List, Reguested by ({Configuration.CorrentUser.UserName})");
             foreach (Tweet tweet in tweetList)
             {
                 DataRow dataRow = dataTable.NewRow();
@@ -109,7 +105,14 @@ namespace PromotItLibrary.Classes
                 dataTable.Rows.Add(dataRow);
                 Loggings.TweeterLogs.LogInformation($"Tweet Campaign Hashtag (#{tweet.Campaign.Hashtag}) UserName ({tweet.ActivistUser.UserName}) Retweets ({tweet.Retweets})");
             }
+
+            Loggings.TweeterLogs.LogInformation($"");
+            if (tweetList.Count == 0)
+                Loggings.ErrorLog($"Admin Requested to get all users list, The list is empty, Reguested by ({Configuration.CorrentUser.UserName})");
+            else Loggings.ReportLog($"Admin Requested to get all users list, Reguested by ({Configuration.CorrentUser.UserName})");
+
             return dataTable;
+
         }
 
     }

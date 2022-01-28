@@ -22,14 +22,11 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserQueue, this, "");
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserFunctions, this, "");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserQueue, this, "");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserFunctions, this, "");
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            catch {  return false; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -41,8 +38,8 @@ namespace PromotItLibrary.Classes
             }
 
             return false;
-        }
 
+        }
 
 
         public async Task<DataTable> GetAllCampaignsAdmin_DataTableAsync()
@@ -52,16 +49,23 @@ namespace PromotItLibrary.Classes
             List<Campaign> campaignsList = await campaign1.MySQL_GetAllCampaigns_ListAsync();       //From Campaign Class
             foreach (string culmn in new[] { "Hashtag", "Webpage", "Creator" })
                 dataTable.Columns.Add(culmn);
+            Loggings.CampaignsLog.LogInformation($"Campaign List, Reguested by ({UserName})");
             foreach (Campaign campaign in campaignsList)
             {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["Hashtag"] = campaign.Hashtag;
-                    dataRow["Webpage"] = campaign.Url;
-                    dataRow["Creator"] = campaign.NonProfitUser.UserName;
-                    dataTable.Rows.Add(dataRow);
-                    Loggings.CampaignsLog.LogInformation($"Campaign Hashtag (#{campaign.Hashtag}) Creator ({campaign.NonProfitUser.UserName}) Webpage ({campaign.Url})");
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["Hashtag"] = campaign.Hashtag;
+                dataRow["Webpage"] = campaign.Url;
+                dataRow["Creator"] = campaign.NonProfitUser.UserName;
+                dataTable.Rows.Add(dataRow);
+                Loggings.CampaignsLog.LogInformation($"Campaign Hashtag (#{campaign.Hashtag}) Creator ({campaign.NonProfitUser.UserName}) Webpage ({campaign.Url})");
             }
+            Loggings.CampaignsLog.LogInformation($"");
+            if (campaignsList.Count == 0)
+                Loggings.ErrorLog($"Admin Requested to get all campaigns list, The list is empty, Reguested by ({UserName})"); 
+            else Loggings.ReportLog($"Admin Requested to get all campaigns list, Reguested by ({UserName})");
+
             return dataTable;
+
         }
 
         public async Task<List<Users>> MySQL_GetAllUsers_ListAsync(Modes mode = null)
@@ -72,11 +76,7 @@ namespace PromotItLibrary.Classes
                     return await Functions.GetMultipleDataRequest(Configuration.SetUserQueue, new Users(), "GetAllUsers");
                 if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return await Functions.GetMultipleDataRequest(Configuration.SetUserFunctions, new Users(), "GetAllUsers");
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            } catch { return null;}
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -106,16 +106,24 @@ namespace PromotItLibrary.Classes
             List<Users> userList = await MySQL_GetAllUsers_ListAsync();
             foreach (string culmn in new[] { "Name", "UserName", "Type" })
                 dataTable.Columns.Add(culmn);
+            Loggings.UsersLog.LogInformation($"Users List, Reguested by ({UserName})");
             foreach (Users user in userList)
             {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["Name"] = user.Name;
-                    dataRow["UserName"] = user.UserName;
-                    dataRow["Type"] = user.UserType;
-                    dataTable.Rows.Add(dataRow);
-                    Loggings.UsersLog.LogInformation($"User UserName (#{user.UserName}) Name ({user.Name}) Type ({user.UserType})");
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["Name"] = user.Name;
+                dataRow["UserName"] = user.UserName;
+                dataRow["Type"] = user.UserType;
+                dataTable.Rows.Add(dataRow);
+                Loggings.UsersLog.LogInformation($"User UserName (#{user.UserName}) Name ({user.Name}) Type ({user.UserType})");
             }
+
+            Loggings.UsersLog.LogInformation($"");
+            if (userList.Count == 0)
+                Loggings.ErrorLog($"Admin Requested to get all users list, The list is empty, Reguested by ({UserName})"); 
+            else Loggings.ReportLog($"Admin Requested to get all users list, Reguested by ({UserName})");
+
             return dataTable;
+
         }
 
     }

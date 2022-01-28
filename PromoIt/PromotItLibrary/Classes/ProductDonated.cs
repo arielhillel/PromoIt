@@ -33,9 +33,13 @@ namespace PromotItLibrary.Classes
                 await Functions.SetTwitterMessage_SetBuyAnItemAsync($"Product: {ProductInCampaign.Name}, Quantity {Quantity}" +
                     $"\nOrdered by Social Activist: @{ActivistUser.UserName}" +
                     $"\nFrom Business: {ProductInCampaign.BusinessUser.UserName}");
-            } catch 
+                Loggings.ReportLog($"Trying To Set a tweet for buying an item, Activist UserName ({ActivistUser.UserName}) CampaignName ({ProductInCampaign.Name}) BuisnessUserName ({ProductInCampaign.BusinessUser.UserName})" +
+                    $"\nProductId ({ProductInCampaign.Id}) Quantity ({Quantity})");
+            }
+            catch 
             {  //Twitter exeption
-
+                Loggings.ErrorLog($"Some error to set a tweet for buying an item, Activist UserName ({ActivistUser.UserName}) CampaignName ({ProductInCampaign.Name}) BuisnessUserName ({ProductInCampaign.BusinessUser.UserName})" +
+                    $"\nProductId ({ProductInCampaign.Id}) Quantity ({Quantity})");
             }
         }
 
@@ -50,10 +54,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetBuyAnItem");
             }
-            catch (Exception ex)
-            {
-                return false;
-            }    
+            catch { return false; }    
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -79,10 +80,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetProductShipping");
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            catch { return false; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -106,10 +104,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetDonatedProductForShipping");
             }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            catch { return null; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -137,7 +132,8 @@ namespace PromotItLibrary.Classes
                 return productDonatedList;
             }
 
-                return null;
+            return null;
+
         }
 
 
@@ -149,16 +145,17 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             foreach (ProductDonated productDonated in productDonatedList)
             {
-                try
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["clmnActivist"] = productDonated.ActivistUser.UserName;
-                    dataRow["clmnProduct"] = productDonated.ProductInCampaign.Name;
-                    dataRow["clmnProductDonatedId"] = productDonated.Id;
-                    dataTable.Rows.Add(dataRow);
-                }
-                catch { };
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["clmnActivist"] = productDonated.ActivistUser.UserName;
+                dataRow["clmnProduct"] = productDonated.ProductInCampaign.Name;
+                dataRow["clmnProductDonatedId"] = productDonated.Id;
+                dataTable.Rows.Add(dataRow);
             }
+
+            if (productDonatedList.Count == 0)
+                Loggings.ErrorLog($"Business user Got Empty list of donated products waiting for shipping, UserName ({ProductInCampaign.BusinessUser.UserName})");
+            else Loggings.ReportLog($"Business user Get All donated products waiting for shipping, UserName ({ProductInCampaign.BusinessUser.UserName})");
+
             return dataTable;
         }
 

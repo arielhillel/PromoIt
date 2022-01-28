@@ -31,8 +31,8 @@ namespace PromoitConsole
         {
 
 
-            Loggings.CampaignsLog.LogInformation("DFGDFGDFGFDGDFGGDFGGF");
-
+            Loggings.CampaignsLog.LogError("DFGDFGDFGFDGDFGGDFGGF");
+            Loggings.CampaignsLog.LogInformation("FDGDFG");
 
 
         }

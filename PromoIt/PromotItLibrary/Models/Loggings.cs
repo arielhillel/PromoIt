@@ -13,11 +13,11 @@ namespace PromotItLibrary.Models
 {
     public class Loggings
     {
-        public static ILogger<Campaign> CampaignsLog { get; set; } = setLogger<Campaign>(@"../../../../../Logs/Campaigns/CampaignLog.txt");
-        public static ILogger<Users> UsersLog { get; set; } = setLogger<Users>(@"../../../../../Logs/Users/UsersLog.txt");
-        public static ILogger<Tweet> TweeterLogs { get; set; } = setLogger<Tweet>(@"../../../../../Logs/Tweets/TweetLogs.txt");
-        private static ILogger<object> _errorLogs { get; set; } = setLogger<object>(@"../../../../../Logs/Errors/ErrorLogs.txt");
-        private static ILogger<object> _reportLogs { get; set; } = setLogger<object>(@"../../../../../Logs/Reports/ReportLogs.txt");
+        public static ILogger<Campaign> CampaignsLog { get; } = setLogger<Campaign>(@"../../../../../Logs/Campaigns/CampaignLog.txt");
+        public static ILogger<Users> UsersLog { get; } = setLogger<Users>(@"../../../../../Logs/Users/UsersLog.txt");
+        public static ILogger<Tweet> TweeterLogs { get;  } = setLogger<Tweet>(@"../../../../../Logs/Tweets/TweetLogs.txt");
+        private static ILogger<AdminUser> _errorLogs { get;} = setLogger<AdminUser>(@"../../../../../Logs/Errors/ErrorLogs.txt");
+        private static ILogger<AdminUser> _reportLogs { get; } = setLogger<AdminUser>(@"../../../../../Logs/Reports/ReportLogs.txt");
 
         public static void ReportLog(string logString) 
         {
@@ -30,24 +30,12 @@ namespace PromotItLibrary.Models
             _errorLogs.LogError(logString);
         }
 
-        private static ServiceProvider _serviceProvider(string address) => new ServiceCollection()
-                .AddLogging
-                (
-                    builder =>
-                    {
-                        LoggerConfiguration loggerConfiguration = new LoggerConfiguration().WriteTo.File(address, rollingInterval: RollingInterval.Day);
-                        builder.AddSerilog(loggerConfiguration.CreateLogger()); builder.SetMinimumLevel(LogLevel.Trace); //builder.AddDebug(); //builder.AddConsole();
-                        }
-                )
-                // .AddSingleton<IVehicleDataReader, VehicleDataReader>()
-                .BuildServiceProvider();
+        private static ServiceProvider _serviceProvider(string address)
+            => new ServiceCollection().AddLogging ( builder => { LoggerConfiguration loggerConfiguration = new LoggerConfiguration().WriteTo.File(address, rollingInterval: RollingInterval.Day);  builder.AddSerilog(loggerConfiguration.CreateLogger()); } ).BuildServiceProvider();
+        // builder.SetMinimumLevel(LogLevel.Trace); builder.AddDebug(); //builder.AddConsole();
 
-        public static ILogger<T> setLogger<T>(string address)
+        public static ILogger<T> setLogger<T>(string address) => (ILogger<T>)_serviceProvider(address).GetService<ILoggerFactory>().CreateLogger<T>();
 
-        {
-
-            return (ILogger<T>)_serviceProvider(address).GetService<ILoggerFactory>().CreateLogger<T>();
-        }
 
     }
 }

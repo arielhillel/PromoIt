@@ -48,13 +48,13 @@ namespace PromotItFormApp.LandingPagesActions
                 Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
                 Task sendATweet = _productDonated.SetTwitterMessagTweet_SetBuyAnItemAsync();
                 await sendATweet;
-                Loggings.ReportLog($"Activist Bought an ite,m UserName ({_productDonated.ActivistUser.UserName}) CampaignName ({_productDonated.ProductInCampaign.Name}) BuisnessUserName ({_productDonated.ProductInCampaign.BusinessUser.UserName})" +
+                Loggings.ReportLog($"Activist Bought an item, Activist UserName ({_productDonated.ActivistUser.UserName}) CampaignName ({_productDonated.ProductInCampaign.Name}) BuisnessUserName ({_productDonated.ProductInCampaign.BusinessUser.UserName})" +
                     $"\nProductId ({_productDonated.ProductInCampaign.Id}) Quantity ({_productDonated.Quantity})");
                 this.Dispose();
             }
             catch (Exception ex) 
             {
-                Loggings.ErrorLog($"Fail to bought Activist an item, UserName ({_productDonated.ActivistUser.UserName}) CampaignName ({_productDonated.ProductInCampaign.Name}) BuisnessUserName ({_productDonated.ProductInCampaign.BusinessUser.UserName})" +
+                Loggings.ErrorLog($"Fail to bought Activist an item, Activist UserName ({_productDonated.ActivistUser.UserName}) CampaignName ({_productDonated.ProductInCampaign.Name}) BuisnessUserName ({_productDonated.ProductInCampaign.BusinessUser.UserName})" +
                                         $"\nProductId ({_productDonated.ProductInCampaign.Id}) Quantity ({_productDonated.Quantity})" +
                                         $"\nDatabase Exeption: ({ex})");
                 MessageBox.Show(ex.Message);

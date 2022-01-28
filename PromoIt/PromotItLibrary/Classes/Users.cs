@@ -38,10 +38,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, "Login");
             }
-            catch(Exception ex)
-            {
-                return null;
-            };
+            catch { return null; };
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {

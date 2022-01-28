@@ -22,19 +22,17 @@ namespace PromotItLibrary.Classes
         public async Task<ActivistUser> GetCashAmountAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
             {
-                try { return await Functions.GetSingleDataRequest(Configuration.PromoitProductQueue, this, "GetCashAmount"); }
-                catch { throw new Exception($"Queue error"); };
-            }
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return await Functions.GetSingleDataRequest(Configuration.PromoitProductQueue, this, "GetCashAmount");
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return await Functions.GetSingleDataRequest(Configuration.PromoitProductFunctions, this, "GetCashAmount"); }
-                catch { throw new Exception($"Functions error"); };
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return await Functions.GetSingleDataRequest(Configuration.PromoitProductFunctions, this, "GetCashAmount");
             }
+            catch { return null; }
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Quary("SELECT cash FROM promoit.users_activists Where user_name = @_username LIMIT 1");
                 mySQL.ProcedureParameter("_username", UserName);
@@ -55,19 +53,20 @@ namespace PromotItLibrary.Classes
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
             {
-                try { return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserQueue, this, ""); }
-                catch { throw new Exception($"Queue error"); };
-            }
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserFunctions, this, ""); }
-                catch { throw new Exception($"Functions error"); };
-            }
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserQueue, this, "");
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserFunctions, this, "");
+            }
+            catch { return false; }
+
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("register_activist");
                 mySQL.ProcedureParameter("_username", UserName);
@@ -80,14 +79,9 @@ namespace PromotItLibrary.Classes
                 return mySQL.ProceduteExecute();
             }
 
-
-
             return false;
+
         }
 
-        public static implicit operator List<object>(ActivistUser v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

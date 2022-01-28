@@ -70,7 +70,11 @@ namespace PromotItFormApp.LandingPages
                 
 
                 if (user == null)
+                {
+                    Loggings.ErrorLog($"User cant login UserName ({textBoxUsername.Text.Trim()}), Wron UserName or Password");
                     throw new Exception("Wrong username or password!");
+                }
+                    
 
                 Configuration.CorrentUser = user;
                 Configuration.LognUser = new Users(user);

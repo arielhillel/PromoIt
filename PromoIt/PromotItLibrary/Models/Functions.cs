@@ -57,6 +57,7 @@ namespace PromotItLibrary.Models
             catch
             {
                 Console.WriteLine("Fail to post a content: \n" + mycontent);
+                Loggings.ErrorLog($"PostSingleDataInsert Fail");
                 throw new Exception("Fail to post a content: \n" + mycontent);
             }
         }
@@ -74,6 +75,7 @@ namespace PromotItLibrary.Models
             catch 
             {
                 Console.WriteLine("Fail to add a content: \n" + mycontent);
+                Loggings.ErrorLog($"PostSingleDataRequest Fail");
                 throw new Exception("Fail to add a content: \n" + mycontent); 
             }
         }
@@ -101,6 +103,7 @@ namespace PromotItLibrary.Models
             catch 
             {
                 Console.WriteLine(mycontent);
+                Loggings.ErrorLog($"GetMultipleDataRequest Fail");
                 throw new Exception(mycontent); 
             }
         }
@@ -116,6 +119,7 @@ namespace PromotItLibrary.Models
             try { return JsonStringToSingleObject<T>(mycontent); }
             catch {
                 Console.WriteLine(mycontent);
+                Loggings.ErrorLog($"GetMultipleDataRequest Fail");
                 throw new Exception(mycontent);
             }
         }

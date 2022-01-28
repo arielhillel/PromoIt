@@ -51,11 +51,29 @@ namespace PromotItFormApp.LandingPages
             {
                 if(MessageBox.Show("Are you sure you want to delete this campaign?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    _campaign.Hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    _campaign.DeleteCampaignAsync();
-                    GetAllCampaignsDisplayAsync();
+                    SetDeleteACampaignAsync(e);
                 }
             }
+        }
+
+
+        private async Task SetDeleteACampaignAsync(DataGridViewCellEventArgs e) 
+        {
+            try
+            {
+                _campaign.Hashtag = dataGridNPO.Rows[e.RowIndex].Cells[2].Value.ToString();
+                bool result = await _campaign.DeleteCampaignAsync();
+                if (!result)
+                {
+                    Loggings.ErrorLog($"Fail Non Profit Organization user to delete the campaign, UserName ({_campaign.NonProfitUser.UserName}) Campaign (#{_campaign.Hashtag})");
+                    throw new Exception("Cant Delete The campaign");
+                }
+
+                Loggings.ReportLog($"Delete Campagin by Non Profit Organization user, UserName ({_campaign.NonProfitUser.UserName}) Campaign (#{_campaign.Hashtag})");
+                GetAllCampaignsDisplayAsync();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
         }
 
         private async Task GetAllCampaignsDisplayAsync()
@@ -64,12 +82,8 @@ namespace PromotItFormApp.LandingPages
             {
                 DataTable tbl = await _campaign.GetAllCampaignsNonProfit_DataTableAsync();
                 dataGridNPO.DataSource = tbl;
-
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message);}
         }
 
     }
