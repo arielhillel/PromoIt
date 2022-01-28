@@ -65,19 +65,19 @@ namespace PromotItLibrary.Models
         /// Queue Addresses
         /// </summary>
         public static string PromoitCampaignQueue { get; set; } =
-            LocalMode == Modes.NotLocal ? ""
+            LocalMode == Modes.NotLocal ? "https://promoitqueue.azurewebsites.net/api/PromoitCampaignQueue?code=CzfqXFeMMrzJOVySkjakHYddls9pKVIa3WEMQ9Euk11Ozms4b0EJTA=="
                 : LocalMode == Modes.Local ? "http://localhost:7076/api/PromoitCampaignQueue"
                 : "";
         public static string PromoitProductQueue { get; set; } =
-            LocalMode == Modes.NotLocal ? ""
+            LocalMode == Modes.NotLocal ? "https://promoitqueue.azurewebsites.net/api/PromoitProductQueue?code=cssaeHGAJ4X2MolpVgZHhnMKyJhONXtzTa2LVwLE21cxs4aGDovkdQ=="
                 : LocalMode == Modes.Local ? "http://localhost:7076/api/PromoitProductQueue"
                 : "";
         public static string PromoitTweetQueue { get; set; } =
-            LocalMode == Modes.NotLocal ? ""
+            LocalMode == Modes.NotLocal ? "https://promoitqueue.azurewebsites.net/api/PromoitTweetQueue?code=2uN3kFh5da9c22mC0TSdWe2sp7xSb9qAnWYY5q0cWRGVFkbpLsXJfA=="
                 : LocalMode == Modes.Local ? "http://localhost:7076/api/PromoitTweetQueue"
                 : "";
         public static string SetUserQueue { get; set; } =
-            LocalMode == Modes.NotLocal ? ""
+            LocalMode == Modes.NotLocal ? "https://promoitqueue.azurewebsites.net/api/SetUserQueue?code=sPLctsjOKq1KZzZzbZLk8QRSZd6WWaVLet56KkntEu0FG9tDgpKnfQ=="
                 : LocalMode == Modes.Local ? "http://localhost:7076/api/SetUserQueue"
                 : "";
 
