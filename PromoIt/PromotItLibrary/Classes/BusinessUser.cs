@@ -14,7 +14,13 @@ namespace PromotItLibrary.Classes
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, ""); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, ""); }
                 catch { throw new Exception($"Functions error"); };

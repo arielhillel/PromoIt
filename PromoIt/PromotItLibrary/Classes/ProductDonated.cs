@@ -40,7 +40,14 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> SetBuyAnItemAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetBuyAnItem"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetBuyAnItem"); }
                 catch { throw new Exception($"Functions error"); };
@@ -62,7 +69,13 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> SetProductShippingAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetProductShipping"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetProductShipping"); }
                 catch { throw new Exception($"Functions error"); };
@@ -82,7 +95,13 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<ProductDonated>> MySQL_GetDonatedProductForShipping_ListAsync(Modes mode = null)
         {
-                if ((mode ?? Configuration.Mode) == Modes.Functions)
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                {
+                    try { return await Functions.GetMultipleDataRequest(Configuration.PromoitProductQueue, this, "GetDonatedProductForShipping"); }
+                    catch { throw new Exception($"Queue error"); };
+                }
+
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
                 {
                     try { return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetDonatedProductForShipping"); }
                     catch { throw new Exception($"Functions error"); };

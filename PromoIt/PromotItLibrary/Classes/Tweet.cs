@@ -32,7 +32,14 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> SetTweetCashAsync(Modes mode = null) 
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetQueue, this, "SetTweetCash"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetFunctions, this, "SetTweetCash"); }
                 catch { throw new Exception($"Functions error"); };
@@ -54,7 +61,13 @@ namespace PromotItLibrary.Classes
         public async Task<List<Tweet>> MySQL_GetAllTweets_ListAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetQueue, this, "GetAllTweets"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetFunctions, this, "GetAllTweets"); }
                 catch { throw new Exception($"Functions error"); };

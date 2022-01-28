@@ -69,8 +69,7 @@ namespace PromotItLibrary.Classes
                 catch { throw new Exception($"Queue error"); };
             }
 
-
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return await Functions.GetSingleDataRequest(Configuration.SetUserFunctions, this); }
                 catch { throw new Exception($"Functions error"); };

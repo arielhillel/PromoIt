@@ -19,7 +19,14 @@ namespace PromotItLibrary.Classes
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try
+                { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, ""); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try
                 { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, ""); }
@@ -64,6 +71,13 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<Users>> MySQL_GetAllUsers_ListAsync(Modes mode = null)
         {
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                Users user = new Users();
+                try { return await Functions.GetMultipleDataRequest(Configuration.SetUserQueue, user, "GetAllUsers"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 Users user = new Users();

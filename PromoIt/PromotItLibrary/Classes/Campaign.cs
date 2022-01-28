@@ -25,7 +25,13 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> SetNewCampaignAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "SetNewCampaign"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign"); }
                 catch { throw new Exception($"Functions error"); };
@@ -45,7 +51,14 @@ namespace PromotItLibrary.Classes
         }
         public async Task<bool> DeleteCampaignAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "DeleteCampaign"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign"); }
                 catch { throw new Exception($"Functions error"); };
@@ -67,7 +80,13 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<Campaign>> MySql_GetAllCampaignsNonProfit_ListAsync(Modes mode = null) //Non profit
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignQueue, this, "GetAllCampaignsNonProfit"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaignsNonProfit"); }
                 catch { throw new Exception($"Functions error"); };
@@ -125,7 +144,14 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<Campaign>> MySQL_GetAllCampaigns_ListAsync(Modes mode = null)//Activist, business, admin, tweets
         {
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
+
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignQueue, this, "GetAllCampaigns"); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+            else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaigns"); }
                 catch { throw new Exception($"Functions error"); };
