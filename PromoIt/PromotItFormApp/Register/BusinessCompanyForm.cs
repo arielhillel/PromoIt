@@ -53,11 +53,15 @@ namespace PromotItFormApp.RoleRegister
                 businessUser.UserName = textBoxBCRUsername.Text;
                 businessUser.UserPassword = textBoxBCRPassword.Text;
                 bool result = await businessUser.RegisterAsync();
-                if (result)
+                if (!result)
                 {
-                    Configuration.CorrentUser = businessUser;
-                    Configuration.LognUser = new Users(businessUser);
+                    Loggings.ErrorLog($"Business User cant register UserName ({businessUser.UserName})");
+                    throw new Exception("Registeration Fail");
                 }
+                
+                Configuration.CorrentUser = businessUser;
+                Configuration.LognUser = new Users(businessUser);
+                Loggings.ReportLog($"Business User registered UserName ({businessUser.UserName})");
 
                 this.Hide();
                 LandingPages.Login login = new LandingPages.Login();
@@ -65,10 +69,7 @@ namespace PromotItFormApp.RoleRegister
                 this.Close();
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message);}
         }
 
 

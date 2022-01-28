@@ -55,12 +55,16 @@ namespace PromotItFormApp.RoleRegister
                 nonProfitUser.Email = textBoxNPOEmail.Text;
                 nonProfitUser.WebSite = textBoxNPOWebsite.Text;
                 bool result = await nonProfitUser.RegisterAsync();
-                if (result)
+                if (!result)
                 {
-                    Configuration.CorrentUser = nonProfitUser;
-                    Configuration.LognUser = new Users(nonProfitUser);
+                    Loggings.ErrorLog($"Non Profit Company User cant register UserName ({nonProfitUser.UserName})");
+                    throw new Exception("Registeration Fail");
                 }
 
+                Configuration.CorrentUser = nonProfitUser;
+                Configuration.LognUser = new Users(nonProfitUser);
+                Loggings.ReportLog($"Non Profit Company User registered UserName ({nonProfitUser.UserName})");
+                
                 this.Hide();
                 LandingPages.Login login = new LandingPages.Login();
                 login.ShowDialog();

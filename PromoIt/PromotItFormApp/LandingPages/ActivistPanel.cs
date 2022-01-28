@@ -56,14 +56,19 @@ namespace PromotItFormApp.LandingPages
 
         private async Task GetCashAmountAsync()
         {
+            ActivistUser activistUser = new ActivistUser();
             try
             {
-                ActivistUser activistUser = new ActivistUser();
                 activistUser.UserName = Configuration.CorrentUser.UserName;
                 activistUser.Cash = (await activistUser.GetCashAmountAsync()).Cash;
                 txtCash.Text = activistUser.Cash;
+                Loggings.ReportLog($"Activist Cash report UserName ({activistUser.UserName}) Cash ({activistUser.Cash})");
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) 
+            {
+                Loggings.ErrorLog($"Cant Receive Activist Cash report UserName ({activistUser.UserName})");
+                MessageBox.Show(ex.Message); 
+            }
         }
 
         private async Task GetCampaignsAsync()

@@ -83,8 +83,11 @@ namespace PromotItFormApp.LandingPages
                     type == "activist" ? new ActivistPanel() :
                     null;
                 if (form == null)
+                {
+                    Loggings.ErrorLog($"User cant login UserName ({user.UserName})");
                     throw new Exception("The system does not recognize you!");
-                
+                }
+                Loggings.ReportLog($"User login UserName ({user.UserName})");
 
 
                 this.Hide();

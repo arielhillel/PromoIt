@@ -54,11 +54,15 @@ namespace PromotItFormApp.RoleRegister
                 adminUser.UserName = textBoxAdminUsername.Text;
                 adminUser.UserPassword = textBoxAdminPassword.Text;
                 bool result = await adminUser.RegisterAsync();
-                if (result)
+                if (!result)
                 {
-                    Configuration.CorrentUser = adminUser;
-                    Configuration.LognUser = new Users(adminUser);
+                    Loggings.ErrorLog($"Admin User cant register UserName ({adminUser.UserName})");
+                    throw new Exception("Registeration Fail");
                 }
+                
+                Configuration.CorrentUser = adminUser;
+                Configuration.LognUser = new Users(adminUser);
+                Loggings.ReportLog($"Admin User registered UserName ({adminUser.UserName})");
 
                 this.Hide();
                 LandingPages.Login login = new LandingPages.Login();

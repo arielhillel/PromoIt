@@ -39,11 +39,7 @@ namespace PromotItFormApp.LandingPages
                 DataTable tbl = await adminUser.GetAllCampaignsAdmin_DataTableAsync();
                 dataGridReports.DataSource = tbl;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            } catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         private async Task DisplayUsersAsync()
         {
@@ -54,10 +50,7 @@ namespace PromotItFormApp.LandingPages
                 dataGridReports.DataSource = tbl;
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private async Task DisplayTweetsAsync()
@@ -69,10 +62,7 @@ namespace PromotItFormApp.LandingPages
                 dataGridReports.DataSource = tbl;
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
     }

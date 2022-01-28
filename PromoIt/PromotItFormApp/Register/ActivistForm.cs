@@ -55,11 +55,15 @@ namespace PromotItFormApp.RoleRegister
                 activistUser.Address = textBoxSAAddress.Text;
                 activistUser.PhoneNumber = textBoxSAPhoneNumber.Text;
                 bool result = await activistUser.RegisterAsync();
-                if (result)
+                if (!result)
                 {
-                    Configuration.CorrentUser = activistUser;
-                    Configuration.LognUser = new Users(activistUser);
-                }
+                    Loggings.ErrorLog($"Activist User cant register UserName ({activistUser.UserName})");
+                    throw new Exception("Registeration Fail");
+                } 
+
+                Configuration.CorrentUser = activistUser;
+                Configuration.LognUser = new Users(activistUser);
+                Loggings.ReportLog($"Activist User registered UserName ({activistUser.UserName})");
 
                 this.Hide();
                 LandingPages.Login login = new LandingPages.Login();

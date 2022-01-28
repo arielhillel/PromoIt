@@ -36,13 +36,19 @@ namespace PromotItFormApp.LandingPagesActions
                 campaign.Url = textBoxCampURL.Text;
                 campaign.NonProfitUser = Configuration.CorrentUser;
                 var result = await campaign.SetNewCampaignAsync();
-                if (result)
+                if (!result)
                 {
-                    this.Hide();
-                    LandingPages.NonProfitPanel NPOPanel = new LandingPages.NonProfitPanel();
-                    NPOPanel.ShowDialog();
-                    this.Close();
+                    Loggings.ErrorLog($"Fail to insert a campaign by Non Profit Organizatino User, UserName ({campaign.NonProfitUser.UserName}) Campaign (#{campaign.Hashtag}) WebPage ({campaign.Url})");
+                    throw new Exception("Cant Set New Campagn");
                 }
+
+                Loggings.ReportLog($"Non Profit Organizatino User added a campaign, UserName ({campaign.NonProfitUser.UserName}) Campaign (#{campaign.Hashtag}) WebPage ({campaign.Url})");
+
+                this.Hide();
+                LandingPages.NonProfitPanel NPOPanel = new LandingPages.NonProfitPanel();
+                NPOPanel.ShowDialog();
+                this.Close();
+                
 
             }
             catch (Exception ex)
