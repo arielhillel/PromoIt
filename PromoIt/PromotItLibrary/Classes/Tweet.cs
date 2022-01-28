@@ -34,9 +34,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetQueue, this, "SetTweetCash");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitTweetQueue, this, "SetTweetCash");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetFunctions, this, "SetTweetCash");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitTweetFunctions, this, "SetTweetCash");
             } catch (Exception ex)
             {
                 return false;

@@ -57,13 +57,13 @@ namespace PromotItLibrary.Classes
 
             if ((mode ?? Configuration.Mode) == Modes.Queue)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, ""); }
+                try { return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserQueue, this, ""); }
                 catch { throw new Exception($"Queue error"); };
             }
 
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, ""); }
+                try { return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserFunctions, this, ""); }
                 catch { throw new Exception($"Functions error"); };
             }
 

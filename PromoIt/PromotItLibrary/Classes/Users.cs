@@ -34,9 +34,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                    return await Functions.GetSingleDataRequest(Configuration.SetUserQueue, this);
+                    return await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, "Login") ;
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                    return await Functions.GetSingleDataRequest(Configuration.SetUserFunctions, this);
+                    return await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, "Login");
             }
             catch(Exception ex)
             {

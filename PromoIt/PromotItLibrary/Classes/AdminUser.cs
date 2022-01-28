@@ -22,9 +22,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, "");
+                return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserQueue, this, "");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, "");
+                return (bool)await Functions.PostSingleDataInsert(Configuration.SetUserFunctions, this, "");
             }
             catch (Exception ex)
             {

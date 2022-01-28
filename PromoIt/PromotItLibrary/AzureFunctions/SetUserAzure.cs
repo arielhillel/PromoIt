@@ -38,21 +38,6 @@ namespace PromotItLibrary.AzureFunctions
                         return new OkObjectResult(Functions.ObjectToJsonString(userList));
                     }
 
-
-                    Users user = Functions.JsonStringToSingleObject<Users>(data);    //var userJson = user = Functions.JsonStrinToObjectList<Users>(data);
-                    if (user == null) throw new Exception($"GET: No {className} IS Enterd");
-
-                    try
-                    {
-                        user = await user.LoginAsync(FunctionOrDatabaseMode);
-                        if (user == null) throw new Exception($"GET: No {className} Found In Databae!");
-                        log.LogInformation($"{azureFunctionString} Find {className} ({user.Name}) Type ({user.UserType})");
-
-                        return new OkObjectResult(Functions.ObjectToJsonString(user));
-
-                    }
-                    catch (Exception ex) { log.LogInformation($"{azureFunctionString} GET ({className}) Datanase SELECT/GET-data Fail:\n{ex.Message}"); return new BadRequestObjectResult($"Not Found ({className})"); }
-
                 }
             }
             catch (Exception ex) { log.LogInformation($"{azureFunctionString} GET ({className}) Error Fail\n{ex.Message}"); }
@@ -66,9 +51,24 @@ namespace PromotItLibrary.AzureFunctions
                     requestBody = Functions.HttpUrlDecode(requestBody);
                     Dictionary<string, string> keyValuePairs = Functions.PostMessageSplit(requestBody);
                     string data = keyValuePairs["data"].ToString();
+                    string type = keyValuePairs["type"].ToString();
                     try
                     {
+                        if(type == "Login")
+                        {
+                            Users user = Functions.JsonStringToSingleObject<Users>(data);
+                            if (user == null) throw new Exception($"POST: No {className} IS Enterd");
+                            try
+                            {
+                                user = await user.LoginAsync(FunctionOrDatabaseMode);
+                                if (user == null) throw new Exception($"POST: No {className} Found In Databae!");
+                                log.LogInformation($"{azureFunctionString} Find {className} ({user.Name}) Type ({user.UserType})");
 
+                                return new OkObjectResult(Functions.ObjectToJsonString(user));
+
+                            }
+                            catch (Exception ex) { log.LogInformation($"{azureFunctionString} POST ({className}) Datanase SELECT/GET-data Fail:\n{ex.Message}"); return new BadRequestObjectResult($"Not Found ({className})"); }
+                        }
 
                         dynamic userDataDynamic = Functions.JsonStringToSingleObject<NonProfitUser>(data);
                         if (userDataDynamic == null) throw new Exception($"POST: No {className} IS Enterd");

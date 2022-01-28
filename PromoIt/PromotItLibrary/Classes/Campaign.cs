@@ -28,9 +28,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "SetNewCampaign");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignQueue, this, "SetNewCampaign");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign");
             }
             catch (Exception ex)
             {
@@ -55,9 +55,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "DeleteCampaign");
+                return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignQueue, this, "DeleteCampaign");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign");
+                return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign");
             }
             catch (Exception ex)
             {

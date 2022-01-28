@@ -38,7 +38,8 @@ namespace PromotItLibrary.Models
 
         //Post
 
-        public async static Task<bool?> PostSingleDataRequest<T>(string postUrl, T obj, string type = "")
+
+        public async static Task<bool?> PostSingleDataInsert<T>(string postUrl, T obj, string type = "")
         {
             string objString = ObjectToJsonString(obj);
             IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
@@ -46,14 +47,35 @@ namespace PromotItLibrary.Models
                 new KeyValuePair<string, string>("type", type),
                 new KeyValuePair<string, string>("data", objString)
             };
+            string mycontent = await PostRequest(postUrl, queries);
             try
             {
-                var mycontent = await PostRequest(postUrl, queries);
                 if (mycontent == "ok") return true;
                 else if (mycontent == "fail") return false;
                 throw new Exception(mycontent);
             }
-            catch (Exception ex) { Console.WriteLine(ex); throw new Exception("Fail to add a content: " + ex); }
+            catch
+            {
+                Console.WriteLine("Fail to post a content: \n" + mycontent);
+                throw new Exception("Fail to post a content: \n" + mycontent);
+            }
+        }
+
+        public async static Task<T> PostSingleDataRequest<T>(string postUrl, T obj, string type = "")
+        {
+            string objString = ObjectToJsonString(obj);
+            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("type", type),
+                new KeyValuePair<string, string>("data", objString)
+            };
+            string mycontent = await PostRequest(postUrl, queries);
+            try { return JsonStringToSingleObject<T>(mycontent);}
+            catch 
+            {
+                Console.WriteLine("Fail to add a content: \n" + mycontent);
+                throw new Exception("Fail to add a content: \n" + mycontent); 
+            }
         }
 
         public async static Task<string> PostRequest(string postUrl, IEnumerable<KeyValuePair<string, string>> queries) // another check method 
@@ -76,7 +98,11 @@ namespace PromotItLibrary.Models
             else throw new Exception("Multy Get Reguest wrong, Local Mode not set");
             string mycontent = await GetRequest(getUrl, getRequest); //Response
             try { return JsonStringToSingleObject<List<T>>(mycontent); }
-            catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }
+            catch 
+            {
+                Console.WriteLine(mycontent);
+                throw new Exception(mycontent); 
+            }
         }
 
         public async static Task<T> GetSingleDataRequest<T>(string getUrl, T obj, string type = "")
@@ -88,7 +114,10 @@ namespace PromotItLibrary.Models
             else throw new Exception("Single Get Reguest wrong, Local Mode not set");
             string mycontent = await GetRequest(getUrl, getRequest); //Response
             try { return JsonStringToSingleObject<T>(mycontent); }
-            catch { Console.WriteLine(mycontent); throw new Exception(mycontent); }
+            catch {
+                Console.WriteLine(mycontent);
+                throw new Exception(mycontent);
+            }
         }
 
         public async static Task<string> GetRequest(string getUrl, string getRequest)

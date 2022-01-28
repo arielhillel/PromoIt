@@ -33,9 +33,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetNewProduct");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductQueue, this, "SetNewProduct");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetNewProduct");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetNewProduct");
             }
             catch (Exception ex)
             {

@@ -46,9 +46,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetBuyAnItem");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductQueue, this, "SetBuyAnItem");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetBuyAnItem");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetBuyAnItem");
             }
             catch (Exception ex)
             {
@@ -75,9 +75,9 @@ namespace PromotItLibrary.Classes
             try
             {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetProductShipping");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductQueue, this, "SetProductShipping");
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetProductShipping");
+                    return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetProductShipping");
             }
             catch (Exception ex)
             {
