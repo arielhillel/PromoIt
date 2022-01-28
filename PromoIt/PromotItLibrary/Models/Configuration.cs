@@ -30,7 +30,6 @@ namespace PromotItLibrary.Models
         public static Modes ApplicationMode { get; set; } = FunctionMode;  // DatabaseMode or FunctionMode
 
 
-
         public static Modes DatabaseMode { get; set; } = Modes.MySQL;
         public static Modes FunctionMode { get; set; } = Modes.Functions;
         public static Modes Mode { get; set; } =

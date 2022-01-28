@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 using PromotItLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,7 @@ namespace PromotItLibrary.Classes
                 dataRow["UserName"] = tweet.ActivistUser.UserName;
                 dataRow["Retweets"] = tweet.Retweets;
                 dataTable.Rows.Add(dataRow);
+                Loggings.TweeterLogs.LogInformation($"Tweet Campaign Hashtag (#{tweet.Campaign.Hashtag}) UserName ({tweet.ActivistUser.UserName}) Retweets ({tweet.Retweets})");
             }
             return dataTable;
         }

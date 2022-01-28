@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using PromotItLibrary.Models;
 
@@ -42,6 +43,8 @@ namespace PromotItLibrary.Classes
 
         public async Task<DataTable> GetAllCampaignsAdmin_DataTableAsync()
         {
+            //ILogger<Campaign> CampaignsLog = Loggings._campaignsLog.CreateLogger<Campaign>();
+
             DataTable dataTable = new DataTable();
             Campaign campaign1 = new Campaign();
             List<Campaign> campaignsList = await campaign1.MySQL_GetAllCampaigns_ListAsync();       //From Campaign Class
@@ -54,6 +57,7 @@ namespace PromotItLibrary.Classes
                     dataRow["Webpage"] = campaign.Url;
                     dataRow["Creator"] = campaign.NonProfitUser.UserName;
                     dataTable.Rows.Add(dataRow);
+                    Loggings.CampaignsLog.LogInformation($"Campaign Hashtag (#{campaign.Hashtag}) Creator ({campaign.NonProfitUser.UserName}) Webpage ({campaign.Url})");
             }
             return dataTable;
         }
@@ -102,6 +106,7 @@ namespace PromotItLibrary.Classes
                     dataRow["UserName"] = user.UserName;
                     dataRow["Type"] = user.UserType;
                     dataTable.Rows.Add(dataRow);
+                    Loggings.UsersLog.LogInformation($"User UserName (#{user.UserName}) Name ({user.Name}) Type ({user.UserType})");
             }
             return dataTable;
         }

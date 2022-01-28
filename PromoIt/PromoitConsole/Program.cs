@@ -20,18 +20,18 @@ namespace PromoitConsole
     public class Program
     {
 
-        private static ILogger<object> _logger = (ILogger<object>) (new ServiceCollection().AddLogging().BuildServiceProvider()).GetService<ILoggerFactory>().CreateLogger<object>();
+       
         private MySQL mySQL = Configuration.MySQL;
         private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
-
+        
 
 
         static void Main(string[] args)
         {
 
 
-            
+            Loggings.CampaignsLog.LogInformation("DFGDFGDFGFDGDFGGDFGGF");
 
 
             Serilog.ILogger Log2= Log.Logger;
