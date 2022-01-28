@@ -33,27 +33,29 @@ namespace PromotItLibrary.Classes
                 await Functions.SetTwitterMessage_SetBuyAnItemAsync($"Product: {ProductInCampaign.Name}, Quantity {Quantity}" +
                     $"\nOrdered by Social Activist: @{ActivistUser.UserName}" +
                     $"\nFrom Business: {ProductInCampaign.BusinessUser.UserName}");
+            } catch 
+            {  //Twitter exeption
+
             }
-            catch { }//Twitter exeption
         }
 
 
         public async Task<bool> SetBuyAnItemAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetBuyAnItem"); }
-                catch { throw new Exception($"Queue error"); };
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetBuyAnItem");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetBuyAnItem");
             }
-
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+            catch (Exception ex)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetBuyAnItem"); }
-                catch { throw new Exception($"Functions error"); };
-            }
+                return false;
+            }    
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("buy_a_product");
                 mySQL.SetParameter("_product_id", ProductInCampaign.Id);
@@ -69,19 +71,20 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> SetProductShippingAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetProductShipping");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetProductShipping");
+            }
+            catch (Exception ex)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetProductShipping"); }
-                catch { throw new Exception($"Queue error"); };
+                return false;
             }
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetProductShipping"); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Quary("UPDATE `promoit`.`products_donated` SET `shipped` = @_shipping WHERE (`id2` = @_donated_product_id);");
                 mySQL.SetParameter("_donated_product_id", Id);
@@ -95,43 +98,44 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<ProductDonated>> MySQL_GetDonatedProductForShipping_ListAsync(Modes mode = null)
         {
+            try
+            {   //Queue and Functions
                 if ((mode ?? Configuration.Mode) == Modes.Queue)
-                {
-                    try { return await Functions.GetMultipleDataRequest(Configuration.PromoitProductQueue, this, "GetDonatedProductForShipping"); }
-                    catch { throw new Exception($"Queue error"); };
-                }
+                    return await Functions.GetMultipleDataRequest(Configuration.PromoitProductQueue, this, "GetDonatedProductForShipping");
 
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
-                {
-                    try { return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetDonatedProductForShipping"); }
-                    catch { throw new Exception($"Functions error"); };
-                }
+                    return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetDonatedProductForShipping");
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
 
-                else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
-                {
-                    // Error, no business user
-                    if (ProductInCampaign.BusinessUser.UserType != "business" && ProductInCampaign.BusinessUser.UserName == null) throw new Exception("No set for business User");
-                    mySQL.Quary(" SELECT * FROM products_in_campaign pic JOIN products_donated pd on pic.id = pd.product_in_campaign_id WHERE pd.shipped = @_shipped AND pic.business_user_name = @_business_user_name LIMIT @_limit"); //replace with mySQL.Procedure() //add LIMIT 20 ~
-                    mySQL.ProcedureParameter("_shipped", "not_shipped");
-                    mySQL.ProcedureParameter("_business_user_name", ProductInCampaign.BusinessUser.UserName);
-                    mySQL.ProcedureParameter("_limit", 10);
-                    using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
+                // Error, no business user
+                if (ProductInCampaign.BusinessUser.UserType != "business" && ProductInCampaign.BusinessUser.UserName == null) throw new Exception("No set for business User");
+                mySQL.Quary(" SELECT * FROM products_in_campaign pic JOIN products_donated pd on pic.id = pd.product_in_campaign_id WHERE pd.shipped = @_shipped AND pic.business_user_name = @_business_user_name LIMIT @_limit"); //replace with mySQL.Procedure() //add LIMIT 20 ~
+                mySQL.ProcedureParameter("_shipped", "not_shipped");
+                mySQL.ProcedureParameter("_business_user_name", ProductInCampaign.BusinessUser.UserName);
+                mySQL.ProcedureParameter("_limit", 10);
+                using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();
 
-                    List<ProductDonated> productDonatedList = new List<ProductDonated>();
-                    while (results != null && results.Read())
+                List<ProductDonated> productDonatedList = new List<ProductDonated>();
+                while (results != null && results.Read())
+                {
+                    try
                     {
-                        try
-                        {
-                            ProductDonated productDonated = new ProductDonated();
-                            productDonated.ActivistUser.UserName = results.GetString("activist_user_name");
-                            productDonated.ProductInCampaign.Name = results.GetString("name");
-                            productDonated.Id = results.GetString("id2");
-                            productDonatedList.Add(productDonated);
-                        }
-                        catch { };
+                        ProductDonated productDonated = new ProductDonated();
+                        productDonated.ActivistUser.UserName = results.GetString("activist_user_name");
+                        productDonated.ProductInCampaign.Name = results.GetString("name");
+                        productDonated.Id = results.GetString("id2");
+                        productDonatedList.Add(productDonated);
                     }
-                    return productDonatedList;
+                    catch { };
                 }
+                return productDonatedList;
+            }
 
                 return null;
         }

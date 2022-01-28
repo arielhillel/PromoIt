@@ -28,24 +28,21 @@ namespace PromotItLibrary.Classes
 
         private static MySQL mySQL = Configuration.MySQL;
 
-
-
-        public async Task<bool> SetTweetCashAsync(Modes mode = null) 
+        public async Task<bool> SetTweetCashAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetQueue, this, "SetTweetCash");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetFunctions, this, "SetTweetCash");
+            } catch (Exception ex)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetQueue, this, "SetTweetCash"); }
-                catch { throw new Exception($"Queue error"); };
+                return false;
             }
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitTweetFunctions, this, "SetTweetCash"); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("add_tweet");
                 mySQL.ProcedureParameter("_tweeter_id", long.Parse(Id));
@@ -61,19 +58,19 @@ namespace PromotItLibrary.Classes
         public async Task<List<Tweet>> MySQL_GetAllTweets_ListAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetQueue, this, "GetAllTweets");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetFunctions, this, "GetAllTweets");
+            }
+            catch (Exception ex)
             {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetQueue, this, "GetAllTweets"); }
-                catch { throw new Exception($"Queue error"); };
+                return null;
             }
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitTweetFunctions, this, "GetAllTweets"); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 List<Tweet> tweetList = new List<Tweet>();
                 mySQL.Quary("SELECT campaign_hashtag,activist_user_name,retweets FROM tweets");
@@ -114,8 +111,6 @@ namespace PromotItLibrary.Classes
             }
             return dataTable;
         }
-
-
 
     }
 }

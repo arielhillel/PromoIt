@@ -25,19 +25,19 @@ namespace PromotItLibrary.Classes
 
         public async Task<bool> SetNewCampaignAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "SetNewCampaign");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign");
+            }
+            catch (Exception ex)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "SetNewCampaign"); }
-                catch { throw new Exception($"Queue error"); };
+                return false;
             }
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "SetNewCampaign"); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("add_campaign");
                 mySQL.SetParameter("_name", Name);
@@ -52,19 +52,19 @@ namespace PromotItLibrary.Classes
         public async Task<bool> DeleteCampaignAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "DeleteCampaign"); }
-                catch { throw new Exception($"Queue error"); };
-            }
-
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignQueue, this, "DeleteCampaign");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign");
+            }
+            catch (Exception ex)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitCampaignFunctions, this, "DeleteCampaign"); }
-                catch { throw new Exception($"Functions error"); };
+                return false;
             }
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("delete_campaign");
                 mySQL.QuaryParameter("_hashtag", Hashtag);
@@ -80,19 +80,20 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<Campaign>> MySql_GetAllCampaignsNonProfit_ListAsync(Modes mode = null) //Non profit
         {
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignQueue, this, "GetAllCampaignsNonProfit"); }
-                catch { throw new Exception($"Queue error"); };
-            }
 
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignQueue, this, "GetAllCampaignsNonProfit");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaignsNonProfit");
+            }
+            catch (Exception ex)
             {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaignsNonProfit"); }
-                catch { throw new Exception($"Functions error"); };
+                return null;
             }
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 // Error, no npo user
                 if (NonProfitUser.UserName == null) throw new Exception("No set for npo User");
@@ -145,19 +146,19 @@ namespace PromotItLibrary.Classes
         public async Task<List<Campaign>> MySQL_GetAllCampaigns_ListAsync(Modes mode = null)//Activist, business, admin, tweets
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignQueue, this, "GetAllCampaigns"); }
-                catch { throw new Exception($"Queue error"); };
-            }
-
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignQueue, this, "GetAllCampaigns"); 
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaigns");
+            }
+            catch (Exception ex)
             {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitCampaignFunctions, this, "GetAllCampaigns"); }
-                catch { throw new Exception($"Functions error"); };
+                return null;
             }
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Quary("SELECT * FROM campaigns");
                 using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();

@@ -28,25 +28,22 @@ namespace PromotItLibrary.Classes
         public string UserType { get; set; }
 
         private static MySQL mySQL = Configuration.MySQL;
-        private static Modes GlobalMode = Configuration.Mode;
 
-
-        public async Task<Users> LoginAsync(Modes mode = null)      //will not use!, only for testing
+        public async Task<Users> LoginAsync(Modes mode = null)
         {
-
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try { return await Functions.GetSingleDataRequest(Configuration.SetUserQueue, this); }
-                catch { throw new Exception($"Queue error"); };
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return await Functions.GetSingleDataRequest(Configuration.SetUserQueue, this);
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return await Functions.GetSingleDataRequest(Configuration.SetUserFunctions, this);
             }
-
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
+            catch(Exception ex)
             {
-                try { return await Functions.GetSingleDataRequest(Configuration.SetUserFunctions, this); }
-                catch { throw new Exception($"Functions error"); };
-            }
-            
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+                return null;
+            };
+
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 Users user = null;
                 mySQL.SetQuary("SELECT * FROM users where user_name=@username and user_password=@password limit 1");
@@ -71,11 +68,6 @@ namespace PromotItLibrary.Classes
 
             return null;
         }
-
-
-
-
-
 
 
     }

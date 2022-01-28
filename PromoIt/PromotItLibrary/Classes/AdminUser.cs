@@ -19,21 +19,19 @@ namespace PromotItLibrary.Classes
         public async Task<bool> RegisterAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try
-                { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, ""); }
-                catch { throw new Exception($"Queue error"); };
-            }
-
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserQueue, this, "");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, "");
+            }
+            catch (Exception ex)
             {
-                try
-                { return (bool)await Functions.PostSingleDataRequest(Configuration.SetUserFunctions, this, ""); }
-                catch { throw new Exception($"Functions error"); };
+                return false;
             }
 
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Procedure("register_admin");
                 mySQL.SetParameter("_name", Name);
@@ -42,7 +40,6 @@ namespace PromotItLibrary.Classes
                 return mySQL.ProceduteExecute();
             }
 
-
             return false;
         }
 
@@ -50,8 +47,6 @@ namespace PromotItLibrary.Classes
 
         public async Task<DataTable> GetAllCampaignsAdmin_DataTableAsync()
         {
-            //ILogger<Campaign> CampaignsLog = Loggings._campaignsLog.CreateLogger<Campaign>();
-
             DataTable dataTable = new DataTable();
             Campaign campaign1 = new Campaign();
             List<Campaign> campaignsList = await campaign1.MySQL_GetAllCampaigns_ListAsync();       //From Campaign Class
@@ -71,21 +66,19 @@ namespace PromotItLibrary.Classes
 
         public async Task<List<Users>> MySQL_GetAllUsers_ListAsync(Modes mode = null)
         {
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return await Functions.GetMultipleDataRequest(Configuration.SetUserQueue, new Users(), "GetAllUsers");
+                if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return await Functions.GetMultipleDataRequest(Configuration.SetUserFunctions, new Users(), "GetAllUsers");
+            }
+            catch (Exception ex)
             {
-                Users user = new Users();
-                try { return await Functions.GetMultipleDataRequest(Configuration.SetUserQueue, user, "GetAllUsers"); }
-                catch { throw new Exception($"Queue error"); };
+                return null;
             }
 
-            if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                Users user = new Users();
-                try { return await Functions.GetMultipleDataRequest(Configuration.SetUserFunctions, user, "GetAllUsers"); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Quary("SELECT name,user_name,user_type FROM users");
                 using MySqlDataReader results = mySQL.ProceduteExecuteMultyResults();

@@ -30,19 +30,19 @@ namespace PromotItLibrary.Classes
         public async Task<bool> SetNewProductAsync(Modes mode = null)
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetNewProduct");
+                else if ((mode ?? Configuration.Mode) == Modes.Functions)
+                    return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetNewProduct");
+            }
+            catch (Exception ex)
             {
-                try { return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductQueue, this, "SetNewProduct");}
-                catch { throw new Exception($"Functions error"); };
+                return false;
             }
 
-            else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try{ return (bool)await Functions.PostSingleDataRequest(Configuration.PromoitProductFunctions, this, "SetNewProduct"); }
-                catch { throw new Exception($"Functions error"); };
-            }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
                 mySQL.Quary("INSERT INTO `promoit`.`products_in_campaign` (`name`, `quantity`, `price`, `business_user_name`, `campaign_hashtag`) VALUES (@_name, @_quantity, @_price, @_business_user_name, @_campaign_hashtag);");
                 mySQL.SetParameter("_name", Name);
@@ -84,21 +84,20 @@ namespace PromotItLibrary.Classes
         public async Task<List<ProductInCampaign>> MySQL_GetProductList_ListAsync(Modes mode = null) //for business and for activist
         {
 
-            if ((mode ?? Configuration.Mode) == Modes.Queue)
-            {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitProductQueue, this, "GetProductList"); }
-                catch { throw new Exception($"Queue error"); };
-            }
-
+            try
+            {   //Queue and Functions
+                if ((mode ?? Configuration.Mode) == Modes.Queue)
+                return await Functions.GetMultipleDataRequest(Configuration.PromoitProductQueue, this, "GetProductList");
             else if ((mode ?? Configuration.Mode) == Modes.Functions)
-            {
-                try { return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetProductList"); }
-                catch { throw new Exception($"Functions error"); };
+                return await Functions.GetMultipleDataRequest(Configuration.PromoitProductFunctions, this, "GetProductList");
             }
-
-            else if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            catch (Exception ex)
             {
+                return null;
+            };
 
+            if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
+            {
                 if (Campaign.Hashtag == null) throw new Exception("No set for Campaign Hashtag");
                 mySQL.SetQuary("SELECT * FROM products_in_campaign WHERE campaign_hashtag = @hashtag AND Quantity > 0");
                 mySQL.QuaryParameter("@hashtag", Campaign.Hashtag);
