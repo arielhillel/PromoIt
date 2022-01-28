@@ -29,9 +29,9 @@ namespace PromotItLibrary.Models
         /// System global mode settings
         /// </summary>
         public static Modes LocalMode { get; set; } = Modes.Local;   //Modes.Local or Modes.NotLocal //Local is for testing purposes
-        public static Modes Mode { get; set; } = Modes.Functions; // Modes.Queue or Modes.Functions or null
-        public static Modes DatabaseMode { get; set; } = Modes.MySQL;
-        
+        public static Modes Mode { get; set; } = Modes.Queue; // Modes.Queue or Modes.Functions or null
+        public static Modes DatabaseMode { get; set; } = Modes.MySQL; // Modes.MySQL only
+
 
         /// <summary>
         /// Public Sources
@@ -66,19 +66,19 @@ namespace PromotItLibrary.Models
         /// </summary>
         public static string PromoitCampaignQueue { get; set; } =
             LocalMode == Modes.NotLocal ? ""
-                : LocalMode == Modes.Local ? "http://localhost:7076/api/SendToQueue"
+                : LocalMode == Modes.Local ? "http://localhost:7076/api/PromoitCampaignQueue"
                 : "";
         public static string PromoitProductQueue { get; set; } =
             LocalMode == Modes.NotLocal ? ""
-                : LocalMode == Modes.Local ? "http://localhost:7076/api/SendToQueue"
+                : LocalMode == Modes.Local ? "http://localhost:7076/api/PromoitProductQueue"
                 : "";
         public static string PromoitTweetQueue { get; set; } =
             LocalMode == Modes.NotLocal ? ""
-                : LocalMode == Modes.Local ? "http://localhost:7076/api/SendToQueue"
+                : LocalMode == Modes.Local ? "http://localhost:7076/api/PromoitTweetQueue"
                 : "";
         public static string SetUserQueue { get; set; } =
             LocalMode == Modes.NotLocal ? ""
-                : LocalMode == Modes.Local ? "http://localhost:7076/api/SendToQueue"
+                : LocalMode == Modes.Local ? "http://localhost:7076/api/SetUserQueue"
                 : "";
 
 

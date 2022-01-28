@@ -44,7 +44,7 @@ namespace PromotItLibrary.AzureFunctions
 
                     try
                     {
-                        user = user.Login(FunctionOrDatabaseMode);
+                        user = await user.LoginAsync(FunctionOrDatabaseMode);
                         if (user == null) throw new Exception($"GET: No {className} Found In Databae!");
                         log.LogInformation($"{azureFunctionString} Find {className} ({user.Name}) Type ({user.UserType})");
 

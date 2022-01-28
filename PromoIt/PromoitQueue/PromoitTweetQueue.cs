@@ -19,6 +19,6 @@ namespace PromoitQueue
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
-            => await PromoitTweetAzure.RunAzure(req, log, Modes.Queue, "Azue Queue");
+            => await PromoitTweetAzure.RunAzure(req, log, Modes.Functions, "Azue Queue");
     }
 }

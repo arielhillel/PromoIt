@@ -44,7 +44,7 @@ namespace PromoitTesting
             bool result1 = await activistUser.RegisterAsync();
             Assert.True(result1, "User Should Register");
 
-            Users loggedInUser = user.Login();
+            Users loggedInUser = await user.LoginAsync(); /////////////!!!!!! change the mode to MySQL!!!!!!!
 
             bool result2 = loggedInUser != null;
             Assert.True(result2, "Login User Should Accepted");
