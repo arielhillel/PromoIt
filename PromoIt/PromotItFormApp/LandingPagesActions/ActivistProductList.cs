@@ -32,10 +32,7 @@ namespace PromotItFormApp.LandingPagesActions
             if (e.ColumnIndex == 0) SetBuyAProductAsync(e);
         }
 
-        private void ProductList_Shown(object sender, EventArgs e)
-        {
-            GetProductsAsync();
-        }
+        private void ProductList_Shown(object sender, EventArgs e) => GetProductsAsync();
 
         private async Task SetBuyAProductAsync(DataGridViewCellEventArgs e)
         {
@@ -49,7 +46,7 @@ namespace PromotItFormApp.LandingPagesActions
                 bool result = await _productDonated.SetBuyAnItemAsync();
                 if (!result) return;
                 Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
-                Task sendATweet =  _productDonated.SetTwitterMessagTweet_SetBuyAnItemAsync();
+                Task sendATweet = _productDonated.SetTwitterMessagTweet_SetBuyAnItemAsync();
                 await sendATweet;
                 this.Dispose();
             }
