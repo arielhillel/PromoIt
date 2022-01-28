@@ -8,7 +8,6 @@ using PromotItLibrary.Classes;
 using PromotItLibrary.Interfaces;
 using Tweetinvi;
 using Tweetinvi.Parameters;
-
 /**
  * Copyright:
  *  Author: Arierl
@@ -26,17 +25,13 @@ namespace PromotItLibrary.Models
 {
     public class Configuration
     {
+        /// <summary>
+        /// System global mode settings
+        /// </summary>
         public static Modes LocalMode { get; set; } = Modes.Local;   //Modes.Local or Modes.NotLocal //Local is for testing purposes
-        public static Modes ApplicationMode { get; set; } = QueueMode;  // DatabaseMode or FunctionMode or QueueMode
-
-
+        public static Modes Mode { get; set; } = Modes.Functions; // Modes.Queue or Modes.Functions or null
         public static Modes DatabaseMode { get; set; } = Modes.MySQL;
-        public static Modes FunctionMode { get; set; } = Modes.Functions;
-        public static Modes QueueMode { get; set; } = Modes.Queue;
-        public static Modes Mode { get; set; } =
-            (LocalMode == Modes.Local) ? ApplicationMode
-            : (LocalMode == Modes.NotLocal) ? FunctionMode  //cant change
-            : null ;
+        
 
         /// <summary>
         /// Public Sources

@@ -65,16 +65,14 @@ namespace PromotItLibrary.Classes
 
             if ((mode ?? Configuration.Mode) == Modes.Queue)
             {
-                try
-                { return await Functions.GetSingleDataRequest(Configuration.SetUserQueue, this); }
+                try { return await Functions.GetSingleDataRequest(Configuration.SetUserQueue, this); }
                 catch { throw new Exception($"Queue error"); };
             }
 
 
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
-                try
-                { return await Functions.GetSingleDataRequest(Configuration.SetUserFunctions, this); }
+                try { return await Functions.GetSingleDataRequest(Configuration.SetUserFunctions, this); }
                 catch { throw new Exception($"Functions error"); };
             }
 
