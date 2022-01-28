@@ -13,10 +13,10 @@ namespace PromotItLibrary.Models
 {
     public class Loggings
     {
-        public static ILogger<object> CampaignsLog { get; set; } = setLogger<object>(@"../../../../../LogFiles/Campaigns/CampaignLog.txt");
-        public static ILogger<object> UsersLog { get; set; } = setLogger<object>(@"../../../../../LogFiles/Users/UsersLog.txt");
-        public static ILogger<object> TweeterLogs { get; set; } = setLogger<object>(@"../../../../../LogFiles/Tweets/TweetLogs.txt");
-
+        public static ILogger<Campaign> CampaignsLog { get; set; } = setLogger<Campaign>(@"../../../../../Logs/Campaigns/CampaignLog.txt");
+        public static ILogger<Users> UsersLog { get; set; } = setLogger<Users>(@"../../../../../Logs/Users/UsersLog.txt");
+        public static ILogger<Tweet> TweeterLogs { get; set; } = setLogger<Tweet>(@"../../../../../Logs/Tweets/TweetLogs.txt");
+        public static ILogger<object> ErrorLogs { get; set; } = setLogger<object>(@"../../../../../Logs/Errors/ErrorLogs.txt");
 
         private static ServiceProvider _serviceProvider(string address) => new ServiceCollection()
                 .AddLogging
@@ -36,8 +36,6 @@ namespace PromotItLibrary.Models
 
             return (ILogger<T>)_serviceProvider(address).GetService<ILoggerFactory>().CreateLogger<T>();
         }
-
-
 
     }
 }

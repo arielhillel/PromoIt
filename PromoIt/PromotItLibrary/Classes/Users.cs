@@ -63,6 +63,14 @@ namespace PromotItLibrary.Classes
         public async Task<Users> LoginAsync(Modes mode = null)      //will not use!, only for testing
         {
 
+            if ((mode ?? Configuration.Mode) == Modes.Queue)
+            {
+                try
+                { return await Functions.GetSingleDataRequest(Configuration.SetUserQueue, this); }
+                catch { throw new Exception($"Queue error"); };
+            }
+
+
             if ((mode ?? Configuration.Mode) == Modes.Functions)
             {
                 try

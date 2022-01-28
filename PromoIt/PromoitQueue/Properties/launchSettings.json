@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "FunctionApp1": {
+    "PromoitQueue": {
       "commandName": "Project",
       "commandLineArgs": "host start --port 7076"
     }

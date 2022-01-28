@@ -1,19 +1,4 @@
-﻿using PromotItLibrary.Classes;
-using PromotItLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PromoitConsole
-{
-    public struct ArthurZarankin_DevelopFunctions
-    {
-        public static async Task RunAsync()
-        {
-
-
+﻿
             if (Configuration.Mode == Modes.MySQL) Console.WriteLine($"DSFSDFSDFDSFSD");
 
             NonProfitUser userToRegiser = new NonProfitUser();
@@ -49,8 +34,3 @@ namespace PromoitConsole
                 catch (Exception ex) { Console.WriteLine("Fail"); Console.WriteLine(ex); }
 
             }
-
-        }
-    }
-}
-

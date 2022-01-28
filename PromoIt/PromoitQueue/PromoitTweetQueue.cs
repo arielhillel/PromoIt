@@ -7,12 +7,12 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using PromotItLibrary.Classes;
-namespace FunctionApp1
+
+namespace PromoitQueue
 {
-    public static class Function1
+    public static class PromoitTweetQueue
     {
-        [FunctionName("Function1")]
+        [FunctionName("PromoitTweetQueue")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -24,12 +24,12 @@ namespace FunctionApp1
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             name = name ?? data?.name;
-            ActivistUser activistUser = new ActivistUser();
-            activistUser.UserName = name;
-            try { activistUser.Cash = (await activistUser.GetCashAmountAsync()).Cash; }
-            catch { return new BadRequestObjectResult($"Cant Find this user in database, user name ({activistUser.UserName})"); }
 
-            return new OkObjectResult($"for user ({activistUser.UserName}) The cash is {activistUser.Cash}");
+            string responseMessage = string.IsNullOrEmpty(name)
+                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+
+            return new OkObjectResult(responseMessage);
         }
     }
 }

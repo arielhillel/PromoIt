@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromoitFunctions", "PromoIt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromoitTwitterAPI", "PromoIt\PromoitTwitterAPI\PromoitTwitterAPI.csproj", "{E371CA93-B326-414F-B1D3-711B24B53288}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp1", "FunctionApp1\FunctionApp1.csproj", "{C720DE44-77E2-4B31-ADB6-F7CAA6AA5711}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromoitQueue", "PromoIt\PromoitQueue\PromoitQueue.csproj", "{D09334EE-DD8E-4474-9D96-E2E4AFF7D50B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{E371CA93-B326-414F-B1D3-711B24B53288}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E371CA93-B326-414F-B1D3-711B24B53288}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E371CA93-B326-414F-B1D3-711B24B53288}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C720DE44-77E2-4B31-ADB6-F7CAA6AA5711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C720DE44-77E2-4B31-ADB6-F7CAA6AA5711}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C720DE44-77E2-4B31-ADB6-F7CAA6AA5711}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C720DE44-77E2-4B31-ADB6-F7CAA6AA5711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09334EE-DD8E-4474-9D96-E2E4AFF7D50B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09334EE-DD8E-4474-9D96-E2E4AFF7D50B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09334EE-DD8E-4474-9D96-E2E4AFF7D50B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09334EE-DD8E-4474-9D96-E2E4AFF7D50B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
