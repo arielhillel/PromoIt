@@ -64,24 +64,39 @@ namespace PromotItLibrary.Models
         public bool QuaryExecute()  // inserts
         {
 
-            if (Stm == null) { Console.WriteLine("No Quary"); return false; }
-            if (Cmd?.CommandType == CommandType.StoredProcedure) { } //procedure
-            else if (Cmd?.Parameters.Count > 0) Cmd?.Prepare(); //parametars
-            else if (Cmd != null) Cmd.CommandText = Stm; //insert quary
-            int? outPut = Cmd?.ExecuteNonQuery();
-            
-            
-            
-            if (outPut == null && outPut <= 0) 
-            { 
-                Console.WriteLine($"Quary failed, {Stm}");
-                return false; 
+            try
+            {
+
+
+                if (Stm == null) { Console.WriteLine("No Quary"); return false; }
+                if (Cmd?.CommandType == CommandType.StoredProcedure) { } //procedure
+                else if (Cmd?.Parameters.Count > 0) Cmd?.Prepare(); //parametars
+                else if (Cmd != null) Cmd.CommandText = Stm; //insert quary
+                int? outPut = Cmd?.ExecuteNonQuery();
+
+
+                if (outPut == null && outPut <= 0)
+                {
+                    while (_tries < 3)
+                    {
+                        _tries++;
+                        Thread.Sleep(500 * _tries);
+                        return QuaryExecute();
+                    }
+                    _tries = 0;
+                    NullifiedValues();
+                    return false;
+                }
+
+                _tries = 0;
+                NullifiedValues();
+
+                return true;
+
             }
+            catch { }
 
-
-            NullifiedValues();
-
-            return true;
+            return false;
 
         }
         
@@ -99,7 +114,7 @@ namespace PromotItLibrary.Models
                     {
                         _tries++;
                         Thread.Sleep(500 * _tries);
-                        GetQueryMultyResults();
+                        return GetQueryMultyResults();
                     }
 
                     NullifiedValues(); // cant nullified rdr!, it will nulified results
