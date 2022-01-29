@@ -58,6 +58,8 @@ namespace PromotItLibrary.Models
 
         public bool QuaryExecute(string stmQuary) { Quary(stmQuary); return QuaryExecute(); }
 
+        private static int _tries = 0;
+
         public bool QuaryExecute()  // inserts
         {
 
@@ -82,7 +84,6 @@ namespace PromotItLibrary.Models
 
         }
         
-        private static int _tries = 0;
         public MySqlDataReader GetQueryMultyResults() // selects
         {
             MySqlDataReader results = null;
