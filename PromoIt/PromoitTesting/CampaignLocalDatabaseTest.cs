@@ -12,7 +12,7 @@ namespace PromoitTesting
 {
 
 
-    public class CampaignLocalDatabaseTest
+    public class AddAUserLocalTest
     {
 
         public Campaign testingCampaign() 
@@ -34,33 +34,32 @@ namespace PromoitTesting
         {
             Modes currentMode = Configuration.Mode;
             Modes currentLocalMode = Configuration.LocalMode;
-
+            Modes currentLocalDatabase = Configuration.DatabaseMode;
             Configuration.Mode = Modes.Null;
             Configuration.LocalMode = Modes.Local;
+            Configuration.DatabaseMode = Modes.MySQL;
+
 
             Campaign campaign = testingCampaign();
 
 
-            bool result2 = await campaign.DeleteCampaignAsync();
+            await campaign.DeleteCampaignAsync();
 
-
-            Thread.Sleep(1000 );
 
             bool result1 = await campaign.SetNewCampaignAsync();
 
             Assert.True(result1, "Campaign Should Entered to Database");
 
 
-            Thread.Sleep(1000);
+            bool result2 = await campaign.DeleteCampaignAsync();
 
-            bool result3 = await campaign.DeleteCampaignAsync();
-
-            Assert.True(result3, "Campaign Should Deleted from Database");
+            Assert.True(result2, "Campaign Should Deleted from Database");
 
 
             //return to set values
             Configuration.Mode = currentMode;
             Configuration.LocalMode = currentLocalMode;
+            Configuration.DatabaseMode = currentLocalDatabase;
         }
 
     }

@@ -19,14 +19,20 @@ namespace PromoitTwitterAPI
         private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
         [FunctionName("TwitterApiTimmerFunction")]
-        public async Task RunAsync([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+        public async Task RunAsync([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
 
-            log.LogInformation($"C# Twitter API Function Started on: {DateTime.Now}");
-
-            log.LogInformation($"C# Twitter API Function Started Logs, List of twits");
+            //Please note, run it with Functions and Queue !!!
 
 
+            log.LogInformation($"Twitter API Function Started on: {DateTime.Now}");
+
+            log.LogInformation($"Twitter API Function Started Logs, List of twits");
+
+            if(Configuration.Mode == Modes.Queue) log.LogError($"Please Active the Queue project + Function project !!!");
+            if (Configuration.Mode == Modes.Functions) log.LogError($"Please Active the Function project !!!");
+            if (Configuration.LocalMode == Modes.NotLocal) log.LogError($"Please Change the mode to Local !!!");
+            // Please write sites without WWW and campaigns without #
             List<Tweet> tweetList = new List<Tweet>();
             Campaign campaign1 = new Campaign();
             List<Campaign> campaignList = await campaign1.MySQL_GetAllCampaigns_ListAsync();    //MYSQL QUERY
