@@ -31,17 +31,21 @@ namespace PromotItLibrary.Models
         /// <summary>
         /// System global mode settings
         /// </summary>
-        public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Modes.Local or Modes.NotLocal //Local is for testing purposes
+        
+        public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Mode s.Local or Modes.NotLocal //Local is for testing purposes
         public static Modes Mode { get; set; } = Modes.Queue; // Modes.Queue or Modes.Functions or null
         public static Modes DatabaseMode { get; set; } = Modes.MySQL; // Modes.MySQL only
 
-        public static int Tries { get {  return _tries; } set { _tries = value; } }
-        public static int TriesReset() { Tries = 3; return _tries; }
-        public static bool IsTries() { Thread.Sleep(500 * _tries); return Tries-- > 0; }
 
 
+        /// <summary>
+        /// Tries Counter
+        /// </summary>
+        private static int _tries = TriesReset();
+        private static int Tries { get { return _tries; } set { _tries = value; } }
+        public static int TriesReset() { Tries = 3; return _tries; }    //Nober of tries is 3
+        public static bool IsTries() { Thread.Sleep(500 * _tries); return Tries-- > 0; }    //between tries 500ms
 
-        public static int _tries = TriesReset();
 
         /// <summary>
         /// Public Sources
@@ -67,9 +71,9 @@ namespace PromotItLibrary.Models
                     : (LocalMode == Modes.Local) ? _mySQL ?? new MySQL("localhost", "root", "admin", "promoit")
                     : _mySQL ?? null
                 );
-
-
         private static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
+
+
 
         /// <summary>
         /// Queue Addresses
@@ -120,7 +124,6 @@ namespace PromotItLibrary.Models
         private static MySQL _mySQL;
         private static HttpClient _httpClient;
         private static TwitterClient _twitterUserClient;
-
 
         /// <summary>
         /// Twitter API keys

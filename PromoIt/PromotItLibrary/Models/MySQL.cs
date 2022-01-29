@@ -24,7 +24,13 @@ namespace PromotItLibrary.Models
         private string _password;
         private string _dataBase;
 
-        private int _tries = 0;
+        /// <summary>
+        /// Tries Counter
+        /// </summary>
+        private static int _tries = TriesReset();
+        private static int Tries { get { return _tries; } set { _tries = value; } }
+        public static int TriesReset() { Tries = 3; return _tries; }    //Nober of tries is 3
+        public static bool IsTries() { Thread.Sleep(500 * _tries); return Tries-- > 0; }    //between tries 500ms
 
         public MySQL() : this("localhost", "root", "admin", "promoit") // defult settings for connection
             => (Cmd, Stm, Rdr) = (null, null, null);
@@ -66,8 +72,6 @@ namespace PromotItLibrary.Models
 
             try
             {
-
-
                 if (Stm == null) { Console.WriteLine("No Quary"); return false; }
                 if (Cmd?.CommandType == CommandType.StoredProcedure) { } //procedure
                 else if (Cmd?.Parameters.Count > 0) Cmd?.Prepare(); //parametars
@@ -77,25 +81,21 @@ namespace PromotItLibrary.Models
 
                 if (outPut == null && outPut <= 0)
                 {
-                    while (_tries < 3)
-                    {
-                        _tries++;
-                        Thread.Sleep(500 * _tries);
+                    while (IsTries())
                         return QuaryExecute();
-                    }
-                    _tries = 0;
+                    TriesReset();
                     NullifiedValues();
                     return false;
                 }
 
-                _tries = 0;
+                TriesReset();
                 NullifiedValues();
-
                 return true;
-
             }
             catch { }
 
+            TriesReset();
+            NullifiedValues();
             return false;
 
         }
@@ -105,32 +105,26 @@ namespace PromotItLibrary.Models
             MySqlDataReader results = null;
             try
             {
-                
-                while (_tries < 3)
+                while (IsTries())
                 {
                     Rdr = Cmd?.ExecuteReader();
                     results = Rdr;
                     if(results == null)
-                    {
-                        _tries++;
-                        Thread.Sleep(500 * _tries);
                         return GetQueryMultyResults();
-                    }
-
+                    TriesReset();
                     NullifiedValues(); // cant nullified rdr!, it will nulified results
-                    _tries = 0;
                     return results;
                 }
             }
             catch
             {
-                _tries = 0;
+                TriesReset();
                 if (Rdr != null) Rdr.Dispose();
                 try { Rdr = Cmd?.ExecuteReader(); results = Rdr; NullifiedValues(); }
                 catch (Exception ex) { throw new Exception(ex.Message); }    //Try to add reset for databese
                 finally { throw new Exception("MySqlDataReader Failed or not closed before, using required"); }
             }
-
+            TriesReset();
             return results;
         }
 
