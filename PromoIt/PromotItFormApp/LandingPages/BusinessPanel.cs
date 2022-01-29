@@ -94,7 +94,7 @@ namespace PromotItFormApp.LandingPages
                 ProductDonated productDonated = new ProductDonated();
                 productDonated.Id = dgrdActivists["clmnProductDonatedId", e.RowIndex].Value.ToString();
                 bool result = await productDonated.SetProductShippingAsync();
-                if (result) GetProductsForShippingAsync();
+                if (result != null && result) GetProductsForShippingAsync();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

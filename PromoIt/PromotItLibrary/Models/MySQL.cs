@@ -66,23 +66,48 @@ namespace PromotItLibrary.Models
             else if (Cmd?.Parameters.Count > 0) Cmd?.Prepare(); //parametars
             else if (Cmd != null) Cmd.CommandText = Stm; //insert quary
             int? outPut = Cmd?.ExecuteNonQuery();
+            
+            
+            
+            if (outPut == null && outPut <= 0) 
+            { 
+                Console.WriteLine($"Quary failed, {Stm}");
+                return false; 
+            }
+
+
             NullifiedValues();
-            if (outPut != null && outPut > 0) return true;
-            Console.WriteLine($"Quary failed, {Stm}");
-            return false;
+
+            return true;
+
         }
         
+        private static int _tries = 0;
         public MySqlDataReader GetQueryMultyResults() // selects
         {
             MySqlDataReader results = null;
             try
             {
-                Rdr = Cmd?.ExecuteReader();
-                results = Rdr;
-                NullifiedValues(); // cant nullified rdr!, it will nulified results
+                
+                while (_tries < 3)
+                {
+                    Rdr = Cmd?.ExecuteReader();
+                    results = Rdr;
+                    if(results == null)
+                    {
+                        _tries++;
+                        Thread.Sleep(500 * _tries);
+                        GetQueryMultyResults();
+                    }
+
+                    NullifiedValues(); // cant nullified rdr!, it will nulified results
+                    _tries = 0;
+                    return results;
+                }
             }
             catch
             {
+                _tries = 0;
                 if (Rdr != null) Rdr.Dispose();
                 try { Rdr = Cmd?.ExecuteReader(); results = Rdr; NullifiedValues(); }
                 catch (Exception ex) { throw new Exception(ex.Message); }    //Try to add reset for databese

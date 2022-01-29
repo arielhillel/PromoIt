@@ -40,7 +40,6 @@ namespace PromotItFormApp.LandingPages
                     if (result == DialogResult.Cancel)
                     {
                         lblMessages.Text = Configuration.Message;
-                        GetCampaignsAsync();
                         GetCashAmountAsync();
                     }
                 }
@@ -60,14 +59,15 @@ namespace PromotItFormApp.LandingPages
             try
             {
                 activistUser.UserName = Configuration.CorrentUser.UserName;
-                activistUser.Cash = (await activistUser.GetCashAmountAsync()).Cash;
+                ActivistUser result = (await activistUser.GetCashAmountAsync());
+                if (result == null) throw new Exception($"Cant Receive Activist Cash report UserName ({activistUser.UserName})");
+                activistUser.Cash = result?.Cash;
                 txtCashBalanceCheck.Text = activistUser.Cash;
                 Loggings.ReportLog($"Activist Cash report UserName ({activistUser.UserName}) Cash ({activistUser.Cash})");
             }
             catch (Exception ex) 
             {
-                Loggings.ErrorLog($"Cant Receive Activist Cash report UserName ({activistUser.UserName})");
-                MessageBox.Show(ex.Message); 
+                Loggings.ErrorLog(ex.Message);
             }
         }
 

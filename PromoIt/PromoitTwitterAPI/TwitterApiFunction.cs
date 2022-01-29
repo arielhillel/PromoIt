@@ -19,7 +19,7 @@ namespace PromoitTwitterAPI
         private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
         [FunctionName("TwitterApiTimmerFunction")]
-        public async Task RunAsync([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
+        public async Task RunAsync([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
         {
 
             log.LogInformation($"C# Twitter API Function Started on: {DateTime.Now}");

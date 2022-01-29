@@ -60,6 +60,13 @@ namespace PromotItLibrary.Classes
             List<ProductInCampaign> productInCampaignList = await MySQL_GetProductList_ListAsync();
             foreach (string culmn in new[] { "clmnProductId", "clmnBusinessUser", "clmnProductName", "clmnProductQuantity", "clmnProductPrice" })
                 dataTable.Columns.Add(culmn);
+            if (productInCampaignList == null)
+            {
+                Loggings.ErrorLog($"No Products  in Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
+                return dataTable;
+            }
+                
+
             foreach (ProductInCampaign productInCampaign in productInCampaignList)
             {
                 DataRow dataRow = dataTable.NewRow();
@@ -72,9 +79,7 @@ namespace PromotItLibrary.Classes
                 dataTable.Rows.Add(dataRow);
             }
 
-            if (productInCampaignList.Count == 0)
-                Loggings.ErrorLog($"No Products  in Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
-            else Loggings.ReportLog($"Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
+            Loggings.ReportLog($"Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
 
             return dataTable;
         }

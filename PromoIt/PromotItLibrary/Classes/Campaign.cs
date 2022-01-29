@@ -177,6 +177,12 @@ namespace PromotItLibrary.Classes
             List<Campaign> campaignsList = await MySQL_GetAllCampaigns_ListAsync();
             foreach (string culmn in new[] {  "clmnHashtag", "clmnWebpage" })
                 dataTable.Columns.Add(culmn);
+
+            if (campaignsList == null)
+            {
+                Loggings.ErrorLog($"Cant find any campaign to show from GetAllCampaigns request");
+                return dataTable;
+            }  
             foreach (Campaign campaign in campaignsList)
             {
                 DataRow dataRow = dataTable.NewRow();
@@ -185,9 +191,7 @@ namespace PromotItLibrary.Classes
                 dataTable.Rows.Add(dataRow);
             }
 
-            if (campaignsList.Count == 0)
-                Loggings.ErrorLog($"Cant find any campaign to show from GetAllCampaigns request");
-            else Loggings.ReportLog($"GetAllCampaigns Requested");
+            Loggings.ReportLog($"GetAllCampaigns Requested");
 
             return dataTable;
 
