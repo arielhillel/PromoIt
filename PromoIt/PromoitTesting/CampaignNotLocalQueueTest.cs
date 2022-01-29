@@ -10,7 +10,7 @@ using Xunit;
 namespace PromoitTesting
 {
 
-    public class CampaignQueueTest
+    public class CampaignNotLocalQueueTest
     {
         private MySQL mySQL = Configuration.MySQL;
         [Fact]
