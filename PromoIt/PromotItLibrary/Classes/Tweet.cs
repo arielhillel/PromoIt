@@ -95,6 +95,17 @@ namespace PromotItLibrary.Classes
             List<Tweet> tweetList = await MySQL_GetAllTweets_ListAsync();
             foreach (string culmn in new[] { "Hashtag", "UserName", "Retweets" })
                 dataTable.Columns.Add(culmn);
+
+            if (tweetList == null)
+            {
+                while (Configuration.IsTries())
+                    return await GetAllTweets_DataTableAsync();
+                Loggings.ErrorLog($"Admin Requested to get all Tweets list, The list is empty, Reguested by ({Configuration.CorrentUser.UserName})");
+                Configuration.TriesReset();
+                return dataTable;//no results
+            }
+            Configuration.TriesReset();
+
             Loggings.TweeterLogs.LogInformation($"Tweet List, Reguested by ({Configuration.CorrentUser.UserName})");
             foreach (Tweet tweet in tweetList)
             {
@@ -106,10 +117,9 @@ namespace PromotItLibrary.Classes
                 Loggings.TweeterLogs.LogInformation($"Tweet Campaign Hashtag (#{tweet.Campaign.Hashtag}) UserName ({tweet.ActivistUser.UserName}) Retweets ({tweet.Retweets})");
             }
 
-            Loggings.TweeterLogs.LogInformation($"");
-            if (tweetList.Count == 0)
-                Loggings.ErrorLog($"Admin Requested to get all users list, The list is empty, Reguested by ({Configuration.CorrentUser.UserName})");
-            else Loggings.ReportLog($"Admin Requested to get all users list, Reguested by ({Configuration.CorrentUser.UserName})");
+            Loggings.TweeterLogs.LogInformation($"Report end");
+
+            Loggings.ReportLog($"Admin Requested to get all Tweets list, Reguested by ({Configuration.CorrentUser.UserName})");
 
             return dataTable;
 

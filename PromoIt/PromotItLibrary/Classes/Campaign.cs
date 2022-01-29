@@ -115,6 +115,17 @@ namespace PromotItLibrary.Classes
             List<Campaign> campaignsList = await MySql_GetAllCampaignsNonProfit_ListAsync();
             foreach (string culmn in new[] { "clmnCampaignName", "clmnHashtag", "clmnWebsite", "clmnCreator" })
                 dataTable.Columns.Add(culmn);
+
+            if (campaignsList == null)
+            {
+                while (Configuration.IsTries())
+                    return await GetAllCampaignsNonProfit_DataTableAsync();
+                Loggings.ErrorLog($"Non Profit Organization Not have any campaigns to show from GetAllCampaigns, UserName ({NonProfitUser.UserName})");
+                Configuration.TriesReset();
+                return dataTable;//no results
+            }
+            Configuration.TriesReset();
+
             foreach (Campaign campaign in campaignsList)
             {
                 DataRow dataRow = dataTable.NewRow();
@@ -125,9 +136,7 @@ namespace PromotItLibrary.Classes
                 dataTable.Rows.Add(dataRow);
             }
 
-            if(campaignsList.Count == 0)
-                Loggings.ErrorLog($"Non Profit Organization Not have any campaigns to show from GetAllCampaigns, UserName ({NonProfitUser.UserName})");
-            else Loggings.ReportLog($"Non Profit Organization GetAllCampaigns, UserName ({NonProfitUser.UserName})");
+            Loggings.ReportLog($"Non Profit Organization GetAllCampaigns, UserName ({NonProfitUser.UserName})");
 
             return dataTable;
         }
@@ -180,9 +189,14 @@ namespace PromotItLibrary.Classes
 
             if (campaignsList == null)
             {
+                while (Configuration.IsTries())
+                    return await GetAllCampaigns_DataTableAsync();
                 Loggings.ErrorLog($"Cant find any campaign to show from GetAllCampaigns request");
-                return dataTable;
-            }  
+                Configuration.TriesReset();
+                return dataTable;//no results
+            }
+            Configuration.TriesReset();
+
             foreach (Campaign campaign in campaignsList)
             {
                 DataRow dataRow = dataTable.NewRow();

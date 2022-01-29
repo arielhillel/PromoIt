@@ -49,6 +49,17 @@ namespace PromotItLibrary.Classes
             List<Campaign> campaignsList = await campaign1.MySQL_GetAllCampaigns_ListAsync();       //From Campaign Class
             foreach (string culmn in new[] { "Hashtag", "Webpage", "Creator" })
                 dataTable.Columns.Add(culmn);
+
+            if (campaignsList == null)
+            {
+                while (Configuration.IsTries())
+                    return await GetAllCampaignsAdmin_DataTableAsync();
+                Loggings.ErrorLog($"Admin Requested to get all campaigns list, The list is empty, Reguested by ({UserName})");
+                Configuration.TriesReset();
+                return dataTable;//no results
+            }
+            Configuration.TriesReset();
+
             Loggings.CampaignsLog.LogInformation($"Campaign List, Reguested by ({UserName})");
             foreach (Campaign campaign in campaignsList)
             {
@@ -59,10 +70,9 @@ namespace PromotItLibrary.Classes
                 dataTable.Rows.Add(dataRow);
                 Loggings.CampaignsLog.LogInformation($"Campaign Hashtag (#{campaign.Hashtag}) Creator ({campaign.NonProfitUser.UserName}) Webpage ({campaign.Url})");
             }
-            Loggings.CampaignsLog.LogInformation($"");
-            if (campaignsList.Count == 0)
-                Loggings.ErrorLog($"Admin Requested to get all campaigns list, The list is empty, Reguested by ({UserName})"); 
-            else Loggings.ReportLog($"Admin Requested to get all campaigns list, Reguested by ({UserName})");
+            Loggings.CampaignsLog.LogInformation($"Report end");
+
+            Loggings.ReportLog($"Admin Requested to get all campaigns list, Reguested by ({UserName})");
 
             return dataTable;
 
@@ -106,6 +116,17 @@ namespace PromotItLibrary.Classes
             List<Users> userList = await MySQL_GetAllUsers_ListAsync();
             foreach (string culmn in new[] { "Name", "UserName", "Type" })
                 dataTable.Columns.Add(culmn);
+
+            if (userList == null)
+            {
+                while (Configuration.IsTries())
+                    return await GetAllUsers_DataTableAsync();
+                Loggings.ErrorLog($"Admin Requested to get all users list, The list is empty, Reguested by ({UserName})");
+                Configuration.TriesReset();
+                return dataTable;//no results
+            }
+            Configuration.TriesReset();
+
             Loggings.UsersLog.LogInformation($"Users List, Reguested by ({UserName})");
             foreach (Users user in userList)
             {
@@ -116,11 +137,9 @@ namespace PromotItLibrary.Classes
                 dataTable.Rows.Add(dataRow);
                 Loggings.UsersLog.LogInformation($"User UserName (#{user.UserName}) Name ({user.Name}) Type ({user.UserType})");
             }
+            Loggings.UsersLog.LogInformation($"Report end");
 
-            Loggings.UsersLog.LogInformation($"");
-            if (userList.Count == 0)
-                Loggings.ErrorLog($"Admin Requested to get all users list, The list is empty, Reguested by ({UserName})"); 
-            else Loggings.ReportLog($"Admin Requested to get all users list, Reguested by ({UserName})");
+            Loggings.ReportLog($"Admin Requested to get all users list, Reguested by ({UserName})");
 
             return dataTable;
 

@@ -9,6 +9,7 @@ using PromotItLibrary.Interfaces;
 using Tweetinvi;
 using Tweetinvi.Parameters;
 using Microsoft.Extensions.Logging;
+using System.Threading;
 
 /**
  * Copyright:
@@ -34,6 +35,13 @@ namespace PromotItLibrary.Models
         public static Modes Mode { get; set; } = Modes.Queue; // Modes.Queue or Modes.Functions or null
         public static Modes DatabaseMode { get; set; } = Modes.MySQL; // Modes.MySQL only
 
+        public static int Tries { get {  return _tries; } set { _tries = value; } }
+        public static int TriesReset() { Tries = 3; return _tries; }
+        public static bool IsTries() { Thread.Sleep(500 * _tries); return Tries-- > 0; }
+
+
+
+        public static int _tries = TriesReset();
 
         /// <summary>
         /// Public Sources

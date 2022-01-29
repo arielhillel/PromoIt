@@ -24,6 +24,8 @@ namespace PromotItLibrary.Models
         private string _password;
         private string _dataBase;
 
+        private int _tries = 0;
+
         public MySQL() : this("localhost", "root", "admin", "promoit") // defult settings for connection
             => (Cmd, Stm, Rdr) = (null, null, null);
         public MySQL(string server, string userId, string password, string dataBase)
@@ -58,7 +60,6 @@ namespace PromotItLibrary.Models
 
         public bool QuaryExecute(string stmQuary) { Quary(stmQuary); return QuaryExecute(); }
 
-        private static int _tries = 0;
 
         public bool QuaryExecute()  // inserts
         {

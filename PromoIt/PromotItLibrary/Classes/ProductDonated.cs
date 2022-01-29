@@ -143,12 +143,17 @@ namespace PromotItLibrary.Classes
             List<ProductDonated> productDonatedList = await MySQL_GetDonatedProductForShipping_ListAsync();
             foreach (string culmn in new[] { "clmnActivist", "clmnProduct", "clmnProductDonatedId" })
                 dataTable.Columns.Add(culmn);
+
             if (productDonatedList == null)
             {
+                while (Configuration.IsTries())
+                    return await GetDonatedProductForShipping_DataTableAsync();
                 Loggings.ErrorLog($"Business user Got Empty list of donated products waiting for shipping, UserName ({ProductInCampaign.BusinessUser.UserName})");
-                return dataTable;
+                Configuration.TriesReset();
+                return dataTable;//no results
             }
-                
+            Configuration.TriesReset();
+
             foreach (ProductDonated productDonated in productDonatedList)
             {
                 DataRow dataRow = dataTable.NewRow();
@@ -157,7 +162,6 @@ namespace PromotItLibrary.Classes
                 dataRow["clmnProductDonatedId"] = productDonated.Id;
                 dataTable.Rows.Add(dataRow);
             }
-
 
             Loggings.ReportLog($"Business user Get All donated products waiting for shipping, UserName ({ProductInCampaign.BusinessUser.UserName})");
 

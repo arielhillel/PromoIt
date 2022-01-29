@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PromotItLibrary.Classes
@@ -62,10 +63,13 @@ namespace PromotItLibrary.Classes
                 dataTable.Columns.Add(culmn);
             if (productInCampaignList == null)
             {
+                while ( Configuration.IsTries() )
+                    return await GetList_DataTableAsync();
                 Loggings.ErrorLog($"No Products  in Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
-                return dataTable;
+                Configuration.TriesReset();
+                return dataTable;//no results
             }
-                
+            Configuration.TriesReset();
 
             foreach (ProductInCampaign productInCampaign in productInCampaignList)
             {
