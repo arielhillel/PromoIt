@@ -29,8 +29,8 @@ namespace PromotItLibrary.Models
         /// </summary>
         private static int _tries = TriesReset();
         private static int Tries { get { return _tries; } set { _tries = value; } }
-        public static int TriesReset() { Tries = 3; return _tries; }    //Nober of tries is 3
-        public static bool IsTries() { Thread.Sleep(500 * _tries); return Tries-- > 0; }    //between tries 500ms
+        public static int TriesReset() { Tries = 0; return _tries; }    
+        public static bool IsTries() { Thread.Sleep(500 * _tries); return Tries++ < 3; }    //Nober of tries is 3//between tries 500ms
 
         public MySQL() : this("localhost", "root", "admin", "promoit") // defult settings for connection
             => (Cmd, Stm, Rdr) = (null, null, null);
