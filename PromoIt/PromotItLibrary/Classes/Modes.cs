@@ -16,6 +16,8 @@ namespace PromotItLibrary.Classes
         public static Modes NotLocal { get; } = new Modes();
         public static Modes Local { get; } = new Modes();
 
+        public static Modes Null { get; } = null;
+
     }
 
 

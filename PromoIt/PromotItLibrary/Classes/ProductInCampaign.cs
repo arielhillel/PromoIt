@@ -65,7 +65,7 @@ namespace PromotItLibrary.Classes
             {
                 while ( Configuration.IsTries() )
                     return await GetList_DataTableAsync();
-                Loggings.ErrorLog($"No Products  in Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
+                Loggings.ErrorLog($"No Products in Get products in campagign, Campaign (#{Campaign.Hashtag}) by ({Configuration.CorrentUser.UserName})");
                 Configuration.TriesReset();
                 return dataTable;//no results
             }
