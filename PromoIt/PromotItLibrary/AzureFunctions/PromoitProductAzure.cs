@@ -87,6 +87,7 @@ namespace PromotItLibrary.AzureFunctions
 
                         switch (type)
                         {
+
                             case "SetNewProduct":
                                 className = "Set New Product";
                                 ProductInCampaign ProductInCampaign = Functions.JsonStringToSingleObject<ProductInCampaign>(data);
@@ -94,13 +95,14 @@ namespace PromotItLibrary.AzureFunctions
                                 action = await ProductInCampaign.SetNewProductAsync(FunctionOrDatabaseMode);
                                 break;
 
-
                             case "SetBuyAnItem":
                                 className = "Buy An Item";
                                 ProductDonated productDonated = Functions.JsonStringToSingleObject<ProductDonated>(data);
                                 if (productDonated == null) throw new Exception($"POST: No {className} IS Enterd");
                                 action = await productDonated.SetBuyAnItemAsync(FunctionOrDatabaseMode);
                                 break;
+
+
                             case "SetProductShipping":
                                 className = "Set Product Shipping";
                                 ProductDonated productDonated2 = Functions.JsonStringToSingleObject<ProductDonated>(data);
@@ -123,7 +125,8 @@ namespace PromotItLibrary.AzureFunctions
                     }
                     catch (Exception ex) { log.LogInformation($"{azureFunctionString} Not-Seccess to Insert {className} to database\nDetails:{ex}"); return new BadRequestObjectResult("fail"); } //bad result
                     log.LogInformation($"{azureFunctionString} Failed to Insert after Tried to Insert {className} to database");
-                    return new BadRequestObjectResult("No access to database");
+
+                    return new BadRequestObjectResult("(3) No access to type/database for " + type);
                 }
             }
             catch (Exception ex) { log.LogInformation($"{azureFunctionString} POST ({className}) Error Fail:{ex.Message}"); return new BadRequestObjectResult($"Function Error Fail:{ex.Message}"); }

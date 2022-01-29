@@ -77,6 +77,7 @@ namespace PromotItLibrary.AzureFunctions
                                 if (campaign == null) throw new Exception($"POST: No {className} IS Enterd");
                                 action = await campaign.SetNewCampaignAsync(FunctionOrDatabaseMode);
                                 break;
+
                             case "DeleteCampaign":
                                 className = "Delete Campaign";
                                 Campaign campaign2 = Functions.JsonStringToSingleObject<Campaign>(data);
@@ -98,7 +99,7 @@ namespace PromotItLibrary.AzureFunctions
                     }
                     catch (Exception ex) { log.LogInformation($"{azureFunctionString} Not-Seccess to Insert {className} to database\nDetails:{ex}"); return new BadRequestObjectResult("fail"); } //bad result
                     log.LogInformation($"{azureFunctionString} Failed to Insert after Tried to Insert {className} to database");
-                    return new BadRequestObjectResult("No access to database");
+                    return new BadRequestObjectResult("(4) No access to database for" + type);
                 }
             }
             catch (Exception ex) { log.LogInformation($"{azureFunctionString} POST ({className}) Error Fail:{ex.Message}"); return new BadRequestObjectResult($"Function Error Fail:{ex.Message}"); }

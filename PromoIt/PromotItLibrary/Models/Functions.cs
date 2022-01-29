@@ -72,10 +72,6 @@ namespace PromotItLibrary.Models
             string mycontent = await content.ReadAsStringAsync();   //Response
             return mycontent;
         }
-
-
-
-
         //Get
         public async static Task<List<T>> GetMultipleDataRequest<T>(string getUrl, T obj, string type = "")
         {

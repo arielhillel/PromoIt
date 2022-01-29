@@ -43,7 +43,7 @@ namespace PromotItFormApp.LandingPagesActions
             try
             {
                 bool result = await _productDonated.SetBuyAnItemAsync();
-                if (!result) throw new Exception("Error Cant Buy This Item");
+                if (!result) throw new Exception("Cant Buy This Item");
                 
                 Configuration.Message = $"Thanks For ordering { _productDonated.ProductInCampaign.Name} {_productDonated.Quantity}pcs\n for Campaign #{Configuration.CorrentCampaign.Hashtag}";
                 Task sendATweet = _productDonated.SetTwitterMessagTweet_SetBuyAnItemAsync();

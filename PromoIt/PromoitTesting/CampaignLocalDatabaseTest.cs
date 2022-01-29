@@ -4,15 +4,31 @@ using PromotItLibrary.Classes;
 using PromotItLibrary.Interfaces;
 using PromotItLibrary.Models;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace PromoitTesting
 {
 
+
     public class CampaignLocalDatabaseTest
     {
-        private MySQL mySQL = Configuration.MySQL;
+
+        public Campaign testingCampaign() 
+        {
+
+            Campaign campaign = new Campaign();
+            campaign.Name = "SomeCampaignNameTest6";
+            campaign.Hashtag = "SomeHashtagTest";
+            campaign.Url = "SomeUrl";
+            campaign.NonProfitUser.UserName = "n";    //awailable activist user!!!
+
+            return campaign;
+        }
+
+
+
         [Fact]
         public async Task Functions_MySQLUserRegisterLoginAsync()
         {
@@ -22,29 +38,24 @@ namespace PromoitTesting
             Configuration.Mode = Modes.Null;
             Configuration.LocalMode = Modes.Local;
 
+            Campaign campaign = testingCampaign();
 
-            Campaign _campaign = new Campaign();
-            _campaign.NonProfitUser = Configuration.CorrentUser;
 
-            Users user = new Users();
-            user.UserName = "n";    //awailable activist user!!!
+            bool result2 = await campaign.DeleteCampaignAsync();
 
-            Campaign campaign = new Campaign();
-            campaign.Name = "SomeCampaignNameTest";
-            campaign.Hashtag = "SomeHashtagTest";
-            campaign.Url = "SomeUrl";
-            campaign.NonProfitUser = user;
 
-            bool result2 = await _campaign.DeleteCampaignAsync();
+            Thread.Sleep(1000 );
 
             bool result1 = await campaign.SetNewCampaignAsync();
 
             Assert.True(result1, "Campaign Should Entered to Database");
 
 
-            result2 = await _campaign.DeleteCampaignAsync();
+            Thread.Sleep(1000);
 
-            Assert.True(result2, "Campaign Should Deleted from Database");
+            bool result3 = await campaign.DeleteCampaignAsync();
+
+            Assert.True(result3, "Campaign Should Deleted from Database");
 
 
             //return to set values

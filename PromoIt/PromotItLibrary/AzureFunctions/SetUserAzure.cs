@@ -110,7 +110,7 @@ namespace PromotItLibrary.AzureFunctions
                     }
                     catch (Exception ex) { log.LogInformation($"{azureFunctionString} Not-Seccess to Insert {className} to database\nDetails:{ex}"); return new BadRequestObjectResult("fail"); } //bad result
                     log.LogInformation($"{azureFunctionString} Failed to Insert after Tried to Insert {className} to database");
-                    return new BadRequestObjectResult("No access to database");
+                    return new BadRequestObjectResult("(1) No access to database for" + type);
                 }
             }
             catch (Exception ex) { log.LogInformation($"{azureFunctionString} POST ({className}) Error Fail:{ex.Message}"); return new BadRequestObjectResult($"Function Error Fail:{ex.Message}"); }

@@ -14,7 +14,7 @@ namespace PromotItLibrary.Classes
         public ProductDonated()
         {
             ProductInCampaign = new ProductInCampaign();
-            ActivistUser = new ActivistUser(); //Configuration.CorrentUser ?? 
+            ActivistUser = new ActivistUser(); 
         }
 
         public ProductInCampaign ProductInCampaign { get; set; }
@@ -24,6 +24,9 @@ namespace PromotItLibrary.Classes
         public string Id { get; set; }
 
         private MySQL mySQL = new MySQL();
+
+
+
 
 
         public async Task SetTwitterMessagTweet_SetBuyAnItemAsync()
@@ -36,7 +39,7 @@ namespace PromotItLibrary.Classes
                 Loggings.ReportLog($"Trying To Set a tweet for buying an item, Activist UserName ({ActivistUser.UserName}) CampaignName ({ProductInCampaign.Name}) BuisnessUserName ({ProductInCampaign.BusinessUser.UserName})" +
                     $"\nProductId ({ProductInCampaign.Id}) Quantity ({Quantity})");
             }
-            catch 
+            catch
             {  //Twitter exeption
                 Loggings.ErrorLog($"Some error to set a tweet for buying an item, Activist UserName ({ActivistUser.UserName}) CampaignName ({ProductInCampaign.Name}) BuisnessUserName ({ProductInCampaign.BusinessUser.UserName})" +
                     $"\nProductId ({ProductInCampaign.Id}) Quantity ({Quantity})");
@@ -54,7 +57,7 @@ namespace PromotItLibrary.Classes
                 else if ((mode ?? Configuration.Mode) == Modes.Functions)
                     return (bool)await Functions.PostSingleDataInsert(Configuration.PromoitProductFunctions, this, "SetBuyAnItem");
             }
-            catch { return false; }    
+            catch { return false; }
 
             if ((mode ?? Configuration.DatabaseMode) == Modes.MySQL)
             {
@@ -69,6 +72,11 @@ namespace PromotItLibrary.Classes
             return false;
 
         }
+
+
+
+
+
 
         public async Task<bool> SetProductShippingAsync(Modes mode = null)
         {

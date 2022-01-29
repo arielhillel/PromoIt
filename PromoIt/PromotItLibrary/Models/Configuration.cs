@@ -13,13 +13,10 @@ using System.Threading;
 
 /**
  * Copyright:
- *  Author: Arierl
- *  Email: 
- *  Author: Yaron
- *  Email: 
+ *  Author: Arierl Hilel
+ *  Author: Yaron Malul
  *  Author: Arthur Zarankin
  *  Email: w3arthur@gmail.com
- *  Site: http://www.arthur.tk
  *  Begin Date: 14/01/2022
  *  Edited At:  27/01/2022
 **/
@@ -32,7 +29,7 @@ namespace PromotItLibrary.Models
         /// System global mode settings
         /// </summary>
         
-        public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Mode s.Local or Modes.NotLocal //Local is for testing purposes
+        public static Modes LocalMode { get; set; } = Modes.Local;   //Mode s.Local or Modes.NotLocal //Local is for testing purposes
         public static Modes Mode { get; set; } = Modes.Queue; // Modes.Queue or Modes.Functions or Modes.Null /null
         public static Modes DatabaseMode { get; set; } = Modes.MySQL; // Modes.MySQL only
 
