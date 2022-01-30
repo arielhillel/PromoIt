@@ -140,7 +140,7 @@ Additionally, when a Social-Activist user buys or donates a product, a Business 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-[![Alt text](https://www.youtube.com/watch?v=NGY0XY7xcOM)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=NGY0XY7xcOM)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
