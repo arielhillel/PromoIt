@@ -23,7 +23,7 @@ namespace PromotItLibrary.Models
 
         ///     Please install MySQL from file "Promoit-Database-MySQL.sql"
         ///     Please Set the MySQL Local connection data 
-        ///     Please run all the 4 projects:
+        ///     Please run all the 4 projects together:
         ///           PromotItFormApp
         ///           PromoitTwitterAPI
         ///           PromoitFunctions
@@ -31,7 +31,7 @@ namespace PromotItLibrary.Models
 
         private static string _mysqlLocal_Server = "localhost";
         private static string _mysqlLocal_UserId = "root";
-        private static string _mysqlLocal_Password = "root";
+        private static string _mysqlLocal_Password = "admin";
         private static string _mysqlLocal_Database = "promoit";
 
 
@@ -70,6 +70,7 @@ namespace PromotItLibrary.Models
         /// <summary>
         /// Sorces start private functions
         /// </summary>
+        /// 
         private static void TwitterUserClientStart() => TwitterUserClient = _twitterUserClient ?? new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
         private static void MySQLStart()
             => MySQL = 

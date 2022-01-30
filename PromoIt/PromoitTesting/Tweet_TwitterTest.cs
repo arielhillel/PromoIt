@@ -38,7 +38,7 @@ namespace PromoitTesting
             ProductDonated productDonated = testingProductDonated();
             await productDonated.SetTwitterMessagTweet_SetBuyAnItemAsync();
 
-
+            int attempts = 10;
             bool isAtweet = false;
             var searchIterator = twitterUserClient.SearchV2.GetSearchTweetsV2Iterator(productDonated.ProductInCampaign.Name);  //#
             while (!searchIterator.Completed)
@@ -47,9 +47,10 @@ namespace PromoitTesting
                 {
                     var searchPage = await searchIterator.NextPageAsync();
                     if (searchPage.Content.Tweets.Length >= 1) { isAtweet = true; }
+
                     break;
                 }
-                catch { }
+                catch { if (attempts-- <= 0) { break; } }
             }
 
             Assert.True(isAtweet, "Tweet Shoul Sert And found here https://twitter.com/MalulYaron");
