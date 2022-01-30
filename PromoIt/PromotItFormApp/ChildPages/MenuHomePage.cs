@@ -19,7 +19,7 @@ namespace PromotItFormApp.ChildPages
         }
         private void MenuHomePage_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
 
         private void LoadTheme()
@@ -41,6 +41,11 @@ namespace PromotItFormApp.ChildPages
         private void buttonGitHub_Click(object sender, EventArgs e)
         {            
             Process.Start(new ProcessStartInfo("https://github.com/w3arthur/PromoIt") { UseShellExecute = true });
+        }
+
+        private void labelHomeDesc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

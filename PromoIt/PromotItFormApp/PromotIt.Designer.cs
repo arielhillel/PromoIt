@@ -55,8 +55,9 @@
             this.panelMenu.Controls.Add(this.pnlLeftLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 573);
+            this.panelMenu.Size = new System.Drawing.Size(192, 436);
             this.panelMenu.TabIndex = 0;
             // 
             // btnRegister
@@ -68,10 +69,11 @@
             this.btnRegister.ForeColor = System.Drawing.Color.White;
             this.btnRegister.Image = global::PromotItFormApp.Properties.Resources.add_user_32;
             this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(0, 453);
+            this.btnRegister.Location = new System.Drawing.Point(0, 346);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnRegister.Size = new System.Drawing.Size(220, 60);
+            this.btnRegister.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnRegister.Size = new System.Drawing.Size(192, 45);
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = " Register";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -88,10 +90,11 @@
             this.btnTwitter.ForeColor = System.Drawing.Color.White;
             this.btnTwitter.Image = global::PromotItFormApp.Properties.Resources.twitter_32;
             this.btnTwitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTwitter.Location = new System.Drawing.Point(0, 200);
+            this.btnTwitter.Location = new System.Drawing.Point(0, 150);
+            this.btnTwitter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTwitter.Name = "btnTwitter";
-            this.btnTwitter.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnTwitter.Size = new System.Drawing.Size(220, 60);
+            this.btnTwitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTwitter.Size = new System.Drawing.Size(192, 45);
             this.btnTwitter.TabIndex = 4;
             this.btnTwitter.Text = " Twitter";
             this.btnTwitter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,10 +111,11 @@
             this.btnAboutPromoit.ForeColor = System.Drawing.Color.White;
             this.btnAboutPromoit.Image = ((System.Drawing.Image)(resources.GetObject("btnAboutPromoit.Image")));
             this.btnAboutPromoit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAboutPromoit.Location = new System.Drawing.Point(0, 140);
+            this.btnAboutPromoit.Location = new System.Drawing.Point(0, 105);
+            this.btnAboutPromoit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAboutPromoit.Name = "btnAboutPromoit";
-            this.btnAboutPromoit.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnAboutPromoit.Size = new System.Drawing.Size(220, 60);
+            this.btnAboutPromoit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAboutPromoit.Size = new System.Drawing.Size(192, 45);
             this.btnAboutPromoit.TabIndex = 0;
             this.btnAboutPromoit.Text = " About Promoit";
             this.btnAboutPromoit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -128,10 +132,11 @@
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(0, 513);
+            this.btnLogin.Location = new System.Drawing.Point(0, 391);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnLogin.Size = new System.Drawing.Size(220, 60);
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnLogin.Size = new System.Drawing.Size(192, 45);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = " Login";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,10 +153,11 @@
             this.btnZioNet.ForeColor = System.Drawing.Color.White;
             this.btnZioNet.Image = global::PromotItFormApp.Properties.Resources.home_5_32;
             this.btnZioNet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZioNet.Location = new System.Drawing.Point(0, 80);
+            this.btnZioNet.Location = new System.Drawing.Point(0, 60);
+            this.btnZioNet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZioNet.Name = "btnZioNet";
-            this.btnZioNet.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnZioNet.Size = new System.Drawing.Size(220, 60);
+            this.btnZioNet.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnZioNet.Size = new System.Drawing.Size(192, 45);
             this.btnZioNet.TabIndex = 0;
             this.btnZioNet.Text = " ZioNet";
             this.btnZioNet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,11 +169,12 @@
             // 
             this.pnlLeftLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             this.pnlLeftLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLeftLogo.BackgroundImage")));
-            this.pnlLeftLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlLeftLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlLeftLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLeftLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLeftLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLeftLogo.Name = "pnlLeftLogo";
-            this.pnlLeftLogo.Size = new System.Drawing.Size(220, 80);
+            this.pnlLeftLogo.Size = new System.Drawing.Size(192, 60);
             this.pnlLeftLogo.TabIndex = 0;
             // 
             // panelTitleBar
@@ -176,9 +183,10 @@
             this.panelTitleBar.Controls.Add(this.btnX);
             this.panelTitleBar.Controls.Add(this.lblHome);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
+            this.panelTitleBar.Location = new System.Drawing.Point(192, 0);
+            this.panelTitleBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(862, 80);
+            this.panelTitleBar.Size = new System.Drawing.Size(756, 60);
             this.panelTitleBar.TabIndex = 1;
             // 
             // btnX
@@ -188,8 +196,9 @@
             this.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnX.Image = ((System.Drawing.Image)(resources.GetObject("btnX.Image")));
             this.btnX.Location = new System.Drawing.Point(0, 0);
+            this.btnX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnX.Name = "btnX";
-            this.btnX.Size = new System.Drawing.Size(94, 80);
+            this.btnX.Size = new System.Drawing.Size(82, 60);
             this.btnX.TabIndex = 0;
             this.btnX.UseVisualStyleBackColor = true;
             this.btnX.Click += new System.EventHandler(this.buttonCloseChildForm_Click);
@@ -197,34 +206,36 @@
             // lblHome
             // 
             this.lblHome.AutoSize = true;
-            this.lblHome.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHome.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHome.ForeColor = System.Drawing.Color.White;
-            this.lblHome.Location = new System.Drawing.Point(358, 27);
+            this.lblHome.Location = new System.Drawing.Point(79, -4);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(83, 35);
+            this.lblHome.Size = new System.Drawing.Size(161, 65);
             this.lblHome.TabIndex = 0;
-            this.lblHome.Text = "Home";
+            this.lblHome.Text = "HOME";
             // 
             // pnlMiddlePanel
             // 
             this.pnlMiddlePanel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pnlMiddlePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMiddlePanel.BackgroundImage")));
             this.pnlMiddlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlMiddlePanel.Location = new System.Drawing.Point(220, 80);
+            this.pnlMiddlePanel.Location = new System.Drawing.Point(192, 60);
+            this.pnlMiddlePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMiddlePanel.Name = "pnlMiddlePanel";
-            this.pnlMiddlePanel.Size = new System.Drawing.Size(862, 493);
+            this.pnlMiddlePanel.Size = new System.Drawing.Size(754, 370);
             this.pnlMiddlePanel.TabIndex = 0;
             // 
             // PromotIt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 573);
+            this.ClientSize = new System.Drawing.Size(948, 436);
             this.Controls.Add(this.pnlMiddlePanel);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
-            this.MaximumSize = new System.Drawing.Size(1100, 620);
-            this.MinimumSize = new System.Drawing.Size(1100, 620);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(964, 475);
+            this.MinimumSize = new System.Drawing.Size(964, 475);
             this.Name = "PromotIt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PromotIt";

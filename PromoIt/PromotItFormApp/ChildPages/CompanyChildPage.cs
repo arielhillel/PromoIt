@@ -59,7 +59,8 @@ namespace PromotItFormApp.ChildPages
 
         private void CompanyChildPage_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
+
     }
 }

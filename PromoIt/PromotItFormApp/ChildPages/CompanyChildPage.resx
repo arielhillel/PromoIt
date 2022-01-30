@@ -59,10 +59,13 @@
   </resheader>
   <data name="lblLableTop.Text" xml:space="preserve">
     <value>You have probably noticed a price next to the product, well, no worries.
-The products we offer are completely free, the system does not need any payment methods so our program is optional
-to all ages.
+
+The products we offer are completely free, 
+the system does not need any payment methods so our program is optional to all ages.
+
 Due to collaboration with companies, we are fully able to reward the ones who participate.
 
-However, the campaigns provide different products, based on the companies supporting their agenda or their promotion.</value>
+However, the campaigns provide different products, 
+based on the companies supporting their agenda or their promotion.</value>
   </data>
 </root>
