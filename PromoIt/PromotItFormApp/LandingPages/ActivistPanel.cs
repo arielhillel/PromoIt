@@ -26,7 +26,7 @@ namespace PromotItFormApp.LandingPages
         
         private void dataGridSA_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 0)
             {
                 try
                 {

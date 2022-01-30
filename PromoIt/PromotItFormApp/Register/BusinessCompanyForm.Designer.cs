@@ -138,7 +138,6 @@
             this.btnX.Size = new System.Drawing.Size(54, 46);
             this.btnX.TabIndex = 5;
             this.btnX.UseVisualStyleBackColor = true;
-            this.btnX.Click += new System.EventHandler(this.buttonCloseBCRForm_Click);
             // 
             // BusinessCompanyForm
             // 
