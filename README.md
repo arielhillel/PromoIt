@@ -32,6 +32,7 @@ Please run all the 4 projects:                                                  
 ## About The Project
 
 <div align="center">
+    https://youtu.be/NGY0XY7xcOM  <br> <br>
   <img src=https://www.upload.ee/image/13836041/promoit_demo.png alt="MainApp" width="670" height="330"> <br>
   <p align="center"> PromoIt? What is it?</br> 
 PromoIt is a campaign-friendly application based on social media platforms, this application is still under development thus it
