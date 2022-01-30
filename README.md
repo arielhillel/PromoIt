@@ -140,9 +140,7 @@ Additionally, when a Social-Activist user buys or donates a product, a Business 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+[![Alt text](https://www.youtube.com/watch?v=NGY0XY7xcOM)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
