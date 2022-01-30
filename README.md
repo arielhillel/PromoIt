@@ -27,12 +27,36 @@ Please run all the 4 projects:                                                  
 <p>(Navigate Here)<p/>
     </div>
 <!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#REGISTRY">Registry</a></li>
+        <li><a href="#LOGIN">Login</a></li>
+      </ul>
+    </li>
+    <li><a href="#Services">Services</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>    
+  </ol>
+</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 <div align="center">
-    https://youtu.be/NGY0XY7xcOM  <br> <br>
+      <br> <br>
   <img src=https://www.upload.ee/image/13836041/promoit_demo.png alt="MainApp" width="670" height="330"> <br>
   <p align="center"> PromoIt? What is it?</br> 
 PromoIt is a campaign-friendly application based on social media platforms, this application is still under development thus it
