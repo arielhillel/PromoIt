@@ -26,15 +26,6 @@ namespace PromotItFormApp.RoleRegister
             pnlPanelTop.ForeColor = Color.White;
         }
 
-        private void buttonCloseSAForm_Click(object sender, EventArgs e)
-        {
-            if (btnX != null)
-            {
-                Close();
-                Register roleSystem = new Register();
-                roleSystem.ShowDialog();
-            }
-        }
 
         private void buttonSARegister_Click(object sender, EventArgs e) => RegisterSocialActivistAsync();
         private void SocialActivistForm_Load(object sender, EventArgs e) { }

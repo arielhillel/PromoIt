@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.labelAdminTitle = new System.Windows.Forms.Label();
             this.lnlName = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -38,7 +37,6 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.pnlPanelTop = new System.Windows.Forms.Panel();
-            this.btnX = new System.Windows.Forms.Button();
             this.pnlPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,58 +46,61 @@
             this.labelAdminTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelAdminTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAdminTitle.ForeColor = System.Drawing.Color.White;
-            this.labelAdminTitle.Location = new System.Drawing.Point(13, 29);
+            this.labelAdminTitle.Location = new System.Drawing.Point(11, 22);
             this.labelAdminTitle.Name = "labelAdminTitle";
-            this.labelAdminTitle.Size = new System.Drawing.Size(195, 28);
+            this.labelAdminTitle.Size = new System.Drawing.Size(156, 21);
             this.labelAdminTitle.TabIndex = 0;
             this.labelAdminTitle.Text = "Admin  Registeration";
             // 
             // lnlName
             // 
             this.lnlName.AutoSize = true;
-            this.lnlName.Location = new System.Drawing.Point(13, 108);
+            this.lnlName.Location = new System.Drawing.Point(11, 81);
             this.lnlName.Name = "lnlName";
-            this.lnlName.Size = new System.Drawing.Size(79, 20);
+            this.lnlName.Size = new System.Drawing.Size(64, 15);
             this.lnlName.TabIndex = 0;
             this.lnlName.Text = "Full Name:";
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(13, 172);
+            this.lblUserName.Location = new System.Drawing.Point(11, 129);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(78, 20);
+            this.lblUserName.Size = new System.Drawing.Size(63, 15);
             this.lblUserName.TabIndex = 0;
             this.lblUserName.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(12, 234);
+            this.lblPassword.Location = new System.Drawing.Point(10, 176);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 20);
+            this.lblPassword.Size = new System.Drawing.Size(60, 15);
             this.lblPassword.TabIndex = 0;
             this.lblPassword.Text = "Password:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 131);
+            this.txtName.Location = new System.Drawing.Point(10, 98);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(407, 27);
+            this.txtName.Size = new System.Drawing.Size(357, 23);
             this.txtName.TabIndex = 0;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(12, 195);
+            this.txtUserName.Location = new System.Drawing.Point(10, 146);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(407, 27);
+            this.txtUserName.Size = new System.Drawing.Size(357, 23);
             this.txtUserName.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 257);
+            this.txtPassword.Location = new System.Drawing.Point(10, 193);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(407, 27);
+            this.txtPassword.Size = new System.Drawing.Size(357, 23);
             this.txtPassword.TabIndex = 3;
             // 
             // btnRegister
@@ -108,9 +109,10 @@
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(149, 413);
+            this.btnRegister.Location = new System.Drawing.Point(130, 310);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(172, 47);
+            this.btnRegister.Size = new System.Drawing.Size(150, 35);
             this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -119,32 +121,20 @@
             // pnlPanelTop
             // 
             this.pnlPanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(145)))), ((int)(((byte)(139)))));
-            this.pnlPanelTop.Controls.Add(this.btnX);
             this.pnlPanelTop.Controls.Add(this.labelAdminTitle);
             this.pnlPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPanelTop.Name = "pnlPanelTop";
-            this.pnlPanelTop.Size = new System.Drawing.Size(487, 83);
+            this.pnlPanelTop.Size = new System.Drawing.Size(428, 62);
             this.pnlPanelTop.TabIndex = 3;
             this.pnlPanelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAdminRegistr_Paint);
             // 
-            // btnX
-            // 
-            this.btnX.FlatAppearance.BorderSize = 0;
-            this.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnX.Image = ((System.Drawing.Image)(resources.GetObject("btnX.Image")));
-            this.btnX.Location = new System.Drawing.Point(421, 23);
-            this.btnX.Name = "btnX";
-            this.btnX.Size = new System.Drawing.Size(54, 46);
-            this.btnX.TabIndex = 5;
-            this.btnX.UseVisualStyleBackColor = true;
-            this.btnX.Click += new System.EventHandler(this.buttonCloseAdminForm_Click);
-            // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 523);
+            this.ClientSize = new System.Drawing.Size(428, 398);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
@@ -154,8 +144,9 @@
             this.Controls.Add(this.lnlName);
             this.Controls.Add(this.pnlPanelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(505, 570);
-            this.MinimumSize = new System.Drawing.Size(505, 570);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(444, 437);
+            this.MinimumSize = new System.Drawing.Size(444, 437);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register - Admin";
@@ -178,6 +169,5 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Panel pnlPanelTop;
-        private System.Windows.Forms.Button btnX;
     }
 }

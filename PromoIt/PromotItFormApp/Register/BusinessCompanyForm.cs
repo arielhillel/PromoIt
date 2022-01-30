@@ -26,20 +26,11 @@ namespace PromotItFormApp.RoleRegister
             pnlPanelTop.ForeColor = Color.White;
         }
 
-        private void buttonCloseBCRForm_Click(object sender, EventArgs e) => CloseWindow();
 
         private void buttonCompanyRegister_Click(object sender, EventArgs e) => RegisterBusinessCompanyAsync();
 
         private void BusinessCompanyForm_Load(object sender, EventArgs e) { }
 
-
-        private void CloseWindow()
-        {
-            if (btnX == null) return;
-            this.CloseWindow();
-            Register roleSystem = new Register();
-            roleSystem.ShowDialog();
-        }
 
         private async Task RegisterBusinessCompanyAsync() 
         {

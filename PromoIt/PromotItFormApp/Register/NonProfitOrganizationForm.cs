@@ -27,19 +27,11 @@ namespace PromotItFormApp.RoleRegister
             pnlPanelTop.ForeColor = Color.White;
         }
 
-        private void buttonCloseNPOForm_Click(object sender, EventArgs e) => CloseWindow();
 
         private void buttonNPORegister_Click(object sender, EventArgs e) => RegisterNonProfitOrganizationAsync();
 
         private void NonProfitOrganizationForm_Load(object sender, EventArgs e) { }
 
-        private void CloseWindow()
-        {
-            if (btnX != null) return;
-            this.CloseWindow();
-            Register roleSystem = new Register();
-            roleSystem.ShowDialog();
-        }
 
         private async Task RegisterNonProfitOrganizationAsync()
         {
