@@ -19,7 +19,7 @@ namespace PromotItFormApp.ChildPages
         }
         private void MenuAboutPage_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
         private void LoadTheme()
         {
@@ -54,5 +54,6 @@ namespace PromotItFormApp.ChildPages
         {
             OpenChildForm(new ChildPages.AboutSecondPage(), sender);
         }
+
     }
 }

@@ -57,7 +57,7 @@ namespace PromotItFormApp.ChildPages
 
         private void AboutSecondPage_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
 
         private void buttoNextAboutS_Click(object sender, EventArgs e)

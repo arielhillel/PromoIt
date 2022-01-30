@@ -20,7 +20,7 @@ namespace PromotItFormApp.ChildPages
 
         private void MenuTwitterPage_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
         private void LoadTheme()
         {
@@ -42,5 +42,6 @@ namespace PromotItFormApp.ChildPages
         {
             Process.Start(new ProcessStartInfo("https://twitter.com/MalulYaron") { UseShellExecute = true });
         }
+
     }
 }

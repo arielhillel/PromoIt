@@ -45,17 +45,18 @@
             this.pnlPanelGlobal.Controls.Add(this.labelServiceComp);
             this.pnlPanelGlobal.Controls.Add(this.btnPrevious);
             this.pnlPanelGlobal.Location = new System.Drawing.Point(-2, 0);
+            this.pnlPanelGlobal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPanelGlobal.Name = "pnlPanelGlobal";
-            this.pnlPanelGlobal.Size = new System.Drawing.Size(863, 461);
+            this.pnlPanelGlobal.Size = new System.Drawing.Size(755, 346);
             this.pnlPanelGlobal.TabIndex = 0;
             // 
             // lblBottom
             // 
             this.lblBottom.AutoSize = true;
             this.lblBottom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBottom.Location = new System.Drawing.Point(14, 181);
+            this.lblBottom.Location = new System.Drawing.Point(12, 136);
             this.lblBottom.Name = "lblBottom";
-            this.lblBottom.Size = new System.Drawing.Size(604, 60);
+            this.lblBottom.Size = new System.Drawing.Size(478, 45);
             this.lblBottom.TabIndex = 0;
             this.lblBottom.Text = "Conditions should be fully achieved before a deposit takes place in the user\'s ba" +
     "lance.\r\n\r\n (Read the previous page)";
@@ -63,9 +64,9 @@
             // lblLableTop
             // 
             this.lblLableTop.AutoSize = true;
-            this.lblLableTop.Location = new System.Drawing.Point(14, 52);
+            this.lblLableTop.Location = new System.Drawing.Point(12, 39);
             this.lblLableTop.Name = "lblLableTop";
-            this.lblLableTop.Size = new System.Drawing.Size(813, 120);
+            this.lblLableTop.Size = new System.Drawing.Size(482, 135);
             this.lblLableTop.TabIndex = 0;
             this.lblLableTop.Text = resources.GetString("lblLableTop.Text");
             // 
@@ -73,11 +74,11 @@
             // 
             this.labelServiceComp.AutoSize = true;
             this.labelServiceComp.BackColor = System.Drawing.Color.Transparent;
-            this.labelServiceComp.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.labelServiceComp.ForeColor = System.Drawing.Color.White;
-            this.labelServiceComp.Location = new System.Drawing.Point(11, 10);
+            this.labelServiceComp.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelServiceComp.ForeColor = System.Drawing.Color.Black;
+            this.labelServiceComp.Location = new System.Drawing.Point(10, 8);
             this.labelServiceComp.Name = "labelServiceComp";
-            this.labelServiceComp.Size = new System.Drawing.Size(117, 31);
+            this.labelServiceComp.Size = new System.Drawing.Size(101, 25);
             this.labelServiceComp.TabIndex = 0;
             this.labelServiceComp.Text = "IS IT FREE?";
             // 
@@ -87,9 +88,10 @@
             this.btnPrevious.FlatAppearance.BorderSize = 0;
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevious.ForeColor = System.Drawing.Color.White;
-            this.btnPrevious.Location = new System.Drawing.Point(14, 403);
+            this.btnPrevious.Location = new System.Drawing.Point(12, 302);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(151, 35);
+            this.btnPrevious.Size = new System.Drawing.Size(132, 26);
             this.btnPrevious.TabIndex = 0;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = false;
@@ -97,14 +99,15 @@
             // 
             // CompanyChildPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 450);
+            this.ClientSize = new System.Drawing.Size(749, 344);
             this.Controls.Add(this.pnlPanelGlobal);
-            this.MaximumSize = new System.Drawing.Size(872, 497);
-            this.MinimumSize = new System.Drawing.Size(872, 497);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(765, 383);
+            this.MinimumSize = new System.Drawing.Size(765, 383);
             this.Name = "CompanyChildPage";
-            this.Text = "Promoit - CompanyChildPage";
+            this.Text = "PROMOIT - COMPANY";
             this.Load += new System.EventHandler(this.CompanyChildPage_Load);
             this.pnlPanelGlobal.ResumeLayout(false);
             this.pnlPanelGlobal.PerformLayout();
