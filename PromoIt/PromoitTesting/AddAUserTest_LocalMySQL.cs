@@ -12,7 +12,7 @@ namespace PromoitTesting
 {
 
 
-    public class CampaignLocalDatabaseTest
+    public class AddAUserTest_LocalMySQL
     {
         private MySQL mySQL = Configuration.MySQL;
 
@@ -42,7 +42,7 @@ namespace PromoitTesting
         }
 
         [Fact]
-        public async Task Functions_MySQLUserRegisterLoginAsync()
+        public async Task AddAUserTest_Local_MySQL()
         {
             Modes currentMode = Configuration.Mode;
             Modes currentLocalMode = Configuration.LocalMode;
