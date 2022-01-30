@@ -139,7 +139,7 @@ Additionally, when a Social-Activist user buys or donates a product, a Business 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+* Click the image below so you can be directed to the full-video on Youtube. This video is a short example of the usage of our application and the systems.
 [![Youtube Video of Promoit](https://img.youtube.com/vi/NGY0XY7xcOM/0.jpg)](https://www.youtube.com/watch?v=NGY0XY7xcOM)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
