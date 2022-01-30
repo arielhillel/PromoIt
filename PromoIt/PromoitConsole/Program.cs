@@ -20,21 +20,24 @@ namespace PromoitConsole
     public class Program
     {
 
-       
+
         private MySQL mySQL = Configuration.MySQL;
         private static TwitterClient twitterUserClient = Configuration.TwitterUserClient;
 
-        
 
 
-        static void Main(string[] args)
+
+        static async Task Main(string[] args)
         {
 
 
-            Loggings.CampaignsLog.LogError("DFGDFGDFGFDGDFGGDFGGF");
-            Loggings.CampaignsLog.LogInformation("FDGDFG");
+            //Testing Area
 
 
+            Console.WriteLine();
+            Console.ReadLine();
+
+            
         }
     }
 }

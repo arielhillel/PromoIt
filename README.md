@@ -1,4 +1,17 @@
-<div id="top"></div>
+<!-- Running the Project -->
+
+<div id="top">
+
+Important!: Please install the icluaded SQL file "Promoit-Database-MySQL.sql" inside the local Database.                                                                          <br />
+Please set it inside the file  "PromotItLibrary\Models\Configuration.cs".         <br />
+Please run all the 4 projects:                                                    <br />
+- PromotItFormApp           <br />
+- PromoitTwitterAPI         <br />
+- PromoitFunctions          <br />
+- PromoitQueue              <br />
+
+</div>
+
 
 <!-- PROJECT LOGO -->
 <br />
@@ -14,31 +27,6 @@
 <p>(Navigate Here)<p/>
     </div>
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#REGISTRY">Registry</a></li>
-        <li><a href="#LOGIN">Login</a></li>
-      </ul>
-    </li>
-    <li><a href="#Services">Services</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>    
-  </ol>
-</details>
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -59,14 +47,13 @@ We are encouraging the younger generation to work for a better future, better so
 
 ### Built With
 
-* [.NET 5.0]
+* [.NET 6.0]
 * [MySQL]
 * [Azure Functions]
 * [Twitter API]
 * [Azure Queue Storage]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->

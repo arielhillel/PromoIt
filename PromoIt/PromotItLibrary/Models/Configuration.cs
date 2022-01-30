@@ -13,23 +13,33 @@ using System.Threading;
 
 /**
  * Copyright:
- *  Author: Arierl Hilel
- *  Author: Yaron Malul
- *  Author: Arthur Zarankin
- *  Email: w3arthur@gmail.com
- *  Begin Date: 14/01/2022
- *  Edited At:  27/01/2022
+ *  Authors: Arthur Zarankin, Ariel Hillel, Yaron Malul
 **/
 
 namespace PromotItLibrary.Models
 {
     public class Configuration
     {
+
+        ///     Please install MySQL from file "Promoit-Database-MySQL.sql"
+        ///     Please Set the MySQL Local connection data 
+        ///     Please run all the 4 projects together:
+        ///           PromotItFormApp
+        ///           PromoitTwitterAPI
+        ///           PromoitFunctions
+        ///           PromoitQueue
+
+        private static string _mysqlLocal_Server = "localhost";
+        private static string _mysqlLocal_UserId = "root";
+        private static string _mysqlLocal_Password = "admin";
+        private static string _mysqlLocal_Database = "promoit";
+
+
         /// <summary>
         /// System global mode settings
         /// </summary>
-        
-        public static Modes LocalMode { get; set; } = Modes.NotLocal;   //Mode s.Local or Modes.NotLocal //Local is for testing purposes
+
+        public static Modes LocalMode { get; set; } = Modes.Local;   //Mode s.Local or Modes.NotLocal //Local is for testing purposes
         public static Modes Mode { get; set; } = Modes.Queue; // Modes.Queue or Modes.Functions or Modes.Null /null
         public static Modes DatabaseMode { get; set; } = Modes.MySQL; // Modes.MySQL only
 
@@ -60,14 +70,16 @@ namespace PromotItLibrary.Models
         /// <summary>
         /// Sorces start private functions
         /// </summary>
+        /// 
         private static void TwitterUserClientStart() => TwitterUserClient = _twitterUserClient ?? new TwitterClient(APIKey, APISecret, APIToken, APITokenSecret);
         private static void MySQLStart()
             => MySQL = 
                 (
                     (LocalMode == Modes.NotLocal) ? _mySQL ?? new MySQL("promoit-db.mysql.database.azure.com", "arielhillel", "PromoIt9023014", "promoit")
-                    : (LocalMode == Modes.Local) ? _mySQL ?? new MySQL("localhost", "root", "admin", "promoit")
+                    : (LocalMode == Modes.Local) ? _mySQL ?? new MySQL(_mysqlLocal_Server, _mysqlLocal_UserId, _mysqlLocal_Password, _mysqlLocal_Database)
                     : _mySQL ?? null
                 );
+
         private static void HttpClientStart() => HttpClient = _httpClient ?? new HttpClient();
 
 

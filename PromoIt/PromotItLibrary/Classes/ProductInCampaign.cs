@@ -14,8 +14,8 @@ namespace PromotItLibrary.Classes
     {
         public ProductInCampaign()
         {
-            BusinessUser =  new Users();    // Configuration.CorrentUser ??
-            Campaign = new Campaign();    //Configuration.CorrentCampaign ?? 
+            BusinessUser =  new Users();
+            Campaign = new Campaign();
         }
 
         public string Id { get; set; }
@@ -77,7 +77,6 @@ namespace PromotItLibrary.Classes
                 dataRow["clmnProductName"] = productInCampaign.Name;
                 dataRow["clmnProductQuantity"] = productInCampaign.Quantity;
                 dataRow["clmnProductPrice"] = productInCampaign.Price;
-
                 dataRow["clmnProductId"] = productInCampaign.Id;    //hidden
                 dataRow["clmnBusinessUser"] = productInCampaign.BusinessUser.UserName;    //hidden
                 dataTable.Rows.Add(dataRow);
@@ -116,7 +115,6 @@ namespace PromotItLibrary.Classes
                         productInCampaign.Name = results.GetString("name");
                         productInCampaign.Quantity = results.GetString("quantity");
                         productInCampaign.Price = results.GetString("price");
-
                         productInCampaign.Id = results.GetString("id");
                         productInCampaign.BusinessUser.UserName = results.GetString("business_user_name");
                         productInCampaignList.Add(productInCampaign);

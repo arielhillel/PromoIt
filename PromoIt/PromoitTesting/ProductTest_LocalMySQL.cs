@@ -12,21 +12,22 @@ namespace PromoitTesting
 {
 
 
-    public class AddAUserLocalTest
+    public class ProductTest_LocalMySQL
     {
 
-        public Campaign testingCampaign() 
+        private MySQL mySQL = Configuration.MySQL;
+
+        public ProductInCampaign testingProductInCampaign() 
         {
 
-            Campaign campaign = new Campaign();
-            campaign.Name = "SomeCampaignNameTest6";
-            campaign.Hashtag = "SomeHashtagTest";
-            campaign.Url = "SomeUrl";
-            campaign.NonProfitUser.UserName = "n";    //awailable activist user!!!
-
-            return campaign;
+            ProductInCampaign productInCampaign = new ProductInCampaign();
+            productInCampaign.Name = "SomeTestedName";
+            productInCampaign.Quantity = "45";
+            productInCampaign.BusinessUser.UserName = "b";      //Awailable User
+            productInCampaign.Price = "45";
+            productInCampaign.Campaign.Hashtag = "nisayon";      //Awailable  Hashtag
+            return productInCampaign;
         }
-
 
 
         [Fact]
@@ -40,21 +41,13 @@ namespace PromoitTesting
             Configuration.DatabaseMode = Modes.MySQL;
 
 
-            Campaign campaign = testingCampaign();
+            ProductInCampaign productInCampaign = testingProductInCampaign();
 
-
-            await campaign.DeleteCampaignAsync();
-
-
-            bool result1 = await campaign.SetNewCampaignAsync();
+            bool result1 = await productInCampaign.SetNewProductAsync();
 
             Assert.True(result1, "Campaign Should Entered to Database");
 
-
-            bool result2 = await campaign.DeleteCampaignAsync();
-
-            Assert.True(result2, "Campaign Should Deleted from Database");
-
+            mySQL.QuaryExecute($"DELETE FROM `promoit`.`products_in_campaign` WHERE(`name` = '{productInCampaign.Name}');");
 
             //return to set values
             Configuration.Mode = currentMode;

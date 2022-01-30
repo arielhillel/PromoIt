@@ -29,9 +29,10 @@ namespace PromoitTwitterAPI
 
             log.LogInformation($"Twitter API Function Started Logs, List of twits");
 
-            if(Configuration.Mode == Modes.Queue) log.LogError($"Please Active the Queue project + Function project !!!");
-            if (Configuration.Mode == Modes.Functions) log.LogError($"Please Active the Function project !!!");
-            if (Configuration.LocalMode == Modes.NotLocal) log.LogError($"Please Change the mode to Local !!!");
+            if (Configuration.Mode == Modes.Queue) { log.LogError($"Please Active the Queue project + Function project !!!"); }
+            if (Configuration.Mode == Modes.Functions) { log.LogError($"Please Active the Function project !!!"); }
+            if (Configuration.LocalMode == Modes.NotLocal) {log.LogError($"Please Change the mode to Local !!!"); }
+
             // Please write sites without WWW and campaigns without #
             List<Tweet> tweetList = new List<Tweet>();
             Campaign campaign1 = new Campaign();
@@ -39,6 +40,7 @@ namespace PromoitTwitterAPI
             foreach (Campaign campaign in campaignList)    // Each Campaogn
             {
 
+                    int attempts = 10;
                     var searchIterator = twitterUserClient.SearchV2.GetSearchTweetsV2Iterator("#" + campaign.Hashtag);  //#
                     while (!searchIterator.Completed)
                     {
@@ -54,7 +56,7 @@ namespace PromoitTwitterAPI
                                 if (allTweets[i].Entities == null) continue;
                                 if (allTweets[i].Entities.Urls == null) continue;
                             }
-                            catch (NullReferenceException) { log.LogError($"*Global Fail system fail for #{campaign.Hashtag}"); } //no sites
+                            catch (NullReferenceException) { log.LogInformation($"No sites for #{campaign.Hashtag}"); } //no sites
                             
                             for (int k = 0; k <= allTweets[i].Entities.Urls.Length - 1; k++)    // Every site in post
                             {
@@ -72,7 +74,7 @@ namespace PromoitTwitterAPI
                                 catch { tweet.IsApproved = false; }
                                 tweetList.Add(tweet);
 
-                                string logString = $"Activist UserName ({tweet.ActivistUser.UserName}) Campaign WebPage ({tweet.Campaign.Url}) Is Approved ({tweet.IsApproved})" +
+                                string logString = $"Activist UserName ({tweet.ActivistUser.UserName}) Campaign WebPage ({tweet.Campaign.Url})" +
                                     $" \n Retweets ({tweet.Retweets}) Cash PerTweet ({tweet.Cash})  Camaign Hashtag (#{tweet.Campaign.Hashtag}) Id ({tweet.Id})";
                                 if (tweet.IsApproved) log.LogInformation(logString);
                                 else log.LogError(logString);
@@ -84,7 +86,7 @@ namespace PromoitTwitterAPI
                         }
                     }
                     
-                    catch { log.LogError($"*Global Fail / Campaign Name wrote wrong! #{campaign.Hashtag}"); break; }
+                    catch { if (attempts--<=0) { log.LogError($"Cant read campaign after 10 times #{campaign.Hashtag}"); break; } }
                 }
 
             }
