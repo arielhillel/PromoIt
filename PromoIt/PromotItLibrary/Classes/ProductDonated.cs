@@ -23,7 +23,7 @@ namespace PromotItLibrary.Classes
         public string Shipped { get; set; }
         public string Id { get; set; }
 
-        private MySQL mySQL = new MySQL();
+        private MySQL mySQL = Configuration.MySQL;
 
 
 
